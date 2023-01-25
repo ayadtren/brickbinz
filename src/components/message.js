@@ -21,7 +21,7 @@ class Message extends Component{
             
             <button onClick={this.afterClick.bind(this)}>click me</button>
             </div>
-            
+             
         )
     }
 }
