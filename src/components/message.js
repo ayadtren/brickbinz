@@ -20,7 +20,7 @@ class Message extends Component{
             <h1>{this.state.message}</h1>
             
             <button onClick={this.afterClick.bind(this)}>click me</button>
-            </div>
+            </div> 
              
         )
     }
