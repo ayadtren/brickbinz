@@ -6,10 +6,12 @@ export class NavBar extends Component {
     return (
       <div>
         <nav>
-            <p>home</p> |
-            <p>about us</p> |
-            <p>Legos</p>  |
-            <p>something else</p> 
+            <ul>
+            <li>home</li> |
+            <li>about us</li> |
+            <li>legos</li>  |
+            <li>sumn else</li>
+            </ul>
         </nav>
       </div>
     )
