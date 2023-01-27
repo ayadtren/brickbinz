@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import "./NavbarStyles.css"
 
-export class NavBar extends Component {
+export class Navbar extends Component {
   render() {
     return (
       <div>
@@ -18,4 +18,4 @@ export class NavBar extends Component {
   }
 }
 
-export default NavBar
+export default Navbar
