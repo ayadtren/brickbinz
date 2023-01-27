@@ -9,7 +9,7 @@ export class NavBar extends Component {
             <ul>
             <li>home</li> |
             <li>about us</li> |
-            <li>legos</li>  |
+            <li>legos</li>  | 
             <li>sumn else</li>
             </ul>
         </nav>
