@@ -9,7 +9,7 @@ function App() {
         <Message/>
         <Navbar/>
     </div>
-  );
+  ); 
 }
 
 export default App;
