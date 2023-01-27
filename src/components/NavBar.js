@@ -7,9 +7,9 @@ export class NavBar extends Component {
       <div>
         <nav>
             <ul>
-            <li>home</li> |
-            <li>about us</li> |
-            <li>legos</li>  | 
+            <li>home</li> 
+            <li>about us</li> 
+            <li>legos</li>  
             <li>sumn else</li>
             </ul>
         </nav>
