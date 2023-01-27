@@ -5,11 +5,11 @@ export class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav>
+        <nav className='nav'>
             <ul>
             <li>home</li> |
-            <li>about us</li> |
-            <li>legos</li>  | 
+            <li>about us</li>| 
+            <li>legos</li>   |
             <li>sumn else</li>
             </ul>
         </nav>

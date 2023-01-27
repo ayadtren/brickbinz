@@ -1,10 +1,16 @@
 li {
     display: inline;
+    
   }
   ul {
     list-style-type: none;
     margin: 0;
     padding: 8px;
     overflow: hidden;
-    background-color: brown;
+    background-color: #dddddd;
+  }
+  p {
+    display: block;
+    padding: 8px;
+
   }
