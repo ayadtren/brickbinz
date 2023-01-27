@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import "./NavbarStyles.css"
 
-export class NavBar extends Component {
+export class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav>
+        <nav className='nav'>
             <ul>
-            <li>home</li> 
-            <li>about us</li> 
-            <li>legos</li>  
+            <li>home</li> |
+            <li>about us</li>| 
+            <li>legos</li>   |
             <li>sumn else</li>
             </ul>
         </nav>
@@ -18,4 +18,4 @@ export class NavBar extends Component {
   }
 }
 
-export default NavBar
+export default Navbar
