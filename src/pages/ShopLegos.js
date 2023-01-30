@@ -6,6 +6,7 @@ export class ShopLegos extends Component {
       <div>
        
         <h1>inventory </h1>
+        <p3>use classes for CSS (.elementName use dots) and use ids for super specific element. (#specificElementName use hashtags)</p3>
       </div>
     )
   }
