@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS 'inventory'.'product' (
     'product_set_name' VARCHAR(40) NOT NULL,
     'product_price' DOUBLE NOT NULL,
     'product_location' VARCHAR(50) NOT NULL,
+    'product_quantity' INT NOT NULL,
     'theme' INT(11) NOT NULL,
     PRIMARY KEY ('product_set_numb'),
     CONSTRAINT 'fk_products_themes'
@@ -41,7 +42,7 @@ INSERT INTO 'theme' VALUES (17, 'LEGO Speed Champions');
 INSERT INTO 'theme' VALUES (18, 'LEGO Star Wars');
 INSERT INTO 'theme' VALUES (19, 'LEGO Techinic');
 
-INSERT INTO 'product' ('product_set_numb', 'product_set_name', 'product_price', 'product_location', 'theme')
-    VALUES ('10212', 'UCS Imperial Shuttle', 2400.00, 'Macleod Trail', 18);
-INSERT INTO 'product' ('product_set_numb', 'product_set_name', 'product_price', 'product_location', 'theme')
-    VALUES ('10212', 'UCS Imperial Shuttle', 2400.00, 'Macleod Trail', 18);
+INSERT INTO 'product' ('product_set_numb', 'product_set_name', 'product_price', 'product_location','product_quantity', 'theme')
+    VALUES ('10212', 'UCS Imperial Shuttle', 2400.00, 'Macleod Trail', 1, 18);
+INSERT INTO 'product' ('product_set_numb', 'product_set_name', 'product_price', 'product_location', 'product_quantity', 'theme')
+    VALUES ('10212', 'UCS Imperial Shuttle', 2400.00, 'Macleod Trail', 1, 18);
