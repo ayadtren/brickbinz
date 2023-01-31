@@ -45,4 +45,4 @@ INSERT INTO 'theme' VALUES (19, 'LEGO Techinic');
 INSERT INTO 'product' ('product_set_numb', 'product_set_name', 'product_price', 'product_location','product_quantity', 'theme')
     VALUES ('10212', 'UCS Imperial Shuttle', 2400.00, 'Macleod Trail', 1, 18);
 INSERT INTO 'product' ('product_set_numb', 'product_set_name', 'product_price', 'product_location', 'product_quantity', 'theme')
-    VALUES ('10212', 'UCS Imperial Shuttle', 2400.00, 'Macleod Trail', 1, 18);
+    VALUES ('10212', 'UCS Sandcrawler', 2400.00, 'Macleod Trail', 1, 18);
