@@ -13,6 +13,7 @@ export class Navbar extends Component {
             <li>sumn else</li>
             </ul>
         </nav>
+        <img src="/brickbinbanner.png" alt='random'></img>
       </div>
     )
   }
