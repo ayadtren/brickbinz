@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../components'
+
 
 export class ShopLegos extends Component {
   render() {
@@ -7,6 +7,7 @@ export class ShopLegos extends Component {
       <div>
        
         <h1>inventory </h1>
+        <ProductList/>
       </div>
     )
   }
