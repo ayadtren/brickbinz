@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import logo from "../images/brickbinbanner.png";
 
@@ -11,16 +12,16 @@ const Layout = (props) => {
               <img className="logo-nav" src={logo} />
               <ul className="nav-list">
                 <li>
-                  <a href={"/"}>Home</a>
+                  <Link to={"/"}>Home</Link>
                 </li>
                 <li>
-                  <a href="/about">About</a>
+                  <Link to="/about">About</Link>
                 </li>
                 <li>
-                  <a href="/contact">Contact</a>
+                  <Link to="/contact">Contact</Link>
                 </li>
                 <li>
-                  <a href="/book">Book</a>
+                  <Link to="/book">Book</Link>
                 </li>
               </ul>
             </div>
