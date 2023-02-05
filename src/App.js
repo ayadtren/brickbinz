@@ -1,9 +1,9 @@
-import React, { Component } from "react";
 import "./App.scss";
-import Layout from "./components/Layout";
-import Navbar from "./components/Navbar";
+
+import React, { Component } from "react";
+
 import Home from "./pages/Home";
-import { Route } from "react-router";
+import Layout from "./components/Layout";
 
 function App() {
   return (
