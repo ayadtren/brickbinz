@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
-import './App.css';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-
+import React, { Component } from "react";
+import "./App.scss";
+import Layout from "./components/Layout";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import { Route } from "react-router";
 
 function App() {
   return (
-    <div className="App">
-        <Navbar/>
-        <Home/>
-    </div>
-  ); 
+    <Layout>
+      <Home />
+    </Layout>
+  );
 }
 
 export default App;

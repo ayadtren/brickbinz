@@ -4,8 +4,7 @@ import Navbar from '../components'
 export class ShopLegos extends Component {
   render() {
     return (
-      <div>
-       
+      <div> 
         <h1>inventory </h1>
       </div>
     )
@@ -20,7 +19,7 @@ const ProductList = ({ products }) => {
         <li key={product.id}>
           <h3>{product.name}</h3>
           <p>{product.description}</p>
-          <p>Price: {product.price}</p>
+          <p>Price: {product.price}</p>  
         </li>
       ))}
     </ul>

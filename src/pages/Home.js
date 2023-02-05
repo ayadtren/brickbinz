@@ -1,18 +1,15 @@
-import React from 'react'
-import "./HomeStyles.css"
+import React from "react";
+import "./HomeStyles.css";
+import Layout from "../components/Layout";
+
 const Home = () => {
   return (
     <div>
-      <div className='frontPicture'>
-        <div id='frontPicture'></div>
-      </div>
-      <div className='box'>
-      
-      <h1>Home page</h1>
-      </div>
-      <div className='box'></div>
+      <section className="section">
+        <div className="frontPicture"></div>
+      </section>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
