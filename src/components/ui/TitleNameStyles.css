@@ -1,0 +1,13 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.titleBox{
+    width: 1440px;
+    height: 100px;
+    background-color: wheat;
+    align-items: center;
+    margin: auto;
+}
