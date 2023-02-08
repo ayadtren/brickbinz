@@ -26,7 +26,21 @@ const Layout = (props) => {
               </ul>
             </div>
           </div>
-          <div className="right"></div>
+          <div className="right">
+            <div className="right-box">
+              <ul className="nav-list">
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+                <li>
+                  <Link to="/signup">Sign Up</Link>
+                </li>
+                <li>
+                  <Link to="/viewCart">View Cart</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </nav>
       <main className="main">{props.children}</main>
