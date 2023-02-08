@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import logo from "../images/brickbinbanner.png";
+import logo from "../images/banner2.png";
 
 const Layout = (props) => {
   return (
@@ -9,7 +9,7 @@ const Layout = (props) => {
         <div className="container">
           <div className="left">
             <div className="left-box">
-              <img className="logo-nav" src={logo} />
+            <Link to={"/"}> <img className="logo-nav" src={logo} /></Link>
               <ul className="nav-list">
                 <li>
                   <Link to={"/"}>Home</Link>

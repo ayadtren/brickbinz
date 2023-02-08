@@ -1,0 +1,45 @@
+.Event {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: black; 
+    margin: 0 auto;
+    width: 400px;
+    text-align: center;
+}
+
+h1 {
+    color: red; 
+    text-align: center;
+}
+
+input {
+    background-color: yellow; 
+    color: black; 
+    border: 1px solid black; 
+    padding: 5px; 
+    font-size: 16px; 
+    border-radius: 5px;
+    margin: 0 auto;
+    display: block;
+}
+
+input[type=submit] {
+    background-color: red; 
+    color: yellow; 
+    border: 1px solid black; 
+    padding: 5px; 
+    font-size: 16px; 
+    border-radius: 5px;
+    width: 100px;
+    margin: 0 auto;
+    display: block;
+}
+
+label{
+    padding-left: 500px;
+    color: red;
+}
+.center{
+    display: grid;
+    place-items: center;
+}
