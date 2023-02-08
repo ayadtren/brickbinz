@@ -1,0 +1,18 @@
+.main-image-container {
+    border: 2px solid #1C6EA4;
+    height: 600px;
+    padding: 3rem;
+
+    .image-container{
+        height : 600px;
+        background-color:cadetblue;
+        
+
+        .main-image{
+            height : 600px;
+            width: 1100px;
+            object-fit: cover;
+        }
+    }
+    
+}

@@ -1,23 +1,16 @@
-.box{
-    height: 100px;
-    width: 300px;
-    background-color: blanchedalmond;
-    border: 3px solid blue;
-    padding: 10px;
-    margin: auto;
+.box {
+  height: 100px;
+  width: 300px;
+  background-color: blanchedalmond;
+  border: 3px solid blue;
+  padding: 10px;
+  margin: auto;
 }
-.frontPicture{
-    height: 600px;
-    width: 1300px;
-    background-color:azure;
-    margin: auto;
-    border: 3px solid brown;
-
-}
-#frontPicture{
-    height: 500px;
-    width: 1200px;
-    background-color :coral;
-    border: 3px solid red;
-    margin:  auto;
+.frontPicture {
+  width: 100%;
+  height: 400px;
+  background-color: azure;
+  margin: auto;
+  border: 3px solid brown;
+  background-image: url("/src/images/brickbinbanner.png");
 }

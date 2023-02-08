@@ -1,14 +1,11 @@
-import React from 'react'
-import TitleName from '../components/ui/TitleName'
+import React from "react";
 const AboutUs = () => {
   return (
     <div>
-      <TitleName name="Title Page"/>
+      <h1>About Us</h1>
       <p1>hey im mike and i run a lego buisness ahahaa</p1>
-      
     </div>
-  )
-}
+  );
+};
 
-export default AboutUs
-   
+export default AboutUs;
