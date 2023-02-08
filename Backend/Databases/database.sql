@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS brickbindb.product (
     product_price DOUBLE NOT NULL,
     product_location VARCHAR(50) NOT NULL,
     product_quantity INT NOT NULL,
+    product_img VARCHAR(50) NOT NULL,
     theme INT(19) NOT NULL,
     PRIMARY KEY (product_set_numb),
     CONSTRAINT fk_products_themes
