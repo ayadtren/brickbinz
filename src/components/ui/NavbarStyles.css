@@ -5,9 +5,10 @@ li {
   ul {
     list-style-type: none;
     margin: 0;
-    padding: 8px;
+    
     overflow: hidden;
     background-color: #dddddd;
+    height: 100px;
   }
   p {
     display: block;

@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
-import Navbar from './components/Navbar';
+import Navbar from './components/ui/Navbar';
 import Home from './pages/Home';
+
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
         <Navbar/>
         <Home/>
+      
     </div>
   ); 
 }

@@ -1,10 +1,9 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import TitleName from '../components/ui/TitleName'
 const AboutUs = () => {
   return (
     <div>
-  
-      <h1>About Us</h1>
+      <TitleName name="Title Page"/>
       <p1>hey im mike and i run a lego buisness ahahaa</p1>
       
     </div>
