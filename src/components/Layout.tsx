@@ -9,7 +9,7 @@ const Layout = (props) => {
         <div className="container">
           <div className="left">
             <div className="left-box">
-              <img className="logo-nav" src={logo} />
+            <Link to={"/"}> <img className="logo-nav" src={logo} /></Link>
               <ul className="nav-list">
                 <li>
                   <Link to={"/"}>Home</Link>
