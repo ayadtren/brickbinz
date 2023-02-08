@@ -1,13 +1,13 @@
-DROP SCHEMA IF EXISTS 'inventory';
-CREATE SCHEMA IF NOT EXISTS 'inventory'; 
+DROP SCHEMA IF EXISTS 'brickbindb';
+CREATE SCHEMA IF NOT EXISTS 'brickbindb'; 
 
-CREATE TABLE IF NOT EXISTS 'inventory'.'theme' (
+CREATE TABLE IF NOT EXISTS 'brickbindb'.'theme' (
     'theme_id' INT(11) NOT NULL AUTO_INCREMENT,
     'theme_name' VARCHAR(45) NOT NULL,
     PRIMARY KEY ('theme_id')
 );
 
-CREATE TABLE IF NOT EXISTS 'inventory'.'product' (
+CREATE TABLE IF NOT EXISTS 'brickbindb'.'product' (
     'product_set_numb' VARCHAR(40) NOT NULL,
     'product_set_name' VARCHAR(40) NOT NULL,
     'product_price' DOUBLE NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS 'inventory'.'product' (
     PRIMARY KEY ('product_set_numb'),
     CONSTRAINT 'fk_products_themes'
         FOREIGN KEY ('theme')
-        REFERENCES 'inventory'.'theme' ('theme_id')
+        REFERENCES 'brickbindb'.'theme' ('theme_id')
         ON DELETE NO ACTION
         ON UPDATE NO ACTION
 );
