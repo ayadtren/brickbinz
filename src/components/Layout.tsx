@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import logo from "../images/brickbinbanner.png";
+import logo from "../images/banner2.png";
 
 const Layout = (props) => {
   return (

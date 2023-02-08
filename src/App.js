@@ -6,6 +6,8 @@ import AboutUs from "./pages/AboutUs";
 import Home from "./pages/Home";
 import Layout from "./components/Layout.tsx";
 import React from "react";
+import Bookevent from "./pages/Bookevent";
+import ContactUs from "./pages/ContactUs"
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,22 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <AboutUs />
+      </Layout>
+    ),
+  },
+  {
+    path: "/book",
+    element: (
+      <Layout>
+        <Bookevent />
+      </Layout>
+    ),
+  },
+  {
+    path: "/contact",
+    element: (
+      <Layout>
+        <ContactUs />
       </Layout>
     ),
   },
