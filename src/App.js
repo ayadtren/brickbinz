@@ -6,6 +6,7 @@ import AboutUs from "./pages/AboutUs";
 import Home from "./pages/Home";
 import Layout from "./components/Layout.tsx";
 import React from "react";
+import RealHomePage from "./pages/RealHomePage";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
     path: "/about",
     element: (
       <Layout>
-        <AboutUs />
+        <RealHomePage />
       </Layout>
     ),
   },
