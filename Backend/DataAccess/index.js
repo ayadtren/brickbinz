@@ -7,7 +7,7 @@ const db = mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"password", 
-    database:"brickbin"
+    database:"brickbindb"
 })
 
 app.use(express.json())

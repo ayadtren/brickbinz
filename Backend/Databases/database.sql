@@ -45,17 +45,17 @@ INSERT INTO brickbindb.theme VALUES (19, 'LEGO Techinic');
 INSERT INTO brickbindb.theme VALUES (20, 'LEGO Creator Expert/Icons');
 INSERT INTO brickbindb.theme VALUES (21, 'LEGO Retired');
 
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location,product_quantity, theme)
-    VALUES ('10212', 'UCS Imperial Shuttle', 2400.00, 'Macleod Trail', 1, 18);
+INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location,product_quantity, product_img, theme)
+    VALUES ('10212', 'UCS Imperial Shuttle', 2400.00, 'Macleod Trail', 1, 'UCS_Imp_Shutt.png', 18);
 
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, theme)
-    VALUES ('75059', 'UCS Sandcrawler', 650.00, 'Macleod Trail', 1, 18);
+INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
+    VALUES ('75059', 'UCS Sandcrawler', 650.00, 'Macleod Trail', 1, 'UCS_Sand.png', 18);
 
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, theme)
-    VALUES ('10188', 'UCS Death Star', 800.00, 'Macleod Trail', 1, 18);
+INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
+    VALUES ('10188', 'UCS Death Star', 800.00, 'Macleod Trail', 1, 'UCS_DS.png', 18);
 
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, theme)
-    VALUES ('10232', 'Palace Cinema', 400.00, 'Macleod Trail', 1, 20);
+INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
+    VALUES ('10232', 'Palace Cinema', 400.00, 'Macleod Trail', 1, 'Palace_Cinema.png', 20);
 
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, theme)
-    VALUES ('10311', 'Orchid', 400.00, 'Macleod Trail', 1, 20);
+INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
+    VALUES ('10311', 'Orchid', 400.00, 'Macleod Trail', 1, 'Orchid.png', 20);
