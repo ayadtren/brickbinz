@@ -49,14 +49,19 @@
     }
 
     .contact-us__submit-btn {
-        background-color: red; 
-        color: yellow; 
-        border: 1px solid black; 
-        padding: 5px; 
-        font-size: 16px; 
-        border-radius: 5px;
-        width: 100px;
-        margin: 0 auto;
-        display: block;
+        border: 2px solid red;
+        background-color: red;
+        color: white;
+        outline: 0;
+        height: 45px;
+        width: 100%;
+        font-size: 16px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          background-color: white;
+          color: red;
     }
+}
 }
