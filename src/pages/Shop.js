@@ -36,7 +36,7 @@ const items = [
   },
 ];
 
-const Home = () => {
+const Shop = () => {
   return (
     <section className="home">
       <div className="container">
@@ -63,4 +63,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Shop;

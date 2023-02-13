@@ -9,13 +9,13 @@ const Layout = (props) => {
         <div className="container">
           <div className="left">
             <div className="left-box">
-            <Link to={"/"}> <img className="logo-nav" src={logo} /></Link>
+            <Link to={"/home"}> <img className="logo-nav" src={logo} /></Link>
               <ul className="nav-list">
-                <li>
-                  <Link to={"/"}>Home</Link>
+              <li>
+                  <Link to="/home">Home</Link>
                 </li>
                 <li>
-                  <Link to="/about">About</Link>
+                  <Link to={"/"}>Shop</Link>
                 </li>
                 <li>
                   <Link to="/contact">Contact</Link>
