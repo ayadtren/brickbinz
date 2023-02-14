@@ -1,18 +1,29 @@
 import React from 'react'
 import './CardStyles.scss'
-const Card = (props) => {
+
+//Enter title, image url and body text. 
+//import image in the homepage though...
+const Card = ({title, imageUrl, body}) => {
   return (
     <div className='card-container'>
        <div className='image-container'>
-        <p>image will go in here in the future</p>
+          <img src= {imageUrl} alt='samplepic'/>
        </div>
-       <div className='card-title'>
-            <h3>{props.title}</h3>
-       </div>
-       <div className='card-body'>
-            <p>{props.body}</p>
-       </div>
-       
+       <div className='card-content'>
+          <div className='card-title'>
+                <h3>{title}</h3>
+          </div>
+          <div className='card-body'>
+              <p>{body}</p>
+          </div>
+          <div className='card-btn'>
+              <button>
+                <a>
+                  view shit
+                </a>
+              </button>
+          </div>
+        </div>
     </div>
   )
 }

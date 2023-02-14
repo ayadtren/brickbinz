@@ -3,20 +3,15 @@
     padding: 3rem;
     width: 1200px;
 
-    .photo-container{
-        height : 600px;
-        background-color:cadetblue;
 
         .main-image{
-           
             height : 600px;
             object-fit:cover;
             width: 1200px;
         }
-    }
+    
     
 }
-
 .grid-4-columns{
     margin: auto;
     width: min(90%, 75rem);
