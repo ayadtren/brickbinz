@@ -1,3 +1,5 @@
+/*This file is to establish a connection between node.js and mysql database that is locally hosted for now. */
+
 import express from "express";
 import mysql from "mysql";
 import cors from "cors";

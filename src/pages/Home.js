@@ -1,10 +1,12 @@
+
+
 import "./HomeStyles.css";
 
 import React, { useEffect, useState } from "react";
 import logo from "../images/brickbinbanner.png";
 import axios from "axios";
 
-
+//This fecthes the json information from index.js in the backend folder,
 const Products = () => {
   const [products, setProducts] = useState([])
 
@@ -20,7 +22,7 @@ const Products = () => {
     fetchAllProducts();
   }, [])
 
-
+//Displays the information via the products variable.
   return (
     <section className="home">
       <div className="container">
