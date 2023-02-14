@@ -1,55 +1,40 @@
 import "./HomeStyles.css";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../images/brickbinbanner.png";
+import axios from "axios";
 
-const items = [
-  {
-    name: "Item 1",
-    image: logo,
-    price: 49.99,
-  },
-  {
-    name: "Item 2",
-    image: logo,
-    price: 49.99,
-  },
-  {
-    name: "Item 3",
-    image: logo,
-    price: 49.99,
-  },
-  {
-    name: "Item 4",
-    image: logo,
-    price: 49.99,
-  },
-  {
-    name: "Item 5",
-    image: logo,
-    price: 49.99,
-  },
-  {
-    name: "Item 6",
-    image: logo,
-    price: 49.99,
-  },
-];
 
-const Home = () => {
+const Products = () => {
+  const [products, setProducts] = useState([])
+
+  useEffect(()=>{
+    const fetchAllProducts = async () => {
+      try {
+        const res = await axios.get('http://localhost:8000/products')
+        setProducts(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchAllProducts();
+  }, [])
+
+
   return (
     <section className="home">
       <div className="container">
         <ul className="inventory-list">
-          {items.map((item, index) => {
+          {products.map((product) => {
             return (
-              <li key={item.name}>
+              <li key={product.product_set_numb}>
                 <div className="card">
                   <div className="image">
-                    <img src={item.image} />
+                    {/* {product.product_img && <img src={product.product_img} alt="" />} */}
+                    <img src={logo} alt="" />
                   </div>
-                  <div className="title">{item.name}</div>
-                  <div className="price">{item.price}</div>
+                  <div className="title">{product.product_set_name}</div>
+                  <div className="price">{product.product_price}</div>
                   <div className="button">
                     <button className="add-cart">Add Cart</button>
                   </div>
@@ -63,4 +48,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Products;
