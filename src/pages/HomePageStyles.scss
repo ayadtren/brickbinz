@@ -1,3 +1,11 @@
+/*
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+*/
+/* box for the picture with some padding n stuff */
 .main-image-container {
     border: 2px solid #1C6EA4;
     height: 600px;
@@ -11,8 +19,34 @@
         .main-image{
             height : 600px;
             width: 1100px;
-            object-fit: cover;
+           
         }
     }
     
+}
+
+/* created a grid with 4 columns. We can fit 4 div boxes.*/
+.grid-4-columns{
+  margin: auto;
+  width: min(90%, 75rem);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4em;
+  padding: 2.5rem;
+}
+
+/* this is for allowing a box to fill 
+2 spaces horizontally*/
+.grid-col-span-2 {
+  grid-column: span 2;
+}
+
+/* card for storing products*/
+.box {
+  height: 400px;
+  width: 300px;
+  background-color: blanchedalmond;
+  border: 3px solid blue;
+  padding: 8px;
+  margin: auto;
 }
