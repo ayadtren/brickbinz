@@ -1,18 +1,44 @@
 .main-image-container {
     border: 2px solid #1C6EA4;
-    height: 600px;
     padding: 3rem;
+    width: 1200px;
 
-    .image-container{
+    .photo-container{
         height : 600px;
         background-color:cadetblue;
-        
 
         .main-image{
+           
             height : 600px;
-            width: 1100px;
-            object-fit: cover;
+            object-fit:cover;
+            width: 1200px;
         }
     }
     
 }
+
+.grid-4-columns{
+    margin: auto;
+    width: min(90%, 75rem);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4em;
+    padding: 2.5rem;
+  }
+  
+  /* this is for allowing a box to fill 
+  2 spaces horizontally*/
+  .grid-col-span-2 {
+    grid-column: span 2;
+  }
+  
+  /* card for storing products*/
+  .box {
+    height: 400px;
+    width: 300px;
+    background-color: blanchedalmond;
+ 
+    padding: 8px;
+    margin: auto;
+  }
+  

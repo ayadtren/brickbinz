@@ -2,8 +2,6 @@ import "./App.scss";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import AboutUs from "./pages/AboutUs";
-
 import Layout from "./components/Layout.tsx";
 import React from "react";
 import ContactUs from "./pages/ContactUs"
