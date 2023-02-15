@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import logo from "../images/brickbinbanner.png";
 
@@ -31,6 +29,21 @@ const items = [
   },
   {
     name: "Item 6",
+    image: logo,
+    price: 49.99,
+  },
+  {
+    name: "Item 7",
+    image: logo,
+    price: 49.99,
+  },
+  {
+    name: "Item 8",
+    image: logo,
+    price: 49.99,
+  },
+  {
+    name: "Item 9",
     image: logo,
     price: 49.99,
   },

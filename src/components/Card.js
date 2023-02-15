@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import './CardStyles.scss'
 
 //Enter title, image url and body text. 
@@ -19,7 +20,8 @@ const Card = ({title, imageUrl, body}) => {
           <div className='card-btn'>
               <button>
                 <a>
-                  view shit
+                 -- fix this 
+                  <Link to="/">view shit</Link>
                 </a>
               </button>
           </div>
