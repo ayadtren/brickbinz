@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS brickbindb.admin (
     admin_name VARCHAR(40) NOT NULL,
     admin_password VARCHAR(40) NOT NULL,
     PRIMARY KEY (admin_name)
-)
+);
 
 INSERT INTO brickbindb.theme VALUES (1, 'LEGO Architecture');
 INSERT INTO brickbindb.theme VALUES (2, 'LEGO BrickHeadz');
