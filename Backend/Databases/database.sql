@@ -23,6 +23,19 @@ CREATE TABLE IF NOT EXISTS brickbindb.product (
         ON UPDATE NO ACTION
 );
 
+CREATE TABLE IF NOT EXISTS brickbindb.cart (
+    product_name VARCHAR(40) NOT NULL,
+    product_price DOUBLE NOT NULL,
+    product_quantity INT NOT NULL,
+    PRIMARY KEY (product_name)
+);
+
+CREATE TABLE IF NOT EXISTS brickbindb.admin (
+    admin_name VARCHAR(40) NOT NULL,
+    admin_password VARCHAR(40) NOT NULL,
+    PRIMARY KEY (admin_name)
+);
+
 INSERT INTO brickbindb.theme VALUES (1, 'LEGO Architecture');
 INSERT INTO brickbindb.theme VALUES (2, 'LEGO BrickHeadz');
 INSERT INTO brickbindb.theme VALUES (3, 'LEGO City');
@@ -59,3 +72,24 @@ INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_pric
 
 INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
     VALUES ('10311', 'Orchid', 400.00, 'Macleod Trail', 1, 'Orchid.png', 20);
+
+INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
+    VALUES ('21338', 'A-Frame Cabin', 270.00, 'Macleod Trail', 1, 'A_Frame_Cabin.png', 10);
+
+INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
+    VALUES ('76956', 'T. rex Breakout', 160.00, 'Macleod Trail', 1, 'T_rex_Breakout.png', 11);
+
+INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
+    VALUES ('21058', 'Great Pyramid of Giza', 200.00, 'Macleod Trail', 1, 'Great_Pyramid_of_Giza', 1);
+
+INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
+    VALUES ('10302', 'Optimus Prime', 270.00, 'Macleod Trail', 1, 'Optimus_Prime.png', 20);
+
+INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
+    VALUES ('21332', 'The Globe', 320.00, 'Macleod Trail', 1, 'The_Globe.png', 10);
+
+INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
+    VALUES ('10237', 'Tower of Orthanc', 750.00, 'Macleod Trail', 1, 'Tower_of_Orthanc.png', 14);
+
+INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
+    VALUES ('7016', 'Viking Boat against the Wyvern Dragon', 170.00, 'Macleod Trail', 1, 'Viking_Boat_Wyvern.png', 21);
