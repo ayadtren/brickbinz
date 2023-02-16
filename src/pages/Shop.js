@@ -2,54 +2,6 @@ import React, { useEffect, useState } from "react";
 import logo from "../images/brickbinbanner.png";
 import axios from "axios";
 
-// const items = [
-//   {
-//     name: "Item 1",
-//     image: logo,
-//     price: 49.99,
-//   },
-//   {
-//     name: "Item 2",
-//     image: logo,
-//     price: 49.99,
-//   },
-//   {
-//     name: "Item 3",
-//     image: logo,
-//     price: 49.99,
-//   },
-//   {
-//     name: "Item 4",
-//     image: logo,
-//     price: 49.99,
-//   },
-//   {
-//     name: "Item 5",
-//     image: logo,
-//     price: 49.99,
-//   },
-//   {
-//     name: "Item 6",
-//     image: logo,
-//     price: 49.99,
-//   },
-//   {
-//     name: "Item 7",
-//     image: logo,
-//     price: 49.99,
-//   },
-//   {
-//     name: "Item 8",
-//     image: logo,
-//     price: 49.99,
-//   },
-//   {
-//     name: "Item 9",
-//     image: logo,
-//     price: 49.99,
-//   },
-// ];
-
 //This fecthes the json information from index.js in the backend folder,
 const Shop = () => {
   const [products, setProducts] = useState([])
