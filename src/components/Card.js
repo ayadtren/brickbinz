@@ -20,8 +20,8 @@ const Card = ({title, imageUrl, body}) => {
           <div className='card-btn'>
               <button>
                 <a>
-                 -- fix this 
-                  <Link to="/">view shit</Link>
+                 
+                  <Link to="/">See more</Link>
                 </a>
               </button>
           </div>
