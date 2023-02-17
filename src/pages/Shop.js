@@ -58,13 +58,56 @@ const Shop = () => {
             value={search}
             onChange={handleInputChange}
           />
-          <select className="filter-select" value={filter} onChange={handleFilterChange}>
-            <option value="">Sort By</option>
-            <option value="price-low-to-high">Price: Low to High</option>
-            <option value="price-high-to-low">Price: High to Low</option>
-            <option value="name-a-to-z">Name: A to Z</option>
-            <option value="name-z-to-a">Name: Z to A</option>
-          </select>
+  <div className="filter-select">
+  <div>
+    <label htmlFor="sort-by-none">Sort By:</label>
+  </div>
+  <div>
+    <input
+      type="radio"
+      id="sort-by-price-low-to-high"
+      name="sort-by"
+      value="price-low-to-high"
+      checked={filter === "price-low-to-high"}
+      onChange={handleFilterChange}
+    />
+    <label htmlFor="sort-by-price-low-to-high">Price: Low to High</label>
+  </div>
+  <div>
+    <input
+      type="radio"
+      id="sort-by-price-high-to-low"
+      name="sort-by"
+      value="price-high-to-low"
+      checked={filter === "price-high-to-low"}
+      onChange={handleFilterChange}
+    />
+    <label htmlFor="sort-by-price-high-to-low">Price: High to Low</label>
+  </div>
+  <div>
+    <input
+      type="radio"
+      id="sort-by-name-a-to-z"
+      name="sort-by"
+      value="name-a-to-z"
+      checked={filter === "name-a-to-z"}
+      onChange={handleFilterChange}
+    />
+    <label htmlFor="sort-by-name-a-to-z">Name: A to Z</label>
+  </div>
+  <div>
+    <input
+      type="radio"
+      id="sort-by-name-z-to-a"
+      name="sort-by"
+      value="name-z-to-a"
+      checked={filter === "name-z-to-a"}
+      onChange={handleFilterChange}
+    />
+    <label htmlFor="sort-by-name-z-to-a">Name: Z to A</label>
+  </div>
+</div>
+
         </div>
         <ul className="inventory-list">
           {getFilteredResults.map((product) => {
