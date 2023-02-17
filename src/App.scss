@@ -84,8 +84,8 @@
   padding: 0 20px;
   margin-bottom: 20px;
 }
-.sideSearchBar{
-  margin-right: 511px;
+.search-bar{
+  margin-right: 512px;
 
 }
 
@@ -120,7 +120,7 @@
           flex-direction: column;
           border: 2px solid grey;
           border-radius: 12px;
-          height: 270px; //look at this to fix the format
+          height: 270px; 
           padding: 12px;
           img {
             width: 100%;
