@@ -24,10 +24,15 @@ CREATE TABLE IF NOT EXISTS brickbindb.product (
 );
 
 CREATE TABLE IF NOT EXISTS brickbindb.cart (
-    product_name VARCHAR(40) NOT NULL,
-    product_price DOUBLE NOT NULL,
-    product_quantity INT NOT NULL,
-    PRIMARY KEY (product_name)
+    cart_id INT(20) NOT NULL AUTO_INCREMENT,
+    cart_set_numb VARCHAR(40) NOT NULL,
+    cart_set_name VARCHAR(40) NOT NULL,
+    cart_set_price DOUBLE NOT NULL,
+    cart_set_quantity INT NOT NULL,
+    PRIMARY KEY (cart_id),
+    CONSTRAINT fk_carts_products
+        FOREIGN KEY (product_set_numb)
+        REFERENCES brickbindb.product (product_set_numb)
 );
 
 CREATE TABLE IF NOT EXISTS brickbindb.admin (
