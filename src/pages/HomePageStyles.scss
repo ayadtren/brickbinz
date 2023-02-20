@@ -1,13 +1,14 @@
 .main-image-container {
-    border: 2px solid #1C6EA4;
-    padding: 3rem;
-    width: 1200px;
 
+    padding: 3rem;
+    width: 1250px;
+    height: 600px;
+    display: inline-block;
 
         .main-image{
-            height : 600px;
+            height : 500px;
             object-fit:cover;
-            width: 1200px;
+            width: 1100px;
         }
     
     
