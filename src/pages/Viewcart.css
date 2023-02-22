@@ -225,5 +225,23 @@
   font-weight: Regular;
   font-size: 32px;
   opacity: 1;
-  text-align: left;
+}
+
+
+.Checkout{
+  width: 143px;
+  background: #9e3c3c;
+  position: absolute;
+  top: 1000px;
+  left: 1075px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 24px;
+  opacity: 1;
+  text-align: center;
+}
+.Checkout:hover {
+  background: #7a2d2d;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }

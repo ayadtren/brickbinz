@@ -38,14 +38,12 @@ function Viewcart() {
       <span className="Quantity-2">x1</span>
       <span className="Quantity-3">x1</span>
     </div>
-    
+  
+    <div>
     <div className="Container-3"></div>
       <span className="Summary">Summary</span>
-
-
-
-
-
+      <button className="Checkout">Checkout</button>
+    </div>
 
       </>
       
