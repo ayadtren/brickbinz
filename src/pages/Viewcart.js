@@ -31,7 +31,12 @@ function Viewcart() {
       <span className="Price-1">$49.99</span>
       <span className="Price-2">$79.99</span>
       <span className="Price-3">$149.99</span>
+    </div>
 
+    <div>
+      <span className="Quantity-1">x1</span>
+      <span className="Quantity-2">x1</span>
+      <span className="Quantity-3">x1</span>
     </div>
     
       </>

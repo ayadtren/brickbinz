@@ -178,3 +178,41 @@
   opacity: 1;
   text-align: left;
 }
+
+
+.Quantity-1 {
+  width: 10px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 493px;
+  left: 835px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.Quantity-2 {
+  width: 10px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 697px;
+  left: 835px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.Quantity-3 {
+  width: 10px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 908px;
+  left: 835px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
