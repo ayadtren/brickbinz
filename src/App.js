@@ -9,6 +9,7 @@ import RealHomePage from "./pages/RealHomePage";
 import Bookevent from "./pages/Bookevent"
 import Shop from "./pages/Shop"
 import Adminlogin from "./pages/Adminlogin"
+import Viewcart from "./pages/Viewcart"
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,14 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <ContactUs />
+      </Layout>
+    ),
+  },
+  {
+    path: "/Viewcart",
+    element: (
+      <Layout>
+        <Viewcart />
       </Layout>
     ),
   },
