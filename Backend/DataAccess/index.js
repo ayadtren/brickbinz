@@ -31,6 +31,15 @@ app.get("/products",(req, res)=>{
     })
 })
 
+app.get("/themes",(req, res)=>{
+    const q = "SELECT * FROM theme"
+    db.query(q, (err, data)=>{
+        if(err) 
+        return res.json(err)
+        return res.json(data)
+  
+    })
+})
 
 
 

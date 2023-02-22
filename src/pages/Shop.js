@@ -4,6 +4,7 @@ import axios from "axios";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
+  const [thems, setThemes] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
 
@@ -14,7 +15,7 @@ const Shop = () => {
   const handleFilterChange = (event) => {
     setFilter(event.target.value);
   };
-
+//This block fetches the data from the local host url that contains the data from the products table in the database.
   useEffect(() => {
     const fetchAllProducts = async () => {
       try {
@@ -25,6 +26,18 @@ const Shop = () => {
       }
     };
     fetchAllProducts();
+  }, []);
+
+//This block fetches the data from the themes table in the database.
+  useEffect(() => {
+    const fetchAllThemes = async () => {
+      try {
+        const res = await axios.get("http://localhost:8000/themes");
+        setThemes(res.data)
+      } catch (err) {
+        console.log(err);
+      }
+    }
   }, []);
 
   const getFilteredResults = products //declaring a constant variable called 'getFilteredResults' and assigning it the values in the 'products' array
