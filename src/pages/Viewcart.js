@@ -39,6 +39,14 @@ function Viewcart() {
       <span className="Quantity-3">x1</span>
     </div>
     
+    <div className="Container-3"></div>
+      <span className="Summary">Summary</span>
+
+
+
+
+
+
       </>
       
       

@@ -19,7 +19,6 @@
   text-align: center;
 }
 .Container2 {
-  
   height: 1034px;
   position: relative;
   margin-top: -150px;
@@ -34,7 +33,6 @@
   font-family: Inter;
   font-weight: Regular;
   font-size: 32px;
-  opacity: 1;
   text-align: left;
 }
 .Price {
@@ -46,7 +44,6 @@
   font-family: Inter;
   font-weight: Regular;
   font-size: 32px;
-  opacity: 1;
   text-align: left;
 }
 .Quantity {
@@ -58,7 +55,6 @@
   font-family: Inter;
   font-weight: Regular;
   font-size: 32px;
-  opacity: 1;
   text-align: left;
 }
 .Underline {
@@ -114,7 +110,6 @@
   font-family: Inter;
   font-weight: Regular;
   font-size: 20px;
-  opacity: 1;
   text-align: left;
 }
 .Product-description-2 {
@@ -126,7 +121,6 @@
   font-family: Inter;
   font-weight: Regular;
   font-size: 20px;
-  opacity: 1;
   text-align: left;
 }
 .Product-description-3 {
@@ -137,7 +131,6 @@
   font-family: Inter;
   font-weight: Regular;
   font-size: 20px;
-  opacity: 1;
   text-align: left;
 }
 
@@ -151,7 +144,6 @@
   font-family: Inter;
   font-weight: Regular;
   font-size: 20px;
-  opacity: 1;
   text-align: left;
 }
 .Price-2 {
@@ -163,7 +155,6 @@
   font-family: Inter;
   font-weight: Regular;
   font-size: 20px;
-  opacity: 1;
   text-align: left;
 }
 .Price-3 {
@@ -175,7 +166,6 @@
   font-family: Inter;
   font-weight: Regular;
   font-size: 20px;
-  opacity: 1;
   text-align: left;
 }
 
@@ -189,7 +179,6 @@
   font-family: Inter;
   font-weight: Regular;
   font-size: 20px;
-  opacity: 1;
   text-align: left;
 }
 .Quantity-2 {
@@ -201,7 +190,6 @@
   font-family: Inter;
   font-weight: Regular;
   font-size: 20px;
-  opacity: 1;
   text-align: left;
 }
 .Quantity-3 {
@@ -213,6 +201,29 @@
   font-family: Inter;
   font-weight: Regular;
   font-size: 20px;
+  text-align: left;
+}
+
+
+.Container-3 {
+  width: 300px;
+  height: 600px;
+  background: rgba(217,217,217,1);
+  opacity: 1;
+  position: absolute;
+  top: 370px; 
+  left: 980px;
+  overflow: hidden;
+}
+.Summary {
+  width: 143px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 380px;
+  left: 1075px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 32px;
   opacity: 1;
   text-align: left;
 }
