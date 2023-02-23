@@ -4,7 +4,7 @@ import axios from "axios";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
-  const [thems, setThemes] = useState([]);
+  const [themes, setThemes] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
 
@@ -37,7 +37,8 @@ const Shop = () => {
       } catch (err) {
         console.log(err);
       }
-    }
+    };
+    fetchAllThemes();
   }, []);
 
   const getFilteredResults = products //declaring a constant variable called 'getFilteredResults' and assigning it the values in the 'products' array
@@ -62,7 +63,6 @@ const Shop = () => {
   });
 
 return ( 
- 
   <section className="home">  {/*returning the html elements to the page with the corresponding classes*/}
     <div className="container">
       <div className="filter-bar">

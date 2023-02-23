@@ -18,7 +18,7 @@ app.use(cors())
 
 
 app.get("/",(req, res)=>{
-    res.json("backend")
+    res.json("This is the backend screen. Welcome")
 })
 
 app.get("/products",(req, res)=>{
