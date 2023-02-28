@@ -3,13 +3,12 @@ import "./App.scss";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import Layout from "./components/Layout.tsx";
-import React from "react";
 import ContactUs from "./pages/ContactUs"
 import RealHomePage from "./pages/RealHomePage";
-import Bookevent from "./pages/Bookevent"
-import Shop from "./pages/Shop"
-import Adminlogin from "./pages/Adminlogin"
-import Viewcart from "./pages/Viewcart"
+import Bookevent from "./pages/Bookevent";
+import Shop from "./pages/Shop";
+import Adminlogin from "./pages/Adminlogin";
+import Viewcart from "./pages/Viewcart";
 
 const router = createBrowserRouter([
   {

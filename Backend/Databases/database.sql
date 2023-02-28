@@ -24,15 +24,18 @@ CREATE TABLE IF NOT EXISTS brickbindb.product (
 );
 
 CREATE TABLE IF NOT EXISTS brickbindb.cart (
-    cart_id INT(20) NOT NULL AUTO_INCREMENT,
+    -- cart_id INT(20) NOT NULL AUTO_INCREMENT,
     cart_set_numb VARCHAR(40) NOT NULL,
     cart_set_name VARCHAR(40) NOT NULL,
     cart_set_price DOUBLE NOT NULL,
+    cart_set_location VARCHAR(50) NOT NULL,
     cart_set_quantity INT NOT NULL,
-    PRIMARY KEY (cart_id),
-    CONSTRAINT fk_carts_products
-        FOREIGN KEY (product_set_numb)
-        REFERENCES brickbindb.product (product_set_numb)
+    cart_set_img VARCHAR(50) NOT NULL,
+    cart_theme INT(19) NOT NULL,
+    PRIMARY KEY (cart_set_numb)
+    -- CONSTRAINT fk_carts_products
+    --     FOREIGN KEY (product_set_numb)
+    --     REFERENCES brickbindb.product (product_set_numb)
 );
 
 CREATE TABLE IF NOT EXISTS brickbindb.admin (
@@ -62,6 +65,13 @@ INSERT INTO brickbindb.theme VALUES (18, 'LEGO Star Wars');
 INSERT INTO brickbindb.theme VALUES (19, 'LEGO Techinic');
 INSERT INTO brickbindb.theme VALUES (20, 'LEGO Creator Expert/Icons');
 INSERT INTO brickbindb.theme VALUES (21, 'LEGO Retired');
+
+
+
+INSERT INTO brickbindb.cart(cart_set_numb, cart_set_name, cart_set_price, cart_set_location, cart_set_quantity, cart_set_img, cart_theme)
+    VALUES ('Test','Test', 1234.00, 'Test', 1, 'Test.png', 7);
+
+
 
 INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location,product_quantity, product_img, theme)
     VALUES ('10212', 'UCS Imperial Shuttle', 2400.00, 'Macleod Trail', 1, 'UCS_Imp_Shutt.png', 18);

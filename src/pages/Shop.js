@@ -4,6 +4,7 @@ import axios from "axios";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
+  const [themes, setThemes] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
 
@@ -14,7 +15,7 @@ const Shop = () => {
   const handleFilterChange = (event) => {
     setFilter(event.target.value);
   };
-
+//This block fetches the data from the local host url that contains the data from the products table in the database.
   useEffect(() => {
     const fetchAllProducts = async () => {
       try {
@@ -26,6 +27,28 @@ const Shop = () => {
     };
     fetchAllProducts();
   }, []);
+
+//This block fetches the data from the themes table in the database.
+  useEffect(() => {
+    const fetchAllThemes = async () => {
+      try {
+        const res = await axios.get("http://localhost:8000/themes");
+        setThemes(res.data)
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchAllThemes();
+  }, []);
+
+  const handleClick = async e => {
+    e.preventDefault()
+    try {
+      await axios.post("http://localhost:8000/cart", products);
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   const getFilteredResults = products //declaring a constant variable called 'getFilteredResults' and assigning it the values in the 'products' array
   .filter((item) => //calling the 'filter' method on 'products' array which iterates through each element in the array and filters out elements which don't match the condition
@@ -49,7 +72,6 @@ const Shop = () => {
   });
 
 return ( 
- 
   <section className="home">  {/*returning the html elements to the page with the corresponding classes*/}
     <div className="container">
       <div className="filter-bar">
@@ -113,15 +135,17 @@ return (
         <ul className="inventory-list">
           {getFilteredResults.map((product) => {
             return (
-              <li key={product.product_set_numb}>
+              <li key={product.product_set_numb} >
                 <div className="card">
                   <div className="image">
                     <img src={logo} alt="" />
                   </div>
+                  <div className="setNumb">{product.product_set_numb}</div>
                   <div className="title">{product.product_set_name}</div>
                   <div className="price">${product.product_price}</div>
+                  <div className="quantity">{product.product_quantity}</div>
                   <div className="button">
-                    <button className="add-cart">Add Cart</button>
+                    <button className="add-cart" onClick={(handleClick)}>Add Cart</button>
                   </div>
                 </div>
               </li>
