@@ -2,7 +2,19 @@ import React from 'react';
 import './Viewcart.css';
 
 function Viewcart() {
-  
+  const [cartItems, setCartItems] = useState([]);
+  useEffect(() => {
+    const fetchAllCartItems = async () => {
+      try {
+        const res = await axios.get("http://localhost:8000/cart");
+        setCartItems(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchAllCartItems();
+  }, []);
+
   return (
     <>
     <div className="Container">
