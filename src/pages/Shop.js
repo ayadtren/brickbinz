@@ -4,6 +4,15 @@ import axios from "axios";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
+  // const {cartItems, setCartItems} = useState({
+  //     product_set_name : "",
+  //     product_set_numb : "",
+  //     product_price : null,
+  //     product_location : "",
+  //     product_quantity : null,
+  //     product_img : "",
+  //     theme : null
+  // });
   const [themes, setThemes] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
@@ -41,14 +50,30 @@ const Shop = () => {
     fetchAllThemes();
   }, []);
 
-  const handleClick = async e => {
-    e.preventDefault()
+  
+
+  const handleClick = (item) => async (e) => {
+    console.log()
+    e.preventDefault();
+    
+    const newCartItem = {
+      product_set_name : item.product_set_name,
+      product_set_numb : item.product_set_numb,
+      product_price : item.product_price,
+      product_location : item.product_location,
+      product_quantity : item.product_quantity,
+      product_img : item.product_img,
+      theme : item.theme
+    }
+    
+    
+
     try {
-      await axios.post("http://localhost:8000/cart", products);
+      await axios.post("http://localhost:8000/cart", newCartItem);
     } catch (err) {
       console.log(err)
     }
-  }
+  };
 
   const getFilteredResults = products //declaring a constant variable called 'getFilteredResults' and assigning it the values in the 'products' array
   .filter((item) => //calling the 'filter' method on 'products' array which iterates through each element in the array and filters out elements which don't match the condition
@@ -140,12 +165,15 @@ return (
                   <div className="image">
                     <img src={logo} alt="" />
                   </div>
-                  <div className="setNumb">{product.product_set_numb}</div>
-                  <div className="title">{product.product_set_name}</div>
-                  <div className="price">${product.product_price}</div>
-                  <div className="quantity">{product.product_quantity}</div>
+                  <div className="setNumb"  name="product_set_numb">{product.product_set_numb}</div>
+                  <div className="title"  name="product_set_name">{product.product_set_name}</div>
+                  <div className="price"  name="product_price">${product.product_price}</div>
+                  <div hidden="hidden" name="product_location">{product.product_location}</div>
+                  <div className="quantity" name="product_quantity">{product.product_quantity}</div>
+                  <div hidden="hidden" name="product_img">{product.product_img}</div>
+                  <div hidden="hidden" name="theme">{product.theme}</div>
                   <div className="button">
-                    <button className="add-cart" onClick={(handleClick)}>Add Cart</button>
+                    <button className="add-cart" onClick={handleClick(product)}>Add Cart</button>
                   </div>
                 </div>
               </li>

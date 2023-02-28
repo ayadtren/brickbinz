@@ -36,7 +36,7 @@ function Viewcart() {
     </div>
   
     <div>
-      <span className="Product-description-1">Product description 1</span>
+      <span className="Product-description-1"></span>
       <span className="Product-description-2">Product description 2</span>
       <span className="Product-description-3">Product description 3</span>
     </div>

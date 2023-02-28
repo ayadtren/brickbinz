@@ -51,7 +51,7 @@ app.get("/cart", (req, res) => {
     })
 })
 
-app.post("/products", (req, res) => {
+app.post("/cart", (req, res) => {
     const q = "INSERT INTO cart (`cart_set_numb`, `cart_set_name`, `cart_set_price`, `cart_set_location`, `cart_set_quantity`, `cart_set_img`, `cart_theme`) VALUES (?)"
     const values = [
         req.body.product_set_numb,
@@ -60,7 +60,7 @@ app.post("/products", (req, res) => {
         req.body.product_location,
         req.body.product_quantity,
         req.body.product_img,
-        red.body.theme,
+        req.body.theme,
     ];
 
     db.query(q, [values], (err, data) => {
