@@ -107,7 +107,7 @@ return (
   />
   <label htmlFor="sort-by-name-z-to-a">Name: Z to A</label>
 </div>
-</div>
+</div> 
 
         </div>
         <ul className="inventory-list">
