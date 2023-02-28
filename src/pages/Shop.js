@@ -51,9 +51,9 @@ const Shop = () => {
   }, []);
 
   
-
+//This block is handling the onCLick event from the "Add to Cart" to send the paramters into the cart table that is locally hosted
   const handleClick = (item) => async (e) => {
-    console.log()
+    
     e.preventDefault();
     
     const newCartItem = {
@@ -70,6 +70,12 @@ const Shop = () => {
 
     try {
       await axios.post("http://localhost:8000/cart", newCartItem);
+      
+      //Alert for addition of item to cart; To be changed
+      
+      alert("This has been added to your cart");
+
+
     } catch (err) {
       console.log(err)
     }

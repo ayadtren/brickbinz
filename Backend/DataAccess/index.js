@@ -51,6 +51,7 @@ app.get("/cart", (req, res) => {
     })
 })
 
+//Code block to post requests to data onto the carts 
 app.post("/cart", (req, res) => {
     const q = "INSERT INTO cart (`cart_set_numb`, `cart_set_name`, `cart_set_price`, `cart_set_location`, `cart_set_quantity`, `cart_set_img`, `cart_theme`) VALUES (?)"
     const values = [
