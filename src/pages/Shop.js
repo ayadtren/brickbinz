@@ -41,6 +41,15 @@ const Shop = () => {
     fetchAllThemes();
   }, []);
 
+  const handleClick = async e => {
+    e.preventDefault()
+    try {
+      await axios.post("http://localhost:8000/cart", products);
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   const getFilteredResults = products //declaring a constant variable called 'getFilteredResults' and assigning it the values in the 'products' array
   .filter((item) => //calling the 'filter' method on 'products' array which iterates through each element in the array and filters out elements which don't match the condition
     Object.keys(item).some((key) => //looping through all the keys in the item objects and checks if some of the keys return a condition which is true 
@@ -126,15 +135,17 @@ return (
         <ul className="inventory-list">
           {getFilteredResults.map((product) => {
             return (
-              <li key={product.product_set_numb}>
+              <li key={product.product_set_numb} >
                 <div className="card">
                   <div className="image">
                     <img src={logo} alt="" />
                   </div>
+                  <div className="setNumb">{product.product_set_numb}</div>
                   <div className="title">{product.product_set_name}</div>
                   <div className="price">${product.product_price}</div>
+                  <div className="quantity">{product.product_quantity}</div>
                   <div className="button">
-                    <button className="add-cart">Add Cart</button>
+                    <button className="add-cart" onClick={(handleClick)}>Add Cart</button>
                   </div>
                 </div>
               </li>

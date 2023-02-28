@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import './Viewcart.css';
+import axios from "axios";
 
 function Viewcart() {
   const [cartItems, setCartItems] = useState([]);
