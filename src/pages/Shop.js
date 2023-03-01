@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import logo from "../images/brickbinbanner.png";
 import axios from "axios";
-
+import Stuff from "./Stuff";
 const Shop = () => {
   const [products, setProducts] = useState([]);
   // const {cartItems, setCartItems} = useState({
@@ -166,6 +166,7 @@ return (
         <ul className="inventory-list">
           {getFilteredResults.map((product) => {
             return (
+          
               <li key={product.product_set_numb} >
                 <div className="card">
                   <div className="image">
