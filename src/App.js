@@ -1,9 +1,9 @@
 import "./App.scss";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
+import { Container } from "react-bootstrap";
 import Layout from "./components/Layout.tsx";
-import ContactUs from "./pages/ContactUs"
+import ContactUs from "./pages/ContactUs";
 import RealHomePage from "./pages/RealHomePage";
 import Bookevent from "./pages/Bookevent";
 import Shop from "./pages/Shop";
@@ -58,7 +58,16 @@ const router = createBrowserRouter([
         <Adminlogin />
       </Layout>
     ),
-  },  
+  },
+
+  {
+    path: "/Adminlogin",
+    element: (
+      <Layout>
+        <Adminlogin />
+      </Layout>
+    ),
+  },
 ]);
 
 function App() {
