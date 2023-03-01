@@ -95,7 +95,7 @@ INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_pric
     VALUES ('76956', 'T. rex Breakout', 160.00, 'Macleod Trail', 1, 'T_rex_Breakout.png', 11);
 
 INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
-    VALUES ('21058', 'Great Pyramid of Giza', 200.00, 'Macleod Trail', 1, 'Great_Pyramid_of_Giza', 1);
+    VALUES ('21058', 'Great Pyramid of Giza', 200.00, 'Macleod Trail', 1, 'Great_Pyramid_of_Giza.png', 1);
 
 INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
     VALUES ('10302', 'Optimus Prime', 270.00, 'Macleod Trail', 1, 'Optimus_Prime.png', 20);
