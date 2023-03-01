@@ -6,7 +6,7 @@ import './HomePageStyles.scss'
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
-//for the sliders adn carousels.
+//for the sliders and carousels.
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -14,6 +14,7 @@ import "slick-carousel/slick/slick-theme.css";
 const RealHomePage = () => {
   const [products, setProducts] = useState([]);
   
+  //slider settings 
   const settings = {
     dots: true,
     infinite: true,
@@ -34,6 +35,17 @@ const RealHomePage = () => {
       };
       fetchAllProducts();
     }, []); 
+
+    //array with all the div tags n shit
+    const newItems = products.map((products) =>
+      <div>
+        <h4>name: {products.product_set_name}</h4>
+        <h5>${products.product_price}</h5>
+        <p>set number:{products.product_set_numb}</p>
+        <button>View Details</button>
+      </div>
+    );
+    
   return ( 
     <>
         <div className='main-image-container'>
@@ -82,15 +94,7 @@ const RealHomePage = () => {
         <h2>New Arrivals</h2>
         <div>
         <Slider {...settings}>
-          <div>
-            <h3>Product1</h3>
-          </div>
-          <div>
-            <h3>Product2</h3>
-          </div>
-          <div>
-            <h3>Product3</h3>
-          </div>
+          {newItems}
           <div>
             <h3>Product4</h3>
           </div>
