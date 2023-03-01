@@ -1,18 +1,39 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import picture from "../images/mainpagepic.jpg";
 import sampleimage from '../images/sampleimage.jpg'
 import Card from '../components/Card';
 import './HomePageStyles.scss'
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Stuff from "./Stuff";
-
+import axios from "axios";
+//for the sliders adn carousels.
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 //<img className='main-image' src={picture} alt="Main picture" /> 
 const RealHomePage = () => {
+  const [products, setProducts] = useState([]);
   
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3
+  };
 
-
-  
+    //get data
+    useEffect(() => {
+      const fetchAllProducts = async () => {
+        try {
+          const res = await axios.get("http://localhost:8000/products");
+          setProducts(res.data);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      fetchAllProducts();
+    }, []); 
   return ( 
     <>
         <div className='main-image-container'>
@@ -25,7 +46,7 @@ const RealHomePage = () => {
                 alt="First slide"
               />
               <Carousel.Caption>
-                <h3>First slide label</h3>
+                <h3>Follow us on Instagram</h3>
                 <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -37,7 +58,7 @@ const RealHomePage = () => {
               />
 
               <Carousel.Caption>
-                <h3>Second slide label</h3>
+                <h3>Visit our Facebook Page!</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -58,7 +79,38 @@ const RealHomePage = () => {
         </Carousel>
       </div> 
 
-
+        <h2>New Arrivals</h2>
+        <div>
+        <Slider {...settings}>
+          <div>
+            <h3>Product1</h3>
+          </div>
+          <div>
+            <h3>Product2</h3>
+          </div>
+          <div>
+            <h3>Product3</h3>
+          </div>
+          <div>
+            <h3>Product4</h3>
+          </div>
+          <div>
+            <h3>Product5</h3>
+          </div>
+          <div>
+            <h3>Product6</h3>
+          </div>
+          <div>
+            <h3>Product7</h3>
+          </div>
+          <div>
+            <h3>Product8</h3>
+          </div>
+          <div>
+            <h3>Product9</h3>
+          </div>
+        </Slider>
+      </div>
         <h2>About us thingy majig</h2>
         <div className="grid-4-columns">
           <div className='box'>
@@ -73,9 +125,10 @@ const RealHomePage = () => {
           </div>
          
       </div>
-      <Stuff/>
+    
       
     </>
+  
   )
 }
 

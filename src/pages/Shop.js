@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from "react";
 import logo from "../images/brickbinbanner.png";
 import axios from "axios";
-import Stuff from "./Stuff";
+
 const Shop = () => {
   const [products, setProducts] = useState([]);
-  // const {cartItems, setCartItems} = useState({
-  //     product_set_name : "",
-  //     product_set_numb : "",
-  //     product_price : null,
-  //     product_location : "",
-  //     product_quantity : null,
-  //     product_img : "",
-  //     theme : null
-  // });
   const [themes, setThemes] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
