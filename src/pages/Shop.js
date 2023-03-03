@@ -161,7 +161,7 @@ return (
               <li key={product.product_set_numb} >
                 <div className="card">
                   <div className="image">
-                    <img src={logo} alt="" />
+                    <img src={`/images/products/${product.product_img}`} alt='Portrait' width='70%'/>
                   </div>
                   <div className="setNumb"  name="product_set_numb">{product.product_set_numb}</div>
                   <div className="title"  name="product_set_name">{product.product_set_name}</div>
