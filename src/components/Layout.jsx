@@ -28,7 +28,7 @@ const Layout = (props) => {
                   <Link to="/home">Home</Link>
                 </li>
                 <li>
-                  <Link to="/Dashboard">Admin Dashboard</Link>
+                  <Link to="/AdminNav">Admin Dashboard</Link>
                 </li>
                 <li>
                   <Link to={"/"}>Shop</Link>

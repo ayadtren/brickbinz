@@ -9,6 +9,7 @@ import Bookevent from "./pages/Bookevent";
 import Shop from "./pages/Shop";
 import Adminlogin from "./pages/Adminlogin";
 import Viewcart from "./pages/Viewcart";
+import AdminNav from "./admin/AdminNav";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,14 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Adminlogin />
+      </Layout>
+    ),
+  },
+  {
+    path: "/AdminNav",
+    element: (
+      <Layout>
+        <AdminNav />
       </Layout>
     ),
   },
