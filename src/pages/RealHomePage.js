@@ -19,8 +19,8 @@ const RealHomePage = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3
+    slidesToShow: 4,
+    slidesToScroll: 4
   };
 
     //get data
@@ -38,7 +38,7 @@ const RealHomePage = () => {
 
     //array with all the div tags n shit
     const newItems = products.map((products) =>
-      <div>
+      <div className="contents">
         <h4>name: {products.product_set_name}</h4>
         <h5>${products.product_price}</h5>
         <p>set number:{products.product_set_numb}</p>
@@ -93,27 +93,7 @@ const RealHomePage = () => {
 
         <h2>New Arrivals</h2>
         <div>
-        <Slider {...settings}>
-          {newItems}
-          <div>
-            <h3>Product4</h3>
-          </div>
-          <div>
-            <h3>Product5</h3>
-          </div>
-          <div>
-            <h3>Product6</h3>
-          </div>
-          <div>
-            <h3>Product7</h3>
-          </div>
-          <div>
-            <h3>Product8</h3>
-          </div>
-          <div>
-            <h3>Product9</h3>
-          </div>
-        </Slider>
+        <Slider {...settings}>{newItems}</Slider>
       </div>
         <h2>About us thingy majig</h2>
         <div className="grid-4-columns">
