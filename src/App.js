@@ -10,6 +10,7 @@ import Shop from "./pages/Shop";
 import Adminlogin from "./pages/Adminlogin";
 import Viewcart from "./pages/Viewcart";
 import AdminNav from "./admin/AdminNav";
+import AddProducts from "./admin/AddProducts";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +76,12 @@ const router = createBrowserRouter([
         <AdminNav />
       </Layout>
     ),
+    children: [
+      {
+        path: "/AdminNav/AddProducts",
+        element: <AddProducts />,
+      },
+    ],
   },
 ]);
 

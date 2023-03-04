@@ -1,34 +1,33 @@
 import React from "react";
-import { Container, Row, Col, Form, FormGroup } from "react-router-dom";
 const AddProducts = () => {
   return (
     <section>
-      <Container>
-        <Row>
-          <Col Lg="12">
+      <div>
+        <div>
+          <div>
             <h4>Add Products</h4>
-            <Form>
-              <FormGroup className="form__group">
+            <form>
+              <div className="form__group">
                 <span>Product title</span>
                 <input type="text" placeholder="Lego set 1" />
-              </FormGroup>
+              </div>
 
-              <FormGroup className="form__group">
+              <div className="form__group">
                 <span>Short Description</span>
                 <input type="text" placeholder="lorem...." />
-              </FormGroup>
+              </div>
 
-              <FormGroup className="form__group">
+              <div className="form__group">
                 <span>Description</span>
                 <input type="text" placeholder="Description...." />
-              </FormGroup>
+              </div>
               <div>
-                <FormGroup className="form__group">
+                <div className="form__group">
                   <span>Price</span>
                   <input type="number" placeholder="$10" />
-                </FormGroup>
+                </div>
 
-                <FormGroup className="form__group">
+                <div className="form__group">
                   <span>Category</span>
                   <select>
                     <option value="Star wars">star wars</option>
@@ -39,19 +38,19 @@ const AddProducts = () => {
                     <option value="Dragons">dragons</option>
                     <option value="Movies">movies</option>
                   </select>
-                </FormGroup>
+                </div>
               </div>
 
               <div>
-                <FormGroup className="form__group">
+                <div className="form__group">
                   <span>Product Image</span>
                   <input type="file" />
-                </FormGroup>
+                </div>
               </div>
-            </Form>
-          </Col>
-        </Row>
-      </Container>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import "../styles/admin-nav.scss";
 import useAuth from "../hooks/useAuth";
 import { Link } from "react-router-dom";
@@ -23,12 +23,16 @@ const admin__nav = [
     display: "Users",
     path: "/dashboard/users",
   },
+  {
+    display: "Add-Product",
+    path: "/AdminNav/AddProducts",
+  },
 ];
 const AdminNav = () => {
   const { authUser } = useAuth();
 
   return (
-    <>
+    <div>
       <header className="admin__header">
         <div className="admin__nav-top">
           <Container>
@@ -78,7 +82,11 @@ const AdminNav = () => {
           </Row>
         </Container>
       </section>
-    </>
+
+      <section>
+        <Outlet />
+      </section>
+    </div>
   );
 };
 
