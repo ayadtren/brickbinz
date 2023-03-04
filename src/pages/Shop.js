@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logo from "../images/brickbinbanner.png";
+import logo from "../images/products/The_Globe.png";
 import axios from "axios";
 
 const Shop = () => {
@@ -161,13 +161,13 @@ return (
               <li key={product.product_set_numb} >
                 <div className="card">
                   <div className="image">
-                    <img src={`/images/products/${product.product_img}`} alt='Portrait' width='70%'/>
+                    <img src={require(`./../images/products/${product.product_img}`)} alt={product.product_img} width="70%" />
                   </div>
                   <div className="setNumb"  name="product_set_numb">{product.product_set_numb}</div>
                   <div className="title"  name="product_set_name">{product.product_set_name}</div>
                   <div className="price"  name="product_price">${product.product_price}</div>
                   <div hidden="hidden" name="product_location">{product.product_location}</div>
-                  <div className="quantity" name="product_quantity">{product.product_quantity}</div>
+                  <div hidden="hidden" className="quantity" name="product_quantity">{product.product_quantity}</div>
                   <div hidden="hidden" name="product_img">{product.product_img}</div>
                   <div hidden="hidden" name="theme">{product.theme}</div>
                   <div className="button">
