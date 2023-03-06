@@ -6,6 +6,7 @@
   background-color: #9e3c3c;
   position: relative;
   margin-top: 30px;
+  border-radius: 5px;
 }
 .Title {
   width: 315px;
@@ -66,9 +67,8 @@
   top: 351px;
   left: 55px;
   overflow: hidden;
+  border-radius: 5px;
 }
-
-
 .Product-1 {
   width: 170px;
   height: 154px;
@@ -99,8 +99,6 @@
   left: 55px;
   overflow: hidden;
 }
-
-
 .Product-description-1 {
   width: 217px;
   color: rgba(0,0,0,1);
@@ -133,8 +131,6 @@
   font-size: 20px;
   text-align: left;
 }
-
-
 .Price-1 {
   width: 39px;
   color: rgba(0,0,0,1);
@@ -171,37 +167,29 @@
 
 
 .Quantity-1 {
-  width: 10px;
+
   color: rgba(0,0,0,1);
   position: absolute;
-  top: 493px;
-  left: 835px;
-  font-family: Inter;
-  font-weight: Regular;
-  font-size: 20px;
-  text-align: left;
+  top: 483px;
+  left: 790px;
+
+ 
 }
 .Quantity-2 {
-  width: 10px;
+
   color: rgba(0,0,0,1);
   position: absolute;
   top: 697px;
-  left: 835px;
-  font-family: Inter;
-  font-weight: Regular;
-  font-size: 20px;
-  text-align: left;
+  left: 790px;
+
 }
 .Quantity-3 {
-  width: 10px;
+ 
   color: rgba(0,0,0,1);
   position: absolute;
   top: 908px;
-  left: 835px;
-  font-family: Inter;
-  font-weight: Regular;
-  font-size: 20px;
-  text-align: left;
+  left: 790px;
+  
 }
 
 
@@ -245,3 +233,66 @@
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
+
+ul {
+  list-style-type: none;
+}
+
+.QuantityInputBox{
+  display: inline-block;
+  border: 1px solid #ddd;
+  width: 40px;
+  height: 32px;
+  text-align: center;
+  padding-top: 2px;
+  vertical-align: middle;
+  background: #eee
+}
+
+.QuantityButtons{
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 0px;
+    width: 40px;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 11px 0;
+    background: #eee;
+    
+  
+  
+}
+
+td {
+  display: inline-block;
+   padding-right: 180px;
+   padding-top: 180px;
+   height: 10px;
+}
+
+.pic {
+  width: 50px; /* adjust to fit your image size */
+}
+
+.name {
+  width: 150px; /* adjust to fit your text size */
+}
+
+.price {
+  width: 100px; /* adjust to fit your text size */
+  padding-left: 150px ;
+}
+
+.quantity {
+  width: 50px; /* adjust to fit your text size */
+  padding-left: 50px ;
+}
+
+img{
+  width: 60px;
+  height: 60px;
+}
+
+
+

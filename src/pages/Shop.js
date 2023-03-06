@@ -13,7 +13,6 @@ const Shop = () => {
   //     product_img : "",
   //     theme : null
   // });
-  const [themes, setThemes] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
 
@@ -24,6 +23,10 @@ const Shop = () => {
   const handleFilterChange = (event) => {
     setFilter(event.target.value);
   };
+
+  
+
+
 //This block fetches the data from the local host url that contains the data from the products table in the database.
   useEffect(() => {
     const fetchAllProducts = async () => {
@@ -38,17 +41,17 @@ const Shop = () => {
   }, []);
 
 //This block fetches the data from the themes table in the database.
-  useEffect(() => {
-    const fetchAllThemes = async () => {
-      try {
-        const res = await axios.get("http://localhost:8000/themes");
-        setThemes(res.data)
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchAllThemes();
-  }, []);
+  // useEffect(() => {
+  //   const fetchAllThemes = async () => {
+  //     try {
+  //       const res = await axios.get("http://localhost:8000/themes");
+  //       setThemes(res.data)
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   fetchAllThemes();
+  // }, []);
 
   
 //This block is handling the onCLick event from the "Add to Cart" to send the paramters into the cart table that is locally hosted
@@ -97,8 +100,10 @@ const Shop = () => {
         return a.product_set_name.localeCompare(b.product_set_name); //returns a negative number if the name of 'a' comes before 'b' alphabetically
       case "name-z-to-a": //if the value of 'filter' is name-z-to-a
         return b.product_set_name.localeCompare(a.product_set_name); //returns a negative number if the name of 'b' comes before 'a' alphabetically
-      default:
-        return 0; //return 0 if none of the above conditions match
+        case "theme":
+            return a.theme - b.theme; // sort by theme_id in ascending order
+          
+        
     }
   });
 
@@ -115,6 +120,7 @@ return (
 <div className="filter-select"> {/* giving the filter options to the user */}
 <div> {/* div containing the label*/}
   <label htmlFor="sort-by-none">Sort By:</label>
+</div>
 </div>
 <div> {/* div containing the filter options */}
   <input
@@ -159,6 +165,30 @@ return (
     onChange={handleFilterChange} 
   />
   <label htmlFor="sort-by-name-z-to-a">Name: Z to A</label>
+
+<div className="filter-select">
+  <div>
+    <label htmlFor="filter-by-themes">Filter by Theme:</label>
+  </div>
+  <div>
+
+    <div>
+  <input
+    type="radio"
+    id="sort-by-theme"
+    name="sort-by"
+    value="theme"
+    checked={filter === "theme"} //conditionally checks if the value of 'filter' is theme and sets the options to 'checked'
+    onChange={handleFilterChange} 
+  />
+  <label htmlFor="sort-by-theme">Theme</label>
+</div>
+    {/* <select id="filter-by-themes" checked={filter === "theme"} value={filter} onChange={handleFilterChange}>
+      <option value="">All</option>
+      {getFilteredResults.map((product) =>(
+        <option key={product.theme}>{product.theme}</option>
+      ))}
+    </select> */}
 </div>
 </div> 
 
@@ -186,6 +216,7 @@ return (
             );
           })}
         </ul>
+      </div>
       </div>
     </section>
   );
