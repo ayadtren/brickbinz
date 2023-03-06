@@ -35,8 +35,6 @@ function Viewcart() {
    </tr>
  </table>
 
- 
-
       
    );
 

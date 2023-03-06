@@ -1,14 +1,16 @@
 import "./App.scss";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
-import Layout from "./components/Layout.tsx";
-import ContactUs from "./pages/ContactUs"
+import { Container } from "react-bootstrap";
+import Layout from "./components/Layout";
+import ContactUs from "./pages/ContactUs";
 import RealHomePage from "./pages/RealHomePage";
 import Bookevent from "./pages/Bookevent";
 import Shop from "./pages/Shop";
 import Adminlogin from "./pages/Adminlogin";
 import Viewcart from "./pages/Viewcart";
+import AdminNav from "./admin/AdminNav";
+import AddProducts from "./admin/AddProducts";
 
 const router = createBrowserRouter([
   {
@@ -58,7 +60,29 @@ const router = createBrowserRouter([
         <Adminlogin />
       </Layout>
     ),
-  },  
+  },
+  {
+    path: "/Adminlogin",
+    element: (
+      <Layout>
+        <Adminlogin />
+      </Layout>
+    ),
+  },
+  {
+    path: "/AdminNav",
+    element: (
+      <Layout>
+        <AdminNav />
+      </Layout>
+    ),
+    children: [
+      {
+        path: "/AdminNav/AddProducts",
+        element: <AddProducts />,
+      },
+    ],
+  },
 ]);
 
 function App() {
