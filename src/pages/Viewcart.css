@@ -273,6 +273,7 @@ td {
 
 .pic {
   width: 50px; /* adjust to fit your image size */
+  
 }
 
 .name {
@@ -284,9 +285,10 @@ td {
   padding-left: 150px ;
 }
 
+
 .quantity {
-  width: 50px; /* adjust to fit your text size */
-  padding-left: 50px ;
+  width: 300px; /* adjust to fit your text size */
+  padding-left: 20px ;
 }
 
 img{
@@ -294,5 +296,18 @@ img{
   height: 60px;
 }
 
+.remove-button{
+  margin-left: 50px;
+  margin-top: -70px;
+  display: inline-block;
+  color: red;
+  text-align: center;
+  opacity: 0.9;
+  display: inline-block;
+  border-radius: 8px;
+  background-color: yellow;
 
+  
+  
+}
 
