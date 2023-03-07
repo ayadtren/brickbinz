@@ -18,19 +18,26 @@ function Viewcart() {
     fetchAllCartItems();
   }, []);
 
+  const handleDelete = async (cart_set_numb) => {
+    try {
+      await axios.delete("http://localhost:8000/cart/" + cart_set_numb);
+      window.location.reload();
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
 
-  
    const displayItems = cartItems.map((cartItems) =>
    
    <>
-   <table>
+   <table key={cartItems.cart_set_numb}>
    <tr>
-     <td class="pic"> <img src={logo}/></td>
+     <td class="pic"> <img src={require(`./../images/products/${cartItems.cart_set_img}`)} alt={cartItems.cart_set_img} width="70%" /></td>
      <td class="name">{cartItems.cart_set_name}</td>
      <td class="price">${cartItems.cart_set_price}</td>
      
-     <td class="quantity">{cartItems.cart_set_quantity} <button className="remove-button">X</button> </td>
+     <td class="quantity">{cartItems.cart_set_quantity} <button className="remove-button" onClick={() => handleDelete(cartItems.cart)}>X</button> </td>
    </tr>
  </table>
 

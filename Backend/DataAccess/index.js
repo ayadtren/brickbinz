@@ -72,7 +72,16 @@ app.post("/cart", (req, res) => {
     })
 })
 
+app.delete("/cart/:cart_set_numb", (req, res) => {
+    const cartProductId = req.params.cart_set_numb;
+    const q = "DELETE FROM cart WHERE cart_set_numb = ?"
 
+    db.query(q, [cartProductId], (err, data) => {
+        if(err)
+            return res.json(err)
+        return res.json(data)
+    })
+})
 
 
 
