@@ -23,18 +23,22 @@ function Viewcart() {
   
    const displayItems = cartItems.map((cartItems) =>
    
+   <>
    <table>
    <tr>
      <td class="pic"> <img src={logo}/></td>
      <td class="name">{cartItems.cart_set_name}</td>
      <td class="price">${cartItems.cart_set_price}</td>
      
-     <td class="quantity">{cartItems.cart_set_quantity}</td>
-    
-
+     <td class="quantity">{cartItems.cart_set_quantity} <button className="remove-button">X</button> </td>
    </tr>
  </table>
 
+      <div className="Container-3"></div>
+      <span className="Summary">Summary</span>
+      
+      <button className="Checkout">Checkout</button>
+</>
       
    );
 
