@@ -37,7 +37,7 @@ function Viewcart() {
      <td class="name">{cartItems.cart_set_name}</td>
      <td class="price">${cartItems.cart_set_price}</td>
      
-     <td class="quantity">{cartItems.cart_set_quantity} <button className="remove-button" onClick={() => handleDelete(cartItems.cart)}>X</button> </td>
+     <td class="quantity">{cartItems.cart_set_quantity} <button className="remove-button" onClick={() => handleDelete(cartItems.cart_set_numb)}>X</button> </td>
    </tr>
  </table>
 
