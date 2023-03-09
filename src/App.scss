@@ -117,10 +117,7 @@
 }
 
 
-.filter-bar{
-  margin-left: -50px;
-  margin-bottom: -170px;
-}
+
 .filter-select {
   margin-top: 50px;
 }
@@ -155,20 +152,18 @@
         padding: 10px; 
 
         .card {
-          max-width: 200px;
+          max-width: 250px;
           display: flex;
           align-items: flex-start;
           justify-content: flex-start;
           flex-direction: column;
           border: 2px solid red;
           border-radius: 12px;
-          height: 270px; 
+          height: 350px; 
           padding: 12px;
      
-          
-          
           img {
-            width: 100%;
+            width: 120%;
             height: 150px;
             object-fit: cover;
           }
@@ -177,33 +172,31 @@
             font-size: 15px;
             font-weight: bold;
           }
-          .price {
-            height: 25px;
-            padding-top: 15px;
-          }
-          .button {
-            width: 100%;
-            .add-cart {
-              border: 2px solid red;
-              background-color: red;
-              color: white;
-              outline: 0;
-              height: 45px;
-              width: 100%;
-              font-size: 16px;
-              text-align: center;
-              border-radius: 6px;
-              cursor: pointer;
-              transition: all 0.3s ease-in-out;
-              &:hover {
-                background-color: white;
-                color: red;
-              }
-              
-            }
-          }
+         
+          
         }
       }
     }
+  }
+}
+.button {
+  width: 100%;
+  .add-cart {
+    border: 2px solid red;
+    background-color: red;
+    color: white;
+    outline: 0;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: white;
+      color: red;
+    }
+    
   }
 }

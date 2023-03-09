@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import logo from "../images/products/The_Globe.png";
 import axios from "axios";
 
 const Shop = () => {
@@ -25,9 +24,6 @@ const Shop = () => {
     setFilter(event.target.value);
   };
 
-  
-
-
 //This block fetches the data from the local host url that contains the data from the products table in the database.
   useEffect(() => {
     const fetchAllProducts = async () => {
@@ -40,6 +36,7 @@ const Shop = () => {
     };
     fetchAllProducts();
   }, []);
+
 
 //This block fetches the data from the themes table in the database.
   // useEffect(() => {
@@ -69,16 +66,11 @@ const Shop = () => {
       product_img : item.product_img,
       theme : item.theme
     }
-    
-    
-
     try {
       await axios.post("http://localhost:8000/cart", newCartItem);
       
       //Alert for addition of item to cart; To be changed
-      
-      alert("This has been added to your cart");
-
+      alert("The item has been added to your cart");
 
     } catch (err) {
       console.log(err)
@@ -111,87 +103,88 @@ const Shop = () => {
 return ( 
   <section className="home">  {/*returning the html elements to the page with the corresponding classes*/}
     <div className="container">
-      <div className="filter-bar">
-        <input //input field to allow the user to type in a search term
+      <input //input field to allow the user to type in a search term
           className="search-bar"
           placeholder="Search"
           value={search}
-          onChange={handleInputChange} //this will handle the input change by the user
+          onChange={handleInputChange}
         />
-<div className="filter-select"> {/* giving the filter options to the user */}
-<div> {/* div containing the label*/}
-  <label htmlFor="sort-by-none">Sort By:</label>
-</div>
-</div>
-<div> {/* div containing the filter options */}
-  <input
-    type="radio"
-    id="sort-by-price-low-to-high"
-    name="sort-by"
-    value="price-low-to-high"
-    checked={filter === "price-low-to-high"} //conditionally checks if the value of 'filter' is price-low-to-high and sets the options to 'checked'
-    onChange={handleFilterChange} 
-  />
-  <label htmlFor="sort-by-price-low-to-high">Price: Low to High</label>
-</div>
-<div>
-  <input
-    type="radio"
-    id="sort-by-price-high-to-low"
-    name="sort-by"
-    value="price-high-to-low"
-    checked={filter === "price-high-to-low"} //conditionally checks if the value of 'filter' is price-high-to-low and sets the options to 'checked'
-    onChange={handleFilterChange} 
-  />
-  <label htmlFor="sort-by-price-high-to-low">Price: High to Low</label>
-</div>
-<div>
-  <input
-    type="radio"
-    id="sort-by-name-a-to-z"
-    name="sort-by"
-    value="name-a-to-z"
-    checked={filter === "name-a-to-z"} //conditionally checks if the value of 'filter' is name-a-to-z and sets the options to 'checked'
-    onChange={handleFilterChange} 
-  />
-  <label htmlFor="sort-by-name-a-to-z">Name: A to Z</label>
-</div>
-<div>
-  <input
-    type="radio"
-    id="sort-by-name-z-to-a"
-    name="sort-by"
-    value="name-z-to-a"
-    checked={filter === "name-z-to-a"} //conditionally checks if the value of 'filter' is name-z-to-a and sets the options to 'checked'
-    onChange={handleFilterChange} 
-  />
-  <label htmlFor="sort-by-name-z-to-a">Name: Z to A</label>
 
-<div className="filter-select">
-  <div>
-    <label htmlFor="filter-by-themes">Filter by Theme:</label>
-  </div>
-  <div>
+      <div className="filter-bar">
+        {/* giving the filter options to the user */}
+        <div className="filter-select">
+          {/* div containing the label*/}
+          <label htmlFor="sort-by-none">Sort By:</label>
+        </div>
+        <div> {/* div containing the filter options */}
+        <input
+        type="radio"
+        id="sort-by-price-low-to-high"
+        name="sort-by"
+        value="price-low-to-high"
+        checked={filter === "price-low-to-high"} //conditionally checks if the value of 'filter' is price-low-to-high and sets the options to 'checked'
+        onChange={handleFilterChange} 
+      />
+      <label htmlFor="sort-by-price-low-to-high">Price: Low to High</label>
+      </div>
+      <div>
+      <input
+      type="radio"
+      id="sort-by-price-high-to-low"
+      name="sort-by"
+      value="price-high-to-low"
+      checked={filter === "price-high-to-low"} //conditionally checks if the value of 'filter' is price-high-to-low and sets the options to 'checked'
+      onChange={handleFilterChange} 
+      />
+        <label htmlFor="sort-by-price-high-to-low">Price: High to Low</label>
+      </div>
+      <div>
+      <input
+      type="radio"
+      id="sort-by-name-a-to-z"
+      name="sort-by"
+      value="name-a-to-z"
+      checked={filter === "name-a-to-z"} //conditionally checks if the value of 'filter' is name-a-to-z and sets the options to 'checked'
+        onChange={handleFilterChange} 
+      />
+      <label htmlFor="sort-by-name-a-to-z">Name: A to Z</label>
+      </div>
+      <div>
+      <input
+      type="radio"
+      id="sort-by-name-z-to-a"
+      name="sort-by"
+      value="name-z-to-a"
+      checked={filter === "name-z-to-a"} //conditionally checks if the value of 'filter' is name-z-to-a and sets the options to 'checked'
+      onChange={handleFilterChange} 
+      />
+      <label htmlFor="sort-by-name-z-to-a">Name: Z to A</label>
 
-    <div>
-  <input
-    type="radio"
-    id="sort-by-theme"
-    name="sort-by"
-    value="theme"
-    checked={filter === "theme"} //conditionally checks if the value of 'filter' is theme and sets the options to 'checked'
-    onChange={handleFilterChange} 
-  />
-  <label htmlFor="sort-by-theme">Theme</label>
-</div>
-    {/* <select id="filter-by-themes" checked={filter === "theme"} value={filter} onChange={handleFilterChange}>
-      <option value="">All</option>
-      {getFilteredResults.map((product) =>(
-        <option key={product.theme}>{product.theme}</option>
-      ))}
-    </select> */}
-</div>
-</div> 
+      <div className="filter-select">
+      <div>
+      <label htmlFor="filter-by-themes">Filter by Theme:</label>
+      </div>
+      <div>
+
+      <div>
+      <input
+      type="radio"
+      id="sort-by-theme"
+      name="sort-by"
+      value="theme"
+      checked={filter === "theme"} //conditionally checks if the value of 'filter' is theme and sets the options to 'checked'
+      onChange={handleFilterChange} 
+      />
+      <label htmlFor="sort-by-theme">Theme</label>
+      </div>
+        {/* <select id="filter-by-themes" checked={filter === "theme"} value={filter} onChange={handleFilterChange}>
+          <option value="">All</option>
+          {getFilteredResults.map((product) =>(
+            <option key={product.theme}>{product.theme}</option>
+          ))}
+        </select> */}
+      </div>
+    </div> 
 
         </div>
         <ul className="inventory-list">
@@ -203,9 +196,9 @@ return (
                   <div className="image">
                     <img src={require(`./../images/products/${product.product_img}`)} alt={product.product_img} width="70%" />
                   </div>
-                  <div className="setNumb"  name="product_set_numb">{product.product_set_numb}</div>
+                  <div className="setNumb"  name="product_set_numb">#{product.product_set_numb}</div>
                   <div className="title"  name="product_set_name">{product.product_set_name}</div>
-                  <div className="price"  name="product_price">${product.product_price}</div>
+                  <div name="product_price">${product.product_price}</div>
                   <div hidden="hidden" name="product_location">{product.product_location}</div>
                   <div hidden="hidden" className="quantity" name="product_quantity">{product.product_quantity}</div>
                   <div hidden="hidden" name="product_img">{product.product_img}</div>
@@ -219,8 +212,8 @@ return (
           })}
         </ul>
       </div>
-      </div>
-    </section>
+    </div>
+  </section>
   );
 };
 

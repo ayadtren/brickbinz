@@ -1,7 +1,6 @@
 import "./App.scss";
-
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Container } from "react-bootstrap";
+
 import Layout from "./components/Layout";
 import ContactUs from "./pages/ContactUs";
 import RealHomePage from "./pages/RealHomePage";
