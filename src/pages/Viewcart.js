@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './Viewcart.css';
 import axios from "axios";
-import logo from "../images/brickbinbanner.png";
 
 
 function Viewcart() {
