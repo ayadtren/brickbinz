@@ -3,7 +3,6 @@ import './Viewcart.css';
 import axios from "axios";
 
 
-
 function Viewcart() {
   const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
