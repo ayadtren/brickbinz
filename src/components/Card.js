@@ -20,7 +20,6 @@ const Card = ({title, imageUrl, body}) => {
           <div className='card-btn'>
               <button>
                 <a>
-                 
                   <Link to="/">See more</Link>
                 </a>
               </button>

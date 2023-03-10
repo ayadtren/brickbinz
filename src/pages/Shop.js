@@ -99,7 +99,7 @@ const Shop = () => {
         
     }
   });
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 return ( 
   <section className="home">  {/*returning the html elements to the page with the corresponding classes*/}
     <div className="container">
@@ -111,24 +111,28 @@ return (
         />
 
       <div className="filter-bar">
+
         {/* giving the filter options to the user */}
         <div className="filter-select">
+
           {/* div containing the label*/}
           <label htmlFor="sort-by-none">Sort By:</label>
         </div>
+
         <div> {/* div containing the filter options */}
-        <input
+        Price: Low to High <input
         type="radio"
         id="sort-by-price-low-to-high"
         name="sort-by"
         value="price-low-to-high"
         checked={filter === "price-low-to-high"} //conditionally checks if the value of 'filter' is price-low-to-high and sets the options to 'checked'
         onChange={handleFilterChange} 
-      />
-      <label htmlFor="sort-by-price-low-to-high">Price: Low to High</label>
+      /> 
+    
       </div>
+
       <div>
-      <input
+      Price: High to Low <input
       type="radio"
       id="sort-by-price-high-to-low"
       name="sort-by"
@@ -136,10 +140,11 @@ return (
       checked={filter === "price-high-to-low"} //conditionally checks if the value of 'filter' is price-high-to-low and sets the options to 'checked'
       onChange={handleFilterChange} 
       />
-        <label htmlFor="sort-by-price-high-to-low">Price: High to Low</label>
+     
       </div>
+
       <div>
-      <input
+      Name: A to Z <input
       type="radio"
       id="sort-by-name-a-to-z"
       name="sort-by"
@@ -147,10 +152,10 @@ return (
       checked={filter === "name-a-to-z"} //conditionally checks if the value of 'filter' is name-a-to-z and sets the options to 'checked'
         onChange={handleFilterChange} 
       />
-      <label htmlFor="sort-by-name-a-to-z">Name: A to Z</label>
       </div>
+
       <div>
-      <input
+      Name: Z to A <input
       type="radio"
       id="sort-by-name-z-to-a"
       name="sort-by"
@@ -158,24 +163,26 @@ return (
       checked={filter === "name-z-to-a"} //conditionally checks if the value of 'filter' is name-z-to-a and sets the options to 'checked'
       onChange={handleFilterChange} 
       />
-      <label htmlFor="sort-by-name-z-to-a">Name: Z to A</label>
+  
+      <label htmlFor="sort-by-name-z-to-a"></label>
 
       <div className="filter-select">
-      <div>
-      <label htmlFor="filter-by-themes">Filter by Theme:</label>
-      </div>
+
+        <div>
+          <label htmlFor="filter-by-themes">Filter by Theme:</label>
+        </div>
       <div>
 
       <div>
-      <input
-      type="radio"
-      id="sort-by-theme"
-      name="sort-by"
-      value="theme"
-      checked={filter === "theme"} //conditionally checks if the value of 'filter' is theme and sets the options to 'checked'
-      onChange={handleFilterChange} 
-      />
-      <label htmlFor="sort-by-theme">Theme</label>
+        <input
+          type="radio"
+          id="sort-by-theme"
+          name="sort-by"
+          value="theme"
+          checked={filter === "theme"} //conditionally checks if the value of 'filter' is theme and sets the options to 'checked'
+          onChange={handleFilterChange} 
+        />
+        <label htmlFor="sort-by-theme">Theme</label>
       </div>
         {/* <select id="filter-by-themes" checked={filter === "theme"} value={filter} onChange={handleFilterChange}>
           <option value="">All</option>
@@ -185,7 +192,7 @@ return (
         </select> */}
       </div>
     </div> 
-
+        </div>
         </div>
         <ul className="inventory-list">
           {getFilteredResults.map((product) => {
@@ -198,11 +205,13 @@ return (
                   </div>
                   <div className="setNumb"  name="product_set_numb">#{product.product_set_numb}</div>
                   <div className="title"  name="product_set_name">{product.product_set_name}</div>
+                  <br></br>
                   <div name="product_price">${product.product_price}</div>
                   <div hidden="hidden" name="product_location">{product.product_location}</div>
                   <div hidden="hidden" className="quantity" name="product_quantity">{product.product_quantity}</div>
                   <div hidden="hidden" name="product_img">{product.product_img}</div>
                   <div hidden="hidden" name="theme">{product.theme}</div>
+                  <br></br>
                   <div className="button">
                     <button className="add-cart" onClick={handleClick(product)}>Add Cart</button>
                   </div>
@@ -212,7 +221,7 @@ return (
           })}
         </ul>
       </div>
-    </div>
+
   </section>
   );
 };
