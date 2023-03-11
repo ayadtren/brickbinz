@@ -54,7 +54,7 @@ export const Login = () => {
           
           <input className="login-input" type="password" name="password" onChange={handlePasswordChange} placeholder="Enter your Password" required />
           <input className="login-btn" type="submit" onClick={loginn} value="Login" />
-          <h1 style={{color: 'blue', fontSize: '15px', textAlign: 'center', marginTop: '20px'}}>{loginStatus}</h1>
+          <h6 className="loginstatus">{loginStatus}</h6>
           <span>Forget Password or Username?</span> | <span>Sign Up</span>
 
         </form>
