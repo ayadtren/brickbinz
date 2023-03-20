@@ -173,8 +173,7 @@ const Shop = () => {
           <select
             id="filter-by-themes"
             value={themeFilter}
-            onChange={handleThemeFilterChange}
-          >
+            onChange={handleThemeFilterChange}>
             <option value="">All</option>
             {Object.entries(themes).map(([key, value]) => (
               <option key={key} value={key}>
