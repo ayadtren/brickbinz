@@ -3,18 +3,33 @@ import axios from "axios";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
-  // const {cartItems, setCartItems} = useState({
-  //     product_set_name : "",
-  //     product_set_numb : "",
-  //     product_price : null,
-  //     product_location : "",
-  //     product_quantity : null,
-  //     product_img : "",
-  //     theme : null
-  // });
-  const [themes, setThemes] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
+  const [themeFilter, setThemeFilter] = useState("");
+
+  const themes = {
+    1: "LEGO Architecture",
+    2: "LEGO BrickHeadz",
+    3: "LEGO City",
+    4: "LEGO Classic",
+    5: "LEGO Creator-3-in-1",
+    6: "LEGO DC",
+    7: "LEGO Disney",
+    8: "LEGO Friends",
+    9: "LEGO Harry Potter",
+    10: "LEGO Ideas",
+    11: "LEGO Jurassic World",
+    12: "LEGO Avatar",
+    13: "LEGO Super Mario",
+    14: "LEGO Lord of the Rings",
+    15: "LEGO Marvel",
+    16: "LEGO CMF Series",
+    17: "LEGO Speed Champions",
+    18: "LEGO Star Wars",
+    19: "LEGO Technic",
+    20: "LEGO Creator Expert/Icons",
+    21: "LEGO Retired",
+  };
 
   const handleInputChange = (event) => {
     setSearch(event.target.value);
