@@ -1,5 +1,4 @@
 import AddProducts from "./admin/AddProducts";
-import AllProducts from "./admin/AllProducts";
 import ProtectedRoute from "./pages/routers/ProtectedRoute";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Container } from "react-bootstrap";
