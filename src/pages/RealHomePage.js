@@ -40,7 +40,7 @@ const RealHomePage = () => {
     const newItems = products.map((products) =>
       <div className="contents">
         <img src={require(`./../images/products/${products.product_img}`)} alt={products.product_img} width="70%" />
-        <h4>name: {products.product_set_name}</h4>
+        <h4>{products.product_set_name}</h4>
         <h5>${products.product_price}</h5>
         <p>set number:{products.product_set_numb}</p>
         <button>View Details</button>
@@ -93,9 +93,11 @@ const RealHomePage = () => {
       </div> 
 
         <h2>New Arrivals</h2>
+
         <div>
         <Slider {...settings}>{newItems}</Slider>
       </div>
+
         <h2>About us thingy majig</h2>
         <div className="grid-4-columns">
           <div className='box'>

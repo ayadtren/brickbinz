@@ -6,30 +6,35 @@ import useAuth from "../hooks/useAuth";
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
-const admin__nav = [
-  {
-    display: "Dashboard",
-    path: "/dashboard",
-  },
-  {
-    display: "All-Products",
-    path: "/dashboard/all-products",
-  },
-  {
-    display: "Orders",
-    path: "/dashboard/orders",
-  },
-  {
-    display: "Users",
-    path: "/dashboard/users",
-  },
-  {
-    display: "Add-Product",
-    path: "/AdminNav/AddProducts",
-  },
-];
 const AdminNav = () => {
   const { authUser } = useAuth();
+
+  const admin__nav = [
+    {
+      display: "Dashboard",
+      path: "/AdminNav/Dashboard",
+    },
+    {
+      display: "All-Products",
+      path: "/AdminNav/AllProducts",
+    },
+    {
+      display: "Orders",
+      path: "/AdminNav/Orders",
+    },
+    {
+      display: "Users",
+      path: "/AdminNav/users",
+    },
+    {
+      display: "Add-Product",
+      path: "/AdminNav/AddProducts",
+    },
+    {
+      display: "Add slideshow image",
+      path: "/AdminNav/AddImage",
+    },
+  ];
 
   return (
     <div>
@@ -84,7 +89,7 @@ const AdminNav = () => {
       </section>
 
       <section>
-        <Outlet />
+        <Outlet adminNav={admin__nav} />
       </section>
     </div>
   );

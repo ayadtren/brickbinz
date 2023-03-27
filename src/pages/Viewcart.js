@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import './Viewcart.css';
 import axios from "axios";
 
-
 function Viewcart() {
   const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
@@ -27,10 +26,8 @@ function Viewcart() {
     }
   }
 
-
    const displayItems = cartItems.map((cartItems) =>
    
-
    <div key={cartItems.cart_set_numb}>
       <table>
         <tr>
@@ -61,15 +58,11 @@ function Viewcart() {
 
       <button className="Checkout">Checkout</button>
     </div>
-
-      
+ 
    );
 
-
   return (
-    
     <>
-    
     <div class="Container">
         <div class="Title">Your Cart ({displayItems.length})</div>
       </div>
@@ -78,7 +71,6 @@ function Viewcart() {
         <div class="Underline"></div>
         {displayItems}
       </table>
-
       </>
   );
 }
