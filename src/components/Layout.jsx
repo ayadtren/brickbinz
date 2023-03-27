@@ -39,6 +39,9 @@ const Layout = (props) => {
                 <li>
                   <Link to="/book">Book</Link>
                 </li>
+                <li>
+                  <Link to="/product">Product</Link>
+                </li>
               </ul>
             </div>
           </div>
