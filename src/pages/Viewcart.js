@@ -25,9 +25,14 @@ function Viewcart() {
       console.log(err.response.data)
     }
   }
+ 
+    let totalPrice = 0;
+    //add the sum of the total price. 
+    for(let i = 0; i < cartItems.length; i++){
+        totalPrice += cartItems[i]?.cart_set_price;
+    }
 
    const displayItems = cartItems.map((cartItems) =>
-   
    <div key={cartItems.cart_set_numb}>
       <table>
         <tr>
@@ -53,9 +58,10 @@ function Viewcart() {
         </tr>
       </table>
 
-      <div className="Container-3"></div>
+      <div className="Container-3">
+      <h1>{totalPrice}</h1>
+      </div>
       <span className="Summary">Summary</span>
-
       <button className="Checkout">Checkout</button>
     </div>
  
@@ -71,6 +77,7 @@ function Viewcart() {
         <div class="Underline"></div>
         {displayItems}
       </table>
+      
       </>
   );
 }
