@@ -11,7 +11,6 @@ const Productviewpg = () => {
         <div className="store-location-nw">Store Location: </div>
           <p className="Description">Description:</p>
         </div>
-   
       <div className="image-icons-container">
         <img className="image-1-icon " alt="" src="" />
         <img className="image-2-icon " alt="" src="" />
