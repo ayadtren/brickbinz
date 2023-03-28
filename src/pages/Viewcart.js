@@ -44,8 +44,7 @@ function Viewcart() {
             />
           </td>
           <td class="name">{cartItems.cart_set_name}</td>
-          <td class="price">${cartItems.cart_set_price}</td>
-
+          <td class="cart-Price">${cartItems.cart_set_price}</td>
           <td class="quantity">
             {cartItems.cart_set_quantity}
             <button
@@ -59,9 +58,10 @@ function Viewcart() {
       </table>
 
       <div className="Container-3">
-      <h1>{totalPrice}</h1>
+        <h2>SUMMARY</h2>
+        <h4>total price: ${totalPrice}</h4>
       </div>
-      <span className="Summary">Summary</span>
+      {/* <span className="Summary">Summary</span> */}
       <button className="Checkout">Checkout</button>
     </div>
  
@@ -73,11 +73,12 @@ function Viewcart() {
         <div class="Title">Your Cart ({displayItems.length})</div>
       </div>
  	    <table>
-        <th className="Product">Item</th><th></th>	<th className="Price">price</th><th class="Quantity">Quantity</th>
+        <th className="Product">Item</th><th></th>	<th className="cart-Price">price</th><th class="Quantity">Quantity</th>
         <div class="Underline"></div>
         {displayItems}
       </table>
       
+  
       </>
   );
 }
