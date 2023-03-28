@@ -34,6 +34,10 @@ const AdminNav = () => {
       display: "Add slideshow image",
       path: "/AdminNav/AddImage",
     },
+    {
+      display: "View Events",
+      path: "/AdminNav/ViewEvents",
+    },
   ];
 
   return (
