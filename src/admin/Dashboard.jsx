@@ -40,6 +40,11 @@ const Dashboard = () => {
           <p>Add a new image to the homepage slideshow.</p>
           <a href="/AdminNav/AddImage">Add Slideshow Image</a>
         </div>
+        <div className="m-3">
+          <h3>View Events</h3>
+          <p>View current and upcoming events</p>
+          <a href="/AdminNav/ViewEvents">View Events</a>
+        </div>
       </div>
     </Container>
   );

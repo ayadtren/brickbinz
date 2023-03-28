@@ -4,6 +4,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import productImg from "../images/falcon.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const AllProducts = () => {
   // const deleteProduct = async(id) => {
@@ -19,41 +20,50 @@ const AllProducts = () => {
         <Row>
           <Col lg="12">
             <h2 className="text-center mb-4">All Products</h2>
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Image</th>
-                  <th>Title</th>
-                  <th>Category</th>
-                  <th>Price</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <img src={productImg} alt="product" width="100" />
-                  </td>
-                  <td>Millenium Falcon</td>
-                  <td>Star Wars Set</td>
-                  <td>$1000</td>
-                  <td>
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => {
-                        //deleteProduct(item.id);
-                        toast.success("Product deleted successfully!");
-                      }}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <ul className="list-group">
+              <li className="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                  <strong>Image</strong>
+                </div>
+                <div>
+                  <strong>Title</strong>
+                </div>
+                <div>
+                  <strong>Category</strong>
+                </div>
+                <div>
+                  <strong>Price</strong>
+                </div>
+                <div></div>
+              </li>
+              <li className="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                  <img src={productImg} alt="product" width="100" />
+                </div>
+                <div>
+                  <h5 className="mb-1">Millenium Falcon</h5>
+                  <small>Star Wars Set</small>
+                </div>
+                <div>
+                  <span className="badge badge-primary badge-pill">$1000</span>
+                </div>
+                <div>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => {
+                      //deleteProduct(item.id);
+                      toast.success("Product deleted successfully!");
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </li>
+            </ul>
           </Col>
         </Row>
       </Container>
+
       <ToastContainer position="top-right" autoClose={3000} />
     </section>
   );

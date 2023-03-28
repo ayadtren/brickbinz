@@ -16,6 +16,7 @@ import AddImage from "./admin/AddImage";
 import Orders from "./admin/Orders";
 import Dashboard from "./admin/Dashboard";
 import Users from "./admin/Users";
+import ViewEvents from "./admin/ViewEvents";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -113,6 +114,10 @@ const router = createBrowserRouter([
       {
         path: "/AdminNav/Orders",
         element: <Orders />,
+      },
+      {
+        path: "/AdminNav/ViewEvents",
+        element: <ViewEvents />,
       },
     ],
   },

@@ -3,6 +3,7 @@ import React from "react";
 import logo from "../images/banner2.png";
 import AdminNav from "../admin/AdminNav";
 import { useLocation } from "react-router-dom";
+import Footer from "../pages/footer/Footer";
 
 const Layout = (props) => {
   const location = useLocation();
@@ -61,7 +62,7 @@ const Layout = (props) => {
       </nav>
       <main className="main">{props.children}</main>
       <footer>
-        <div></div>
+        <Footer />
       </footer>
     </div>
   );
