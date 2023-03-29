@@ -34,7 +34,7 @@ function Viewcart() {
 
    const displayItems = cartItems.map((cartItems) =>
    <div key={cartItems.cart_set_numb}>
-      <table>
+      
         <tr>
           <td class="pic">
             <img
@@ -55,30 +55,33 @@ function Viewcart() {
             </button>
           </td>
         </tr>
-      </table>
+   
 
-      <div className="Container-3">
-        <h2>SUMMARY</h2>
-        <h4>total price: ${totalPrice}</h4>
-      </div>
+     
       {/* <span className="Summary">Summary</span> */}
-      <button className="Checkout">Checkout</button>
+      <button className="checkout-button">Checkout</button>
     </div>
  
    );
 
   return (
     <>
-    <div class="Container">
+    <div class="title-container">
         <div class="Title">Your Cart ({displayItems.length})</div>
       </div>
- 	    <table>
-        <th className="Product">Item</th><th></th>	<th className="cart-Price">price</th><th class="Quantity">Quantity</th>
-        <div class="Underline"></div>
+      
+ 	    <table className="item-table">
+        <tr>
+        <th className="cart-items">Item</th><th></th><th className="cart-Price">price</th><th class="Quantity">Quantity</th>
+        </tr>
+        {/* <div class="Underline"></div> */}
         {displayItems}
       </table>
-      
-  
+
+      <div className="summary-container">
+        <h2>SUMMARY</h2>
+        <h4>total price: ${totalPrice}</h4>
+      </div>
       </>
   );
 }
