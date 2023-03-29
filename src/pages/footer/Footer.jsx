@@ -2,11 +2,12 @@ import React from "react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { BsInfoCircle } from "react-icons/bs";
 import { Container, Row, Col } from "reactstrap";
+import "./../../App.scss";
 
 const Footer = () => {
   return (
-    <footer className="bg-yellow p-3 shadow-lg">
-      <Container>
+    <footer className="footer">
+      <Container className="footer">
         <Row>
           <Col md="6" className="text-center text-md-left mb-2 mb-md-0">
             <a href="#">
