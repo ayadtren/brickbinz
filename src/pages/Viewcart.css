@@ -21,14 +21,13 @@
 }
 
 .cart-items {
- 
   font-size: 32px;
   text-align: left;
 }
 
 .cart-Price {
   width: 77px;
-  font-size: 32px;
+  font-size: 1em;
   text-align: left;
 }
 
@@ -46,6 +45,7 @@
   opacity: 1;
   position: absolute;
   text-align: center;
+  padding: 2em;
   top: 280px;
   left: 1150px;
   overflow: hidden;
@@ -55,8 +55,8 @@
   width: 143px;
   background: #e8d783;
   position: absolute;
-  top: 850px;
-  left: 950px;
+  top: 950px;
+  left: 1230px;
   font-size: 24px;
   opacity: 1;
   text-align: center;
@@ -66,6 +66,9 @@
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
+.price-header{
+  font-size: 2em;
+}
 
 ul {
   list-style-type: none;
@@ -73,16 +76,18 @@ ul {
 
 td, th{
   display: inline-block;
-  padding-right: 180px;
+  padding-right: 200px;
   padding-top: 130px;
   height: 10px;
-  text-align: right;
+  width: 190px;
+  
 }
 .item-table{
   position: relative;
   left: 2em;
   bottom: 5em;
- 
+  text-align: left;
+  /* margin-bottom: 45em; */
 
 }
 .pic {
@@ -91,13 +96,10 @@ td, th{
 .name {
   width: 150px; /* adjust to fit your text size */
 }
-.price {
-  width: 100px; /* adjust to fit your text size */
-  padding-left: 150px;
-}
+
 .quantity {
-  width: 300px; /* adjust to fit your text size */
-  padding-left: 20px;
+  width: 350px; /* adjust to fit your text size */
+  
 }
 img {
   width: 60px;
