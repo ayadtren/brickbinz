@@ -69,6 +69,27 @@ app.get("/login", (req, res) => {
     })
 })
 
+//Setting up a Post request for the products
+app.post("/products", (req, res) => {
+    const q = "INSERT INTO product (`product_set_numb`, `product_set_name`, `product_price`, `product_location`, `product_quantity`, `product_img`, `theme`) VALUES (?)"
+    const values = [
+        req.body.setNumb,
+        req.body.setName,
+        req.body.setPrice,
+        req.body.setLocation,
+        req.body.setQuantity,
+        req.body.setImage,
+        req.body.setTheme
+    ];
+
+    console.log(values);
+
+    db.query(q, [values], (err, data) => {
+        if (err)
+            return res.json(err)
+        return res.json(data)
+    })
+})
 
 // Setting up a POST request for the login
 app.post("/login", (req, res) => {
