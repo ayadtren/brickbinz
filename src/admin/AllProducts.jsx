@@ -37,9 +37,9 @@ const AllProducts = () => {
                 <div></div>
               </li>
               <li className="list-group-item d-flex justify-content-between align-items-center">
-                <div>
+                
                   <img src={productImg} alt="product" width="100" />
-                </div>
+                
                 <div>
                   <h5 className="mb-1">Millenium Falcon</h5>
                   <small>Star Wars Set</small>

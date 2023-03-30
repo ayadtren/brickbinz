@@ -73,7 +73,7 @@ app.get("/login", (req, res) => {
 app.post("/products", (req, res) => {
     const q = "INSERT INTO product (`product_set_numb`, `product_set_name`, `product_price`, `product_location`, `product_quantity`, `product_img`, `theme`) VALUES (?)"
     const values = [
-        req.body.setNumb,
+        req.body.setNumber,
         req.body.setName,
         req.body.setPrice,
         req.body.setLocation,
@@ -82,7 +82,7 @@ app.post("/products", (req, res) => {
         req.body.setTheme
     ];
 
-    console.log(values);
+    console.log(req.body);
 
     db.query(q, [values], (err, data) => {
         if (err)

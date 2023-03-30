@@ -74,12 +74,12 @@ const AddProducts = () => {
             {loading ? <h4 className="py-5">Loading...</h4> : null}
             <h4 className="mb-5">Add Products</h4>
             <div className="addProductForm">
-              <input type="text" placeholder="Set Number" onChange={handleChange} name="setNumber" />
-              <input type="text" placeholder="Set Name" onChange={handleChange} name="setName" />
-              <input type="text" placeholder="Price" onChange={handleChange} name="setPrice" />
-              <input type="text" placeholder="Branch Location" onChange={handleChange} name="setLocation" />
-              <input type="number" placeholder="Quantity" onChange={handleChange} name="setQuantity" />
-              <input type="text" placeholder="Image" onChange={handleChange} name="setImage" />
+              <input type="text" placeholder="Set Number" onChange={handleChange} name="setNumber" required />
+              <input type="text" placeholder="Set Name" onChange={handleChange} name="setName" required />
+              <input type="number" placeholder="Price" onChange={handleChange} name="setPrice" required />
+              <input type="text" placeholder="Branch Location" onChange={handleChange} name="setLocation" required />
+              <input type="number" placeholder="Quantity" onChange={handleChange} name="setQuantity" required />
+              <input type="text" placeholder="Image" onChange={handleChange} name="setImage" required />
               <select onChange={handleChange} name="setTheme">
                 <option value="1">LEGO Architecture</option>
                 <option value="2">LEGO BrickHeadz</option>
