@@ -59,7 +59,7 @@ function Viewcart() {
 
      
       {/* <span className="Summary">Summary</span> */}
-      <button className="checkout-button">Checkout</button>
+    
     </div>
  
    );
@@ -72,7 +72,7 @@ function Viewcart() {
       
  	    <table className="item-table">
         <tr>
-        <th className="cart-items">Item</th><th></th><th className="cart-Price">price</th><th class="Quantity">Quantity</th>
+        <th className="cart-items">Items</th><th></th><th className="price-header">price</th><th class="Quantity">Quantity</th>
         </tr>
         {/* <div class="Underline"></div> */}
         {displayItems}
@@ -82,6 +82,8 @@ function Viewcart() {
         <h2>SUMMARY</h2>
         <h4>total price: ${totalPrice}</h4>
       </div>
+
+      <button className="checkout-button">Checkout</button>
       </>
   );
 }
