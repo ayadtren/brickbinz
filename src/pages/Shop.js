@@ -74,6 +74,7 @@ const Shop = () => {
 
       toast.success("Item added to cart", {
         position: "top-right",
+        autoClose: 2000, // auto close after 2 seconds
       });
     } catch (err) {
       console.log(err);
@@ -107,6 +108,7 @@ const Shop = () => {
 
   return (
     <section className="home">
+      <ToastContainer position="top-right" autoClose={2000} />
       <div className="container">
         <input
           className="search-bar"
