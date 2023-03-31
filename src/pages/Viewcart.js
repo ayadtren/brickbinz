@@ -84,6 +84,8 @@ function Viewcart() {
       </div>
 
       <button className="checkout-button">Checkout</button>
+
+    
       </>
   );
 }
