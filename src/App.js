@@ -6,6 +6,7 @@ import ContactUs from "./pages/ContactUs";
 import RealHomePage from "./pages/RealHomePage";
 import Bookevent from "./pages/Bookevent";
 import Productviewpg from "./pages/Productviewpg";
+import OrderCon from "./pages/OrderCon";
 import Shop from "./pages/Shop";
 import Adminlogin from "./pages/Adminlogin";
 import Viewcart from "./pages/Viewcart";
@@ -17,6 +18,7 @@ import Orders from "./admin/Orders";
 import Dashboard from "./admin/Dashboard";
 import Users from "./admin/Users";
 import ViewEvents from "./admin/ViewEvents";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Productviewpg />
+      </Layout>
+    ),
+  },
+  {
+    path: "/OrderCon",
+    element: (
+      <Layout>
+        <OrderCon />
       </Layout>
     ),
   },

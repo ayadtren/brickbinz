@@ -43,6 +43,9 @@ const Layout = (props) => {
                 <li>
                   <Link to="/product">Product</Link>
                 </li>
+                <li>
+                  <Link to="/OrderCon">OrderCon</Link>
+                </li>
               </ul>
             </div>
           </div>

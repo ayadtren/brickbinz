@@ -18,7 +18,7 @@ const Productviewpg = () => {
         <img className="image-4-icon " alt="" src="" />
       </div>
       <div className="test">
-      <button type="submit" className="contact-us__submit-btn">Submit</button>
+      <button type="submit" className="contact-us__submit-btn">Add to cart</button>
       </div>
     </div>
   );
