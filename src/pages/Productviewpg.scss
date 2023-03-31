@@ -31,7 +31,7 @@
   .price{
     position: absolute;
     top: 230px;
-    left: 594px;
+    left: 745px;
 
   }
 
@@ -47,3 +47,21 @@
     left: 743px;
     top: 370px;
   }
+  
+  .contact-us__submit-btn {
+    border: 2px solid red;
+    background-color: red;
+    color: white;
+    outline: 0;
+    height: 45px;
+    width: 10%;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: white;
+      color: red;
+}
+}
+
