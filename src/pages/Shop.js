@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -70,7 +72,9 @@ const Shop = () => {
     try {
       await axios.post("http://localhost:8000/cart", newCartItem);
 
-      alert("The item has been added to your cart");
+      toast.success("Item added to cart", {
+        position: "top-right",
+      });
     } catch (err) {
       console.log(err);
     }
@@ -104,140 +108,136 @@ const Shop = () => {
   return (
     <section className="home">
       <div className="container">
-       
-      <input
-      className="search-bar"
-      placeholder="Search"
-      value={search}
-      onChange={handleInputChange}
-    />
-
-    <div className="filter-bar">
-      <div className="filter-select">
-        <label htmlFor="sort-by-none">Sort By:</label>
-      </div>
-
-      <div>
-        Price: Low to High{" "}
         <input
-          type="radio"
-          id="sort-by-price-low-to-high"
-          name="sort-by"
-          value="price-low-to-high"
-          checked={filter === "price-low-to-high"}
-          onChange={handleFilterChange}
+          className="search-bar"
+          placeholder="Search"
+          value={search}
+          onChange={handleInputChange}
         />
-      </div>
 
-      <div>
-        Price: High to Low{" "}
-        <input
-          type="radio"
-          id="sort-by-price-high-to-low"
-          name="sort-by"
-          value="price-high-to-low"
-          checked={filter === "price-high-to-low"}
-          onChange={handleFilterChange}
-        />
-      </div>
+        <div className="filter-bar">
+          <div className="filter-select">
+            <label htmlFor="sort-by-none">Sort By:</label>
+          </div>
 
-      <div>
-        Name: A to Z{" "}
-        <input
-          type="radio"
-          id="sort-by-name-a-to-z"
-          name="sort-by"
-          value="name-a-to-z"
-          checked={filter === "name-a-to-z"}
-          onChange={handleFilterChange}
-        />
-      </div>
+          <div>
+            Price: Low to High{" "}
+            <input
+              type="radio"
+              id="sort-by-price-low-to-high"
+              name="sort-by"
+              value="price-low-to-high"
+              checked={filter === "price-low-to-high"}
+              onChange={handleFilterChange}
+            />
+          </div>
 
-      <div>
-        Name: Z to A{" "}
-        <input
-          type="radio"
-          id="sort-by-name-z-to-a"
-          name="sort-by"
-          value="name-z-to-a"
-          checked={filter === "name-z-to-a"}
-          onChange={handleFilterChange}
-        />
-      </div>
+          <div>
+            Price: High to Low{" "}
+            <input
+              type="radio"
+              id="sort-by-price-high-to-low"
+              name="sort-by"
+              value="price-high-to-low"
+              checked={filter === "price-high-to-low"}
+              onChange={handleFilterChange}
+            />
+          </div>
 
-      <div className="filter-select">
-        <div>
-          <label htmlFor="filter-by-themes">Filter by Theme:</label>
-        </div>
-        <div>
-          <select
-            id="filter-by-themes"
-            value={themeFilter}
-            onChange={handleThemeFilterChange}
-          >
-            <option value="">All</option>
-            {Object.entries(themes).map(([key, value]) => (
-              <option key={key} value={key}>
-                {value}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-    </div>
-    <ul className="inventory-list">
-      {getFilteredResults.map((product) => {
-        return (
-          <li key={product.product_set_numb}>
-            <div className="card">
-              <div className="image">
-                <img
-                  src={require(`./../images/products/${product.product_img}`)}
-                  alt={product.product_img}
-                  width="70%"
-                />
-              </div>
-              <div className="setNumb" name="product_set_numb">
-                #{product.product_set_numb}
-              </div>
-              <div className="title" name="product_set_name">
-                {product.product_set_name}
-              </div>
-              <br />
-              <div name="product_price">${product.product_price}</div>
-              <div hidden="hidden" name="product_location">
-                {product.product_location}
-              </div>
-              <div
-                hidden="hidden"
-                className="quantity"
-                name="product_quantity"
-              >
-                {product.product_quantity}
-              </div>
-              <div hidden="hidden" name="product_img">
-                {product.product_img}
-              </div>
-              <div hidden="hidden" name="theme">
-                {product.theme}
-              </div>
-              <br />
-              <div className="button">
-                <button
-                  className="add-cart"
-                  onClick={handleClick(product)}
-                >
-                  Add Cart
-                </button>
-              </div>
+          <div>
+            Name: A to Z{" "}
+            <input
+              type="radio"
+              id="sort-by-name-a-to-z"
+              name="sort-by"
+              value="name-a-to-z"
+              checked={filter === "name-a-to-z"}
+              onChange={handleFilterChange}
+            />
+          </div>
+
+          <div>
+            Name: Z to A{" "}
+            <input
+              type="radio"
+              id="sort-by-name-z-to-a"
+              name="sort-by"
+              value="name-z-to-a"
+              checked={filter === "name-z-to-a"}
+              onChange={handleFilterChange}
+            />
+          </div>
+
+          <div className="filter-select">
+            <div>
+              <label htmlFor="filter-by-themes">Filter by Theme:</label>
             </div>
-          </li>
-        );
-      })}
-    </ul>
-  </div>
-</section>
-);
+            <div>
+              <select
+                id="filter-by-themes"
+                value={themeFilter}
+                onChange={handleThemeFilterChange}
+              >
+                <option value="">All</option>
+                {Object.entries(themes).map(([key, value]) => (
+                  <option key={key} value={key}>
+                    {value}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+        <ul className="inventory-list">
+          {getFilteredResults.map((product) => {
+            return (
+              <li key={product.product_set_numb}>
+                <div className="card">
+                  <div className="image">
+                    <img
+                      src={require(`./../images/products/${product.product_img}`)}
+                      alt={product.product_img}
+                      width="70%"
+                    />
+                  </div>
+                  <div className="setNumb" name="product_set_numb">
+                    #{product.product_set_numb}
+                  </div>
+                  <div className="title" name="product_set_name">
+                    {product.product_set_name}
+                  </div>
+                  <br />
+                  <div name="product_price">${product.product_price}</div>
+                  <div hidden="hidden" name="product_location">
+                    {product.product_location}
+                  </div>
+                  <div
+                    hidden="hidden"
+                    className="quantity"
+                    name="product_quantity"
+                  >
+                    {product.product_quantity}
+                  </div>
+                  <div hidden="hidden" name="product_img">
+                    {product.product_img}
+                  </div>
+                  <div hidden="hidden" name="theme">
+                    {product.theme}
+                  </div>
+                  <br />
+                  <div className="button">
+                    <button className="add-cart" onClick={handleClick(product)}>
+                      Add Cart
+                    </button>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
+  );
 };
 
 export default Shop;
