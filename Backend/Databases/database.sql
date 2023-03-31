@@ -12,6 +12,17 @@ CREATE TABLE IF NOT EXISTS brickbindb.login (
     PRIMARY KEY (username)
 );
 
+CREATE TABLE IF NOT EXISTS brickbindb.event (
+    event_id INT(19) NOT NULL AUTO_INCREMENT,
+    event_user_name VARCHAR(45) NOT NULL,
+    event_email VARCHAR(45) NOT NULL,
+    event_date DATE NOT NULL,
+    event_time TIME NOT NULL,
+    event_number_guest INT(45) NOT NULL,
+    event_description VARCHAR(45) NOT NULL,
+    PRIMARY KEY (event_id)
+);
+
 CREATE TABLE IF NOT EXISTS brickbindb.product (
     product_set_numb VARCHAR(40) NOT NULL,
     product_set_name VARCHAR(40) NOT NULL,

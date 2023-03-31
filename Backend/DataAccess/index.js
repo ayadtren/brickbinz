@@ -132,6 +132,70 @@ app.post("/cart", (req, res) => {
     })
 })
 
+// Setting up a GET request for the event
+app.get("/event", (req, res) => {
+    const q = "SELECT * from event"
+    db.query(q, (err, data) => {
+        if(err)
+            return res.json(err)
+        return res.json(data)
+
+    })
+})
+
+
+app.post("/event", (req, res) => {
+    const q = "INSERT INTO event (`event_id`, `event_user_name`, `event_email`, `event_date`, `event_time`, `event_number_guest`, `event_description`) VALUES (?)"
+    const values = [
+        req.body.event_id,
+        req.body.event_user_name,
+        req.body.event_email,
+        req.body.event_date,
+        req.body.event_time,
+        req.body.event_number_guest,
+        req.body.event_description,
+    ];
+
+    db.query(q, [values], (err, data) => {
+        if (err)
+            return res.json(err)
+        return res.json(data)
+
+    })
+})
+
+// Setting up a GET request for the event
+app.get("/event", (req, res) => {
+    const q = "SELECT * from event"
+    db.query(q, (err, data) => {
+        if(err)
+            return res.json(err)
+        return res.json(data)
+
+    })
+})
+
+
+app.post("/event", (req, res) => {
+    const q = "INSERT INTO event (`event_id`, `event_user_name`, `event_email`, `event_date`, `event_time`, `event_number_guest`, `event_description`) VALUES (?)"
+    const values = [
+        req.body.event_id,
+        req.body.event_user_name,
+        req.body.event_email,
+        req.body.event_date,
+        req.body.event_time,
+        req.body.event_number_guest,
+        req.body.event_description,
+    ];
+
+    db.query(q, [values], (err, data) => {
+        if(err)
+            return res.json(err)
+        return res.json(data)
+
+    })
+})
+
 //Code block to delete data in the database using the product's set number
 app.delete("/products/:product_set_numb", (req, res) => {
     const productId = req.params.product_set_numb;
