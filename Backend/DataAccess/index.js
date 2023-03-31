@@ -132,6 +132,17 @@ app.post("/cart", (req, res) => {
     })
 })
 
+app.delete("/products/:product_set_numb", (req, res) => {
+    const productId = req.params.product_set_numb;
+    const q = "DELETE FROM product WHERE product_set_numb = ?"
+
+    db.query(q, [productId], (err, data) => {
+        if (err)
+            return res.json(err)
+        return res.json(data)
+    })
+})
+
 app.delete("/cart/:cart_set_numb", (req, res) => {
     const cartProductId = req.params.cart_set_numb;
     const q = "DELETE FROM cart WHERE cart_set_numb = ?"
@@ -142,8 +153,6 @@ app.delete("/cart/:cart_set_numb", (req, res) => {
         return res.json(data)
     })
 })
-
-
 
 app.listen(8000, () =>
 {

@@ -102,7 +102,7 @@ const Shop = () => {
     .sort((a, b) => {
       //calling the 'sort' method on 'products' array which is used to sort the element in either ascending or descending order
       switch (
-        filter //using a switch statement to check the value of 'filter'
+      filter //using a switch statement to check the value of 'filter'
       ) {
         case "price-low-to-high": //if the value of 'filter' is price-low-to-high
           return a.product_price - b.product_price; //return the difference of the product prices if 'a' is less than 'b'
@@ -202,11 +202,11 @@ const Shop = () => {
                   <label htmlFor="sort-by-theme">Theme</label>
                 </div>
                 {/* <select id="filter-by-themes" checked={filter === "theme"} value={filter} onChange={handleFilterChange}>
-          <option value="">All</option>
-          {getFilteredResults.map((product) =>(
-            <option key={product.theme}>{product.theme}</option>
-          ))}
-        </select> */}
+                  <option value="">All</option>
+                  {getFilteredResults.map((product) => (
+                    <option key={product.theme}>{product.theme}</option>
+                  ))}
+                </select> */}
               </div>
             </div>
           </div>
