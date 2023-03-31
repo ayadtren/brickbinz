@@ -8,5 +8,5 @@ const Productviewpg = () => {
     </div>
   );
 };
-
+ 
 export default Productviewpg;
