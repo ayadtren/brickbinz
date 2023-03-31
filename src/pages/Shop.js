@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -70,7 +72,10 @@ const Shop = () => {
     try {
       await axios.post("http://localhost:8000/cart", newCartItem);
 
-      alert("The item has been added to your cart");
+      toast.success("Item added to cart", {
+        position: "top-right",
+        autoClose: 2000, // auto close after 2 seconds
+      });
     } catch (err) {
       console.log(err);
     }
@@ -87,74 +92,71 @@ const Shop = () => {
       return item.theme === parseInt(themeFilter, 10);
     })
     .sort((a, b) => {
-      //calling the 'sort' method on 'products' array which is used to sort the element in either ascending or descending order
-      switch (
-        filter //using a switch statement to check the value of 'filter'
-      ) {
-        case "price-low-to-high": //if the value of 'filter' is price-low-to-high
-          return a.product_price - b.product_price; //return the difference of the product prices if 'a' is less than 'b'
-        case "price-high-to-low": //if the value of 'filter' is price-high-to-low
-          return b.product_price - a.product_price; //return the difference of the product prices if 'b' is less than 'a'
-        case "name-a-to-z": //if the value of 'filter' is name-a-to-z
-          return a.product_set_name.localeCompare(b.product_set_name); //returns a negative number if the name of 'a' comes before 'b' alphabetically
-        case "name-z-to-a": //if the value of 'filter' is name-z-to-a
-          return b.product_set_name.localeCompare(a.product_set_name); //returns a negative number if the name of 'b' comes before 'a' alphabetically
-        case "theme":
-          return a.theme - b.theme; // sort by theme_id in ascending order
+      switch (filter) {
+        case "price-low-to-high":
+          return a.product_price - b.product_price;
+        case "price-high-to-low":
+          return b.product_price - a.product_price;
+        case "name-a-to-z":
+          return a.product_set_name.localeCompare(b.product_set_name);
+        case "name-z-to-a":
+          return b.product_set_name.localeCompare(a.product_set_name);
+        default:
+          return 0;
       }
     });
 
   return (
     <section className="home">
+      <ToastContainer position="top-right" autoClose={2000} />
       <div className="container">
-       
-      <input
-      className="search-bar"
-      placeholder="Search"
-      value={search}
-      onChange={handleInputChange}
-    />
-
-    <div className="filter-bar">
-      <div className="filter-select">
-        <label htmlFor="sort-by-none">Sort By:</label>
-      </div>
-
-      <div>
-        Price: Low to High{" "}
         <input
-          type="radio"
-          id="sort-by-price-low-to-high"
-          name="sort-by"
-          value="price-low-to-high"
-          checked={filter === "price-low-to-high"}
-          onChange={handleFilterChange}
+          className="search-bar"
+          placeholder="Search"
+          value={search}
+          onChange={handleInputChange}
         />
-      </div>
 
-      <div>
-        Price: High to Low{" "}
-        <input
-          type="radio"
-          id="sort-by-price-high-to-low"
-          name="sort-by"
-          value="price-high-to-low"
-          checked={filter === "price-high-to-low"}
-          onChange={handleFilterChange}
-        />
-      </div>
+        <div className="filter-bar">
+          <div className="filter-select">
+            <label htmlFor="sort-by-none">Sort By:</label>
+          </div>
 
-      <div>
-        Name: A to Z{" "}
-        <input
-          type="radio"
-          id="sort-by-name-a-to-z"
-          name="sort-by"
-          value="name-a-to-z"
-          checked={filter === "name-a-to-z"}
-          onChange={handleFilterChange}
-        />
-      </div>
+          <div>
+            Price: Low to High{" "}
+            <input
+              type="radio"
+              id="sort-by-price-low-to-high"
+              name="sort-by"
+              value="price-low-to-high"
+              checked={filter === "price-low-to-high"}
+              onChange={handleFilterChange}
+            />
+          </div>
+
+          <div>
+            Price: High to Low{" "}
+            <input
+              type="radio"
+              id="sort-by-price-high-to-low"
+              name="sort-by"
+              value="price-high-to-low"
+              checked={filter === "price-high-to-low"}
+              onChange={handleFilterChange}
+            />
+          </div>
+
+          <div>
+            Name: A to Z{" "}
+            <input
+              type="radio"
+              id="sort-by-name-a-to-z"
+              name="sort-by"
+              value="name-a-to-z"
+              checked={filter === "name-a-to-z"}
+              onChange={handleFilterChange}
+            />
+          </div>
 
           <div>
             Name: Z to A{" "}
@@ -163,33 +165,28 @@ const Shop = () => {
               id="sort-by-name-z-to-a"
               name="sort-by"
               value="name-z-to-a"
-              checked={filter === "name-z-to-a"} //conditionally checks if the value of 'filter' is name-z-to-a and sets the options to 'checked'
+              checked={filter === "name-z-to-a"}
               onChange={handleFilterChange}
             />
-            <label htmlFor="sort-by-name-z-to-a"></label>
-            <div className="filter-select">
-              <div>
-                <label htmlFor="filter-by-themes">Filter by Theme:</label>
-              </div>
-              <div>
-                <div>
-                  <input
-                    type="radio"
-                    id="sort-by-theme"
-                    name="sort-by"
-                    value="theme"
-                    checked={filter === "theme"} //conditionally checks if the value of 'filter' is theme and sets the options to 'checked'
-                    onChange={handleFilterChange}
-                  />
-                  <label htmlFor="sort-by-theme">Theme</label>
-                </div>
-                {/* <select id="filter-by-themes" checked={filter === "theme"} value={filter} onChange={handleFilterChange}>
-          <option value="">All</option>
-          {getFilteredResults.map((product) =>(
-            <option key={product.theme}>{product.theme}</option>
-          ))}
-        </select> */}
-              </div>
+          </div>
+
+          <div className="filter-select">
+            <div>
+              <label htmlFor="filter-by-themes">Filter by Theme:</label>
+            </div>
+            <div>
+              <select
+                id="filter-by-themes"
+                value={themeFilter}
+                onChange={handleThemeFilterChange}
+              >
+                <option value="">All</option>
+                {Object.entries(themes).map(([key, value]) => (
+                  <option key={key} value={key}>
+                    {value}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
         </div>
@@ -211,7 +208,7 @@ const Shop = () => {
                   <div className="title" name="product_set_name">
                     {product.product_set_name}
                   </div>
-                  <br></br>
+                  <br />
                   <div name="product_price">${product.product_price}</div>
                   <div hidden="hidden" name="product_location">
                     {product.product_location}
@@ -229,7 +226,7 @@ const Shop = () => {
                   <div hidden="hidden" name="theme">
                     {product.theme}
                   </div>
-                  <br></br>
+                  <br />
                   <div className="button">
                     <button className="add-cart" onClick={handleClick(product)}>
                       Add Cart

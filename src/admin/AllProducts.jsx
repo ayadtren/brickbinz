@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import productImg from "../images/falcon.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -99,6 +99,11 @@ const AllProducts = () => {
                     <div>
                       <button className="btn btn-danger" onClick={() => handleDelete(product.product_set_numb)}>
                         Delete
+                      </button>
+                      <button >
+                        <Link to={`/AdminNav/UpdateProducts/${product.product_set_numb}`}>
+                          Update
+                        </Link>
                       </button>
                     </div>
                   </li>
