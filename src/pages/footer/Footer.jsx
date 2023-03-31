@@ -10,10 +10,10 @@ const Footer = () => {
       <Container className="footer">
         <Row>
           <Col md="6" className="text-center text-md-left mb-2 mb-md-0">
-            <a href="#">
+            <a href="https://www.facebook.com/BrickBin/" target="_blank">
               <FaFacebook size={30} className="mr-2" />
             </a>
-            <a href="#">
+            <a href="https://www.instagram.com/brickbin_yyc/" target="_blank">
               <FaInstagram size={30} className="mr-2" />
             </a>
             <a href="#">
