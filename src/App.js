@@ -17,6 +17,7 @@ import Orders from "./admin/Orders";
 import Dashboard from "./admin/Dashboard";
 import Users from "./admin/Users";
 import ViewEvents from "./admin/ViewEvents";
+import UpdateProducts from "./admin/UpdateProducts";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -118,6 +119,10 @@ const router = createBrowserRouter([
       {
         path: "/AdminNav/ViewEvents",
         element: <ViewEvents />,
+      },
+      {
+        path: "/AdminNav/UpdateProducts/:set_number",
+        element: <UpdateProducts />,
       },
     ],
   },

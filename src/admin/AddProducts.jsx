@@ -14,17 +14,17 @@ const AddProducts = () => {
   const [loading, setLoading] = useState(false);
 
   const [products, setProducts] = useState({
-    setNumber:"",
-    setName:"",
-    setPrice:null,
-    setLocation:"",
-    setQuantity:null,
-    setImage:"",
-    setTheme:null,
+    setNumber: "",
+    setName: "",
+    setPrice: null,
+    setLocation: "",
+    setQuantity: null,
+    setImage: "",
+    setTheme: null,
   });
 
   const handleChange = (e) => {
-    setProducts(prev=>({...prev, [e.target.name]: e.target.value}))
+    setProducts(prev => ({ ...prev, [e.target.name]: e.target.value }))
   };
 
   const handleClick = async e => {
@@ -61,8 +61,8 @@ const AddProducts = () => {
   //   const data = await res.json();
   //   if (data) {
 
-    // toast.success("product added successfully!");
-    // console.log(product);
+  // toast.success("product added successfully!");
+  // console.log(product);
   // };
 
   return (

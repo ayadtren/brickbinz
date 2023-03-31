@@ -5,6 +5,7 @@ import "../styles/admin-nav.scss";
 import useAuth from "../hooks/useAuth";
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import logo from "../images/brickbinbanner.png";
 
 const AdminNav = () => {
   const { authUser } = useAuth();
@@ -61,7 +62,7 @@ const AdminNav = () => {
                   <span>
                     <i className="ri-setings-2-line"></i>
                   </span>
-                  <img src="images/logo.png" alt="logo" />
+                  <img src="logo" alt="logo" />
                 </span>
               </div>
             </div>
