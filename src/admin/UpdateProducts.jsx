@@ -3,10 +3,11 @@ import { ToastContainer, toast } from "react-toastify";
 import { Container, Row, Col, Form, FormGroup } from "react-bootstrap";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const UpdateProduct = () => {
     const [products, setProducts] = useState({
-        setNumber: "",
+        // setNumber: "",
         setName: "",
         setPrice: null,
         setLocation: "",
@@ -15,6 +16,12 @@ const UpdateProduct = () => {
         setTheme: null,
     });
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    
+    const productId = location.pathname.split("/")[3];
+    // console.log(location.pathname.split("/")[3])
+
     const handleChange = (e) => {
         setProducts(prev => ({ ...prev, [e.target.name]: e.target.value }))
     };
@@ -22,13 +29,15 @@ const UpdateProduct = () => {
     const handleClick = async e => {
         e.preventDefault()
         try {
-            await axios.put("http://localhost:8000/products", products)
-            alert("Product added successfully")
+            await axios.put("http://localhost:8000/products/" + productId, products)
+            alert("Product updated successfully")
+            navigate("/AdminNav/AllProducts")
         } catch (err) {
             console.log(err)
         }
     };
 
+    console.log(products)
 
     return (
         <section>
