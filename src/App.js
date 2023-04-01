@@ -1,23 +1,23 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.scss";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import Layout from "./components/Layout";
-import ContactUs from "./pages/ContactUs";
-import RealHomePage from "./pages/RealHomePage";
-import Bookevent from "./pages/Bookevent";
-import Productviewpg from "./pages/Productviewpg";
-import OrderCon from "./pages/OrderCon";
-import Shop from "./pages/Shop";
-import Adminlogin from "./pages/Adminlogin";
-import Viewcart from "./pages/Viewcart";
-import AdminNav from "./admin/AdminNav";
-import AddProducts from "./admin/AddProducts";
-import AllProducts from "./admin/AllProducts";
 import AddImage from "./admin/AddImage";
-import Orders from "./admin/Orders";
+import AddProducts from "./admin/AddProducts";
+import AdminNav from "./admin/AdminNav";
+import AllProducts from "./admin/AllProducts";
 import Dashboard from "./admin/Dashboard";
+import Orders from "./admin/Orders";
 import Users from "./admin/Users";
 import ViewEvents from "./admin/ViewEvents";
+import Layout from "./components/Layout";
+import Adminlogin from "./pages/Adminlogin";
+import Bookevent from "./pages/Bookevent";
+import ContactUs from "./pages/ContactUs";
+import OrderCon from "./pages/OrderCon";
+import Productviewpg from "./pages/Productviewpg";
+import RealHomePage from "./pages/RealHomePage";
+import Shop from "./pages/Shop";
+import Viewcart from "./pages/Viewcart";
 
 const router = createBrowserRouter([
   {
@@ -129,10 +129,10 @@ const router = createBrowserRouter([
         path: "/AdminNav/ViewEvents",
         element: <ViewEvents />,
       },
-      {
-        path: "/AdminNav/UpdateProducts/:set_number",
-        element: <UpdateProducts />,
-      },
+      // {
+      //   path: "/AdminNav/UpdateProducts/:set_number",
+      //   element: <UpdateProducts />,
+      // },
     ],
   },
 ]);

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import React, { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Shop = () => {
@@ -190,6 +190,7 @@ const Shop = () => {
             </div>
           </div>
         </div>
+
         <ul className="inventory-list">
           {getFilteredResults.map((product) => {
             return (
