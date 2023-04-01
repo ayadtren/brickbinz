@@ -1,11 +1,8 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
-import { Outlet, useLocation } from "react-router-dom";
-import "../styles/admin-nav.scss";
+import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
-import logo from "../images/brickbinbanner.png";
+import "../styles/admin-nav.scss";
 
 const AdminNav = () => {
   const { authUser } = useAuth();
@@ -43,33 +40,6 @@ const AdminNav = () => {
 
   return (
     <div>
-      <header className="admin__header">
-        <div className="admin__nav-top">
-          <Container>
-            <div className="admin__nav-wrapper-top">
-              <div className="logo">
-                <h2>Brickbin</h2>
-              </div>
-
-              <div className="search__box"></div>
-              <input type="text" placeholder="Search...." />
-              <span>
-                <i className="ri-search-line"></i>
-              </span>
-              <div className="admin__nav-top-right">
-                <span>
-                  <i className="ri-notification-3-line"></i>
-                  <span>
-                    <i className="ri-setings-2-line"></i>
-                  </span>
-                  <img src="logo" alt="logo" />
-                </span>
-              </div>
-            </div>
-          </Container>
-        </div>
-      </header>
-
       <section className="admin__menu p-0">
         <Container>
           <Row>

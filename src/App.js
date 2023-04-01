@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./App.scss";
-
+import "react-toastify/dist/ReactToastify.css";
 import AddImage from "./admin/AddImage";
 import AddProducts from "./admin/AddProducts";
 import AdminNav from "./admin/AdminNav";
@@ -9,6 +8,7 @@ import Dashboard from "./admin/Dashboard";
 import Orders from "./admin/Orders";
 import Users from "./admin/Users";
 import ViewEvents from "./admin/ViewEvents";
+import "./App.scss";
 import Layout from "./components/Layout";
 import Adminlogin from "./pages/Adminlogin";
 import Bookevent from "./pages/Bookevent";

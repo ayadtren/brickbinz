@@ -1,11 +1,15 @@
-.App {
+.app {
   width: 100%;
+  max-width: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .main {
-  max-width: 1200px;
   margin: 0 auto;
+  max-width: 100%;
+  min-height: calc(100vh - 84px);
 }
 
 .nav {
@@ -172,16 +176,25 @@
   margin-bottom: 20px;
 }
 //input tag from event.scss is overriding
-.search-bar {
-  margin-right: 512px;
-  border-radius: 10px;
-  border-color: red;
-}
+
 //what does this do?
 .filter-select {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  margin-bottom: 16px;
+  min-height: 48px;
+  div {
+    label {
+      margin-bottom: 6px;
+      color: black;
+    }
+  }
+  div {
+    .form-select {
+      min-height: 48px;
+      border-radius: 24px;
+    }
+  }
 }
 
 .filter-select input[type="radio"] {
@@ -194,7 +207,7 @@
 }
 
 .filter-select input[type="radio"]:checked {
-  border-color: red;
+  border-color: black;
 }
 
 .filter-select label {
@@ -208,23 +221,56 @@
   box-shadow: 0px 0px 15px 0px; //color
   transition: 0.2s;
 }
-.filter-bar {
-  border: 2px solid red;
-  width: 300px;
-  padding: 1rem;
-  margin-left: -20%;
-  position: relative;
-  top: 40px;
-  input {
-    display: inline;
-  }
-}
 
 .home {
   padding-top: 20px;
   padding-bottom: 20px;
-
   .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+
+    @media (max-width: 1100px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .filter-bar {
+      width: 300px;
+      padding: 1rem;
+      @media (max-width: 1100px) {
+        margin-bottom: 24px;
+        margin-top: 0px;
+        width: 100%;
+      }
+
+      .search-box {
+        border: 1px solid #ced4da;
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        width: 100%;
+        min-height: 48px;
+        margin-bottom: 12px;
+
+        .search-icon {
+          margin-left: 6px;
+          margin-right: 0px;
+        }
+
+        .search-bar {
+          background-color: transparent;
+          min-height: 48px;
+          border: 0;
+          outline: 0;
+          padding-right: 12px;
+        }
+      }
+    }
+
     .inventory-list {
       list-style: none;
       background-color: transparent;
@@ -233,18 +279,21 @@
       justify-content: flex-start;
       flex-direction: row;
       flex-wrap: wrap;
-      //gap: 0.5rem;
-      padding-left: 140px;
-      margin-top: -20%;
-      width: 100%;
-      max-width: 1100px;
-      padding-top: 25px;
+      @media (max-width: 800px) {
+        align-items: center;
+        justify-content: center;
+      }
 
       li {
         flex-basis: 33.33%;
         max-width: 33.33%;
         box-sizing: border-box;
         padding: 10px;
+
+        @media (max-width: 800px) {
+          flex-basis: 100%;
+          max-width: 100%;
+        }
 
         .card {
           max-width: 250px;
@@ -257,10 +306,21 @@
           height: 350px;
           padding: 1rem;
           object-fit: contain;
+          @media (max-width: 800px) {
+            max-width: 100%;
+          }
 
-          img {
+          .image-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            height: 150px;
+            margin-bottom: 12px;
+            img {
+              width: 100%;
+              height: 150px;
+              object-fit: contain;
+            }
           }
 
           .title {
@@ -275,9 +335,6 @@
 }
 
 .Footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
   background-color: #f5e505;
   color: #000;

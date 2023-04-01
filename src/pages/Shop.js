@@ -1,7 +1,51 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Form from "react-bootstrap/Form";
+import { MdOutlineSearch } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
+const themes = {
+  1: "LEGO Architecture",
+  2: "LEGO BrickHeadz",
+  3: "LEGO City",
+  4: "LEGO Classic",
+  5: "LEGO Creator-3-in-1",
+  6: "LEGO DC",
+  7: "LEGO Disney",
+  8: "LEGO Friends",
+  9: "LEGO Harry Potter",
+  10: "LEGO Ideas",
+  11: "LEGO Jurassic World",
+  12: "LEGO Avatar",
+  13: "LEGO Super Mario",
+  14: "LEGO Lord of the Rings",
+  15: "LEGO Marvel",
+  16: "LEGO CMF Series",
+  17: "LEGO Speed Champions",
+  18: "LEGO Star Wars",
+  19: "LEGO Technic",
+  20: "LEGO Creator Expert/Icons",
+  21: "LEGO Retired",
+};
+
+const filters = [
+  {
+    label: "Price: Low to High",
+    value: "price-low-to-high",
+  },
+  {
+    label: "Price: High to Low",
+    value: "price-high-to-low",
+  },
+  {
+    label: "Name: A to Z",
+    value: "name-a-to-z",
+  },
+  {
+    label: "Name: Z to A",
+    value: "name-z-to-a",
+  },
+];
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -9,35 +53,12 @@ const Shop = () => {
   const [filter, setFilter] = useState("");
   const [themeFilter, setThemeFilter] = useState("");
 
-  const themes = {
-    1: "LEGO Architecture",
-    2: "LEGO BrickHeadz",
-    3: "LEGO City",
-    4: "LEGO Classic",
-    5: "LEGO Creator-3-in-1",
-    6: "LEGO DC",
-    7: "LEGO Disney",
-    8: "LEGO Friends",
-    9: "LEGO Harry Potter",
-    10: "LEGO Ideas",
-    11: "LEGO Jurassic World",
-    12: "LEGO Avatar",
-    13: "LEGO Super Mario",
-    14: "LEGO Lord of the Rings",
-    15: "LEGO Marvel",
-    16: "LEGO CMF Series",
-    17: "LEGO Speed Champions",
-    18: "LEGO Star Wars",
-    19: "LEGO Technic",
-    20: "LEGO Creator Expert/Icons",
-    21: "LEGO Retired",
-  };
-
   const handleInputChange = (event) => {
     setSearch(event.target.value);
   };
 
   const handleFilterChange = (event) => {
+    console.log(event.target.value);
     setFilter(event.target.value);
   };
 
@@ -109,65 +130,39 @@ const Shop = () => {
   return (
     <section className="home">
       <ToastContainer position="top-right" autoClose={2000} />
+
       <div className="container">
-        <input
-          className="search-bar"
-          placeholder="Search"
-          value={search}
-          onChange={handleInputChange}
-        />
-
         <div className="filter-bar">
+          <div className="search-box">
+            <MdOutlineSearch size={24} className="search-icon" />
+            <div>
+              <input
+                className="search-bar"
+                placeholder="Search"
+                value={search}
+                onChange={handleInputChange}
+              />
+            </div>
+          </div>
+
           <div className="filter-select">
-            <label htmlFor="sort-by-none">Sort By:</label>
-          </div>
-
-          <div>
-            Price: Low to High{" "}
-            <input
-              type="radio"
-              id="sort-by-price-low-to-high"
-              name="sort-by"
-              value="price-low-to-high"
-              checked={filter === "price-low-to-high"}
-              onChange={handleFilterChange}
-            />
-          </div>
-
-          <div>
-            Price: High to Low{" "}
-            <input
-              type="radio"
-              id="sort-by-price-high-to-low"
-              name="sort-by"
-              value="price-high-to-low"
-              checked={filter === "price-high-to-low"}
-              onChange={handleFilterChange}
-            />
-          </div>
-
-          <div>
-            Name: A to Z{" "}
-            <input
-              type="radio"
-              id="sort-by-name-a-to-z"
-              name="sort-by"
-              value="name-a-to-z"
-              checked={filter === "name-a-to-z"}
-              onChange={handleFilterChange}
-            />
-          </div>
-
-          <div>
-            Name: Z to A{" "}
-            <input
-              type="radio"
-              id="sort-by-name-z-to-a"
-              name="sort-by"
-              value="name-z-to-a"
-              checked={filter === "name-z-to-a"}
-              onChange={handleFilterChange}
-            />
+            <div>
+              <label htmlFor="filter-by-themes">Filter By:</label>
+            </div>
+            <div>
+              <Form.Select
+                id="filter-by-themes"
+                value={filter}
+                onChange={handleFilterChange}
+              >
+                <option value="">All</option>
+                {filters.map((item) => (
+                  <option key={item.value} value={item.value}>
+                    {item.label}
+                  </option>
+                ))}
+              </Form.Select>
+            </div>
           </div>
 
           <div className="filter-select">
@@ -175,7 +170,7 @@ const Shop = () => {
               <label htmlFor="filter-by-themes">Filter by Theme:</label>
             </div>
             <div>
-              <select
+              <Form.Select
                 id="filter-by-themes"
                 value={themeFilter}
                 onChange={handleThemeFilterChange}
@@ -186,7 +181,7 @@ const Shop = () => {
                     {value}
                   </option>
                 ))}
-              </select>
+              </Form.Select>
             </div>
           </div>
         </div>
@@ -196,11 +191,10 @@ const Shop = () => {
             return (
               <li key={product.product_set_numb}>
                 <div className="card">
-                  <div className="image">
+                  <div className="image-box">
                     <img
                       src={require(`./../images/products/${product.product_img}`)}
                       alt={product.product_img}
-                      width="70%"
                     />
                   </div>
                   <div className="setNumb" name="product_set_numb">
