@@ -1,6 +1,25 @@
-import React, { useEffect, useState } from "react";
-import './Viewcart.css';
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import { MdAdd, MdDelete, MdRemove } from "react-icons/md";
+import "./Viewcart.scss";
+
+export const formatNumberWithCommas = (string) => {
+  if (!string) return "";
+  const n = string;
+  const p = n.indexOf(".");
+  return n.replace(/\d(?=(?:\d{3})+(?:\.|$))/g, (m, i) =>
+    p < 0 || i < p ? `${m},` : m
+  );
+};
+
+export const roundMoneyNum = (amount) => {
+  if (!amount) return 0;
+  //always rounds a number up to the next largest whole number or integer.
+  return (Math.round((amount + Number.EPSILON) * 100) / 100).toString();
+};
 
 function Viewcart() {
   const [cartItems, setCartItems] = useState([]);
@@ -16,77 +35,173 @@ function Viewcart() {
     fetchAllCartItems();
   }, []);
 
-  const handleDelete = async (cart_set_numb) => {
+  const handleDelete = (cart_set_numb) => async (e) => {
     try {
-      console.log("http://localhost:8000/cart/" + cart_set_numb)
+      console.log("http://localhost:8000/cart/" + cart_set_numb);
       await axios.delete("http://localhost:8000/cart/" + cart_set_numb);
       window.location.reload();
     } catch (err) {
-      console.log(err.response.data)
+      console.log(err.response.data);
     }
+  };
+
+  const handleAdd = (cartItem) => async (e) => {
+    try {
+      const newCartItem = { ...cartItem };
+      if (newCartItem.cart_quantity < 99) {
+        newCartItem.cart_quantity = newCartItem.cart_quantity + 1;
+      }
+      await axios.put(
+        "http://localhost:8000/cart/" + cartItem.cart_set_numb,
+        newCartItem
+      );
+      window.location.reload();
+    } catch (err) {
+      console.log(err.response.data);
+    }
+  };
+
+  const handleMinus = (cartItem) => async (e) => {
+    try {
+      const newCartItem = { ...cartItem };
+      if (newCartItem.cart_quantity > 0) {
+        newCartItem.cart_quantity = newCartItem.cart_quantity - 1;
+      }
+      await axios.put("http://localhost:8000/cart/" + cartItem.cart_set_numb);
+      window.location.reload();
+    } catch (err) {
+      console.log(err.response.data);
+    }
+  };
+
+  let totalPrice = 0;
+  //add the sum of the total price.
+  for (let i = 0; i < cartItems.length; i++) {
+    totalPrice += cartItems[i]?.cart_set_price;
   }
- 
-    let totalPrice = 0;
-    //add the sum of the total price. 
-    for(let i = 0; i < cartItems.length; i++){
-        totalPrice += cartItems[i]?.cart_set_price;
-    }
-
-   const displayItems = cartItems.map((cartItems) =>
-   <div key={cartItems.cart_set_numb}>
-      
-        <tr>
-          <td class="pic">
-            <img
-              src={require(`./../images/products/${cartItems.cart_set_img}`)}
-              alt={cartItems.cart_set_img}
-              width="70%"
-            />
-          </td>
-          <td class="name">{cartItems.cart_set_name}</td>
-          <td class="cart-Price">${cartItems.cart_set_price}</td>
-          <td class="quantity">
-            {cartItems.cart_set_quantity}
-            <button
-              className="remove-button"
-              onClick={() => handleDelete(cartItems.cart_set_numb)}
-            >
-              X
-            </button>
-          </td>
-        </tr>
-   
-
-     
-      {/* <span className="Summary">Summary</span> */}
-    
-    </div>
- 
-   );
 
   return (
-    <>
-    <div class="title-container">
-        <div class="Title">Your Cart ({displayItems.length})</div>
-      </div>
-      
- 	    <table className="item-table">
-        <tr>
-        <th className="cart-items">Items</th><th></th><th className="price-header">price</th><th class="Quantity">Quantity</th>
-        </tr>
-        {/* <div class="Underline"></div> */}
-        {displayItems}
-      </table>
+    <div className="cart">
+      <Container className="items">
+        <h2>My Cart</h2>
+        <div className="cart-container">
+          <ul className="list-group">
+            <li className="list-group-item">
+              <Row className="list-group-row">
+                <Col xs={3}>Image</Col>
+                <Col xs={1}>
+                  <div>Number</div>{" "}
+                </Col>
+                <Col xs={2}>
+                  <div>Name</div>
+                </Col>
+                <Col xs={1}>
+                  <div>Price</div>
+                </Col>
+                <Col xs={1}>
+                  <div>Location</div>
+                </Col>
+                <Col xs={3}>
+                  <div>Quantity</div>
+                </Col>
+                <Col xs={1}></Col>
+              </Row>
+            </li>
 
-      <div className="summary-container">
-        <h2>SUMMARY</h2>
-        <h4>total price: ${totalPrice}</h4>
-      </div>
+            {cartItems.map((cartItem) => {
+              return (
+                <li className="list-group-item" key={cartItem.cart_set_numb}>
+                  <Row className="list-group-row">
+                    <Col xs={3}>
+                      <div className="image-container">
+                        <img
+                          src={require(`./../images/products/${cartItem.cart_img}`)}
+                          alt={cartItem.cart_img}
+                        />
+                      </div>
+                    </Col>
+                    <Col xs={1}>
+                      <div>#{cartItem.cart_set_numb}</div>
+                    </Col>
+                    <Col xs={2}>
+                      <div>
+                        <h5 className="mb-1">{cartItem.cart_set_name}</h5>
+                      </div>
+                    </Col>
+                    <Col xs={1}>
+                      <div>${cartItem.cart_price}</div>
+                    </Col>
+                    <Col xs={1}>
+                      <div>{cartItem.cart_location}</div>
+                    </Col>
+                    <Col xs={3}>
+                      <ButtonGroup>
+                        <Button
+                          onClick={handleMinus(cartItem)}
+                          variant="secondary"
+                        >
+                          <MdRemove />
+                        </Button>
+                        <Button variant="secondary">
+                          {cartItem.cart_quantity}
+                        </Button>{" "}
+                        <Button
+                          onClick={handleAdd(cartItem)}
+                          variant="secondary"
+                        >
+                          <MdAdd />
+                        </Button>
+                      </ButtonGroup>
+                    </Col>
+                    <Col xs={1}>
+                      <div>
+                        <button
+                          className="btn btn-danger"
+                          onClick={handleDelete(cartItem.cart_set_numb)}
+                        >
+                          <MdDelete />
+                        </button>
+                      </div>
+                    </Col>
+                  </Row>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </Container>
+      <Container className="summary">
+        <h2>Summary</h2>
 
-      <button className="checkout-button">Checkout</button>
-
-    
-      </>
+        <div className="summary-container">
+          <ul>
+            {cartItems.map((cartItem) => {
+              return (
+                <li className="list-group-item" key={cartItem.cart_set_numb}>
+                  <Row className="list-group-row">
+                    <Col xs={6}>
+                      <div>
+                        <h5 className="mb-1">{cartItem.cart_set_name}</h5>
+                      </div>
+                    </Col>
+                    <Col xs={6}>
+                      <div>
+                        $
+                        {formatNumberWithCommas(
+                          roundMoneyNum(
+                            cartItem.cart_set_price * cartItem.cart_quantity
+                          )
+                        )}
+                      </div>
+                    </Col>
+                  </Row>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </Container>
+    </div>
   );
 }
 

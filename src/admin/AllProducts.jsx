@@ -1,20 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { Link, Outlet, useLocation } from "react-router-dom";
-import productImg from "../images/falcon.jpg";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AllProducts = () => {
-  // const deleteProduct = async(id) => {
-  //   await fetch(`http://localhost:5000/products/${id}`, {
-  //     method: "DELETE",
-  // toast.success("product deleted successfully!");
-  //   });
-  // const newProducts = products.filter((product) => product.id !== id);
-
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -36,11 +28,9 @@ const AllProducts = () => {
     } catch (err) {
       console.log(err.response.data);
     }
-  }
+  };
 
-  const themeFilter = (themeNumb) => {
-
-  }
+  const themeFilter = (themeNumb) => {};
 
   return (
     <section>
@@ -73,7 +63,10 @@ const AllProducts = () => {
 
               {products.map((product) => {
                 return (
-                  <li className="list-group-item d-flex justify-content-between align-items-center" key={product.product_set_numb}>
+                  <li
+                    className="list-group-item d-flex justify-content-between align-items-center"
+                    key={product.product_set_numb}
+                  >
                     <div>
                       <img
                         src={require(`./../images/products/${product.product_img}`)}
@@ -81,27 +74,24 @@ const AllProducts = () => {
                         width="70%"
                       />
                     </div>
-                    <div>
-                      #{product.product_set_numb}
-                    </div>
+                    <div>#{product.product_set_numb}</div>
                     <div>
                       <h5 className="mb-1">{product.product_set_name}</h5>
                     </div>
+                    <div>${product.product_price}</div>
+                    <div>{product.product_location}</div>
+                    <div>{product.product_quantity}</div>
                     <div>
-                      ${product.product_price}
-                    </div>
-                    <div>
-                      {product.product_location}
-                    </div>
-                    <div>
-                      {product.product_quantity}
-                    </div>
-                    <div>
-                      <button className="btn btn-danger" onClick={() => handleDelete(product.product_set_numb)}>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => handleDelete(product.product_set_numb)}
+                      >
                         Delete
                       </button>
-                      <button >
-                        <Link to={`/AdminNav/UpdateProducts/${product.product_set_numb}`}>
+                      <button>
+                        <Link
+                          to={`/AdminNav/UpdateProducts/${product.product_set_numb}`}
+                        >
                           Update
                         </Link>
                       </button>
@@ -109,7 +99,6 @@ const AllProducts = () => {
                   </li>
                 );
               })}
-
             </ul>
           </Col>
         </Row>

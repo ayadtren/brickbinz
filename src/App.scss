@@ -1,3 +1,7 @@
+body {
+  background-color: #f8f8f8;
+}
+
 .app {
   width: 100%;
   max-width: 100%;
@@ -255,6 +259,7 @@
         width: 100%;
         min-height: 48px;
         margin-bottom: 12px;
+        background-color: white;
 
         .search-icon {
           margin-left: 6px;
@@ -302,6 +307,7 @@
           justify-content: flex-start;
           flex-direction: column;
           border: 3px solid red;
+          background-color: white;
           border-radius: 12px;
           height: 350px;
           padding: 1rem;
