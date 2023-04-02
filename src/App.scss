@@ -1,11 +1,19 @@
-.App {
+body {
+  background-color: #f8f8f8;
+}
+
+.app {
   width: 100%;
+  max-width: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .main {
-  max-width: 1200px;
   margin: 0 auto;
+  max-width: 100%;
+  min-height: calc(100vh - 84px);
 }
 
 .nav {
@@ -32,17 +40,32 @@
         justify-content: flex-start;
         list-style: none;
         background-color: transparent;
+        margin-bottom: 0;
         li {
           padding: 0 10px;
           a {
             text-decoration: none;
             font-size: 24px;
           }
+          .icon-button {
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            p {
+              margin-bottom: 0;
+              margin-left: 8px;
+              font-size: 18px;
+            }
+            transition: color 0.3s ease-in-out;
+            &:hover {
+              color: #ff0000;
+            }
+          }
         }
       }
     }
     .left {
-      width: 50%;
       height: 100%;
       .left-box {
         display: flex;
@@ -50,32 +73,105 @@
         justify-content: flex-start;
         flex-direction: row;
         height: 100%;
+
+        .logo-link {
+          @media (max-width: 600px) {
+            display: none;
+          }
+        }
+
         .nav-list {
           display: flex;
           align-items: center;
           justify-content: flex-start;
           list-style: none;
           background-color: transparent;
+          margin-bottom: 0;
+          @media (max-width: 600px) {
+            display: none;
+          }
           li {
             padding: 0 10px;
             a {
               text-decoration: none;
-              font-size: 24px;
+              font-size: 18px;
+              color: black;
+              transition: all 0.3s ease-in-out;
+              text-transform: uppercase;
+              &:after {
+                content: "";
+                width: 0%;
+                height: 4px;
+                background-color: black;
+                display: block;
+                transition: width 0.3s ease-in-out;
+              }
+              &:hover {
+                &:after {
+                  width: 100%;
+                }
+              }
             }
           }
         }
       }
     }
-    .right {
-      width: 50%;
-      height: 100%;
-    }
   }
+}
 
-  .logo-nav {
-    height: 100px;
-    width: 150px;
-    padding-bottom: 20px;
+.menu-button {
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  @media (min-width: 600px) {
+    display: none;
+  }
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: #ff0000;
+  }
+}
+
+.logo-nav {
+  height: 100px;
+  width: 150px;
+  padding-bottom: 20px;
+}
+
+.logo-nav-drawer {
+  height: 100px;
+  width: 150px;
+}
+
+.drawer-nav-list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 0;
+  li {
+    margin-bottom: 12px;
+    padding-left: 12px;
+    a {
+      text-decoration: none;
+      font-size: 18px;
+      color: black;
+      transition: all 0.3s ease-in-out;
+      text-transform: uppercase;
+      &:after {
+        content: "";
+        width: 0%;
+        height: 4px;
+        background-color: black;
+        display: block;
+        transition: width 0.3s ease-in-out;
+      }
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
+    }
   }
 }
 
@@ -84,16 +180,25 @@
   margin-bottom: 20px;
 }
 //input tag from event.scss is overriding
-.search-bar {
-  margin-right: 512px;
-  border-radius: 10px;
-  border-color: red;
-}
+
 //what does this do?
 .filter-select {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  margin-bottom: 16px;
+  min-height: 48px;
+  div {
+    label {
+      margin-bottom: 6px;
+      color: black;
+    }
+  }
+  div {
+    .form-select {
+      min-height: 48px;
+      border-radius: 24px;
+    }
+  }
 }
 
 .filter-select input[type="radio"] {
@@ -106,7 +211,7 @@
 }
 
 .filter-select input[type="radio"]:checked {
-  border-color: red;
+  border-color: black;
 }
 
 .filter-select label {
@@ -120,23 +225,57 @@
   box-shadow: 0px 0px 15px 0px; //color
   transition: 0.2s;
 }
-.filter-bar {
-  border: 2px solid red;
-  width: 300px;
-  padding: 1rem;
-  margin-left: -20%;
-  position: relative;
-  top: 40px;
-  input {
-    display: inline;
-  }
-}
 
 .home {
   padding-top: 20px;
   padding-bottom: 20px;
-
   .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+
+    @media (max-width: 1100px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .filter-bar {
+      width: 300px;
+      padding: 1rem;
+      @media (max-width: 1100px) {
+        margin-bottom: 24px;
+        margin-top: 0px;
+        width: 100%;
+      }
+
+      .search-box {
+        border: 1px solid #ced4da;
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        width: 100%;
+        min-height: 48px;
+        margin-bottom: 12px;
+        background-color: white;
+
+        .search-icon {
+          margin-left: 6px;
+          margin-right: 0px;
+        }
+
+        .search-bar {
+          background-color: transparent;
+          min-height: 48px;
+          border: 0;
+          outline: 0;
+          padding-right: 12px;
+        }
+      }
+    }
+
     .inventory-list {
       list-style: none;
       background-color: transparent;
@@ -145,18 +284,21 @@
       justify-content: flex-start;
       flex-direction: row;
       flex-wrap: wrap;
-      //gap: 0.5rem;
-      padding-left: 140px;
-      margin-top: -20%;
-      width: 100%;
-      max-width: 1100px;
-      padding-top: 25px;
+      @media (max-width: 800px) {
+        align-items: center;
+        justify-content: center;
+      }
 
       li {
         flex-basis: 33.33%;
         max-width: 33.33%;
         box-sizing: border-box;
         padding: 10px;
+
+        @media (max-width: 800px) {
+          flex-basis: 100%;
+          max-width: 100%;
+        }
 
         .card {
           max-width: 250px;
@@ -165,14 +307,26 @@
           justify-content: flex-start;
           flex-direction: column;
           border: 3px solid red;
+          background-color: white;
           border-radius: 12px;
           height: 350px;
           padding: 1rem;
           object-fit: contain;
+          @media (max-width: 800px) {
+            max-width: 100%;
+          }
 
-          img {
+          .image-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            height: 150px;
+            margin-bottom: 12px;
+            img {
+              width: 100%;
+              height: 150px;
+              object-fit: contain;
+            }
           }
 
           .title {
@@ -187,9 +341,6 @@
 }
 
 .Footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
   background-color: #f5e505;
   color: #000;
