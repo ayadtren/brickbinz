@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import Modal from "react-bootstrap/Modal";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FaShoppingBag } from "react-icons/fa";
 import { MdMenu, MdPersonPin } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
 import AdminNav from "../admin/AdminNav";
 import logo from "../images/banner2.png";
+import Login from "../pages/Adminlogin";
 import Footer from "../pages/footer/Footer";
 
 const Layout = (props) => {
@@ -15,6 +17,13 @@ const Layout = (props) => {
   };
   const handleOpen = () => {
     setShowDrawer(true);
+  };
+  const [showLogin, setShowLogin] = useState(false);
+  const handleLoginClose = () => {
+    setShowLogin(false);
+  };
+  const handleLoginOpen = () => {
+    setShowLogin(true);
   };
   function Navigation() {
     return (
@@ -64,9 +73,18 @@ const Layout = (props) => {
             <div className="right-box">
               <ul className="nav-list">
                 <li>
-                  <Link className="icon-button" to="/login">
-                    <MdPersonPin />
-                  </Link>
+                  <button
+                    onClick={handleLoginOpen}
+                    className="icon-button"
+                    to="/login"
+                    style={{
+                      border: 0,
+                      outline: 0,
+                      backgroundColor: "transparent",
+                    }}
+                  >
+                    <MdPersonPin size={28} />
+                  </button>
                 </li>
                 <li>
                   <Link className="icon-button" to="/viewCart">
@@ -110,6 +128,23 @@ const Layout = (props) => {
           </ul>
         </Offcanvas.Body>
       </Offcanvas>
+      <Modal show={showLogin} onHide={handleLoginClose}>
+        <div
+          style={{
+            boxShadow: "0 0 50px 15px #fdd201",
+            backgroundColor: "transparent",
+            borderRadius: 8,
+          }}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Login</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Login></Login>
+          </Modal.Body>
+        </div>
+      </Modal>
+
       <main className="main">{props.children}</main>
       <footer className="Footer">
         <Footer />
