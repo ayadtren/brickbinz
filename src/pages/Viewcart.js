@@ -25,54 +25,49 @@ function Viewcart() {
       console.log(err.response.data)
     }
   }
- 
-    let totalPrice = 0;
-    //add the sum of the total price. 
-    for(let i = 0; i < cartItems.length; i++){
-        totalPrice += cartItems[i]?.cart_set_price;
-    }
 
-   const displayItems = cartItems.map((cartItems) =>
-   <div key={cartItems.cart_set_numb}>
-      
-        <tr>
-          <td class="pic">
-            <img
-              src={require(`./../images/products/${cartItems.cart_set_img}`)}
-              alt={cartItems.cart_set_img}
-              width="70%"
-            />
-          </td>
-          <td class="name">{cartItems.cart_set_name}</td>
-          <td class="cart-Price">${cartItems.cart_set_price}</td>
-          <td class="quantity">
-            {cartItems.cart_set_quantity}
-            <button
-              className="remove-button"
-              onClick={() => handleDelete(cartItems.cart_set_numb)}
-            >
-              X
-            </button>
-          </td>
-        </tr>
-   
+  let totalPrice = 0;
+  //add the sum of the total price. 
+  for (let i = 0; i < cartItems.length; i++) {
+    totalPrice += cartItems[i]?.cart_set_price;
+  }
 
-     
-      {/* <span className="Summary">Summary</span> */}
-    
+  const displayItems = cartItems.map((cartItems) =>
+    <div key={cartItems.cart_set_numb}>
+
+      <tr>
+        <td class="pic">
+          <img
+            src={require(`./../images/products/${cartItems.cart_set_img}`)}
+            alt={cartItems.cart_set_img}
+            width="70%"
+          />
+        </td>
+        <td class="name">{cartItems.cart_set_name}</td>
+        <td class="cart-Price">${cartItems.cart_set_price}</td>
+        <td class="quantity">
+          {cartItems.cart_set_quantity}
+          <button
+            className="remove-button"
+            onClick={() => handleDelete(cartItems.cart_set_numb)}
+          >
+            X
+          </button>
+        </td>
+      </tr>
     </div>
- 
-   );
+
+  );
 
   return (
     <>
-    <div class="title-container">
+      <div class="title-container">
         <div class="Title">Your Cart ({displayItems.length})</div>
       </div>
-      
- 	    <table className="item-table">
+
+      <table className="item-table">
         <tr>
-        <th className="cart-items">Items</th><th></th><th className="price-header">price</th><th class="Quantity">Quantity</th>
+          <th className="cart-items">Items</th><th></th><th className="price-header">price</th><th class="Quantity">Quantity</th>
         </tr>
         {/* <div class="Underline"></div> */}
         {displayItems}
@@ -84,9 +79,7 @@ function Viewcart() {
       </div>
 
       <button className="checkout-button">Checkout</button>
-
-    
-      </>
+    </>
   );
 }
 

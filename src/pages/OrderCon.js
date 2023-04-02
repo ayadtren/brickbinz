@@ -1,12 +1,12 @@
 import React from "react";
-import "./Productviewpg.scss";
 import sampleimage from '../images/sampleimage.jpg'
+import '../styles/OrderConStyles.scss'
 const Productviewpg = () => {
   return (
-    <div className="group-parent">
-<h1>hello</h1>
+    <div className="confirm-box">
+      <h1>hello</h1>
     </div>
   );
 };
- 
+
 export default Productviewpg;
