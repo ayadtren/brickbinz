@@ -1,3 +1,17 @@
 .confirm-box{
-    
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    width: 60vh;
+    top: 12em;
+    background-color: #f9f777;
+    text-align: center;
+    box-shadow: 10px 10px 10px;
+}
+
+.order-contents{
+    position: relative;
+    top: 8em;
+   
 }
