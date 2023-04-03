@@ -8,7 +8,6 @@ import Dashboard from "./admin/Dashboard";
 import Orders from "./admin/Orders";
 import Users from "./admin/Users";
 import ViewEvents from "./admin/ViewEvents";
-import UpdateProducts from "./admin/UpdateProducts";
 import "./App.scss";
 import Layout from "./components/Layout";
 import Adminlogin from "./pages/Adminlogin";
@@ -108,7 +107,6 @@ const router = createBrowserRouter([
         <AdminNav />
       </Layout>
     ),
-  
 
     children: [
       {
@@ -139,10 +137,10 @@ const router = createBrowserRouter([
         path: "/AdminNav/ViewEvents",
         element: <ViewEvents />,
       },
-      {
-        path: "/AdminNav/UpdateProducts/:set_number",
-        element: <UpdateProducts />,
-      },
+      // {
+      //   path: "/AdminNav/UpdateProducts/:set_number",
+      //   element: <UpdateProducts />,
+      // },
     ],
   },
 ]);

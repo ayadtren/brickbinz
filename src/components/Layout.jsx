@@ -69,7 +69,6 @@ const Layout = (props) => {
                 <li>
                   <Link to="/OrderCon">OrderCon</Link>
                 </li>
-                
               </ul>
             </div>
           </div>
@@ -91,7 +90,7 @@ const Layout = (props) => {
                   </button>
                 </li>
                 <li>
-                  <Link className="icon-button" to="/viewCart">
+                  <Link className="icon-button" to="/Viewcart">
                     <FaShoppingBag /> <p>12</p>
                   </Link>
                 </li>

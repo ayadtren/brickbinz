@@ -48,8 +48,8 @@ function Viewcart() {
   const handleAdd = (cartItem) => async (e) => {
     try {
       const newCartItem = { ...cartItem };
-      if (newCartItem.cart_quantity < 99) {
-        newCartItem.cart_quantity = newCartItem.cart_quantity + 1;
+      if (newCartItem.cart_set_quantity < 99) {
+        newCartItem.cart_set_quantity = newCartItem.cart_set_quantity + 1;
       }
       await axios.put(
         "http://localhost:8000/cart/" + cartItem.cart_set_numb,
@@ -64,8 +64,8 @@ function Viewcart() {
   const handleMinus = (cartItem) => async (e) => {
     try {
       const newCartItem = { ...cartItem };
-      if (newCartItem.cart_quantity > 0) {
-        newCartItem.cart_quantity = newCartItem.cart_quantity - 1;
+      if (newCartItem.cart_set_quantity > 0) {
+        newCartItem.cart_set_quantity = newCartItem.cart_set_quantity - 1;
       }
       await axios.put("http://localhost:8000/cart/" + cartItem.cart_set_numb);
       window.location.reload();
@@ -115,8 +115,8 @@ function Viewcart() {
                     <Col xs={3}>
                       <div className="image-container">
                         <img
-                          src={require(`./../images/products/${cartItem.cart_img}`)}
-                          alt={cartItem.cart_img}
+                          src={require(`./../images/products/${cartItem.cart_set_img}`)}
+                          alt={cartItem.cart_set_img}
                         />
                       </div>
                     </Col>
@@ -129,10 +129,10 @@ function Viewcart() {
                       </div>
                     </Col>
                     <Col xs={1}>
-                      <div>${cartItem.cart_price}</div>
+                      <div>${cartItem.cart_set_price}</div>
                     </Col>
                     <Col xs={1}>
-                      <div>{cartItem.cart_location}</div>
+                      <div>{cartItem.cart_set_location}</div>
                     </Col>
                     <Col xs={3}>
                       <ButtonGroup>
@@ -143,7 +143,7 @@ function Viewcart() {
                           <MdRemove />
                         </Button>
                         <Button variant="secondary">
-                          {cartItem.cart_quantity}
+                          {cartItem.cart_set_quantity}
                         </Button>{" "}
                         <Button
                           onClick={handleAdd(cartItem)}
@@ -189,7 +189,7 @@ function Viewcart() {
                         $
                         {formatNumberWithCommas(
                           roundMoneyNum(
-                            cartItem.cart_set_price * cartItem.cart_quantity
+                            cartItem.cart_set_price * cartItem.cart_set_quantity
                           )
                         )}
                       </div>
