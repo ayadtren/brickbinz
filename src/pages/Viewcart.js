@@ -115,7 +115,7 @@ function Viewcart() {
                     <Col xs={3}>
                       <div className="image-container">
                         <img
-                          src={require(`./../images/products/${cartItem.cart_img}`)}
+                          src={require(`./../images/products/${cartItem.cart_set_img}`)}
                           alt={cartItem.cart_img}
                         />
                       </div>

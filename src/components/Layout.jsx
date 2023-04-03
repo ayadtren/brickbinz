@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FaShoppingBag } from "react-icons/fa";
@@ -8,10 +8,12 @@ import AdminNav from "../admin/AdminNav";
 import logo from "../images/banner2.png";
 import Login from "../pages/Adminlogin";
 import Footer from "../pages/footer/Footer";
+import axios from "axios";
 
 const Layout = (props) => {
   const location = useLocation();
   const [showDrawer, setShowDrawer] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
   const handleClose = () => {
     setShowDrawer(false);
   };
@@ -25,6 +27,19 @@ const Layout = (props) => {
   const handleLoginOpen = () => {
     setShowLogin(true);
   };
+
+  useEffect(() => {
+    const fetchAllCartItems = async () => {
+      try {
+        const res = await axios.get("http://localhost:8000/cart");
+        setCartItems(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchAllCartItems();
+  }, []);
+
   function Navigation() {
     return (
       <div>
@@ -91,7 +106,7 @@ const Layout = (props) => {
                   </button>
                 </li>
                 <li>
-                  <Link className="icon-button" to="/viewCart">
+                  <Link className="icon-button" to={`/Viewcart`}>
                     <FaShoppingBag /> <p>12</p>
                   </Link>
                 </li>
