@@ -38,7 +38,7 @@ const RealHomePage = () => {
 
   //array with all the div tags n shit
   const newItems = products.map((products) => (
-    <div>
+    <div className="slider-container">
       <img 
         src={require(`./../images/products/${products.product_img}`)}
         alt={products.product_img}
