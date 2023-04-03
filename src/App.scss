@@ -301,7 +301,7 @@ body {
         }
 
         .card {
-          max-width: 250px;
+          max-width: 300px;
           display: flex;
           align-items: flex-start;
           justify-content: flex-start;
@@ -312,6 +312,7 @@ body {
           height: 350px;
           padding: 1rem;
           object-fit: contain;
+          width: 250px;
           @media (max-width: 800px) {
             max-width: 100%;
           }
