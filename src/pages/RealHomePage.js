@@ -38,11 +38,11 @@ const RealHomePage = () => {
 
   //array with all the div tags n shit
   const newItems = products.map((products) => (
-    <div className="contents">
-      <img
+    <div>
+      <img 
         src={require(`./../images/products/${products.product_img}`)}
         alt={products.product_img}
-        width="70%"
+        width="200px" height="180px"
       />
       <h4>{products.product_set_name}</h4>
       <h5>${products.product_price}</h5>
