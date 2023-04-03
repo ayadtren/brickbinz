@@ -64,8 +64,12 @@ const Layout = (props) => {
                   <Link to="/product">Product</Link>
                 </li>
                 <li>
+                  <Link to="/Checkout">Checkout</Link>
+                </li>
+                <li>
                   <Link to="/OrderCon">OrderCon</Link>
                 </li>
+                
               </ul>
             </div>
           </div>

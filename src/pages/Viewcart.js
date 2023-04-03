@@ -4,7 +4,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { MdAdd, MdDelete, MdRemove } from "react-icons/md";
-import "./Viewcart.scss";
+import "../styles/Viewcart.scss";
 
 export const formatNumberWithCommas = (string) => {
   if (!string) return "";

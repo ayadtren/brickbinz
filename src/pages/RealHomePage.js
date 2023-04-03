@@ -5,7 +5,7 @@ import Carousel from "react-bootstrap/Carousel";
 import Card from "../components/Card";
 import picture from "../images/mainpagepic.jpg";
 import sampleimage from "../images/sampleimage.jpg";
-import "./HomePageStyles.scss";
+import "../styles/HomePageStyles.scss";
 //for the sliders and carousels.
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";

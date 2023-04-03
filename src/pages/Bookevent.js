@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Event.scss"
+import "../styles/Event.scss"
 
 class Bookevent extends React.Component {
     constructor(props) {

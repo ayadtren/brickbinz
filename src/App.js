@@ -18,7 +18,7 @@ import Productviewpg from "./pages/Productviewpg";
 import RealHomePage from "./pages/RealHomePage";
 import Shop from "./pages/Shop";
 import Viewcart from "./pages/Viewcart";
-
+import Checkout from "./pages/Checkout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -93,12 +93,21 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/Checkout",
+    element: (
+      <Layout>
+        <Checkout />
+      </Layout>
+    ),
+  },
+  {
     path: "/AdminNav",
     element: (
       <Layout>
         <AdminNav />
       </Layout>
     ),
+  
 
     children: [
       {
