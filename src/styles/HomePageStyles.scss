@@ -1,6 +1,8 @@
 .carousel {
+  position: relative;
   width: 1000px;
-  left: 17.5em;
+  left: 12em;
+  bottom: 2em;
 }
 
 .carousel-caption {
@@ -20,6 +22,19 @@
     width: 100%;
   }
 }
+
+//for the slider boxes. 
+.slider-container {
+  border-style: solid;
+  width: 300px !important;
+  margin: 3em;
+
+  img{
+    text-align: center;
+    margin-left: 3em;
+  }
+}
+
 .grid-4-columns {
   margin: auto;
   width: min(90%, 75rem);
