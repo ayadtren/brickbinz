@@ -84,7 +84,6 @@ const Layout = (props) => {
                 <li>
                   <Link to="/OrderCon">OrderCon</Link>
                 </li>
-                
               </ul>
             </div>
           </div>
