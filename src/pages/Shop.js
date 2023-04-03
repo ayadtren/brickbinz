@@ -80,6 +80,7 @@ const Shop = () => {
 
   const handleClick = (item) => async (e) => {
     e.preventDefault();
+    window.location.reload();
 
     const newCartItem = {
       product_set_name: item.product_set_name,

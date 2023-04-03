@@ -106,7 +106,7 @@ const Layout = (props) => {
                 </li>
                 <li>
                   <Link className="icon-button" to={`/Viewcart`}>
-                    <FaShoppingBag /> <p>12</p>
+                    <FaShoppingBag /> <p>{cartItems.length}</p>
                   </Link>
                 </li>
               </ul>
