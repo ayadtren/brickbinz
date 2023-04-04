@@ -138,10 +138,10 @@ const router = createBrowserRouter([
         path: "/AdminNav/ViewEvents",
         element: <ViewEvents />,
       },
-      {
-        path: "/AdminNav/UpdateProducts/:set_number",
-        element: <UpdateProducts />,
-      },
+      // {
+      //   path: "/AdminNav/UpdateProducts/:set_number",
+      //   element: <UpdateProducts />,
+      // },
     ],
   },
 ]);

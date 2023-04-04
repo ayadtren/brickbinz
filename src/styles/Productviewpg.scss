@@ -48,13 +48,13 @@
     top: 370px;
   }
   
-  .contact-us__submit-btn {
+  .AddTocart {
     border: 2px solid red;
     background-color: red;
     color: white;
     outline: 0;
     height: 45px;
-    width: 50%;
+    width: 40%;
     font-size: 16px;
     text-align: center;
     cursor: pointer;
@@ -64,10 +64,26 @@
       color: red;
 }
 }
-.test{
-
-  padding-left: 820px;
-  padding-top: 500px;
+.SubmitButton-div{
+  padding-left: 900px;
+  padding-top: 487px;
  
 }
+.RemoveButton-div{
+  padding-left: 1170px;
+  padding-top: 15px;
+}
 
+.RemoveButton{
+  color: black;
+  outline: 0;
+  height: 45px;
+  width: 0%;
+  font-size: 40px;
+  text-align: center;
+  background-color: Transparent;
+  border: none;
+ 
+  
+ 
+}
