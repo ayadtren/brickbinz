@@ -10,9 +10,19 @@ import "../styles/HomePageStyles.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import { Modal } from "react-bootstrap";
+import Productviewpg from "../pages/Productviewpg"
 //<img className='main-image' src={picture} alt="Main picture" />
 const RealHomePage = () => {
   const [products, setProducts] = useState([]);
+
+  const [showProductPage, setShowProductPage] = useState(false);
+  const handleProductPageClose = () => {
+    setShowProductPage(false);
+  };
+  const handleProductPageOpen = () => {
+    setShowProductPage(true);
+  };
 
   //slider settings
   const settings = {
@@ -39,7 +49,7 @@ const RealHomePage = () => {
   //array with all the div tags n shit
   const newItems = products.map((products) => (
     <div className="slider-container">
-      <img 
+      <img
         src={require(`./../images/products/${products.product_img}`)}
         alt={products.product_img}
         width="200px" height="180px"
@@ -47,7 +57,7 @@ const RealHomePage = () => {
       <h4>{products.product_set_name}</h4>
       <h5>${products.product_price}</h5>
       <p>set number:{products.product_set_numb}</p>
-      <button className="add-cart">View Details</button>
+      <button className="add-cart" onClick={handleProductPageOpen}>View Details</button>
     </div>
   ));
 
@@ -101,6 +111,23 @@ const RealHomePage = () => {
           <Card title="Store Locations" imageUrl={sampleimage} body="hello" />
         </div>
       </div>
+
+      <Modal show={showProductPage} onHide={handleProductPageClose}>
+        <div
+          style={{
+            boxShadow: "0 0 50px 15px #fdd201",
+            backgroundColor: "transparent",
+            borderRadius: 8,
+          }}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Product Page</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Productviewpg></Productviewpg>
+          </Modal.Body>
+        </div>
+      </Modal>
     </>
   );
 };
