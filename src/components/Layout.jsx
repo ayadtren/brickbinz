@@ -14,12 +14,14 @@ const Layout = (props) => {
   const location = useLocation();
   const [showDrawer, setShowDrawer] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  
   const handleClose = () => {
     setShowDrawer(false);
   };
   const handleOpen = () => {
     setShowDrawer(true);
   };
+
   const [showLogin, setShowLogin] = useState(false);
   const handleLoginClose = () => {
     setShowLogin(false);
@@ -27,6 +29,8 @@ const Layout = (props) => {
   const handleLoginOpen = () => {
     setShowLogin(true);
   };
+
+  const [showProductPage, setShowProductPage] = useState(false);
 
   useEffect(() => {
     const fetchAllCartItems = async () => {
