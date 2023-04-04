@@ -47,7 +47,7 @@ const RealHomePage = () => {
       <h4>{products.product_set_name}</h4>
       <h5>${products.product_price}</h5>
       <p>set number:{products.product_set_numb}</p>
-      <button>View Details</button>
+      <button className="add-cart">View Details</button>
     </div>
   ));
 
@@ -83,13 +83,13 @@ const RealHomePage = () => {
         </Carousel>
       </div>
 
-      <h2>New Arrivals</h2>
+      <h2 id="margin-element">New Arrivals</h2>
 
       <div>
         <Slider {...settings}>{newItems}</Slider>
       </div>
 
-      <h2>About us thingy majig</h2>
+      <h2 id="margin-element">About us thingy majig</h2>
       <div className="grid-4-columns">
         <div className="box">
           <Card title="About Us" imageUrl={sampleimage} body="hello" />
