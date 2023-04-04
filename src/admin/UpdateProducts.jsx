@@ -30,7 +30,7 @@ const UpdateProduct = () => {
         e.preventDefault()
         try {
             await axios.put("http://localhost:8000/products/" + productId, products)
-            alert("Product updated successfully")
+            // alert("Product updated successfully")
             navigate("/AdminNav/AllProducts")
         } catch (err) {
             console.log(err)

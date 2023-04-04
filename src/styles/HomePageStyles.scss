@@ -1,0 +1,66 @@
+.carousel {
+  position: relative;
+  width: 1000px;
+  left: 12em;
+  bottom: 2em;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 24px;
+}
+
+.main-image-container {
+  padding: 4rem;
+  height: 600px;
+  width: 100%;
+
+  .main-image {
+    height: 500px;
+    object-fit: cover;
+    border-radius: 5px;
+    width: 100%;
+  }
+}
+
+//for the slider boxes. 
+.slider-container {
+  border-style: solid;
+  width: 300px !important;
+  margin: 3em;
+
+  img{
+    text-align: center;
+    margin-left: 3em;
+  }
+}
+
+.grid-4-columns {
+  margin: auto;
+  width: min(90%, 75rem);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4em;
+  padding: 2.5rem;
+}
+
+/* this is for allowing a box to fill 
+  2 spaces horizontally*/
+.grid-col-span-2 {
+  grid-column: span 2;
+}
+
+/* card for storing products*/
+.box {
+  height: 400px;
+  width: 300px;
+  padding: 8px;
+  border-radius: 5px;
+  margin: auto;
+}
+
+
+#card-img {
+  height: 200px;
+  width: 300px;
+}

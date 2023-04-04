@@ -1,5 +1,5 @@
 import React from "react";
-import "./Productviewpg.scss";
+import "../styles/Productviewpg.scss";
 import sampleimage from '../images/sampleimage.jpg'
 const Productviewpg = () => {
   return (

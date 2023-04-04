@@ -1,24 +1,25 @@
-import "./App.scss";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
-import Layout from "./components/Layout";
-import ContactUs from "./pages/ContactUs";
-import RealHomePage from "./pages/RealHomePage";
-import Bookevent from "./pages/Bookevent";
-import Productviewpg from "./pages/Productviewpg";
-import OrderCon from "./pages/OrderCon";
-import Shop from "./pages/Shop";
-import Adminlogin from "./pages/Adminlogin";
-import Viewcart from "./pages/Viewcart";
-import AdminNav from "./admin/AdminNav";
-import AddProducts from "./admin/AddProducts";
-import AllProducts from "./admin/AllProducts";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 import AddImage from "./admin/AddImage";
-import Orders from "./admin/Orders";
+import AddProducts from "./admin/AddProducts";
+import AdminNav from "./admin/AdminNav";
+import AllProducts from "./admin/AllProducts";
 import Dashboard from "./admin/Dashboard";
+import Orders from "./admin/Orders";
 import Users from "./admin/Users";
 import ViewEvents from "./admin/ViewEvents";
-
+import UpdateProducts from "./admin/UpdateProducts";
+import "./App.scss";
+import Layout from "./components/Layout";
+import Adminlogin from "./pages/Adminlogin";
+import Bookevent from "./pages/Bookevent";
+import ContactUs from "./pages/ContactUs";
+import OrderCon from "./pages/OrderCon";
+import Productviewpg from "./pages/Productviewpg";
+import RealHomePage from "./pages/RealHomePage";
+import Shop from "./pages/Shop";
+import Viewcart from "./pages/Viewcart";
+import Checkout from "./pages/Checkout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -89,6 +90,14 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Adminlogin />
+      </Layout>
+    ),
+  },
+  {
+    path: "/Checkout",
+    element: (
+      <Layout>
+        <Checkout />
       </Layout>
     ),
   },
