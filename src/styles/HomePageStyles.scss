@@ -1,7 +1,7 @@
 .carousel {
   position: relative;
-  width: 1000px;
-  left: 12em;
+  width: 1100px;
+  left: 13em;
   bottom: 2em;
 }
 
@@ -25,11 +25,14 @@
 
 //for the slider boxes. 
 .slider-container {
-  border-style: solid;
+  border-style: solid ;
+  border-color: #006149;
+  border-radius: 0.5em;
   width: 300px !important;
-  margin: 3em;
+  margin: 2em;
+  padding: 1em;
 
-  img{
+  img {
     text-align: center;
     margin-left: 3em;
   }
@@ -59,8 +62,31 @@
   margin: auto;
 }
 
-
 #card-img {
   height: 200px;
   width: 300px;
+}
+
+//THIS IS FOR THE BUTTON
+.add-cart {
+  border: 2px solid #006149;
+  background-color: #006149;
+  color: white;
+  outline: 0;
+  height: 40px;
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  //button hover
+  &:hover {
+    background-color: white;
+    color: red;
+  }
+}
+
+#margin-element{
+  margin-left: 1em;
 }

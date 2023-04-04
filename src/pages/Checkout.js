@@ -25,20 +25,29 @@ const Checkout = () => {
             <div className='payment-container'>
                 <div className='payment-title'>
                     <h2>Payment Options</h2>
-                    <div className='payment form'>
-
-                    </div>
                 </div>
+                <div className='payment-form'>
+                    <h5>gang gnag</h5>
+                    radom text
+                    <p>hsuehehekjekjeh</p>
+                </div>
+
             </div>
             <div className='summary-container'>
                 <div className='summary-title'>
-                    <h2>Cart Summary</h2>
-                    <p>edit link</p>
+                    <h2>Cart Summary</h2><p>edit link</p>
+
                     <div className='summary-list'>
 
                     </div>
                 </div>
             </div>
+
+            <div className="button">
+                    <button className="checkout-button" >
+                      Place Order
+                    </button>
+                  </div>
         </div>
     )
 }
