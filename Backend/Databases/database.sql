@@ -126,4 +126,4 @@ INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_pric
     VALUES ('10237', 'Tower of Orthanc', 750.00, 'Macleod Trail', 1, 'Tower_of_Orthanc.png', 14);
 
 INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
-    VALUES ('7016', 'Viking Boat against the Wyvern Dragon', 170.00, 'Macleod Trail', 1, 'Viking_Boat_Wyvern.png', 21);
+    VALUES ('7016', 'Viking Boat against the Wyvern Dragon', 170.00, 'Macleod Trail', 1, 'Viking_Boat_Wyvern.png', 21); 
