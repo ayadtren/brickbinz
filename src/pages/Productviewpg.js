@@ -23,7 +23,7 @@ const Productviewpg = () => {
 
       <div className="SubmitButton-div">
       <button type="submit" className="AddTocart">Add to cart</button>
-      </div>
+      </div> 
     </div>
   );
 };
