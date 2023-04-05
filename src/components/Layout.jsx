@@ -14,12 +14,14 @@ const Layout = (props) => {
   const location = useLocation();
   const [showDrawer, setShowDrawer] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  
   const handleClose = () => {
     setShowDrawer(false);
   };
   const handleOpen = () => {
     setShowDrawer(true);
   };
+
   const [showLogin, setShowLogin] = useState(false);
   const handleLoginClose = () => {
     setShowLogin(false);
@@ -64,7 +66,7 @@ const Layout = (props) => {
                   <Link to="/home">Home</Link>
                 </li>
                 <li>
-                  <Link to="/AdminNav">Admin</Link>
+                  <Link to="/AdminNav/Dashboard">Admin</Link>
                 </li>
                 <li>
                   <Link to={"/"}>Shop</Link>
@@ -126,7 +128,7 @@ const Layout = (props) => {
               <Link to="/home">Home</Link>
             </li>
             <li onClick={handleClose}>
-              <Link to="/AdminNav">Admin</Link>
+              <Link to="/AdminNav/Dashboard">Admin</Link>
             </li>
             <li onClick={handleClose}>
               <Link to={"/"}>Shop</Link>

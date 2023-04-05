@@ -45,7 +45,7 @@ const UpdateProduct = () => {
                 <Row>
                     <Col lg="12">
                         <ToastContainer />
-                        <h4 className="mb-5">Update Products</h4>
+                        <h4 className="text-center mb-4">Update Products</h4>
                         <div className="addProductForm">
                             {/* <input type="text" placeholder="Set Number" onChange={handleChange} name="setNumber" required /> */}
                             <input type="text" placeholder="Set Name" onChange={handleChange} name="setName" required />

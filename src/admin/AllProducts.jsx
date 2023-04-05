@@ -30,15 +30,70 @@ const AllProducts = () => {
     }
   };
 
-  const themeFilter = (themeNumb) => {};
+  const themeFilter = (themeNumb) => { };
 
   return (
     <section>
       <Container>
         <Row>
-          <Col lg="12">
+          <Col lg={15}>
             <h2 className="text-center mb-4">All Products</h2>
-            <ul className="list-group">
+            <div className="all-products-container">
+              <ul className="list-group">
+                <li className="list-group-item">
+                  <Row className="list-group-row">
+                    <Col>Image</Col>
+                    <Col>Set Number</Col>
+                    <Col>Set Name</Col>
+                    <Col>Price</Col>
+                    <Col>Location</Col>
+                    <Col>Quantity</Col>
+                    <Col>Theme</Col>
+                    <Col></Col>
+                  </Row>
+                </li>
+
+                {products.map((product) => {
+                  return (
+                    <li className="list-group-item" key={product.product_set_numb}>
+                      <Row className="list-group-row">
+                        <Col>
+                          <img
+                            src={require(`./../images/products/${product.product_img}`)}
+                            alt={product.product_img}
+                            width="70%"
+                          />
+                        </Col>
+                        <Col><div>#{product.product_set_numb}</div></Col>
+                        <Col><div>{product.product_set_name}</div></Col>
+                        <Col><div>${product.product_price}</div></Col>
+                        <Col><div>{product.product_location}</div></Col>
+                        <Col><div>{product.product_quantity}</div></Col>
+                        <Col><div>{product.theme}</div></Col>
+                        <Col>
+                          <div>
+                            <button
+                              className="btn btn-danger"
+                              onClick={() => handleDelete(product.product_set_numb)}
+                            >
+                              Delete
+                            </button>
+                            <button>
+                              <Link
+                                to={`/AdminNav/UpdateProducts/${product.product_set_numb}`}
+                              >
+                                Update
+                              </Link>
+                            </button>
+                          </div>
+                        </Col>
+                      </Row>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            {/* <ul className="list-group">
               <li className="list-group-item d-flex justify-content-between align-items-center">
                 <div>
                   <strong>Image</strong>
@@ -99,7 +154,7 @@ const AllProducts = () => {
                   </li>
                 );
               })}
-            </ul>
+            </ul> */}
           </Col>
         </Row>
       </Container>
