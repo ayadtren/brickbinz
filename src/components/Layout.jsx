@@ -58,7 +58,7 @@ const Layout = (props) => {
               <button onClick={handleOpen} className="menu-button">
                 <MdMenu size={32} />
               </button>
-              <Link className="logo-link" to={"/home"}>
+              <Link className="logo-link" to={"/"}>
                 <img className="logo-nav" src={logo} />
               </Link>
               <ul className="nav-list">

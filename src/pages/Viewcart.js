@@ -37,7 +37,6 @@ function Viewcart() {
 
   const handleDelete = (cart_set_numb) => async (e) => {
     try {
-      console.log("http://localhost:8000/cart/" + cart_set_numb);
       await axios.delete("http://localhost:8000/cart/" + cart_set_numb);
       window.location.reload();
     } catch (err) {
@@ -64,8 +63,10 @@ function Viewcart() {
   const handleMinus = (cartItem) => async (e) => {
     try {
       const newCartItem = { ...cartItem };
-      if (newCartItem.cart_set_quantity > 0) {
+      if (newCartItem.cart_set_quantity > 2) {
         newCartItem.cart_set_quantity = newCartItem.cart_set_quantity - 1;
+      } else {
+        handleDelete(newCartItem.cart_set_numb);
       }
       await axios.put("http://localhost:8000/cart/" + cartItem.cart_set_numb);
       window.location.reload();

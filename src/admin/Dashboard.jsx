@@ -5,12 +5,12 @@ const Dashboard = () => {
   return (
     <Container className="mt-5">
       <div className="d-flex justify-content-center align-items-center">
-        <img
+        {/* <img
           src="admin-logo.png"
           alt="Admin Logo"
           className="mr-3"
           style={{ height: "5rem" }}
-        />
+        /> */}
         <h1>Welcome to the Admin Dashboard!</h1>
       </div>
       <hr />
@@ -25,11 +25,11 @@ const Dashboard = () => {
           <p>View and manage all orders made by customers.</p>
           <a href="/AdminNav/Orders">Go to Orders</a>
         </div>
-        <div className="m-3">
+        {/* <div className="m-3">
           <h3>Users</h3>
           <p>View and manage all users registered on the website.</p>
           <a href="/AdminNav/Users">Go to Users</a>
-        </div>
+        </div> */}
         <div className="m-3">
           <h3>Add Product</h3>
           <p>Add a new product to the store.</p>
