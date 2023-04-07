@@ -4,6 +4,7 @@ import { Container, Row, Col, Form, FormGroup } from "react-bootstrap";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import "../styles/UpdateProduct.scss";
 
 const UpdateProduct = () => {
     const [products, setProducts] = useState({
@@ -45,15 +46,23 @@ const UpdateProduct = () => {
                 <Row>
                     <Col lg="12">
                         <ToastContainer />
+                        <div Name="Container_Productclass">
                         <h4 className="text-center mb-4">Update Products</h4>
                         <div className="addProductForm">
                             {/* <input type="text" placeholder="Set Number" onChange={handleChange} name="setNumber" required /> */}
                             <input type="text" placeholder="Set Name" onChange={handleChange} name="setName" required />
+                            <br />
                             <input type="number" placeholder="Price" onChange={handleChange} name="setPrice" required />
+                            <br />
                             <input type="text" placeholder="Branch Location" onChange={handleChange} name="setLocation" required />
+                            <br />
                             <input type="number" placeholder="Quantity" onChange={handleChange} name="setQuantity" required />
+                            <br />
                             <input type="text" placeholder="Image" onChange={handleChange} name="setImage" required />
-                            <select onChange={handleChange} name="setTheme">
+                            <br />
+                            <div className="Filter_Div">
+                            <h5 className="Change_Category">Change Category:</h5>
+                            <select onChange={handleChange} name="setTheme" className="Category_Select">
                                 <option value="1">LEGO Architecture</option>
                                 <option value="2">LEGO BrickHeadz</option>
                                 <option value="3">LEGO City</option>
@@ -76,7 +85,11 @@ const UpdateProduct = () => {
                                 <option value="20">LEGO Creator Expert/Icons</option>
                                 <option value="21">LEGO Retired</option>
                             </select> <br />
+                            <div className="Update_Product_Div"> 
                             <button onClick={handleClick}>Update Product</button>
+                            </div>
+                            </div>
+                        </div>
                         </div>
                     </Col>
                 </Row>

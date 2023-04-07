@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Form, FormGroup } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "../styles/UpdateProduct.scss";
 
 const AddProducts = () => {
   // const [loading, setLoading] = useState(false);
@@ -40,6 +41,7 @@ const AddProducts = () => {
         <Row>
           <Col lg="12">
             <ToastContainer />
+            <div className="Container_Product">
             {/* {loading ? <h4 className="py-5">Loading...</h4> : null} */}
             <h4 className="text-center mb-4">Add Products</h4>
             <div className="addProductForm">
@@ -49,7 +51,9 @@ const AddProducts = () => {
               <input type="text" placeholder="Branch Location" onChange={handleChange} name="setLocation" required />
               <input type="number" placeholder="Quantity" onChange={handleChange} name="setQuantity" required />
               <input type="text" placeholder="Image" onChange={handleChange} name="setImage" required />
-              <select onChange={handleChange} name="setTheme">
+              <div className="Filter_Div">
+              <h5 className="Change_Category">Change Category:</h5>
+              <select onChange={handleChange} name="setTheme" className="Category_Select">
                 <option value="1">LEGO Architecture</option>
                 <option value="2">LEGO BrickHeadz</option>
                 <option value="3">LEGO City</option>
@@ -72,7 +76,11 @@ const AddProducts = () => {
                 <option value="20">LEGO Creator Expert/Icons</option>
                 <option value="21">LEGO Retired</option>
               </select> <br />
+              <div className="Update_Product_Div"> 
               <button onClick={handleClick}>Add Product</button>
+            </div>
+            </div>
+            </div>
             </div>
           </Col>
         </Row>
