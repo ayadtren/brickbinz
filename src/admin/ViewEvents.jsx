@@ -1,26 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const ViewEvents = () => {
-  const events = [
-    {
-      title: "Event 1",
-      date: "2023-04-01",
-      status: "upcoming",
-    },
-    {
-      title: "Event 2",
-      date: "2023-03-28",
-      status: "current",
-    },
-    {
-      title: "Event 3",
-      date: "2023-04-05",
-      status: "upcoming",
-    },
-  ];
+  
+  const [events, setEvents] = useState([]);
+
+useEffect(() => {
+axios.get('http://localhost:8000/event')
+.then(response => {
+setEvents(response.data);
+})
+.catch(error => {
+console.log(error);
+});
+}, []);
 
   const handleAddToCalendar = (event) => {
     toast.success(`Added ${event.title} to calendar!`);
@@ -43,9 +39,13 @@ const ViewEvents = () => {
             {events.map((event, index) => (
               <div className="card mb-3" key={index}>
                 <div className="card-body">
-                  <h5 className="card-title">{event.title}</h5>
-                  <p className="card-text">Date: {event.date}</p>
-                  <p className="card-text">Status: {event.status}</p>
+              
+                  <p className="card-text">Customer's Email : {event.event_email}</p>
+                  <p className="card-text">Date: {event.event_date}</p>
+                  <p className="card-text">Time: {event.event_time}</p>
+                  <p className="card-text">Number of Guests: {event.event_number_guest}</p>
+                  <p className="card-text">Event Description: {event.event_description}</p>
+                
                   <Button
                     variant="primary"
                     className="mr-2"

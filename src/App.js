@@ -12,7 +12,7 @@ import UpdateProducts from "./admin/UpdateProducts";
 import "./App.scss";
 import Layout from "./components/Layout";
 import Adminlogin from "./pages/Adminlogin";
-import Bookevent from "./pages/Bookevent";
+
 import ContactUs from "./pages/ContactUs";
 import OrderCon from "./pages/OrderCon";
 import Productviewpg from "./pages/Productviewpg";
@@ -20,20 +20,22 @@ import RealHomePage from "./pages/RealHomePage";
 import Shop from "./pages/Shop";
 import Viewcart from "./pages/Viewcart";
 import Checkout from "./pages/Checkout";
+import Bookevent from "./pages/Bookevent";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <Layout>
-        <Shop />
+        <RealHomePage />
       </Layout>
     ),
   },
   {
-    path: "/home",
+    path: "/shop",
     element: (
       <Layout>
-        <RealHomePage />
+        <Shop />
       </Layout>
     ),
   },

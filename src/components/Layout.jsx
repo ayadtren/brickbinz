@@ -58,18 +58,18 @@ const Layout = (props) => {
               <button onClick={handleOpen} className="menu-button">
                 <MdMenu size={32} />
               </button>
-              <Link className="logo-link" to={"/home"}>
+              <Link className="logo-link" to={"/"}>
                 <img className="logo-nav" src={logo} />
               </Link>
               <ul className="nav-list">
                 <li>
-                  <Link to="/home">Home</Link>
+                  <Link to={"/"}>Home</Link>
                 </li>
                 <li>
                   <Link to="/AdminNav/Dashboard">Admin</Link>
                 </li>
                 <li>
-                  <Link to={"/"}>Shop</Link>
+                  <Link to="/shop">Shop</Link>
                 </li>
                 <li>
                   <Link to="/contact">Contact</Link>
@@ -118,20 +118,20 @@ const Layout = (props) => {
       </nav>
       <Offcanvas show={showDrawer} onHide={handleClose}>
         <Offcanvas.Header>
-          <Link to={"/home"}>
+          <Link to={"/"}>
             <img className="logo-nav-drawer" src={logo} />
           </Link>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <ul className="drawer-nav-list">
             <li onClick={handleClose}>
-              <Link to="/home">Home</Link>
+              <Link to={"/"}>Home</Link>
             </li>
             <li onClick={handleClose}>
               <Link to="/AdminNav/Dashboard">Admin</Link>
             </li>
             <li onClick={handleClose}>
-              <Link to={"/"}>Shop</Link>
+              <Link to="/shop">Shop</Link>
             </li>
             <li onClick={handleClose}>
               <Link to="/contact">Contact</Link>
