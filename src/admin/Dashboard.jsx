@@ -1,51 +1,155 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import {
+  Container,
+  Grid,
+  Typography,
+  Button,
+  Card,
+  CardContent,
+  CardActions,
+} from "@mui/material";
+import { Link } from "react-router-dom";
+import {
+  ShoppingCart as AllProductsIcon,
+  Assignment as OrdersIcon,
+  AddShoppingCart as AddProductIcon,
+  PhotoCamera as AddSlideshowIcon,
+  Event as ViewEventsIcon,
+} from "@mui/icons-material";
 
 const Dashboard = () => {
   return (
     <Container className="mt-5">
-      <div className="d-flex justify-content-center align-items-center">
-        {/* <img
-          src="admin-logo.png"
-          alt="Admin Logo"
-          className="mr-3"
-          style={{ height: "5rem" }}
-        /> */}
-        <h1>Welcome to the Admin Dashboard!</h1>
-      </div>
+      <Grid container justifyContent="center" alignItems="center">
+        <Typography variant="h3" align="center" gutterBottom>
+          Welcome to the Admin Dashboard!
+        </Typography>
+      </Grid>
       <hr />
-      <div className="d-flex flex-wrap justify-content-around">
-        <div className="m-3">
-          <h3>All Products</h3>
-          <p>View and manage all products in the store.</p>
-          <a href="/AdminNav/AllProducts">Go to All Products</a>
-        </div>
-        <div className="m-3">
-          <h3>Orders</h3>
-          <p>View and manage all orders made by customers.</p>
-          <a href="/AdminNav/Orders">Go to Orders</a>
-        </div>
-        {/* <div className="m-3">
-          <h3>Users</h3>
-          <p>View and manage all users registered on the website.</p>
-          <a href="/AdminNav/Users">Go to Users</a>
-        </div> */}
-        <div className="m-3">
-          <h3>Add Product</h3>
-          <p>Add a new product to the store.</p>
-          <a href="/AdminNav/AddProducts">Add Product</a>
-        </div>
-        <div className="m-3">
-          <h3>Add Slideshow Image</h3>
-          <p>Add a new image to the homepage slideshow.</p>
-          <a href="/AdminNav/AddImage">Add Slideshow Image</a>
-        </div>
-        <div className="m-3">
-          <h3>View Events</h3>
-          <p>View current and upcoming events</p>
-          <a href="/AdminNav/ViewEvents">View Events</a>
-        </div>
-      </div>
+      <Grid container justifyContent="center" spacing={4} />
+      <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Card variant="outlined">
+          <CardContent>
+            <AllProductsIcon fontSize="large" />
+            <Typography variant="h5" align="center" gutterBottom>
+              All Products
+            </Typography>
+            <Typography variant="body1" align="center" gutterBottom>
+              View and manage all products in the store.
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button
+              variant="contained"
+              color="primary"
+              component={Link}
+              to="/AdminNav/AllProducts"
+              fullWidth
+            >
+              Go to All Products
+            </Button>
+          </CardActions>
+        </Card>
+      </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Card variant="outlined">
+          <CardContent>
+            <OrdersIcon fontSize="large" />
+            <Typography variant="h5" align="center" gutterBottom>
+              Orders
+            </Typography>
+            <Typography variant="body1" align="center" gutterBottom>
+              View and manage all orders made by customers.
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button
+              variant="contained"
+              color="primary"
+              component={Link}
+              to="/AdminNav/Orders"
+              fullWidth
+            >
+              Go to Orders
+            </Button>
+          </CardActions>
+        </Card>
+      </Grid>
+
+      <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Card variant="outlined">
+          <CardContent>
+            <AddProductIcon fontSize="large" />
+            <Typography variant="h5" align="center" gutterBottom>
+              Add Product
+            </Typography>
+            <Typography variant="body1" align="center" gutterBottom>
+              Add a new product to the store.
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button
+              variant="contained"
+              color="primary"
+              component={Link}
+              to="/AdminNav/AddProducts"
+              fullWidth
+            >
+              Add Product
+            </Button>
+          </CardActions>
+        </Card>
+      </Grid>
+
+      <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Card variant="outlined">
+          <CardContent>
+            <AddSlideshowIcon fontSize="large" />
+            <Typography variant="h5" align="center" gutterBottom>
+              Add Slideshow Image
+            </Typography>
+            <Typography variant="body1" align="center" gutterBottom>
+              Add a new image to the homepage slideshow.
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button
+              variant="contained"
+              color="primary"
+              component={Link}
+              to="/AdminNav/AddImage"
+              fullWidth
+            >
+              Add Slideshow Image
+            </Button>
+          </CardActions>
+        </Card>
+      </Grid>
+
+      <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Card variant="outlined">
+          <CardContent>
+            <ViewEventsIcon fontSize="large" />
+            <Typography variant="h5" align="center" gutterBottom>
+              View Events
+            </Typography>
+            <Typography variant="body1" align="center" gutterBottom>
+              View current and upcoming events
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button
+              variant="contained"
+              color="primary"
+              component={Link}
+              to="/AdminNav/ViewEvents"
+              fullWidth
+            >
+              View Events
+            </Button>
+          </CardActions>
+        </Card>
+      </Grid>
     </Container>
   );
 };
