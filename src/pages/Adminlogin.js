@@ -1,33 +1,26 @@
-// Importing necessary modules and styles
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/login.scss";
 
-// Defining a functional component named Login
 export const Login = () => {
-  // Defining state variables for username, admin_password, and loginStatus using the useState hook
   const [username, setUsername] = useState("");
   const [admin_password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
 
-  // Initializing a navigate constant using the useNavigate hook to redirect user to another page after a successful login
   const navigate = useNavigate();
 
-  // Function to handle username change in the input field
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };
 
-  // Function to handle password change in the input field
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
 
-  // Function to handle form submission when user clicks on submit button
   const loginn = async (event) => {
     event.preventDefault();
-    // Sending an HTTP POST request to the server with username and admin_password data using the axios library
     axios
       .post(
         "http://localhost:8000/login",
@@ -40,17 +33,15 @@ export const Login = () => {
         }
       )
       .then((response) => {
-        // If server sends a message, set the loginStatus state variable to that message
         if (response.data.message) {
           setLoginStatus(response.data.message);
         } else {
-          // Otherwise, redirect user to the '/AdminNav/AddProducts' page using the navigate function
+          setIsAdmin(true);
           navigate("/AdminNav/AddProducts");
         }
       });
   };
 
-  // Rendering the login form with input fields, submit button, and message displaying the login status
   return (
     <div className="login-container">
       <form className="login-form">
@@ -79,9 +70,24 @@ export const Login = () => {
         <h6 className="loginstatus">{loginStatus}</h6>
         <span>Forget Password or Username?</span> | <span>Sign Up</span>
       </form>
+
+      {isAdmin && (
+        <nav>
+          <ul>
+            <li>
+              <a href="/AdminNav/AddProducts">Add Products</a>
+            </li>
+            <li>
+              <a href="/AdminNav/EditProducts">Edit Products</a>
+            </li>
+            <li>
+              <a href="/AdminNav/DeleteProducts">Delete Products</a>
+            </li>
+          </ul>
+        </nav>
+      )}
     </div>
   );
 };
 
-// Exporting the Login component as the default export
 export default Login;

@@ -3,9 +3,11 @@ import { Container, Row } from "react-bootstrap";
 import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import "../styles/admin-nav.scss";
+import { useNavigate } from "react-router-dom";
 
 const AdminNav = () => {
   const { authUser } = useAuth();
+  const navigate = useNavigate();
 
   const admin__nav = [
     {
@@ -37,6 +39,12 @@ const AdminNav = () => {
       path: "/AdminNav/ViewEvents",
     },
   ];
+
+  if (!authUser || !authUser.isAdmin) {
+    // If the user is not authenticated or not an admin, redirect to the login page
+    navigate("/login");
+    return null;
+  }
 
   return (
     <div>
