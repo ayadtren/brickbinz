@@ -112,7 +112,7 @@ const BookEvent = () => {
         </div>
 
         <div className="button-event">
-          <button type="button" class="btn btn-primary btn-lg btn-block">
+          <button type="button" class="btn btn-primary btn-lg btn-block" onClick={handleSubmit}>
             Submit
           </button>
         </div>

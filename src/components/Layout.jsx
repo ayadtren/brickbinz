@@ -65,14 +65,14 @@ const Layout = (props) => {
                 <li>
                   <Link to={"/"}>Home</Link>
                 </li>
-                {/* <li>
+                <li hidden>
                   <Link to="/AdminNav/Dashboard">Admin</Link>
-                </li> */}
+                </li>
                 <li>
                   <Link to="/shop">Shop</Link>
                 </li>
                 <li>
-                  <Link to="/contact">Contact</Link>
+                  <Link to="/ticket">Ticket</Link>
                 </li>
                 <li>
                   <Link to="/book">Book</Link>
@@ -92,7 +92,7 @@ const Layout = (props) => {
           <div className="right">
             <div className="right-box">
               <ul className="nav-list">
-                <li>
+                <li hidden>
                   <button
                     onClick={handleLoginOpen}
                     className="icon-button"
@@ -134,7 +134,7 @@ const Layout = (props) => {
               <Link to="/shop">Shop</Link>
             </li>
             <li onClick={handleClose}>
-              <Link to="/contact">Contact</Link>
+              <Link to="/ticket">Ticket</Link>
             </li>
             <li onClick={handleClose}>
               <Link to="/book">Book</Link>

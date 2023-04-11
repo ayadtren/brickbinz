@@ -14,13 +14,13 @@ import Shop from "./pages/Shop";
 import Bookevent from "./pages/Bookevent";
 import Productviewpg from "./pages/Productviewpg";
 import OrderCon from "./pages/OrderCon";
-import ContactUs from "./pages/ContactUs";
+import Ticket from "./pages/Ticket";
 import Viewcart from "./pages/Viewcart";
 import Checkout from "./pages/Checkout";
 import Adminlogin from "./pages/Adminlogin";
 import AdminNav from "./admin/AdminNav";
 import Dashboard from "./admin/Dashboard";
-import Users from "./admin/Users";
+import ViewTickets from "./admin/ViewTickets";
 import AllProducts from "./admin/AllProducts";
 import AddProducts from "./admin/AddProducts";
 import UpdateProducts from "./admin/UpdateProducts";
@@ -50,14 +50,14 @@ function App() {
           <Route path="/book" element={<Bookevent />} />
           <Route path="/product" element={<Productviewpg />} />
           <Route path="/OrderCon" element={<OrderCon />} />
-          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/ticket" element={<Ticket />} />
           <Route path="/Viewcart" element={<Viewcart />} />
           <Route path="/Checkout" element={<Checkout />} />
           <Route path="/login" element={<Adminlogin />} />
           <Route path="/Adminlogin" element={<Adminlogin />} />
           <Route path="/AdminNav/*" element={<AdminNav />}>
             <Route path="Dashboard" element={<Dashboard />} />
-            <Route path="Users" element={<Users />} />
+            <Route path="ViewTickets" element={<ViewTickets />} />
             <Route path="AddProducts" element={<AddProducts />} />
             <Route path="AllProducts" element={<AllProducts />} />
             <Route path="AddImage" element={<AddImage />} />

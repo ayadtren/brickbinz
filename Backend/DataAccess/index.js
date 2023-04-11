@@ -58,6 +58,31 @@ app.get("/login", (req, res) => {
   });
 });
 
+//Setting up a GET request for the ticket
+app.get("/ticket", (req, res) => {
+  const q = "SELECT * from ticket";
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  })
+});
+
+app.post("/ticket", (req, res) => {
+  const q =
+    "INSERT INTO ticket (`ticket_id`, `ticket_email`, `ticket_username`, `ticket_message`) VALUES (?)";
+  const values = [
+    req.body.ticket_id,
+    req.body.ticket_email,
+    req.body.ticket_username,
+    req.body.ticket_message
+  ];
+
+  db.query(q, [values], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
 //Setting up a Post request for the products
 app.post("/products", (req, res) => {
   const q =
@@ -134,7 +159,7 @@ app.put("/cart/:cart_set_numb", (req, res) => {
     req.body.cart_theme,
   ];
 
-
+    console.log(req.body)
   db.query(q, [...values, cartId], (err, data) => {
     
     if (err) return res.json(err);

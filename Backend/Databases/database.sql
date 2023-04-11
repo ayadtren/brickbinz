@@ -23,6 +23,14 @@ CREATE TABLE IF NOT EXISTS brickbindb.event (
     PRIMARY KEY (event_id)
 );
 
+CREATE TABLE IF NOT EXISTS brickbindb.ticket (
+    ticket_id INT(19) NOT NULL AUTO_INCREMENT,
+    ticket_email VARCHAR(45) NOT NULL,
+    ticket_username VARCHAR(45) NOT NULL,
+    ticket_message VARCHAR(200) NOT NULL,
+    PRIMARY KEY (ticket_id)
+);
+
 CREATE TABLE IF NOT EXISTS brickbindb.product (
     product_set_numb VARCHAR(40) NOT NULL,
     product_set_name VARCHAR(40) NOT NULL,
@@ -87,6 +95,7 @@ INSERT INTO brickbindb.login (username, admin_password)
     VALUES ('testusername', 'testpassword');
 INSERT INTO brickbindb.login (username, admin_password)
     VALUES ('admin', 'password');
+
 
 
 INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location,product_quantity, product_img, theme)

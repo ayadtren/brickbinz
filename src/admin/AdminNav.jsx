@@ -64,8 +64,8 @@ const AdminNav = () => {
       path: "/AdminNav/Orders",
     },
     {
-      display: "Users",
-      path: "/AdminNav/users",
+      display: "View Tickets",
+      path: "/AdminNav/ViewTickets",
     },
     {
       display: "Add-Product",

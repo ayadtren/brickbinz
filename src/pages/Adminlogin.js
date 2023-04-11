@@ -36,8 +36,8 @@ export const Login = () => {
         if (response.data.message) {
           setLoginStatus(response.data.message);
         } else {
-          setIsAdmin(true);
-          navigate("/AdminNav/AddProducts");
+          // setIsAdmin(true);
+          navigate("/AdminNav/Dashboard");
         }
       });
   };
@@ -71,7 +71,7 @@ export const Login = () => {
         <span>Forget Password or Username?</span> | <span>Sign Up</span>
       </form>
 
-      {isAdmin && (
+      {/* {isAdmin && (
         <nav>
           <ul>
             <li>
@@ -85,7 +85,7 @@ export const Login = () => {
             </li>
           </ul>
         </nav>
-      )}
+      )} */}
     </div>
   );
 };
