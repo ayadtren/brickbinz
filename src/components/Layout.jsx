@@ -14,7 +14,7 @@ const Layout = (props) => {
   const location = useLocation();
   const [showDrawer, setShowDrawer] = useState(false);
   const [cartItems, setCartItems] = useState([]);
-  
+
   const handleClose = () => {
     setShowDrawer(false);
   };
@@ -65,9 +65,9 @@ const Layout = (props) => {
                 <li>
                   <Link to={"/"}>Home</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/AdminNav/Dashboard">Admin</Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to="/shop">Shop</Link>
                 </li>
@@ -80,9 +80,9 @@ const Layout = (props) => {
                 <li>
                   <Link to="/product">Product</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/Checkout">Checkout</Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to="/OrderCon">OrderCon</Link>
                 </li>

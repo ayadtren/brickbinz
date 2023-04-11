@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { MdAdd, MdDelete, MdRemove } from "react-icons/md";
 import "../styles/Viewcart.scss";
+import { useNavigate } from "react-router-dom";
 
 export const formatNumberWithCommas = (string) => {
   if (!string) return "";
@@ -22,8 +23,13 @@ export const roundMoneyNum = (amount) => {
 };
 
 function Viewcart() {
+  const navigate = useNavigate();
+  const handleCheckout = () => {
+    navigate = "./Checkout.js"; // Replace "/checkout" with the path to your checkout.js page
+  };
+
   const [cartItems, setCartItems] = useState([]);
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchAllCartItems = async () => {
       try {
@@ -60,17 +66,27 @@ function Viewcart() {
   const handleAdd = (cartItem) => async (e) => {
     try {
       const newCartItem = { ...cartItem };
-      const product = products.find((product) => (product.product_set_numb === cartItem.cart_set_numb));
+      const product = products.find(
+        (product) => product.product_set_numb === cartItem.cart_set_numb
+      );
 
       if (newCartItem.cart_set_quantity < product.product_quantity) {
         newCartItem.cart_set_quantity = newCartItem.cart_set_quantity + 1;
       } else {
-        alert("You have reached the max quantity")
+        alert("You have reached the max quantity");
       }
-      console.log(newCartItem)
-      console.log(await axios.put("http://localhost:8000/cart/" + newCartItem.cart_set_numb, newCartItem));
+      console.log(newCartItem);
+      console.log(
+        await axios.put(
+          "http://localhost:8000/cart/" + newCartItem.cart_set_numb,
+          newCartItem
+        )
+      );
 
-      await axios.put("http://localhost:8000/cart/" + newCartItem.cart_set_numb, newCartItem);
+      await axios.put(
+        "http://localhost:8000/cart/" + newCartItem.cart_set_numb,
+        newCartItem
+      );
       window.location.reload();
     } catch (err) {
       console.log(err.response.data);
@@ -92,14 +108,17 @@ function Viewcart() {
       if (newCartItem.cart_set_quantity >= 2) {
         console.log(newCartItem.cart_set_quantity);
         newCartItem.cart_set_quantity = newCartItem.cart_set_quantity - 1;
-        await axios.put("http://localhost:8000/cart/" + newCartItem.cart_set_numb, newCartItem);
+        await axios.put(
+          "http://localhost:8000/cart/" + newCartItem.cart_set_numb,
+          newCartItem
+        );
         window.location.reload();
       } else {
-        await axios.delete("http://localhost:8000/cart/" + newCartItem.cart_set_numb);
+        await axios.delete(
+          "http://localhost:8000/cart/" + newCartItem.cart_set_numb
+        );
         window.location.reload();
       }
-
-
     } catch (err) {
       console.log(err.response.data);
     }
@@ -122,7 +141,7 @@ function Viewcart() {
     <div className="cart">
       <Container className="items">
         <h2>My Cart</h2>
-        <br/>
+        <br />
         <div className="cart-container">
           <ul className="list-group">
             <li className="list-group-item">
@@ -211,7 +230,7 @@ function Viewcart() {
       </Container>
       <Container className="summary">
         <h2>Summary</h2>
-        <br/>
+        <br />
         <div className="summary-container">
           <ul>
             {cartItems.map((cartItem) => {
@@ -239,6 +258,9 @@ function Viewcart() {
             })}
           </ul>
         </div>
+        <Button onClick={handleCheckout} variant="primary">
+          Checkout
+        </Button>
       </Container>
     </div>
   );
