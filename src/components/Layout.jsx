@@ -72,7 +72,7 @@ const Layout = (props) => {
                   <Link to="/shop">Shop</Link>
                 </li>
                 <li>
-                  <Link to="/ticket">Ticket</Link>
+                  <Link to="/ticket">Contact</Link>
                 </li>
                 <li>
                   <Link to="/book">Book</Link>
@@ -134,7 +134,7 @@ const Layout = (props) => {
               <Link to="/shop">Shop</Link>
             </li>
             <li onClick={handleClose}>
-              <Link to="/ticket">Ticket</Link>
+              <Link to="/ticket">Contact</Link>
             </li>
             <li onClick={handleClose}>
               <Link to="/book">Book</Link>
