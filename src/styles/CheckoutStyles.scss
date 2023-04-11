@@ -20,6 +20,12 @@
     .payment-form {
         padding-left: 2em;
         padding-top: 1em;
+        text-align: left;
+        ;
+        
+        input{
+            margin: 0.8em;
+        }
 
     }
 }
@@ -56,6 +62,9 @@
     text-align: center;
     color: aliceblue;
     background-color: #006149;
+    text-align: right;
+    padding-right: 3em;
+    padding-top: 1em;
 }
 
 .checkout-button {

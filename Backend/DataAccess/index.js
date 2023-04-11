@@ -122,20 +122,21 @@ app.post("/cart", (req, res) => {
 });
 
 //Code block to put requests to cart
-app.put("/cart/:product_set_numb", (req, res) => {
-  const q =
-    "INSERT INTO cart (`cart_set_numb`, `cart_set_name`, `cart_set_price`, `cart_set_location`, `cart_set_quantity`, `cart_set_img`, `cart_theme`) VALUES (?)";
+app.put("/cart/:cart_set_numb", (req, res) => {
+  const cartId = req.params.cart_set_numb;
+  const q = "UPDATE cart SET `cart_set_name` = ?, `cart_set_price` = ?, `cart_set_location` = ?, `cart_set_quantity` = ?, `cart_set_img` = ?, `cart_theme` = ? WHERE `cart_set_numb` = ?";
   const values = [
-    req.body.product_set_numb,
-    req.body.product_set_name,
-    req.body.product_price,
-    req.body.product_location,
-    req.body.product_quantity,
-    req.body.product_img,
-    req.body.theme,
+    req.body.cart_set_name,
+    req.body.cart_set_price,
+    req.body.cart_set_location,
+    req.body.cart_set_quantity,
+    req.body.cart_set_img,
+    req.body.cart_theme,
   ];
 
-  db.query(q, [values], (err, data) => {
+
+  db.query(q, [...values, cartId], (err, data) => {
+    
     if (err) return res.json(err);
     return res.json(data);
   });

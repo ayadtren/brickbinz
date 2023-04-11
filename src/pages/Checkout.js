@@ -57,6 +57,38 @@ export default function Checkout() {
     setActiveStep(activeStep - 1);
   };
 
+  //get data from cart.
+  const [cartItems, setCartItems] = useState([]);
+  useEffect(() => {
+    const fetchAllCartItems = async () => {
+      try {
+        const res = await axios.get("http://localhost:8000/cart");
+        setCartItems(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchAllCartItems();
+  }, []);
+
+  //displays product name and price.
+  const listItems = cartItems.map((cartItems) => (
+    <div className="display-cart">
+      <li key={cartItems.cart_set_numb}>
+        <h5>{cartItems.cart_set_name}</h5>
+        <p>${cartItems.cart_set_price}</p>
+      </li>
+      {/* hr is just line break. */}
+      <hr></hr>
+    </div>
+  ));
+
+  let totalPrice = 0;
+  //add the sum of the total price.
+  for (let i = 0; i < cartItems.length; i++) {
+    totalPrice += cartItems[i]?.cart_set_price;
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

@@ -7,21 +7,26 @@
   min-width: 1200px;
   padding-top: 36px;
   padding-bottom: 16px;
+
   .items {
     width: 70%;
     padding-right: 6px;
+
     .cart-container {
       background-color: white;
+
       .list-group {
         .list-group-item {
           .list-group-row {
             display: flex;
             align-items: center;
             justify-content: center;
+
             .image-container {
               display: flex;
               align-items: center;
               justify-content: center;
+
               img {
                 width: 100%;
                 height: 80px;
@@ -33,9 +38,14 @@
       }
     }
   }
+
   .summary {
+    position: relative;
     width: 30%;
     padding-left: 6px;
+    left: 5em;
+    
+
     .summary-container {
       background-color: white;
     }
