@@ -11,9 +11,12 @@
   .items {
     width: 70%;
     padding-right: 6px;
+    position: relative;
+    right: 7em;
 
     .cart-container {
       background-color: white;
+      width: 65em;
 
       .list-group {
         .list-group-item {
@@ -48,6 +51,14 @@
 
     .summary-container {
       background-color: white;
+      outline: 0.5px solid gray;
+      padding: 0.5em;
+      border-radius: 4px;
+      margin-bottom: 2em;
     }
   }
+}
+//to adjust the quantity button.
+.btn-group{
+  left: 3em;
 }

@@ -4,14 +4,17 @@
     justify-content: center;
     height: 40vh;
     width: 60vh;
-    top: 12em;
-    background-color: #f9f777;
+    top: 10em;
+    background-color: #006149;
     text-align: center;
-    box-shadow: 10px 10px 10px;
+    box-shadow: 10px 10px 10px gray;
+    
 }
 
 .order-contents{
     position: relative;
-    top: 8em;
+    top: 6.5em;
+    color: whitesmoke;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
    
 }

@@ -1,17 +1,22 @@
 .login-container {
   padding: 8px 12px;
+  margin-bottom: 2rem;
+
   h2 {
     font-size: 24px;
     line-height: 30px;
     font-weight: 500;
     color: red;
+
   }
+
   h6 {
     color: aqua;
     font-size: 15px;
     text-align: center;
     margin-top: 20px;
   }
+
   .login-input {
     width: 100%;
     padding: 10px 15px;
@@ -38,6 +43,7 @@
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+
     &:hover {
       background-color: white;
       color: red;

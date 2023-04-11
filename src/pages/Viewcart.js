@@ -148,7 +148,7 @@ function Viewcart() {
               <Row className="list-group-row">
                 <Col xs={3}>Image</Col>
                 <Col xs={1}>
-                  <div>Number</div>{" "}
+                  <div>Number</div>
                 </Col>
                 <Col xs={2}>
                   <div>Name</div>
@@ -156,7 +156,7 @@ function Viewcart() {
                 <Col xs={1}>
                   <div>Price</div>
                 </Col>
-                <Col xs={1}>
+                <Col xs={2}>
                   <div>Location</div>
                 </Col>
                 <Col xs={3}>
@@ -183,7 +183,8 @@ function Viewcart() {
                     </Col>
                     <Col xs={2}>
                       <div>
-                        <h5 className="mb-1">{cartItem.cart_set_name}</h5>
+                      {cartItem.cart_set_name}
+                        {/* <h5 className="mb-1"></h5> */}
                       </div>
                     </Col>
                     <Col xs={1}>

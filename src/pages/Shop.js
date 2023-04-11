@@ -149,7 +149,8 @@ const Shop = () => {
 
           <div className="filter-select">
             <div>
-              <label htmlFor="filter-by-themes">Filter By:</label>
+              Filter by
+              {/* <label htmlFor="filter-by-themes">Filter By:</label> */}
             </div>
             <div>
               <Form.Select
@@ -169,7 +170,8 @@ const Shop = () => {
 
           <div className="filter-select">
             <div>
-              <label htmlFor="filter-by-themes">Filter by Theme:</label>
+              Filter by themes
+              {/* <label htmlFor="filter-by-themes">Filter by Theme:</label> */}
             </div>
             <div>
               <Form.Select
