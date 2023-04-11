@@ -134,7 +134,7 @@ const BookEvent = () => {
   };
 
   return (
-    <div>
+    <div className="book-event-container">
       <h1>Book your Lego Store Birthday Party Event</h1>
       {submitted ? renderConfirmation() : renderForm()}
     </div>

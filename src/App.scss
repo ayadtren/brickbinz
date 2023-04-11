@@ -359,8 +359,9 @@ body {
 }
 
 .button {
+  position: relative;
   width: 100%;
-
+bottom: 1.35em;
   .add-cart {
     border: 2px solid #006149;
     background-color: #006149;
@@ -373,6 +374,7 @@ body {
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+
     //button hover
     &:hover {
       background-color: white;

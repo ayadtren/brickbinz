@@ -29,6 +29,12 @@ const Checkout = () => {
             <hr></hr>
         </div>
     ));
+
+    let totalPrice = 0;
+    //add the sum of the total price. 
+    for(let i = 0; i < cartItems.length; i++){
+        totalPrice += cartItems[i]?.cart_set_price;
+    }
     return (
         <div>
 
@@ -39,12 +45,12 @@ const Checkout = () => {
                     <h2>Payment Options</h2>
                 </div>
                 <div className='payment-form'>
-                    Brand: <input type="text" placeholder="Visa" name="setName" required />
-                    Card Number: <input type="text" placeholder="Card Number" name="setPrice" required />
-                    Expiry Date: <input type="text" placeholder="MM / YY" name="setLocation" required />
-                    Card Holder: <input type="text" placeholder="Card Holder name" name="setQuantity" required />
-                    CVV: <input type='number' placeholder="CVV" name="setImage" required />
-                    Billing Postal Code: <input type="text" placeholder="A0A 0A0" name="postalCode" required />
+                    Brand: <input type="text" placeholder="Visa" name="setName" required /><br/>
+                    Card Number: <input type="text" placeholder="Card Number" name="setPrice" required /><br/>
+                    Expiry Date: <input type="text" placeholder="MM / YY" name="setLocation" required /><br/>
+                    Card Holder: <input type="text" placeholder="Card Holder name" name="setQuantity" required /><br/>
+                    CVV: <input type='number' placeholder="CVV" name="setImage" required /><br/>
+                    Billing Postal Code: <input type="text" placeholder="A0A 0A0" name="postalCode" required /><br/>
                 </div>
 
             </div>
@@ -58,7 +64,7 @@ const Checkout = () => {
 
                 </div>
                 <div className='summary-total-price'>
-                    gang gnag brouh
+                    Subtotal: ${totalPrice}
                 </div>
 
             </div>

@@ -122,6 +122,7 @@ function Viewcart() {
     <div className="cart">
       <Container className="items">
         <h2>My Cart</h2>
+        <br/>
         <div className="cart-container">
           <ul className="list-group">
             <li className="list-group-item">
@@ -210,7 +211,7 @@ function Viewcart() {
       </Container>
       <Container className="summary">
         <h2>Summary</h2>
-
+        <br/>
         <div className="summary-container">
           <ul>
             {cartItems.map((cartItem) => {
