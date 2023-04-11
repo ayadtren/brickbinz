@@ -30,7 +30,7 @@ const AllProducts = () => {
     }
   };
 
-  const themeFilter = (themeNumb) => { };
+  const themeFilter = (themeNumb) => {};
 
   return (
     <section>
@@ -55,7 +55,10 @@ const AllProducts = () => {
 
                 {products.map((product) => {
                   return (
-                    <li className="list-group-item" key={product.product_set_numb}>
+                    <li
+                      className="list-group-item"
+                      key={product.product_set_numb}
+                    >
                       <Row className="list-group-row">
                         <Col>
                           <img
@@ -64,21 +67,35 @@ const AllProducts = () => {
                             width="70%"
                           />
                         </Col>
-                        <Col><div>#{product.product_set_numb}</div></Col>
-                        <Col><div>{product.product_set_name}</div></Col>
-                        <Col><div>${product.product_price}</div></Col>
-                        <Col><div>{product.product_location}</div></Col>
-                        <Col><div>{product.product_quantity}</div></Col>
-                        <Col><div>{product.theme}</div></Col>
+                        <Col>
+                          <div>#{product.product_set_numb}</div>
+                        </Col>
+                        <Col>
+                          <div>{product.product_set_name}</div>
+                        </Col>
+                        <Col>
+                          <div>${product.product_price}</div>
+                        </Col>
+                        <Col>
+                          <div>{product.product_location}</div>
+                        </Col>
+                        <Col>
+                          <div>{product.product_quantity}</div>
+                        </Col>
+                        <Col>
+                          <div>{product.theme}</div>
+                        </Col>
                         <Col>
                           <div>
                             <button
                               className="btn btn-danger"
-                              onClick={() => handleDelete(product.product_set_numb)}
+                              onClick={() =>
+                                handleDelete(product.product_set_numb)
+                              }
                             >
                               Delete
                             </button>
-                            <button>
+                            <button className="btn btn-warning">
                               <Link
                                 to={`/AdminNav/UpdateProducts/${product.product_set_numb}`}
                               >
@@ -162,6 +179,29 @@ const AllProducts = () => {
       <ToastContainer position="top-right" autoClose={3000} />
     </section>
   );
+};
+
+const ProductImage = ({ img }) => {
+  const [productImage, setProductImage] = useState(null);
+
+  useEffect(() => {
+    const fetchImage = async () => {
+      try {
+        const imageModule = await import(`./../images/products/${img}`);
+        setProductImage(imageModule.default);
+      } catch (error) {
+        console.error(`Error importing image: ${img}`, error);
+      }
+    };
+
+    fetchImage();
+  }, [img]);
+
+  if (!productImage) {
+    return <div>Loading...</div>;
+  }
+
+  return <img src={productImage} alt={img} width="70%" />;
 };
 
 export default AllProducts;

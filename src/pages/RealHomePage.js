@@ -99,7 +99,7 @@ const RealHomePage = () => {
         <Slider {...settings}>{newItems}</Slider>
       </div>
 
-      <h2 id="margin-element">About us thingy majig</h2>
+      <h2 id="margin-element">About Us</h2>
       <div className="grid-4-columns">
         <div className="box">
           <Card title="About Us" imageUrl={sampleimage} body="hello" />
