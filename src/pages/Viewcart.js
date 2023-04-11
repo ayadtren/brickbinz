@@ -23,6 +23,7 @@ export const roundMoneyNum = (amount) => {
 
 function Viewcart() {
   const [cartItems, setCartItems] = useState([]);
+  const [products, setProducts] = useState([])
   useEffect(() => {
     const fetchAllCartItems = async () => {
       try {
@@ -33,6 +34,18 @@ function Viewcart() {
       }
     };
     fetchAllCartItems();
+  }, []);
+
+  useEffect(() => {
+    const fetchAllProducts = async () => {
+      try {
+        const res = await axios.get("http://localhost:8000/products");
+        setProducts(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchAllProducts();
   }, []);
 
   const handleDelete = (cart_set_numb) => async (e) => {
@@ -47,32 +60,56 @@ function Viewcart() {
   const handleAdd = (cartItem) => async (e) => {
     try {
       const newCartItem = { ...cartItem };
-      if (newCartItem.cart_set_quantity < 99) {
+      const product = products.find((product) => (product.product_set_numb === cartItem.cart_set_numb));
+
+      if (newCartItem.cart_set_quantity < product.product_quantity) {
         newCartItem.cart_set_quantity = newCartItem.cart_set_quantity + 1;
+      } else {
+        alert("You have reached the max quantity")
       }
-      await axios.put(
-        "http://localhost:8000/cart/" + cartItem.cart_set_numb,
-        newCartItem
-      );
+      console.log(newCartItem)
+      console.log(await axios.put("http://localhost:8000/cart/" + newCartItem.cart_set_numb, newCartItem));
+
+      await axios.put("http://localhost:8000/cart/" + newCartItem.cart_set_numb, newCartItem);
       window.location.reload();
     } catch (err) {
       console.log(err.response.data);
     }
+
+    // const exist = cartItems.find((x) => x.cart_set_numb === cartItem.cart_set_numb);
+    // if (exist >= 1) {
+    //   setCartItems(
+    //     cartItems.map((x) => x.cart_set_numb === cartItem.cart_set_numb ? { ...exist, cart_set_quantity: exist.cart_set_quantity + 1 } : x)
+    //   );
+    // } else {
+    //   setCartItems([...cartItems, { ...cartItem, cart_set_quantity: 1 }]);
+    // }
   };
 
   const handleMinus = (cartItem) => async (e) => {
     try {
       const newCartItem = { ...cartItem };
-      if (newCartItem.cart_set_quantity > 2) {
+      if (newCartItem.cart_set_quantity >= 2) {
+        console.log(newCartItem.cart_set_quantity);
         newCartItem.cart_set_quantity = newCartItem.cart_set_quantity - 1;
+        await axios.put("http://localhost:8000/cart/" + newCartItem.cart_set_numb, newCartItem);
+        window.location.reload();
       } else {
-        handleDelete(newCartItem.cart_set_numb);
+        await axios.delete("http://localhost:8000/cart/" + newCartItem.cart_set_numb);
+        window.location.reload();
       }
-      await axios.put("http://localhost:8000/cart/" + cartItem.cart_set_numb);
-      window.location.reload();
+
+
     } catch (err) {
       console.log(err.response.data);
     }
+
+    // const exist = cartItems.find((x) => x.cart_set_numb === cartItem.cart_set_numb);
+    // if (exist.cart_set_quantity === 1) {
+    //   setCartItems(cartItems.filter((x) => x.cart_set_numb !== cartItem.cart_set_numb));
+    // } else {
+    //   setCartItems(cartItems.map((x) => x.cart_set_numb === cartItem.cart_set_numb ? {...exist, cart_set_quantity: exist.cart_set_quantity - 1} : x));
+    // }
   };
 
   let totalPrice = 0;

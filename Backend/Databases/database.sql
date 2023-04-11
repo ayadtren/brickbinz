@@ -83,12 +83,9 @@ INSERT INTO brickbindb.theme VALUES (20, 'LEGO Creator Expert/Icons');
 INSERT INTO brickbindb.theme VALUES (21, 'LEGO Retired');
 
 
-
--- INSERT INTO brickbindb.cart(cart_set_numb, cart_set_name, cart_set_price, cart_set_location, cart_set_quantity, cart_set_img, cart_theme)
---     VALUES ('Test','Test', 1234.00, 'Test', 1, 'Test.png', 7);
 INSERT INTO brickbindb.login (username, admin_password)
     VALUES ('testusername', 'testpassword');
-    INSERT INTO brickbindb.login (username, admin_password)
+INSERT INTO brickbindb.login (username, admin_password)
     VALUES ('admin', 'password');
 
 

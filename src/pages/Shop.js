@@ -81,6 +81,7 @@ const Shop = () => {
   const handleClick = (item) => async (e) => {
     e.preventDefault();
     window.location.reload();
+    item.product_quantity = 1;
 
     const newCartItem = {
       product_set_name: item.product_set_name,
@@ -210,7 +211,6 @@ const Shop = () => {
                     {product.product_location}
                   </div>
                   <div
-                    hidden="hidden"
                     className="quantity"
                     name="product_quantity"
                   >
