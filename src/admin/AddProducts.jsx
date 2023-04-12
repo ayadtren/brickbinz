@@ -37,12 +37,12 @@ const AddProducts = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const formData = new FormData();
-      Object.entries(products).forEach(([key, value]) => {
-        formData.append(key, value);
-      });
+      // const formData = new FormData();
+      // Object.entries(products).forEach(([key, value]) => {
+      //   formData.append(key, value);
+      // });
 
-      await axios.post("http://localhost:8000/products", formData);
+      await axios.post("http://localhost:8000/products", products);
       toast.success("Product added successfully");
     } catch (err) {
       console.log(err);

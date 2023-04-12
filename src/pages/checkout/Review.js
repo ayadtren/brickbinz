@@ -58,32 +58,34 @@ function Review({ userInfo, paymentInfo, cartItems }) {
           </Typography>
         </ListItem>
       </List>
+
       <Grid container spacing={2}>
-        {/* {userInfo.map((user) => (
-          <Grid item xs={12} sm={6} key={user.firstName}>
-            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-              Contact Information
-            </Typography>
-            <Typography gutterBottom>{user.firstName} {user.lastName}</Typography>
-            <Typography gutterBottom>{user.email}</Typography>
-          </Grid>
-        ))} */}
+        <Grid item xs={12} sm={6}>
+          <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+            Contact Information
+          </Typography>
+          <Typography gutterBottom>{userInfo.firstName} {userInfo.lastName}</Typography>
+          <Typography gutterBottom>{userInfo.email}</Typography>
+        </Grid>
+
+
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
             Payment details
           </Typography>
-          {/* <Grid container>
-            {paymentInfo.map((payment) => (
-              <React.Fragment key={payment.cardName}>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.cardNum}</Typography>
+          <Grid container>
+              <React.Fragment>
+              <Grid item xs={6}>
+                  <Typography gutterBottom>{paymentInfo.cardName}</Typography>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.cardExp}</Typography>
+                  <Typography gutterBottom>{paymentInfo.cardNum}</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography gutterBottom>{paymentInfo.cardExp}</Typography>
                 </Grid>
               </React.Fragment>
-            ))}
-          </Grid> */}
+          </Grid>
         </Grid>
       </Grid>
     </React.Fragment>
