@@ -4,24 +4,27 @@ import Modal from "react-bootstrap/Modal";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FaShoppingBag } from "react-icons/fa";
 import { MdMenu, MdPersonPin } from "react-icons/md";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import AdminNav from "../admin/AdminNav";
 import { useAuth } from "../auth/useAuth";
 import logo from "../images/banner2.png";
 import Login from "../pages/Adminlogin";
 import Footer from "../pages/footer/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { useNavigate } from "react-router-dom";
 const Layout = (props) => {
   const location = useLocation();
   const [showDrawer, setShowDrawer] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const { isLoggedIn, logOut } = useAuth();
+  const navigate = useNavigate();
 
   console.log("Log: ~ file: Layout.jsx:20 ~ Layout ~ isLoggedIn:", isLoggedIn);
 
   const handleLogout = () => {
+    navigate("/");
     logOut();
+    
   };
 
   const handleClose = () => {
