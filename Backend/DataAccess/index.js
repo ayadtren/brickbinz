@@ -159,9 +159,9 @@ app.put("/cart/:cart_set_numb", (req, res) => {
     req.body.cart_theme,
   ];
 
-    console.log(req.body)
+  console.log(req.body)
   db.query(q, [...values, cartId], (err, data) => {
-    
+
     if (err) return res.json(err);
     return res.json(data);
   });
@@ -243,6 +243,26 @@ app.delete("/cart/:cart_set_numb", (req, res) => {
     if (err) return res.json(err);
     return res.json(data);
   });
+});
+
+app.delete("/ticket/:ticket_id", (req, res) => {
+  const ticketId = req.params.ticket_id;
+  const q = "DELETE FROM ticket WHERE ticket_id = ?";
+
+  db.query(q, [ticketId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
+app.delete("/event/:event_id", (req, res) => {
+  const eventId = req.params.event_id;
+  const q = "DELETE FROM event WHERE event_id = ?";
+
+  db.query(q, [eventId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  })
 });
 
 //Code block to update a product in the product table.

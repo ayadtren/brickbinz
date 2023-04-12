@@ -1,13 +1,28 @@
 .carousel {
   position: relative;
-  width: 1100px;
-  left: 13em;
+  width: 100%; /* Updated width */
+  max-width: 1100px; /* Limit the maximum width */
+  margin-left: auto; /* Added to center the carousel */
+  margin-right: auto; /* Added to center the carousel */
   bottom: 2em;
+  box-sizing: border-box; /* Added to ensure padding and border are included in the width calculation */
 }
 
 .carousel-caption {
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 24px;
+}
+
+@media (max-width: 1200px) {
+  .carousel {
+    left: 2em;
+  }
+}
+
+@media (max-width: 800px) {
+  .carousel {
+    left: 0;
+  }
 }
 
 .main-image-container {
@@ -23,18 +38,36 @@
   }
 }
 
-//for the slider boxes. 
+//for the slider boxes.
 .slider-container {
-  border-style: solid ;
+  border-style: solid;
   border-color: #006149;
   border-radius: 0.5em;
-  width: 300px !important;
-  margin: 3em;
-  padding: 0.8em;
+  width: 100%; /* Updated width */
+  max-width: 300px; /* Limit the maximum width */
+  margin: 2em;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box; /* Added to ensure padding and border are included in the width calculation */
+}
 
-  img {
-    text-align: center;
-    margin-left: 3em;
+.slider-container img {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20%;
+  width: 100%; /* Updated width */
+  max-width: 100px; /* Limit the maximum width */
+  display: block; /* Added to center the image */
+}
+
+@media (max-width: 800px) {
+  .slider-container {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 }
 
@@ -45,6 +78,14 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 4em;
   padding: 2.5rem;
+}
+
+@media (max-width: 800px) {
+  .grid-4-columns {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 }
 
 /* this is for allowing a box to fill 
@@ -87,6 +128,6 @@
   }
 }
 
-#margin-element{
+#margin-element {
   margin-left: 1em;
 }

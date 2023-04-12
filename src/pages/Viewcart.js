@@ -25,7 +25,7 @@ export const roundMoneyNum = (amount) => {
 function Viewcart() {
   const navigate = useNavigate();
   const handleCheckout = () => {
-    navigate = "./Checkout.js"; // Replace "/checkout" with the path to your checkout.js page
+    navigate = navigate("/Checkout") 
   };
 
   const [cartItems, setCartItems] = useState([]);
@@ -183,7 +183,7 @@ function Viewcart() {
                     </Col>
                     <Col xs={2}>
                       <div>
-                      {cartItem.cart_set_name}
+                        {cartItem.cart_set_name}
                         {/* <h5 className="mb-1"></h5> */}
                       </div>
                     </Col>

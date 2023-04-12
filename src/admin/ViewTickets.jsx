@@ -16,6 +16,16 @@ const ViewTickets = () => {
       console.log(err);
     });
   }, []);
+
+  const handleRemove = (ticket_id) => async (e) => {
+    try {
+      await axios.delete("http://localhost:8000/ticket/" + ticket_id);
+      window.location.reload();
+    } catch (err) {
+      console.log(err.response.data);
+    }
+  };
+
   return (
    <section>
       <Container>
@@ -28,6 +38,15 @@ const ViewTickets = () => {
                 <p className="card-text"><b>Customer's Email</b> : {ticket.ticket_email}</p>
                 <p className="card-text">Customer's Name : {ticket.ticket_username}</p>
                 <p className="card-text">Customer's Message : {ticket.ticket_message}</p>
+                
+                <Button
+                  variant="danger"
+                  className="mr-2"
+                  onClick={handleRemove(ticket.ticket_id)}
+                >
+                  Remove Ticket
+                </Button>
+
               </div>
             </div>
           ))}

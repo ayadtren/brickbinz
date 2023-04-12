@@ -1,26 +1,19 @@
+import { AppBar, Box, Button, Container, CssBaseline } from "@mui/material";
 import * as React from "react";
-import {
-  CssBaseline,
-  AppBar,
-  Container,
-  Box,
-  Button,
-  Checkbox,
-} from "@mui/material";
 
-import Toolbar from "@mui/material/Toolbar";
+import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
-import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import Link from "@mui/material/Link";
-import Typography from "@mui/material/Typography";
+import Stepper from "@mui/material/Stepper";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import AddressForm from "./../pages/checkout/AddressForm";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import PaymentForm from "./../pages/checkout/PaymentForm";
 import Review from "./../pages/checkout/Review";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import ContactForm from "./checkout/ContactForm";
 
 function Copyright() {
   return (
@@ -35,36 +28,26 @@ function Copyright() {
   );
 }
 
-const steps = ["Shipping address", "Payment details", "Review your order"];
-
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <AddressForm />;
-    case 1:
-      return <PaymentForm />;
-    case 2:
-      return <Review />;
-    default:
-      throw new Error("Unknown step");
-  }
-}
+const steps = ["Contact Information", "Payment details", "Review your order"];
 
 const theme = createTheme();
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
-
-  const handleNext = () => {
-    setActiveStep(activeStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep(activeStep - 1);
-  };
+  const [cartItems, setCartItems] = useState([]);
+  const [userInfo, setUserInfo] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
+  const [paymentInfo, setPaymentInfo] = useState({
+    cardName: "",
+    cardNum: "",
+    cardExp: "",
+    cardCvv: ""
+  })
 
   //get data from cart.
-  const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
     const fetchAllCartItems = async () => {
       try {
@@ -76,6 +59,47 @@ export default function Checkout() {
     };
     fetchAllCartItems();
   }, []);
+
+  const updateUserInfo = (field, value) => {
+    setUserInfo({
+      ...userInfo,
+      [field]: value,
+    });
+  };
+
+  const updatePaymentInfo = (field, value) => {
+    setPaymentInfo({
+      ...paymentInfo,
+      [field]: value,
+    });
+  };
+
+  const handleNext = () => {
+    setActiveStep(activeStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep(activeStep - 1);
+  };
+
+  const getStepContent = (step) => {
+    switch (step) {
+      case 0:
+        return (
+          <ContactForm userInfo={userInfo} updateUserInfo={updateUserInfo} />
+        );
+      case 1:
+        return (
+          <PaymentForm paymentInfo={paymentInfo} updatePaymentInfo={updatePaymentInfo} />
+        );
+      case 2:
+        return (
+          <Review userInfo={userInfo} paymentInfo={paymentInfo} cartItems={cartItems} />
+        );
+      default:
+        throw new Error("Unknown step");
+    }
+  };
 
   //displays product name and price.
   const listItems = cartItems.map((cartItems) => (
@@ -89,11 +113,20 @@ export default function Checkout() {
     </div>
   ));
 
-  let totalPrice = 0;
-  //add the sum of the total price.
-  for (let i = 0; i < cartItems.length; i++) {
-    totalPrice += cartItems[i]?.cart_set_price;
-  }
+  //NOTE: don't save variables outside of useEffect and functions, they wont update when state updates if you dod that
+  const getTotalPrice = () => {
+    let totalPrice = 0;
+    //add the sum of the total price.
+    for (let i = 0; i < cartItems.length; i++) {
+      totalPrice += cartItems[i]?.cart_set_price;
+    }
+    return totalPrice;
+  };
+
+  //NOTE: this is where you handle the finishing of checkout
+  const onSubmit = () => {
+    //use userInfo and other form items here to create the order and push to axios
+  };
 
   return (
     <ThemeProvider theme={theme}>

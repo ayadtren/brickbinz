@@ -212,10 +212,7 @@ const Shop = () => {
                   <div hidden="hidden" name="product_location">
                     {product.product_location}
                   </div>
-                  <div
-                    className="quantity"
-                    name="product_quantity"
-                  >
+                  <div className="quantity" name="product_quantity">
                     {product.product_quantity}
                   </div>
                   <div hidden="hidden" name="product_img">

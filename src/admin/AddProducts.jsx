@@ -120,15 +120,13 @@ const AddProducts = () => {
                 onChange={handleImageChange}
                 required
               />
-              <label htmlFor="icon-button-file">
-                <IconButton
-                  color="primary"
-                  aria-label="upload picture"
-                  component="span"
-                >
-                  <PhotoCamera />
-                </IconButton>
-              </label>
+              <input
+                type="text"
+                placeholder="Image"
+                onChange={handleChange}
+                name="setImage"
+                required
+              />
               <Typography variant="body1" component="span">
                 {products.setImage
                   ? products.setImage.name

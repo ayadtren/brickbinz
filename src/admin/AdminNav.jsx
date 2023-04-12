@@ -56,7 +56,7 @@ const AdminNav = () => {
       path: "/AdminNav/Dashboard",
     },
     {
-      display: "All-Products",
+      display: "All Products",
       path: "/AdminNav/AllProducts",
     },
     {
@@ -68,13 +68,13 @@ const AdminNav = () => {
       path: "/AdminNav/ViewTickets",
     },
     {
-      display: "Add-Product",
+      display: "Add Product",
       path: "/AdminNav/AddProducts",
     },
-    {
-      display: "Add slideshow image",
-      path: "/AdminNav/AddImage",
-    },
+    // {
+    //   display: "Add slideshow image",
+    //   path: "/AdminNav/AddImage",
+    // },
     {
       display: "View Events",
       path: "/AdminNav/ViewEvents",
