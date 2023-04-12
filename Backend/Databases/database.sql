@@ -68,6 +68,11 @@ CREATE TABLE IF NOT EXISTS brickbindb.admin (
     PRIMARY KEY (admin_name)
 );
 
+CREATE TABLE IF NOT EXISTS brickbindb.orders (
+    order_id INT(19) NOT NULL AUTO_INCREMENT,
+    order_user_name 
+);
+
 INSERT INTO brickbindb.theme VALUES (1, 'LEGO Architecture');
 INSERT INTO brickbindb.theme VALUES (2, 'LEGO BrickHeadz');
 INSERT INTO brickbindb.theme VALUES (3, 'LEGO City');
