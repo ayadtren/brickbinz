@@ -1,30 +1,7 @@
+import { Grid, TextField, Typography } from "@mui/material";
 import * as React from "react";
-import {
-  CssBaseline,
-  AppBar,
-  Container,
-  Box,
-  Button,
-  Checkbox,
-  Typography,
-  TextField,
-  FormControlLabel,
-  Grid,
-  Select,
-  MenuItem,
-  InputLabel,
-  FormHelperText,
-} from "@mui/material";
 
-function ContactForm() {
-  const userInfo = [
-    {
-      firstName: "",
-      lastName: "",
-      email: "",
-    }
-  ]
-  
+function ContactForm({ updateUserInfo, userInfo }) {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -40,6 +17,10 @@ function ContactForm() {
             fullWidth
             autoComplete="given-name"
             variant="standard"
+            value={userInfo.firstName}
+            onChange={(e) => {
+              updateUserInfo("firstName", e.target.value);
+            }}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -51,6 +32,10 @@ function ContactForm() {
             fullWidth
             autoComplete="family-name"
             variant="standard"
+            value={userInfo.lastName}
+            onChange={(e) => {
+              updateUserInfo("lastName", e.target.value);
+            }}
           />
         </Grid>
         <Grid item xs={12}>
@@ -60,10 +45,14 @@ function ContactForm() {
             name="email"
             label="Email"
             fullWidth
-            autoComplete="shipping address-line1"
+            autoComplete="email"
             variant="standard"
+            value={userInfo.email}
+            onChange={(e) => {
+              updateUserInfo("email", e.target.value);
+            }}
           />
-        {/* </Grid>
+          {/* </Grid>
         <Grid item xs={12}>
           <TextField
             id="address2"
