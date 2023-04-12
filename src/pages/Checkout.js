@@ -16,7 +16,7 @@ import StepLabel from "@mui/material/StepLabel";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import AddressForm from "./../pages/checkout/AddressForm";
+import ContactForm from "./checkout/ContactForm";
 import PaymentForm from "./../pages/checkout/PaymentForm";
 import Review from "./../pages/checkout/Review";
 import { useState, useEffect } from "react";
@@ -35,12 +35,12 @@ function Copyright() {
   );
 }
 
-const steps = ["Shipping address", "Payment details", "Review your order"];
+const steps = ["Contact Information", "Payment details", "Review your order"];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <AddressForm />;
+      return <ContactForm />;
     case 1:
       return <PaymentForm />;
     case 2:

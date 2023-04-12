@@ -16,11 +16,19 @@ import {
   FormHelperText,
 } from "@mui/material";
 
-export default function AddressForm() {
+function ContactForm() {
+  const userInfo = [
+    {
+      firstName: "",
+      lastName: "",
+      email: "",
+    }
+  ]
+  
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Shipping address
+        Contact Information
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
@@ -48,14 +56,14 @@ export default function AddressForm() {
         <Grid item xs={12}>
           <TextField
             required
-            id="address1"
-            name="address1"
-            label="Address line 1"
+            id="email"
+            name="email"
+            label="Email"
             fullWidth
             autoComplete="shipping address-line1"
             variant="standard"
           />
-        </Grid>
+        {/* </Grid>
         <Grid item xs={12}>
           <TextField
             id="address2"
@@ -114,9 +122,11 @@ export default function AddressForm() {
               <Checkbox color="secondary" name="saveAddress" value="yes" />
             }
             label="Use this address for payment details"
-          />
+          /> */}
         </Grid>
       </Grid>
     </React.Fragment>
   );
 }
+
+export default ContactForm;
