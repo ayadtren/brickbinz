@@ -95,7 +95,7 @@ export default function Checkout() {
         );
       case 2:
         return (
-          <Review userInfo={userInfo} paymentInfo={paymentInfo} cartItems={cartItems} />
+          <Review userInfo={userInfo} paymentInfo={paymentInfo} cartItems={cartItems} sum={totalPrice}  />
         );
       default:
         throw new Error("Unknown step");
@@ -115,14 +115,20 @@ export default function Checkout() {
   ));
 
   //NOTE: don't save variables outside of useEffect and functions, they wont update when state updates if you dod that
-  const getTotalPrice = () => {
-    let totalPrice = 0;
-    //add the sum of the total price.
-    for (let i = 0; i < cartItems.length; i++) {
-      totalPrice += cartItems[i]?.cart_set_price;
-    }
-    return totalPrice;
-  };
+  // const getTotalPrice = () => {
+  //   let setTotal = 0;
+  //   //add the sum of the total price.
+  //   for (let i = 0; i < cartItems.length; i++) {
+  //     totalPrice += cartItems[i]?.cart_set_price;
+  //   }
+  //   return totalPrice;
+  // };
+  
+  let totalPrice = 0;
+  //add the sum of the total price. 
+  for (let i = 0; i < cartItems.length; i++) {
+    totalPrice += cartItems[i]?.cart_set_price;
+  }
 
   //NOTE: this is where you handle the finishing of checkout
   const onSubmit = () => {

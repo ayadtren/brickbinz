@@ -146,21 +146,21 @@ function Viewcart() {
           <ul className="list-group">
             <li className="list-group-item">
               <Row className="list-group-row">
-                <Col xs={3}>Image</Col>
+                <Col xs={3}><b>Image</b></Col>
                 <Col xs={1}>
-                  <div>Number</div>
+                  <div><b>Number</b></div>
                 </Col>
                 <Col xs={2}>
-                  <div>Name</div>
+                  <div><b>Name</b></div>
                 </Col>
                 <Col xs={1}>
-                  <div>Price</div>
+                  <div><b>Price</b></div>
                 </Col>
                 <Col xs={2}>
-                  <div>Location</div>
+                  <div><b>Location</b></div>
                 </Col>
                 <Col xs={3}>
-                  <div>Quantity</div>
+                  <div><b>Quantity</b></div>
                 </Col>
                 <Col xs={1}></Col>
               </Row>

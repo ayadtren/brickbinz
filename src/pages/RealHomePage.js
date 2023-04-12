@@ -99,10 +99,10 @@ const RealHomePage = () => {
           <Card title="About Us" imageUrl={sampleimage} body="hello" />
         </div>
         <div className="box">
-          <Card title="Buisness Hours" imageUrl={sampleimage} body="hello" />
+          <Card title="Buisness Hours" imageUrl={sampleimage} body="We are open 11:00AM - 7:00PM every week!" />
         </div>
         <div className="box">
-          <Card title="Store Locations" imageUrl={sampleimage} body="hello" />
+          <Card title="Store Locations" imageUrl={sampleimage} body="2906 centre st ne and" />
         </div>
       </div>
 
