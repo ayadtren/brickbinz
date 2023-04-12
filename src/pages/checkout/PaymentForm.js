@@ -4,17 +4,10 @@ import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import { update } from "immutable";
 
-function PaymentForm() {
-  const cardInfo = [
-    {
-      cardName: "",
-      cardNum: "",
-      cardExp: "",
-      cardCvv: "",
-    }
-  ];
-  
+function PaymentForm({updatePaymentInfo, paymentInfo}) {
+  console.log(paymentInfo);
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -29,6 +22,10 @@ function PaymentForm() {
             fullWidth
             autoComplete="cc-name"
             variant="standard"
+            value={paymentInfo.cardName}
+            onChange={(e) => {
+              updatePaymentInfo("cardName", e.target.value)
+            }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -39,6 +36,10 @@ function PaymentForm() {
             fullWidth
             autoComplete="cc-number"
             variant="standard"
+            value={paymentInfo.cardNum}
+            onChange={(e) => {
+              updatePaymentInfo("cardNum", e.target.value)
+            }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -49,6 +50,10 @@ function PaymentForm() {
             fullWidth
             autoComplete="cc-exp"
             variant="standard"
+            value={paymentInfo.cardExp}
+            onChange={(e) => {
+              updatePaymentInfo("cardExp", e.target.value)
+            }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -60,6 +65,10 @@ function PaymentForm() {
             fullWidth
             autoComplete="cc-csc"
             variant="standard"
+            value={paymentInfo.cardCvv}
+            onChange={(e) => {
+              updatePaymentInfo("cardCvv", e.target.value)
+            }}
           />
         </Grid>
         {/* <Grid item xs={12}>

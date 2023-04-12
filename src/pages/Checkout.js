@@ -40,6 +40,12 @@ export default function Checkout() {
     lastName: "",
     email: "",
   });
+  const [paymentInfo, setPaymentInfo] = useState({
+    cardName: "",
+    cardNum: "",
+    cardExp: "",
+    cardCvv: ""
+  })
 
   //get data from cart.
   useEffect(() => {
@@ -61,6 +67,13 @@ export default function Checkout() {
     });
   };
 
+  const updatePaymentInfo = (field, value) => {
+    setPaymentInfo({
+      ...paymentInfo,
+      [field]: value,
+    });
+  };
+
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
@@ -76,9 +89,13 @@ export default function Checkout() {
           <ContactForm userInfo={userInfo} updateUserInfo={updateUserInfo} />
         );
       case 1:
-        return <PaymentForm />;
+        return (
+          <PaymentForm paymentInfo={paymentInfo} updatePaymentInfo={updatePaymentInfo} />
+        );
       case 2:
-        return <Review />;
+        return (
+          <Review userInfo={userInfo} paymentInfo={paymentInfo} cartItems={cartItems} />
+        );
       default:
         throw new Error("Unknown step");
     }

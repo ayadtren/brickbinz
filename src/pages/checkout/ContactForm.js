@@ -2,6 +2,7 @@ import { Grid, TextField, Typography } from "@mui/material";
 import * as React from "react";
 
 function ContactForm({ updateUserInfo, userInfo }) {
+  console.log(userInfo);
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
