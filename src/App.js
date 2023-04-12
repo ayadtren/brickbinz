@@ -29,6 +29,7 @@ import RealHomePage from "./pages/RealHomePage";
 import Shop from "./pages/Shop";
 import Ticket from "./pages/Ticket";
 import Viewcart from "./pages/Viewcart";
+import ProductDetails from "./pages/ProductDetails";
 
 function PrivateRoute({ element, ...rest }) {
   const { isAuthenticated } = useUser();
