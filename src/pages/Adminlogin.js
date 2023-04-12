@@ -1,17 +1,17 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/login.scss";
-import { useContext } from "react";
-import { AuthContext } from "../AuthContext";
+import AuthContext from "../auth/AuthContext";
 
-export const Login = () => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [admin_password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
-  const [isAdmin, setIsAdmin] = useState(false);
 
   const navigate = useNavigate();
+
+  const { setIsLoggedIn } = useContext(AuthContext);
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -22,8 +22,6 @@ export const Login = () => {
   };
 
   const loginn = async (event) => {
-    const { setIsLoggedIn } = useContext(AuthContext);
-
     event.preventDefault();
     axios
       .post(
@@ -40,7 +38,7 @@ export const Login = () => {
         if (response.data.message) {
           setLoginStatus(response.data.message);
         } else {
-          // setIsAdmin(true);
+          setIsLoggedIn(true);
           navigate("/AdminNav/Dashboard");
         }
       });
@@ -74,22 +72,6 @@ export const Login = () => {
         <h6 className="loginstatus">{loginStatus}</h6>
         <span>Forget Password or Username?</span> | <span>Sign Up</span>
       </form>
-
-      {/* {isAdmin && (
-        <nav>
-          <ul>
-            <li>
-              <a href="/AdminNav/AddProducts">Add Products</a>
-            </li>
-            <li>
-              <a href="/AdminNav/EditProducts">Edit Products</a>
-            </li>
-            <li>
-              <a href="/AdminNav/DeleteProducts">Delete Products</a>
-            </li>
-          </ul>
-        </nav>
-      )} */}
     </div>
   );
 };
