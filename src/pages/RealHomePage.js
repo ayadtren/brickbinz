@@ -103,13 +103,13 @@ const RealHomePage = () => {
       <h2 id="margin-element">About Us</h2>
       <div className="grid-4-columns">
         <div className="box">
-          <Card title="About Us" imageUrl={cardImage1} body="hello" />
+          <Card title="About Us" imageUrl={cardImage1} body="Locally owned small buisness that is tryna get the green sticky dough through our love and passion for legos <3" />
         </div>
         <div className="box">
           <Card title="Buisness Hours" imageUrl={cardImage2} body="We are open 11:00AM - 7:00PM every week!" />
         </div>
         <div className="box">
-          <Card title="Store Locations" imageUrl={cardImage3} body="2906 centre st ne and 7730 Macleod Trail SE" />
+          <Card title="Store Locations" imageUrl={cardImage3} body="NE Store Location: 2906 centre st ne." body2="SE Store Location: 7730 Macleod Trail SE."/>
         </div>
       </div>
 
