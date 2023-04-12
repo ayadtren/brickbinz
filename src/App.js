@@ -50,7 +50,7 @@ function App() {
             <Route exact path="/" element={<RealHomePage />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/book" element={<Bookevent />} />
-            <Route path="/product" element={<Productviewpg />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/OrderCon" element={<OrderCon />} />
             <Route path="/ticket" element={<Ticket />} />
             <Route path="/Viewcart" element={<Viewcart />} />
