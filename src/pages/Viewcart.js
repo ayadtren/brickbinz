@@ -25,7 +25,7 @@ export const roundMoneyNum = (amount) => {
 function Viewcart() {
   const navigate = useNavigate();
   const handleCheckout = () => {
-    navigate = navigate("/Checkout") 
+    navigate = navigate("/Checkout")
   };
 
   const [cartItems, setCartItems] = useState([]);
@@ -132,7 +132,7 @@ function Viewcart() {
   };
 
   let totalPrice = 0;
-  //add the sum of the total price.
+  //add the sum of the total price. 
   for (let i = 0; i < cartItems.length; i++) {
     totalPrice += cartItems[i]?.cart_set_price;
   }
@@ -146,21 +146,21 @@ function Viewcart() {
           <ul className="list-group">
             <li className="list-group-item">
               <Row className="list-group-row">
-                <Col xs={3}>Image</Col>
+                <Col xs={3}><b>Image</b></Col>
                 <Col xs={1}>
-                  <div>Number</div>
+                  <div><b>Number</b></div>
                 </Col>
                 <Col xs={2}>
-                  <div>Name</div>
+                  <div><b>Name</b></div>
                 </Col>
                 <Col xs={1}>
-                  <div>Price</div>
+                  <div><b>Price</b></div>
                 </Col>
                 <Col xs={2}>
-                  <div>Location</div>
+                  <div><b>Location</b></div>
                 </Col>
                 <Col xs={3}>
-                  <div>Quantity</div>
+                  <div><b>Quantity</b></div>
                 </Col>
                 <Col xs={1}></Col>
               </Row>
@@ -240,7 +240,7 @@ function Viewcart() {
                   <Row className="list-group-row">
                     <Col xs={6}>
                       <div>
-                        <h5 className="mb-1">{cartItem.cart_set_name}</h5>
+                        {cartItem.cart_set_name}
                       </div>
                     </Col>
                     <Col xs={6}>
@@ -257,7 +257,11 @@ function Viewcart() {
                 </li>
               );
             })}
+            <div className="sum-cart">
+              <b>Subtotal: ${totalPrice}</b>
+            </div>
           </ul>
+
         </div>
         <Button onClick={handleCheckout} variant="primary">
           Checkout

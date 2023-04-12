@@ -4,24 +4,27 @@ import Modal from "react-bootstrap/Modal";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FaShoppingBag } from "react-icons/fa";
 import { MdMenu, MdPersonPin } from "react-icons/md";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import AdminNav from "../admin/AdminNav";
 import { useAuth } from "../auth/useAuth";
 import logo from "../images/banner2.png";
 import Login from "../pages/Adminlogin";
 import Footer from "../pages/footer/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { useNavigate } from "react-router-dom";
 const Layout = (props) => {
-  const location = useLocation();
+  //const location = useLocation();
   const [showDrawer, setShowDrawer] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const { isLoggedIn, logOut } = useAuth();
+  const navigate = useNavigate();
 
   console.log("Log: ~ file: Layout.jsx:20 ~ Layout ~ isLoggedIn:", isLoggedIn);
 
   const handleLogout = () => {
+    navigate("/");
     logOut();
+    
   };
 
   const handleClose = () => {
@@ -51,13 +54,13 @@ const Layout = (props) => {
     fetchAllCartItems();
   }, []);
 
-  function Navigation() {
-    return (
-      <div>
-        {location.pathname.startsWith("/dashboard") ? <AdminNav /> : null}
-      </div>
-    );
-  }
+  // function Navigation() {
+  //   return (
+  //     <div>
+  //       {location.pathname.startsWith("/dashboard") ? <AdminNav /> : null}
+  //     </div>
+  //   );
+  // }
   return (
     <div className="app">
       <nav className="nav">
@@ -68,7 +71,7 @@ const Layout = (props) => {
                 <MdMenu size={32} />
               </button>
               <Link className="logo-link" to={"/"}>
-                <img className="logo-nav" src={logo} />
+                <img className="logo-nav" src={logo} alt="navbarlogo"/>
               </Link>
               <ul className="nav-list">
                 <li>
@@ -86,7 +89,7 @@ const Layout = (props) => {
                 <li>
                   <Link to="/book">Book</Link>
                 </li>
-                <li>
+                <li hidden>
                   <Link to="/product">Product</Link>
                 </li>
                 {/* <li>
@@ -139,7 +142,7 @@ const Layout = (props) => {
       <Offcanvas show={showDrawer} onHide={handleClose}>
         <Offcanvas.Header>
           <Link to={"/"}>
-            <img className="logo-nav-drawer" src={logo} />
+            <img className="logo-nav-drawer" src={logo} alt="navdrawer" />
           </Link>
         </Offcanvas.Header>
         <Offcanvas.Body>

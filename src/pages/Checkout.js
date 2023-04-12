@@ -36,6 +36,7 @@ export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [cartItems, setCartItems] = useState([]);
   const [userInfo, setUserInfo] = useState({
+    id:1,
     firstName: "",
     lastName: "",
     email: "",
@@ -94,39 +95,19 @@ export default function Checkout() {
         );
       case 2:
         return (
-          <Review userInfo={userInfo} paymentInfo={paymentInfo} cartItems={cartItems} />
+          <Review userInfo={userInfo} paymentInfo={paymentInfo} cartItems={cartItems} sum={totalPrice}  />
         );
       default:
         throw new Error("Unknown step");
     }
   };
 
-  //displays product name and price.
-  const listItems = cartItems.map((cartItems) => (
-    <div className="display-cart">
-      <li key={cartItems.cart_set_numb}>
-        <h5>{cartItems.cart_set_name}</h5>
-        <p>${cartItems.cart_set_price}</p>
-      </li>
-      {/* hr is just line break. */}
-      <hr></hr>
-    </div>
-  ));
-
-  //NOTE: don't save variables outside of useEffect and functions, they wont update when state updates if you dod that
-  const getTotalPrice = () => {
-    let totalPrice = 0;
-    //add the sum of the total price.
-    for (let i = 0; i < cartItems.length; i++) {
-      totalPrice += cartItems[i]?.cart_set_price;
-    }
-    return totalPrice;
-  };
-
-  //NOTE: this is where you handle the finishing of checkout
-  const onSubmit = () => {
-    //use userInfo and other form items here to create the order and push to axios
-  };
+  
+  let totalPrice = 0;
+  //add the sum of the total price. 
+  for (let i = 0; i < cartItems.length; i++) {
+    totalPrice += cartItems[i]?.cart_set_price;
+  }
 
   return (
     <ThemeProvider theme={theme}>

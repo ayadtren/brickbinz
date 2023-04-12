@@ -17,13 +17,13 @@ const Card = ({title, imageUrl, body}) => {
           <div className='card-body'>
               <p>{body}</p>
           </div>
-          <div className='card-btn'>
+          {/* <div className='card-btn'>
               <button>
                 <a>
                   <Link to="/">See more</Link>
                 </a>
               </button>
-          </div>
+          </div> */}
         </div>
     </div>
   )
