@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FaShoppingBag } from "react-icons/fa";
 import { MdMenu, MdPersonPin } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
 import AdminNav from "../admin/AdminNav";
+import { useAuth } from "../auth/useAuth";
 import logo from "../images/banner2.png";
 import Login from "../pages/Adminlogin";
 import Footer from "../pages/footer/Footer";
-import axios from "axios";
 
 const Layout = (props) => {
   const location = useLocation();
   const [showDrawer, setShowDrawer] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const { isLoggedIn } = useAuth();
+  console.log("Log: ~ file: Layout.jsx:20 ~ Layout ~ isLoggedIn:", isLoggedIn);
 
   const handleClose = () => {
     setShowDrawer(false);
@@ -65,7 +68,7 @@ const Layout = (props) => {
                 <li>
                   <Link to={"/"}>Home</Link>
                 </li>
-                <li hidden>
+                <li hidden={!isLoggedIn}>
                   <Link to="/AdminNav/Dashboard">Admin</Link>
                 </li>
                 <li>
@@ -92,7 +95,7 @@ const Layout = (props) => {
           <div className="right">
             <div className="right-box">
               <ul className="nav-list">
-                <li hidden>
+                <li>
                   <button
                     onClick={handleLoginOpen}
                     className="icon-button"

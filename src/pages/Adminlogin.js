@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../auth/useAuth";
 import "../styles/login.scss";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
   const [admin_password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
-  const [isAdmin, setIsAdmin] = useState(false);
+  const { setIsLoggedIn } = useAuth();
 
   const navigate = useNavigate();
 
@@ -36,7 +37,7 @@ export const Login = () => {
         if (response.data.message) {
           setLoginStatus(response.data.message);
         } else {
-          // setIsAdmin(true);
+          setIsLoggedIn(true);
           navigate("/AdminNav/Dashboard");
         }
       });
