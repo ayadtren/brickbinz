@@ -36,6 +36,7 @@ export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [cartItems, setCartItems] = useState([]);
   const [userInfo, setUserInfo] = useState({
+    id:1,
     firstName: "",
     lastName: "",
     email: "",

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { MdOutlineSearch } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const themes = {
   1: "LEGO Architecture",
@@ -195,7 +196,7 @@ const Shop = () => {
             return (
               <li key={product.product_set_numb}>
                 <div className="card">
-                   <Link   to={`/product/${product.product_set_numb}`} className="link">
+                   <Link to={`/product/${product.product_set_numb}`} className="link">
                   <div className="image-box">
                     <img
                       src={require(`./../images/products/${product.product_img}`)}
