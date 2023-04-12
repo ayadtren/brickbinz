@@ -195,12 +195,14 @@ const Shop = () => {
             return (
               <li key={product.product_set_numb}>
                 <div className="card">
+                   <Link   to={`/product/${product.product_set_numb}`} className="link">
                   <div className="image-box">
                     <img
                       src={require(`./../images/products/${product.product_img}`)}
                       alt={product.product_img}
                     />
                   </div>
+                  </Link>
                   <div className="setNumb" name="product_set_numb">
                     #{product.product_set_numb}
                   </div>
@@ -212,10 +214,7 @@ const Shop = () => {
                   <div hidden="hidden" name="product_location">
                     {product.product_location}
                   </div>
-                  <div
-                    className="quantity"
-                    name="product_quantity"
-                  >
+                  <div className="quantity" name="product_quantity">
                     {product.product_quantity}
                   </div>
                   <div hidden="hidden" name="product_img">

@@ -105,6 +105,16 @@ app.post("/products", (req, res) => {
   });
 });
 
+app.get("/products/:product_set_numb", (req, res) => {
+  const productId = req.params.product_set_numb;
+  const q = "SELECT * FROM product WHERE product_set_numb = ?";
+
+  db.query(q, [productId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
 // Setting up a POST request for the login
 app.post("/login", (req, res) => {
   const username = req.body.username; // Retrieving the username from the request body
@@ -159,13 +169,15 @@ app.put("/cart/:cart_set_numb", (req, res) => {
     req.body.cart_theme,
   ];
 
-  console.log(req.body)
+    console.log(req.body)
   db.query(q, [...values, cartId], (err, data) => {
-
+    
     if (err) return res.json(err);
     return res.json(data);
   });
 });
+
+
 
 // Setting up a GET request for the event
 app.get("/event", (req, res) => {
@@ -243,26 +255,6 @@ app.delete("/cart/:cart_set_numb", (req, res) => {
     if (err) return res.json(err);
     return res.json(data);
   });
-});
-
-app.delete("/ticket/:ticket_id", (req, res) => {
-  const ticketId = req.params.ticket_id;
-  const q = "DELETE FROM ticket WHERE ticket_id = ?";
-
-  db.query(q, [ticketId], (err, data) => {
-    if (err) return res.json(err);
-    return res.json(data);
-  });
-});
-
-app.delete("/event/:event_id", (req, res) => {
-  const eventId = req.params.event_id;
-  const q = "DELETE FROM event WHERE event_id = ?";
-
-  db.query(q, [eventId], (err, data) => {
-    if (err) return res.json(err);
-    return res.json(data);
-  })
 });
 
 //Code block to update a product in the product table.

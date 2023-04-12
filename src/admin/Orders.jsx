@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../styles/OrderStyles.scss";
 const Orders = () => {
   // fetch orders data from an API or database
   const orders = [
@@ -10,8 +10,8 @@ const Orders = () => {
 
   return (
     <div>
-      <h1>Orders</h1>
-      <table>
+      <h1 id="margin-element">Orders</h1>
+      <table className="order-display-table">
         <thead>
           <tr>
             <th>ID</th>

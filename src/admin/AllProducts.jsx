@@ -42,13 +42,13 @@ const AllProducts = () => {
               <ul className="list-group">
                 <li className="list-group-item">
                   <Row className="list-group-row">
-                    <Col>Image</Col>
-                    <Col>Set Number</Col>
-                    <Col>Set Name</Col>
-                    <Col>Price</Col>
-                    <Col>Location</Col>
-                    <Col>Quantity</Col>
-                    <Col>Theme</Col>
+                    <Col><b>Image</b></Col>
+                    <Col><b>Set Number</b></Col>
+                    <Col><b>Set Name</b></Col>
+                    <Col><b>Price</b></Col>
+                    <Col><b>Location</b></Col>
+                    <Col><b>Quantity</b></Col>
+                    <Col><b>Theme</b></Col>
                     <Col></Col>
                   </Row>
                 </li>
@@ -95,7 +95,7 @@ const AllProducts = () => {
                             >
                               Delete
                             </button>
-                            <button className="btn btn-warning">
+                            <button className="btn btn-light">
                               <Link
                                 to={`/AdminNav/UpdateProducts/${product.product_set_numb}`}
                               >
