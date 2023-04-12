@@ -102,38 +102,12 @@ export default function Checkout() {
     }
   };
 
-  //displays product name and price.
-  const listItems = cartItems.map((cartItems) => (
-    <div className="display-cart">
-      <li key={cartItems.cart_set_numb}>
-        <h5>{cartItems.cart_set_name}</h5>
-        <p>${cartItems.cart_set_price}</p>
-      </li>
-      {/* hr is just line break. */}
-      <hr></hr>
-    </div>
-  ));
-
-  //NOTE: don't save variables outside of useEffect and functions, they wont update when state updates if you dod that
-  // const getTotalPrice = () => {
-  //   let setTotal = 0;
-  //   //add the sum of the total price.
-  //   for (let i = 0; i < cartItems.length; i++) {
-  //     totalPrice += cartItems[i]?.cart_set_price;
-  //   }
-  //   return totalPrice;
-  // };
   
   let totalPrice = 0;
   //add the sum of the total price. 
   for (let i = 0; i < cartItems.length; i++) {
     totalPrice += cartItems[i]?.cart_set_price;
   }
-
-  //NOTE: this is where you handle the finishing of checkout
-  const onSubmit = () => {
-    //use userInfo and other form items here to create the order and push to axios
-  };
 
   return (
     <ThemeProvider theme={theme}>
