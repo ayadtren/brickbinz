@@ -4,51 +4,70 @@ import {
   CardContent,
   CardMedia,
   Typography,
+  Grid,
   Button,
 } from "@mui/material";
 import { styled } from "@mui/system";
 import sampleimage from "../images/sampleimage.jpg";
-
-const StyledCard = styled(Card)({
-  maxWidth: 345,
-  margin: "auto",
-  position: "relative",
-});
-
-const StyledMedia = styled(CardMedia)({
-  height: 140,
-});
-
-const ActionButtons = styled("div")({
-  position: "absolute",
-  bottom: 16,
-  right: 16,
-});
-
+import "bootstrap/dist/css/bootstrap.min.css";
 const Productviewpg = () => {
   return (
-    <StyledCard>
-      <StyledMedia image={sampleimage} title="Sample Product" />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Product Title
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Price: $10
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Store Location: Calgary
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Description: This is a sample product description.
-        </Typography>
-      </CardContent>
-      <ActionButtons>
-        <Button variant="contained" color="primary">
-          Add to cart
-        </Button>
-      </ActionButtons>
-    </StyledCard>
+    <Grid container spacing={4}>
+      <Grid item xs={12} md={6}>
+        <Card>
+          <CardMedia
+            component="img"
+            height="400"
+            image={sampleimage}
+            alt="Product main image"
+          />
+        </Card>
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <Card>
+          <CardContent>
+            <Typography variant="h5" component="div">
+              Product Title:
+            </Typography>
+            <Typography variant="h6">Price:</Typography>
+            <Typography>Store Location:</Typography>
+            <Typography>Description:</Typography>
+          </CardContent>
+        </Card>
+      </Grid>
+      <Grid container spacing={2} justifyContent="center">
+        {[sampleimage, sampleimage, sampleimage, sampleimage].map(
+          (image, index) => (
+            <Grid item xs={6} sm={3} key={index}>
+              <Card>
+                <CardMedia
+                  component="img"
+                  height="100"
+                  image={image}
+                  alt={`Product image ${index + 1}`}
+                />
+              </Card>
+            </Grid>
+          )
+        )}
+      </Grid>
+      <Grid container spacing={2} justifyContent="center">
+        <Grid item>
+          <button
+            className="btn btn-primary"
+            type="submit"
+            className="AddTocart"
+          >
+            Add to cart
+          </button>
+        </Grid>
+        <Grid item>
+          <a href="http://localhost:3001/">
+            <button className="RemoveButton">X</button>
+          </a>
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
 
