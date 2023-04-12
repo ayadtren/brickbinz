@@ -183,7 +183,7 @@ function Viewcart() {
                     </Col>
                     <Col xs={2}>
                       <div>
-                      {cartItem.cart_set_name}
+                        {cartItem.cart_set_name}
                         {/* <h5 className="mb-1"></h5> */}
                       </div>
                     </Col>

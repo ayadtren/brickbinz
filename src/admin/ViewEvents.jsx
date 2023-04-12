@@ -22,8 +22,14 @@ const ViewEvents = () => {
     toast.success(`Added ${event.title} to calendar!`);
   };
 
-  const handleRemoveEvent = (event) => {
-    toast.success(`Removed ${event.title} from events!`);
+  const handleRemoveEvent = (event_id) => async (e) => {
+    try {
+      await axios.delete("http://localhost:8000/event/" + event_id);
+      window.location.reload();
+    } catch (err) {
+      console.log(err.response.data);
+    }
+    // toast.success(`Removed ${event.title} from events!`);
   };
 
   const handleAcceptEvent = (event) => {
@@ -56,7 +62,7 @@ const ViewEvents = () => {
                   <Button
                     variant="danger"
                     className="mr-2"
-                    onClick={() => handleRemoveEvent(event)}
+                    onClick={handleRemoveEvent(event.event_id)}
                   >
                     Remove Event
                   </Button>

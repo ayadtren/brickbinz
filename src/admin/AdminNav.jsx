@@ -71,10 +71,10 @@ const AdminNav = () => {
       display: "Add-Product",
       path: "/AdminNav/AddProducts",
     },
-    {
-      display: "Add slideshow image",
-      path: "/AdminNav/AddImage",
-    },
+    // {
+    //   display: "Add slideshow image",
+    //   path: "/AdminNav/AddImage",
+    // },
     {
       display: "View Events",
       path: "/AdminNav/ViewEvents",

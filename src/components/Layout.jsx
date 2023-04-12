@@ -83,7 +83,7 @@ const Layout = (props) => {
                 {/* <li>
                   <Link to="/Checkout">Checkout</Link>
                 </li> */}
-                <li>
+                <li hidden>
                   <Link to="/OrderCon">OrderCon</Link>
                 </li>
               </ul>
