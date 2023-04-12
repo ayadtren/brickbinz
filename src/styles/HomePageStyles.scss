@@ -80,6 +80,14 @@
   padding: 2.5rem;
 }
 
+@media (max-width: 800px) {
+  .grid-4-columns {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
 /* this is for allowing a box to fill 
   2 spaces horizontally*/
 .grid-col-span-2 {
