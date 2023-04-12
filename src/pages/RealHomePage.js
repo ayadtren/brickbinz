@@ -11,8 +11,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import { Modal } from "react-bootstrap";
-import Productviewpg from "../pages/Productviewpg"
-//<img className='main-image' src={picture} alt="Main picture" />
+import Productviewpg from "../pages/Productviewpg";
+import mainpic1 from "../images/mainpic1.jpg";
+import mainpic2 from "../images/mainpic2.jpg";
+import mainpic3 from "../images/mainpic3.jpg";
 const RealHomePage = () => {
   const [products, setProducts] = useState([]);
 
@@ -66,29 +68,21 @@ const RealHomePage = () => {
       <div className="main-image-container">
         <Carousel className="carousel">
           <Carousel.Item className="carousel-item">
-            <img className="main-image" src={picture} alt="First slide" />
+            <img className="main-image" src={mainpic1} alt="First slide" />
             <Carousel.Caption className="carousel-caption">
               <h3>Follow us on Instagram</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <p>@brickbin_yyc</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <img className="main-image" src={sampleimage} alt="Second slide" />
+            <img className="main-image" src={mainpic2} alt="Second slide" />
 
             <Carousel.Caption>
               <h3>Visit our Facebook Page!</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <img className="main-image" src={picture} alt="Third slide" />
-
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </Carousel.Caption>
+            <img className="main-image" src={mainpic3} alt="Third slide" />
           </Carousel.Item>
         </Carousel>
       </div>
