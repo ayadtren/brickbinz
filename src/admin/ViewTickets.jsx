@@ -36,8 +36,8 @@ const ViewTickets = () => {
             <div className="card mb-3" key={index}>
               <div className="card-body">
                 <p className="card-text"><b>Customer's Email</b> : {ticket.ticket_email}</p>
-                <p className="card-text">Customer's Name : {ticket.ticket_username}</p>
-                <p className="card-text">Customer's Message : {ticket.ticket_message}</p>
+                <p className="card-text"><b>Name :</b> {ticket.ticket_username}</p>
+                <p className="card-text"><b>Message :</b> {ticket.ticket_message}</p>
                 
                 <Button
                   variant="danger"

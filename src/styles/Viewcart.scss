@@ -4,19 +4,20 @@
   justify-content: flex-start;
   flex-direction: row;
   width: 100%;
-  min-width: 1200px;
-  padding-top: 36px;
-  padding-bottom: 16px;
+  min-width: 80em;
+  padding-top: 2.5em;
+ 
 
   .items {
     width: 70%;
     padding-right: 6px;
     position: relative;
-    right: 7em;
+    right: 5em;
+   
 
     .cart-container {
       background-color: white;
-      width: 65em;
+      max-width: 70em;
 
       .list-group {
         .list-group-item {
@@ -55,6 +56,13 @@
       padding: 0.5em;
       border-radius: 4px;
       margin-bottom: 2em;
+
+      //for printing the sum of the cart prices.
+      .sum-cart{
+        margin-top: 2em;
+        text-align: right;
+        padding-right: 1em;
+      }
     }
   }
 }
