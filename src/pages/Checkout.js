@@ -1,75 +1,200 @@
-import React, { useEffect, useState } from 'react'
-import '../styles/CheckoutStyles.scss'
-import axios from 'axios';
-const Checkout = () => {
+import { AppBar, Box, Button, Container, CssBaseline } from "@mui/material";
+import * as React from "react";
 
-    //get data from cart.
-    const [cartItems, setCartItems] = useState([]);
-    useEffect(() => {
-        const fetchAllCartItems = async () => {
-            try {
-                const res = await axios.get("http://localhost:8000/cart");
-                setCartItems(res.data);
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        fetchAllCartItems();
-    }, []);
+import Link from "@mui/material/Link";
+import Paper from "@mui/material/Paper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
+import Stepper from "@mui/material/Stepper";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import PaymentForm from "./../pages/checkout/PaymentForm";
+import Review from "./../pages/checkout/Review";
+import ContactForm from "./checkout/ContactForm";
 
-    //displays product name and price.
-    const listItems = cartItems.map((cartItems) => (
-        <div className='display-cart'>
-
-            <li key={cartItems.cart_set_numb}>
-                <h5>{cartItems.cart_set_name}</h5>
-                <p>${cartItems.cart_set_price}</p>
-            </li>
-            {/* hr is just line break. */}
-            <hr></hr>
-        </div>
-    ));
-    return (
-        <div>
-
-
-            {/*maybe relative positioning can be used...*/}
-            <div className='payment-container'>
-                <div className='payment-title'>
-                    <h2>Payment Options</h2>
-                </div>
-                <div className='payment-form'>
-                    Brand: <input type="text" placeholder="Visa" name="setName" required />
-                    Card Number: <input type="text" placeholder="Card Number" name="setPrice" required />
-                    Expiry Date: <input type="text" placeholder="MM / YY" name="setLocation" required />
-                    Card Holder: <input type="text" placeholder="Card Holder name" name="setQuantity" required />
-                    CVV: <input type='number' placeholder="CVV" name="setImage" required />
-                    Billing Postal Code: <input type="text" placeholder="A0A 0A0" name="postalCode" required />
-                </div>
-
-            </div>
-            <div className='checkout-summary-container'>
-                <div className='summary-title'>
-                    <h2>Cart Summary</h2><p>edit link</p>
-                </div>
-                <div className='summary-list'>
-
-                    <ul> {listItems}</ul>
-
-                </div>
-                <div className='summary-total-price'>
-                    gang gnag brouh
-                </div>
-
-            </div>
-           
-            <div className="button">
-                <button className="checkout-button" >
-                    Place Order
-                </button>
-            </div>
-        </div>
-    )
+function Copyright() {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="https://www.facebook.com/BrickBin/">
+        Brickbin
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
 }
 
-export default Checkout;
+const steps = ["Contact Information", "Payment details", "Review your order"];
+
+const theme = createTheme();
+
+export default function Checkout() {
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [cartItems, setCartItems] = useState([]);
+  const [userInfo, setUserInfo] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
+  const [paymentInfo, setPaymentInfo] = useState({
+    cardName: "",
+    cardNum: "",
+    cardExp: "",
+    cardCvv: ""
+  })
+
+  //get data from cart.
+  useEffect(() => {
+    const fetchAllCartItems = async () => {
+      try {
+        const res = await axios.get("http://localhost:8000/cart");
+        setCartItems(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchAllCartItems();
+  }, []);
+
+  const updateUserInfo = (field, value) => {
+    setUserInfo({
+      ...userInfo,
+      [field]: value,
+    });
+  };
+
+  const updatePaymentInfo = (field, value) => {
+    setPaymentInfo({
+      ...paymentInfo,
+      [field]: value,
+    });
+  };
+
+  const handleNext = () => {
+    setActiveStep(activeStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep(activeStep - 1);
+  };
+
+  const getStepContent = (step) => {
+    switch (step) {
+      case 0:
+        return (
+          <ContactForm userInfo={userInfo} updateUserInfo={updateUserInfo} />
+        );
+      case 1:
+        return (
+          <PaymentForm paymentInfo={paymentInfo} updatePaymentInfo={updatePaymentInfo} />
+        );
+      case 2:
+        return (
+          <Review userInfo={userInfo} paymentInfo={paymentInfo} cartItems={cartItems} />
+        );
+      default:
+        throw new Error("Unknown step");
+    }
+  };
+
+  //displays product name and price.
+  const listItems = cartItems.map((cartItems) => (
+    <div className="display-cart">
+      <li key={cartItems.cart_set_numb}>
+        <h5>{cartItems.cart_set_name}</h5>
+        <p>${cartItems.cart_set_price}</p>
+      </li>
+      {/* hr is just line break. */}
+      <hr></hr>
+    </div>
+  ));
+
+  //NOTE: don't save variables outside of useEffect and functions, they wont update when state updates if you dod that
+  const getTotalPrice = () => {
+    let totalPrice = 0;
+    //add the sum of the total price.
+    for (let i = 0; i < cartItems.length; i++) {
+      totalPrice += cartItems[i]?.cart_set_price;
+    }
+    return totalPrice;
+  };
+
+  //NOTE: this is where you handle the finishing of checkout
+  const onSubmit = () => {
+    //use userInfo and other form items here to create the order and push to axios
+  };
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <AppBar
+        position="absolute"
+        color="default"
+        elevation={0}
+        sx={{
+          position: "relative",
+          borderBottom: (t) => `1px solid ${t.palette.divider}`,
+        }}
+      >
+        <Toolbar>
+          <Typography variant="h6" color="inherit" noWrap>
+            Brick Bin Checkout
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
+        <Paper
+          variant="outlined"
+          sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
+        >
+          <Typography component="h1" variant="h4" align="center">
+            Checkout
+          </Typography>
+          <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
+            {steps.map((label) => (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+          {activeStep === steps.length ? (
+            <React.Fragment>
+              <Typography variant="h5" gutterBottom>
+                Thank you for your order.
+              </Typography>
+              <Typography variant="subtitle1">
+                Your order number is #2001539. We have emailed your order
+                confirmation, and will send you an update when your order has
+                shipped.
+              </Typography>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              {getStepContent(activeStep)}
+              <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+                {activeStep !== 0 && (
+                  <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                    Back
+                  </Button>
+                )}
+
+                <Button
+                  variant="contained"
+                  onClick={handleNext}
+                  sx={{ mt: 3, ml: 1 }}
+                >
+                  {activeStep === steps.length - 1 ? "Place order" : "Next"}
+                </Button>
+              </Box>
+            </React.Fragment>
+          )}
+        </Paper>
+        <Copyright />
+      </Container>
+    </ThemeProvider>
+  );
+}

@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { MdAdd, MdDelete, MdRemove } from "react-icons/md";
 import "../styles/Viewcart.scss";
+import { useNavigate } from "react-router-dom";
 
 export const formatNumberWithCommas = (string) => {
   if (!string) return "";
@@ -22,7 +23,13 @@ export const roundMoneyNum = (amount) => {
 };
 
 function Viewcart() {
+  const navigate = useNavigate();
+  const handleCheckout = () => {
+    navigate = navigate("/Checkout") 
+  };
+
   const [cartItems, setCartItems] = useState([]);
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchAllCartItems = async () => {
       try {
@@ -33,6 +40,18 @@ function Viewcart() {
       }
     };
     fetchAllCartItems();
+  }, []);
+
+  useEffect(() => {
+    const fetchAllProducts = async () => {
+      try {
+        const res = await axios.get("http://localhost:8000/products");
+        setProducts(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchAllProducts();
   }, []);
 
   const handleDelete = (cart_set_numb) => async (e) => {
@@ -47,32 +66,69 @@ function Viewcart() {
   const handleAdd = (cartItem) => async (e) => {
     try {
       const newCartItem = { ...cartItem };
-      if (newCartItem.cart_set_quantity < 99) {
+      const product = products.find(
+        (product) => product.product_set_numb === cartItem.cart_set_numb
+      );
+
+      if (newCartItem.cart_set_quantity < product.product_quantity) {
         newCartItem.cart_set_quantity = newCartItem.cart_set_quantity + 1;
+      } else {
+        alert("You have reached the max quantity");
       }
+      console.log(newCartItem);
+      console.log(
+        await axios.put(
+          "http://localhost:8000/cart/" + newCartItem.cart_set_numb,
+          newCartItem
+        )
+      );
+
       await axios.put(
-        "http://localhost:8000/cart/" + cartItem.cart_set_numb,
+        "http://localhost:8000/cart/" + newCartItem.cart_set_numb,
         newCartItem
       );
       window.location.reload();
     } catch (err) {
       console.log(err.response.data);
     }
+
+    // const exist = cartItems.find((x) => x.cart_set_numb === cartItem.cart_set_numb);
+    // if (exist >= 1) {
+    //   setCartItems(
+    //     cartItems.map((x) => x.cart_set_numb === cartItem.cart_set_numb ? { ...exist, cart_set_quantity: exist.cart_set_quantity + 1 } : x)
+    //   );
+    // } else {
+    //   setCartItems([...cartItems, { ...cartItem, cart_set_quantity: 1 }]);
+    // }
   };
 
   const handleMinus = (cartItem) => async (e) => {
     try {
       const newCartItem = { ...cartItem };
-      if (newCartItem.cart_set_quantity > 2) {
+      if (newCartItem.cart_set_quantity >= 2) {
+        console.log(newCartItem.cart_set_quantity);
         newCartItem.cart_set_quantity = newCartItem.cart_set_quantity - 1;
+        await axios.put(
+          "http://localhost:8000/cart/" + newCartItem.cart_set_numb,
+          newCartItem
+        );
+        window.location.reload();
       } else {
-        handleDelete(newCartItem.cart_set_numb);
+        await axios.delete(
+          "http://localhost:8000/cart/" + newCartItem.cart_set_numb
+        );
+        window.location.reload();
       }
-      await axios.put("http://localhost:8000/cart/" + cartItem.cart_set_numb);
-      window.location.reload();
     } catch (err) {
       console.log(err.response.data);
     }
+
+    // const exist = cartItems.find((x) => x.cart_set_numb === cartItem.cart_set_numb);
+    // if (exist.cart_set_quantity === 1) {
+    //   setCartItems(cartItems.filter((x) => x.cart_set_numb !== cartItem.cart_set_numb));
+    // } else {
+    //   setCartItems(cartItems.map((x) => x.cart_set_numb === cartItem.cart_set_numb ? {...exist, cart_set_quantity: exist.cart_set_quantity - 1} : x));
+    // }
   };
 
   let totalPrice = 0;
@@ -85,13 +141,14 @@ function Viewcart() {
     <div className="cart">
       <Container className="items">
         <h2>My Cart</h2>
+        <br />
         <div className="cart-container">
           <ul className="list-group">
             <li className="list-group-item">
               <Row className="list-group-row">
                 <Col xs={3}>Image</Col>
                 <Col xs={1}>
-                  <div>Number</div>{" "}
+                  <div>Number</div>
                 </Col>
                 <Col xs={2}>
                   <div>Name</div>
@@ -99,7 +156,7 @@ function Viewcart() {
                 <Col xs={1}>
                   <div>Price</div>
                 </Col>
-                <Col xs={1}>
+                <Col xs={2}>
                   <div>Location</div>
                 </Col>
                 <Col xs={3}>
@@ -126,7 +183,8 @@ function Viewcart() {
                     </Col>
                     <Col xs={2}>
                       <div>
-                        <h5 className="mb-1">{cartItem.cart_set_name}</h5>
+                        {cartItem.cart_set_name}
+                        {/* <h5 className="mb-1"></h5> */}
                       </div>
                     </Col>
                     <Col xs={1}>
@@ -173,7 +231,7 @@ function Viewcart() {
       </Container>
       <Container className="summary">
         <h2>Summary</h2>
-
+        <br />
         <div className="summary-container">
           <ul>
             {cartItems.map((cartItem) => {
@@ -201,6 +259,9 @@ function Viewcart() {
             })}
           </ul>
         </div>
+        <Button onClick={handleCheckout} variant="primary">
+          Checkout
+        </Button>
       </Container>
     </div>
   );

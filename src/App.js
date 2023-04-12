@@ -1,155 +1,83 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./App.scss";
+import NotFound from "./NotFound";
+import { useUser } from "./UserContext";
 import AddImage from "./admin/AddImage";
 import AddProducts from "./admin/AddProducts";
 import AdminNav from "./admin/AdminNav";
 import AllProducts from "./admin/AllProducts";
 import Dashboard from "./admin/Dashboard";
 import Orders from "./admin/Orders";
-import Users from "./admin/Users";
-import ViewEvents from "./admin/ViewEvents";
 import UpdateProducts from "./admin/UpdateProducts";
-import "./App.scss";
+import ViewEvents from "./admin/ViewEvents";
+import ViewTickets from "./admin/ViewTickets";
+import AuthProvider from "./auth/AuthProvider";
 import Layout from "./components/Layout";
 import Adminlogin from "./pages/Adminlogin";
-
-import ContactUs from "./pages/ContactUs";
+import Bookevent from "./pages/Bookevent";
+import Checkout from "./pages/Checkout";
 import OrderCon from "./pages/OrderCon";
 import Productviewpg from "./pages/Productviewpg";
 import RealHomePage from "./pages/RealHomePage";
 import Shop from "./pages/Shop";
+import Ticket from "./pages/Ticket";
 import Viewcart from "./pages/Viewcart";
-import Checkout from "./pages/Checkout";
-import Bookevent from "./pages/Bookevent";
+import ProductDetails from "./pages/ProductDetails";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <Layout>
-        <RealHomePage />
-      </Layout>
-    ),
-  },
-  {
-    path: "/shop",
-    element: (
-      <Layout>
-        <Shop />
-      </Layout>
-    ),
-  },
-  {
-    path: "/book",
-    element: (
-      <Layout>
-        <Bookevent />
-      </Layout>
-    ),
-  },
-  {
-    path: "/product",
-    element: (
-      <Layout>
-        <Productviewpg />
-      </Layout>
-    ),
-  },
-  {
-    path: "/OrderCon",
-    element: (
-      <Layout>
-        <OrderCon />
-      </Layout>
-    ),
-  },
-  {
-    path: "/contact",
-    element: (
-      <Layout>
-        <ContactUs />
-      </Layout>
-    ),
-  },
-  {
-    path: "/Viewcart",
-    element: (
-      <Layout>
-        <Viewcart />
-      </Layout>
-    ),
-  },
-  {
-    path: "/login",
-    element: (
-      <Layout>
-        <Adminlogin />
-      </Layout>
-    ),
-  },
-  {
-    path: "/Adminlogin",
-    element: (
-      <Layout>
-        <Adminlogin />
-      </Layout>
-    ),
-  },
-  {
-    path: "/Checkout",
-    element: (
-      <Layout>
-        <Checkout />
-      </Layout>
-    ),
-  },
-  {
-    path: "/AdminNav",
-    element: (
-      <Layout>
-        <AdminNav />
-      </Layout>
-    ),
+function PrivateRoute({ element, ...rest }) {
+  const { isAuthenticated } = useUser();
 
-    children: [
-      {
-        path: "/AdminNav/Dashboard",
-        element: <Dashboard />,
-      },
-      {
-        path: "/AdminNav/Users",
-        element: <Users />,
-      },
-      {
-        path: "/AdminNav/AddProducts",
-        element: <AddProducts />,
-      },
-      {
-        path: "/AdminNav/AllProducts",
-        element: <AllProducts />,
-      },
-      {
-        path: "/AdminNav/AddImage",
-        element: <AddImage />,
-      },
-      {
-        path: "/AdminNav/Orders",
-        element: <Orders />,
-      },
-      {
-        path: "/AdminNav/ViewEvents",
-        element: <ViewEvents />,
-      },
-      {
-        path: "/AdminNav/UpdateProducts/:set_number",
-        element: <UpdateProducts />,
-      },
-    ],
-  },
-]);
+  return isAuthenticated && isAuthenticated.isAdmin ? (
+    <Route {...rest} element={element} />
+  ) : (
+    <Navigate to="/" />
+  );
+}
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider>
+      <Router>
+        <Layout>
+          <ToastContainer />
+          <Routes>
+            <Route exact path="/" element={<RealHomePage />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/book" element={<Bookevent />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/OrderCon" element={<OrderCon />} />
+            <Route path="/ticket" element={<Ticket />} />
+            <Route path="/Viewcart" element={<Viewcart />} />
+            <Route path="/Checkout" element={<Checkout />} />
+            <Route path="/login" element={<Adminlogin />} />
+            <Route path="/Adminlogin" element={<Adminlogin />} />
+            <Route path="/AdminNav/*" element={<AdminNav />}>
+              <Route path="Dashboard" element={<Dashboard />} />
+              <Route path="ViewTickets" element={<ViewTickets />} />
+              <Route path="AddProducts" element={<AddProducts />} />
+              <Route path="AllProducts" element={<AllProducts />} />
+              <Route path="AddImage" element={<AddImage />} />
+              <Route path="Orders" element={<Orders />} />
+              <Route path="ViewEvents" element={<ViewEvents />} />
+              <Route
+                path="UpdateProducts/:set_number"
+                element={<UpdateProducts />}
+              />
+              <Route path="*" element={<NotFound />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </AuthProvider>
+  );
 }
 
 export default App;

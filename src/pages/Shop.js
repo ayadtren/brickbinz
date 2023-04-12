@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { MdOutlineSearch } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
-
+import { Link } from "react-router-dom";
 const themes = {
   1: "LEGO Architecture",
   2: "LEGO BrickHeadz",
@@ -81,6 +81,7 @@ const Shop = () => {
   const handleClick = (item) => async (e) => {
     e.preventDefault();
     window.location.reload();
+    item.product_quantity = 1;
 
     const newCartItem = {
       product_set_name: item.product_set_name,
@@ -148,7 +149,8 @@ const Shop = () => {
 
           <div className="filter-select">
             <div>
-              <label htmlFor="filter-by-themes">Filter By:</label>
+              Filter by
+              {/* <label htmlFor="filter-by-themes">Filter By:</label> */}
             </div>
             <div>
               <Form.Select
@@ -168,7 +170,8 @@ const Shop = () => {
 
           <div className="filter-select">
             <div>
-              <label htmlFor="filter-by-themes">Filter by Theme:</label>
+              Filter by themes
+              {/* <label htmlFor="filter-by-themes">Filter by Theme:</label> */}
             </div>
             <div>
               <Form.Select
@@ -192,12 +195,14 @@ const Shop = () => {
             return (
               <li key={product.product_set_numb}>
                 <div className="card">
+                   <Link   to={`/product/${product.product_set_numb}`} className="link">
                   <div className="image-box">
                     <img
                       src={require(`./../images/products/${product.product_img}`)}
                       alt={product.product_img}
                     />
                   </div>
+                  </Link>
                   <div className="setNumb" name="product_set_numb">
                     #{product.product_set_numb}
                   </div>
@@ -209,11 +214,7 @@ const Shop = () => {
                   <div hidden="hidden" name="product_location">
                     {product.product_location}
                   </div>
-                  <div
-                    hidden="hidden"
-                    className="quantity"
-                    name="product_quantity"
-                  >
+                  <div className="quantity" name="product_quantity">
                     {product.product_quantity}
                   </div>
                   <div hidden="hidden" name="product_img">

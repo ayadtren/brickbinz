@@ -58,6 +58,31 @@ app.get("/login", (req, res) => {
   });
 });
 
+//Setting up a GET request for the ticket
+app.get("/ticket", (req, res) => {
+  const q = "SELECT * from ticket";
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  })
+});
+
+app.post("/ticket", (req, res) => {
+  const q =
+    "INSERT INTO ticket (`ticket_id`, `ticket_email`, `ticket_username`, `ticket_message`) VALUES (?)";
+  const values = [
+    req.body.ticket_id,
+    req.body.ticket_email,
+    req.body.ticket_username,
+    req.body.ticket_message
+  ];
+
+  db.query(q, [values], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
 //Setting up a Post request for the products
 app.post("/products", (req, res) => {
   const q =
@@ -75,6 +100,16 @@ app.post("/products", (req, res) => {
   console.log(req.body);
 
   db.query(q, [values], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
+app.get("/products/:product_set_numb", (req, res) => {
+  const productId = req.params.product_set_numb;
+  const q = "SELECT * FROM product WHERE product_set_numb = ?";
+
+  db.query(q, [productId], (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
   });
@@ -122,24 +157,27 @@ app.post("/cart", (req, res) => {
 });
 
 //Code block to put requests to cart
-app.put("/cart/:product_set_numb", (req, res) => {
-  const q =
-    "INSERT INTO cart (`cart_set_numb`, `cart_set_name`, `cart_set_price`, `cart_set_location`, `cart_set_quantity`, `cart_set_img`, `cart_theme`) VALUES (?)";
+app.put("/cart/:cart_set_numb", (req, res) => {
+  const cartId = req.params.cart_set_numb;
+  const q = "UPDATE cart SET `cart_set_name` = ?, `cart_set_price` = ?, `cart_set_location` = ?, `cart_set_quantity` = ?, `cart_set_img` = ?, `cart_theme` = ? WHERE `cart_set_numb` = ?";
   const values = [
-    req.body.product_set_numb,
-    req.body.product_set_name,
-    req.body.product_price,
-    req.body.product_location,
-    req.body.product_quantity,
-    req.body.product_img,
-    req.body.theme,
+    req.body.cart_set_name,
+    req.body.cart_set_price,
+    req.body.cart_set_location,
+    req.body.cart_set_quantity,
+    req.body.cart_set_img,
+    req.body.cart_theme,
   ];
 
-  db.query(q, [values], (err, data) => {
+    console.log(req.body)
+  db.query(q, [...values, cartId], (err, data) => {
+    
     if (err) return res.json(err);
     return res.json(data);
   });
 });
+
+
 
 // Setting up a GET request for the event
 app.get("/event", (req, res) => {

@@ -112,7 +112,7 @@ const BookEvent = () => {
         </div>
 
         <div className="button-event">
-          <button type="button" class="btn btn-primary btn-lg btn-block">
+          <button type="button" class="btn btn-primary btn-lg btn-block" onClick={handleSubmit}>
             Submit
           </button>
         </div>
@@ -134,7 +134,7 @@ const BookEvent = () => {
   };
 
   return (
-    <div>
+    <div className="book-event-container">
       <h1>Book your Lego Store Birthday Party Event</h1>
       {submitted ? renderConfirmation() : renderForm()}
     </div>

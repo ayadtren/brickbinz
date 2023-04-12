@@ -1,20 +1,29 @@
-import React, { useState, useEffect } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FaShoppingBag } from "react-icons/fa";
 import { MdMenu, MdPersonPin } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
 import AdminNav from "../admin/AdminNav";
+import { useAuth } from "../auth/useAuth";
 import logo from "../images/banner2.png";
 import Login from "../pages/Adminlogin";
 import Footer from "../pages/footer/Footer";
-import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Layout = (props) => {
   const location = useLocation();
   const [showDrawer, setShowDrawer] = useState(false);
   const [cartItems, setCartItems] = useState([]);
-  
+  const { isLoggedIn, logOut } = useAuth();
+
+  console.log("Log: ~ file: Layout.jsx:20 ~ Layout ~ isLoggedIn:", isLoggedIn);
+
+  const handleLogout = () => {
+    logOut();
+  };
+
   const handleClose = () => {
     setShowDrawer(false);
   };
@@ -65,14 +74,14 @@ const Layout = (props) => {
                 <li>
                   <Link to={"/"}>Home</Link>
                 </li>
-                <li>
+                <li hidden={!isLoggedIn}>
                   <Link to="/AdminNav/Dashboard">Admin</Link>
                 </li>
                 <li>
                   <Link to="/shop">Shop</Link>
                 </li>
                 <li>
-                  <Link to="/contact">Contact</Link>
+                  <Link to="/ticket">Contact</Link>
                 </li>
                 <li>
                   <Link to="/book">Book</Link>
@@ -80,10 +89,10 @@ const Layout = (props) => {
                 <li>
                   <Link to="/product">Product</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/Checkout">Checkout</Link>
-                </li>
-                <li>
+                </li> */}
+                <li hidden>
                   <Link to="/OrderCon">OrderCon</Link>
                 </li>
               </ul>
@@ -93,6 +102,17 @@ const Layout = (props) => {
             <div className="right-box">
               <ul className="nav-list">
                 <li>
+                  {isLoggedIn && (
+                    <li>
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        onClick={handleLogout}
+                      >
+                        Log Out
+                      </button>
+                    </li>
+                  )}
                   <button
                     onClick={handleLoginOpen}
                     className="icon-button"
@@ -134,7 +154,7 @@ const Layout = (props) => {
               <Link to="/shop">Shop</Link>
             </li>
             <li onClick={handleClose}>
-              <Link to="/contact">Contact</Link>
+              <Link to="/ticket">Contact</Link>
             </li>
             <li onClick={handleClose}>
               <Link to="/book">Book</Link>
