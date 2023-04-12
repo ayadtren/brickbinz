@@ -4,7 +4,7 @@ import './CardStyles.scss'
 
 //Enter title, image url and body text. 
 //import image in the homepage though...
-const Card = ({title, imageUrl, body}) => {
+const Card = ({title, imageUrl, body, body2}) => {
   return (
     <div className='card-container'>
        <div className='image-container'>
@@ -15,7 +15,9 @@ const Card = ({title, imageUrl, body}) => {
                 <h3>{title}</h3>
           </div>
           <div className='card-body'>
-              <p>{body}</p>
+              {body}
+              <br/>
+              {body2}
           </div>
           {/* <div className='card-btn'>
               <button>
