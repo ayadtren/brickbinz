@@ -1,14 +1,15 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../auth/useAuth";
 import "../styles/login.scss";
+import { useContext } from "react";
+import { AuthContext } from "../AuthContext";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
   const [admin_password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
-  const { setIsLoggedIn } = useAuth();
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const navigate = useNavigate();
 
@@ -21,6 +22,8 @@ export const Login = () => {
   };
 
   const loginn = async (event) => {
+    const { setIsLoggedIn } = useContext(AuthContext);
+
     event.preventDefault();
     axios
       .post(
@@ -37,7 +40,7 @@ export const Login = () => {
         if (response.data.message) {
           setLoginStatus(response.data.message);
         } else {
-          setIsLoggedIn(true);
+          // setIsAdmin(true);
           navigate("/AdminNav/Dashboard");
         }
       });

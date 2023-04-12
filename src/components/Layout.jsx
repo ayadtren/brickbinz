@@ -10,13 +10,19 @@ import { useAuth } from "../auth/useAuth";
 import logo from "../images/banner2.png";
 import Login from "../pages/Adminlogin";
 import Footer from "../pages/footer/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Layout = (props) => {
   const location = useLocation();
   const [showDrawer, setShowDrawer] = useState(false);
   const [cartItems, setCartItems] = useState([]);
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, logOut } = useAuth();
+
   console.log("Log: ~ file: Layout.jsx:20 ~ Layout ~ isLoggedIn:", isLoggedIn);
+
+  const handleLogout = () => {
+    logOut();
+  };
 
   const handleClose = () => {
     setShowDrawer(false);
@@ -96,6 +102,17 @@ const Layout = (props) => {
             <div className="right-box">
               <ul className="nav-list">
                 <li>
+                  {isLoggedIn && (
+                    <li>
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        onClick={handleLogout}
+                      >
+                        Log Out
+                      </button>
+                    </li>
+                  )}
                   <button
                     onClick={handleLoginOpen}
                     className="icon-button"

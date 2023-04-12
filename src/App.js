@@ -42,8 +42,8 @@ function PrivateRoute({ element, ...rest }) {
 
 function App() {
   return (
-    <Router>
-      <AuthProvider>
+    <AuthProvider>
+      <Router>
         <Layout>
           <ToastContainer />
           <Routes>
@@ -74,8 +74,8 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
-      </AuthProvider>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 }
 
