@@ -48,10 +48,13 @@ const filters = [
 ];
 
 const Shop = () => {
+  const [isShown, setIsShown] = useState(false);
+
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
   const [themeFilter, setThemeFilter] = useState("");
+  
 
   const handleInputChange = (event) => {
     setSearch(event.target.value);
@@ -128,6 +131,7 @@ const Shop = () => {
           return 0;
       }
     });
+    
 
   return (
     <section className="home">
@@ -189,18 +193,27 @@ const Shop = () => {
             </div>
           </div>
         </div>
+        
 
         <ul className="inventory-list">
           {getFilteredResults.map((product) => {
             return (
               <li key={product.product_set_numb}>
-                <div className="card">
+                <div className="card" >
                    <Link   to={`/product/${product.product_set_numb}`} className="link">
-                  <div className="image-box">
-                    <img
+                  <div className="image-box" >
+                  <div class="container" onMouseEnter={() => setIsShown(true)}
+                      onMouseLeave={() => setIsShown(false)}> 
+                    <img className="image" 
                       src={require(`./../images/products/${product.product_img}`)}
                       alt={product.product_img}
                     />
+                      {isShown && (
+                      <button className="Show_Details"> Show Details </button>
+                      
+                      )}
+                      </div>
+                  
                   </div>
                   </Link>
                   <div className="setNumb" name="product_set_numb">
