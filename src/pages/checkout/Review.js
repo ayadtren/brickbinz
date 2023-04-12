@@ -47,7 +47,7 @@ function Review({ userInfo, paymentInfo, cartItems }) {
         {cartItems.map((cartItem) => (
           <ListItem key={cartItem.cart_set_numb} sx={{ py: 1, px: 0 }}>
             <ListItemText primary={cartItem.cart_set_name} secondary={cartItem.cart_set_numb} />
-            <Typography variant="body2">{cartItem.cart_set_price}</Typography>
+            <Typography variant="body2">${cartItem.cart_set_price}</Typography>
           </ListItem>
         ))}
 
@@ -59,7 +59,7 @@ function Review({ userInfo, paymentInfo, cartItems }) {
         </ListItem>
       </List>
       <Grid container spacing={2}>
-        {userInfo.map((user) => (
+        {/* {userInfo.map((user) => (
           <Grid item xs={12} sm={6} key={user.firstName}>
             <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
               Contact Information
@@ -67,12 +67,12 @@ function Review({ userInfo, paymentInfo, cartItems }) {
             <Typography gutterBottom>{user.firstName} {user.lastName}</Typography>
             <Typography gutterBottom>{user.email}</Typography>
           </Grid>
-        ))}
+        ))} */}
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
             Payment details
           </Typography>
-          <Grid container>
+          {/* <Grid container>
             {paymentInfo.map((payment) => (
               <React.Fragment key={payment.cardName}>
                 <Grid item xs={6}>
@@ -83,7 +83,7 @@ function Review({ userInfo, paymentInfo, cartItems }) {
                 </Grid>
               </React.Fragment>
             ))}
-          </Grid>
+          </Grid> */}
         </Grid>
       </Grid>
     </React.Fragment>
