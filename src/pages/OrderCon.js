@@ -9,6 +9,11 @@ const Productviewpg = () => {
         <h3>A confirmation has been sent to your email.</h3>
         <h4>Order no: ########</h4>
       </div>
+      <div className="Continue_Shopping_Div ">
+
+    <button > Continue shopping</button>
+
+      </div>
     </div>
   );
 };
