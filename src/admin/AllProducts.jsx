@@ -64,6 +64,18 @@ const AllProducts = () => {
             <h2 className="text-center mb-4">All Products</h2>
             <div className="all-products-container">
               <ul className="list-group">
+<li className="list-group-item">
+                  <Row className="list-group-row">
+                    <Col><b>Image</b></Col>
+                    <Col><b>Set Number</b></Col>
+                    <Col><b>Set Name</b></Col>
+                    <Col><b>Price</b></Col>
+                    <Col><b>Location</b></Col>
+                    <Col><b>Quantity</b></Col>
+                    <Col><b>Theme</b></Col>
+                    <Col></Col>
+                  </Row>
+                </li>
 
                 {products.map((product) => {
                   return (
