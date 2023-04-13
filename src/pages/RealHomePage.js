@@ -13,10 +13,12 @@ import Productviewpg from "../pages/Productviewpg";
 import mainImage1 from "../images/mainpic1.jpg";
 import mainImage2 from "../images/mainpic2.jpg";
 import mainImage3 from "../images/mainpic3.jpg";
+import mainImage4 from "../images/mainpic4.jpg";
+import mainImage5 from "../images/mainpic5.jpg";
 import cardImage1 from "../images/card-image1.jpg";
 import cardImage2 from "../images/card-image2.jpg";
 import cardImage3 from "../images/card-image3.jpg";
-//<img className='main-image' src={picture} alt="Main picture" />
+
 const RealHomePage = () => {
   const [products, setProducts] = useState([]);
 
@@ -24,9 +26,7 @@ const RealHomePage = () => {
   const handleProductPageClose = () => {
     setShowProductPage(false);
   };
-  // const handleProductPageOpen = () => {
-  //   setShowProductPage(true);
-  // };
+
 
   //slider settings
   const settings = {
@@ -50,21 +50,21 @@ const RealHomePage = () => {
     fetchAllProducts();
   }, []);
 
-  //array with all the div tags n shit
+  //when user clicks on the item box, they will be directed to the product page.
   const newItems = products.map((products) => (
     <div className="slider-container">
-        <Link   to={`/product/${products.product_set_numb}`} className="link">
-      <img
-        src={require(`./../images/products/${products.product_img}`)}
-        alt={products.product_img}
-        width="200px" height="180px"
-      />
-  </Link>
+      <Link to={`/product/${products.product_set_numb}`} className="link">
+        <img
+          src={require(`./../images/products/${products.product_img}`)}
+          alt={products.product_img}
+          width="200px" height="180px"
+        />
+      </Link>
       <h4>{products.product_set_name}</h4>
       <h5>${products.product_price}</h5>
       <p>set number:{products.product_set_numb}</p>
-      <Link   to={`/product/${products.product_set_numb}`} className="link">
-      <button className="add-cart">View Details</button>
+      <Link to={`/product/${products.product_set_numb}`} className="link">
+        <button className="add-cart">View Details</button>
       </Link>
     </div>
   ));
@@ -91,6 +91,14 @@ const RealHomePage = () => {
             <img className="main-image" src={mainImage3} alt="Third slide" />
 
           </Carousel.Item>
+          <Carousel.Item>
+            <img className="main-image" src={mainImage4} alt="Third slide" />
+
+          </Carousel.Item>
+          <Carousel.Item>
+            <img className="main-image" src={mainImage5} alt="Third slide" />
+
+          </Carousel.Item>
         </Carousel>
       </div>
 
@@ -109,7 +117,7 @@ const RealHomePage = () => {
           <Card title="Buisness Hours" imageUrl={cardImage2} body="We are open 11:00AM - 7:00PM every week!" />
         </div>
         <div className="box">
-          <Card title="Store Locations" imageUrl={cardImage3} body="NE Store Location: 2906 centre st ne." body2="SE Store Location: 7730 Macleod Trail SE."/>
+          <Card title="Store Locations" imageUrl={cardImage3} body="NE Store Location: 2906 centre st ne." body2="SE Store Location: 7730 Macleod Trail SE." />
         </div>
       </div>
 
