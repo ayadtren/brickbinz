@@ -31,7 +31,7 @@ const Ticket = () => {
         <div class="form-group">
           <label for="exampleFormControlInput1">Email address</label>
           <input
-            required
+            required 
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -39,7 +39,7 @@ const Ticket = () => {
             id="exampleFormControlInput1"
             placeholder="name@example.com"
           />
-        </div>
+        </div> 
 
         <div class="form-group">
           <label for="exampleFormControlInput1">Name</label>
