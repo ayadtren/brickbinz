@@ -41,7 +41,7 @@ const ViewEvents = () => {
       <Container>
         <Row>
           <Col lg="12">
-            <h2 className="text-center mb-4 header-margin">View Events</h2>
+            <h2 className="text-center mb-4">View Events</h2>
             {events.map((event, index) => (
               <div className="card mb-3" key={index}>
                 <div className="card-body">
@@ -86,3 +86,4 @@ const ViewEvents = () => {
 };
 
 export default ViewEvents;
+
