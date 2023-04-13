@@ -75,6 +75,34 @@ app.get("/orders", (req, res) => {
   })
 })
 
+app.get("/products/:product_set_numb", (req, res) => {
+  const productId = req.params.product_set_numb;
+  const q = "SELECT * FROM product WHERE product_set_numb = ?";
+
+  db.query(q, [productId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
+// Setting up a GET request for the event
+app.get("/event", (req, res) => {
+  const q = "SELECT * from event";
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
+// Setting up a GET request for the event
+app.get("/event", (req, res) => {
+  const q = "SELECT * from event";
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
 app.post("/orders", (req, res) => {
   const q =
     "INSERT INTO orders (`order_user_name`, `order_total`) VALUES (?)";
@@ -119,19 +147,7 @@ app.post("/products", (req, res) => {
     req.body.setTheme,
   ];
 
-  console.log(req.body);
-
   db.query(q, [values], (err, data) => {
-    if (err) return res.json(err);
-    return res.json(data);
-  });
-});
-
-app.get("/products/:product_set_numb", (req, res) => {
-  const productId = req.params.product_set_numb;
-  const q = "SELECT * FROM product WHERE product_set_numb = ?";
-
-  db.query(q, [productId], (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
   });
@@ -178,6 +194,45 @@ app.post("/cart", (req, res) => {
   });
 });
 
+app.post("/event", (req, res) => {
+  const q =
+    "INSERT INTO event (`event_id`, `event_user_name`, `event_email`, `event_date`, `event_time`, `event_number_guest`, `event_description`) VALUES (?)";
+  const values = [
+    req.body.event_id,
+    req.body.event_user_name,
+    req.body.event_email,
+    req.body.event_date,
+    req.body.event_time,
+    req.body.event_number_guest,
+    req.body.event_description,
+  ];
+
+  db.query(q, [values], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
+app.post("/event", (req, res) => {
+  const q =
+    "INSERT INTO event (`event_id`, `event_user_name`, `event_email`, `event_date`, `event_time`, `event_number_guest`, `event_description`) VALUES (?)";
+  const values = [
+    req.body.event_id,
+    req.body.event_user_name,
+    req.body.event_email,
+    req.body.event_date,
+    req.body.event_time,
+    req.body.event_number_guest,
+    req.body.event_description,
+  ];
+
+  db.query(q, [values], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
+
 //Code block to put requests to cart
 app.put("/cart/:cart_set_numb", (req, res) => {
   const cartId = req.params.cart_set_numb;
@@ -194,86 +249,6 @@ app.put("/cart/:cart_set_numb", (req, res) => {
     console.log(req.body)
   db.query(q, [...values, cartId], (err, data) => {
     
-    if (err) return res.json(err);
-    return res.json(data);
-  });
-});
-
-
-
-// Setting up a GET request for the event
-app.get("/event", (req, res) => {
-  const q = "SELECT * from event";
-  db.query(q, (err, data) => {
-    if (err) return res.json(err);
-    return res.json(data);
-  });
-});
-
-app.post("/event", (req, res) => {
-  const q =
-    "INSERT INTO event (`event_id`, `event_user_name`, `event_email`, `event_date`, `event_time`, `event_number_guest`, `event_description`) VALUES (?)";
-  const values = [
-    req.body.event_id,
-    req.body.event_user_name,
-    req.body.event_email,
-    req.body.event_date,
-    req.body.event_time,
-    req.body.event_number_guest,
-    req.body.event_description,
-  ];
-
-  db.query(q, [values], (err, data) => {
-    if (err) return res.json(err);
-    return res.json(data);
-  });
-});
-
-// Setting up a GET request for the event
-app.get("/event", (req, res) => {
-  const q = "SELECT * from event";
-  db.query(q, (err, data) => {
-    if (err) return res.json(err);
-    return res.json(data);
-  });
-});
-
-app.post("/event", (req, res) => {
-  const q =
-    "INSERT INTO event (`event_id`, `event_user_name`, `event_email`, `event_date`, `event_time`, `event_number_guest`, `event_description`) VALUES (?)";
-  const values = [
-    req.body.event_id,
-    req.body.event_user_name,
-    req.body.event_email,
-    req.body.event_date,
-    req.body.event_time,
-    req.body.event_number_guest,
-    req.body.event_description,
-  ];
-
-  db.query(q, [values], (err, data) => {
-    if (err) return res.json(err);
-    return res.json(data);
-  });
-});
-
-//Code block to delete data in the database using the product's set number
-app.delete("/products/:product_set_numb", (req, res) => {
-  const productId = req.params.product_set_numb;
-  const q = "DELETE FROM product WHERE product_set_numb = ?";
-
-  db.query(q, [productId], (err, data) => {
-    if (err) return res.json(err);
-    return res.json(data);
-  });
-});
-
-//Code block to delete an item in the cart table within the database using the product's set number
-app.delete("/cart/:cart_set_numb", (req, res) => {
-  const cartProductId = req.params.cart_set_numb;
-  const q = "DELETE FROM cart WHERE cart_set_numb = ?";
-
-  db.query(q, [cartProductId], (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
   });
@@ -297,6 +272,28 @@ app.put("/products/:product_set_numb", (req, res) => {
   db.query(q, [...values, productId], (err, data) => {
     if (err) return res.json(err);
     return res.json("Updated Successfully");
+  });
+});
+
+//Code block to delete data in the database using the product's set number
+app.delete("/products/:product_set_numb", (req, res) => {
+  const productId = req.params.product_set_numb;
+  const q = "DELETE FROM product WHERE product_set_numb = ?";
+
+  db.query(q, [productId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
+//Code block to delete an item in the cart table within the database using the product's set number
+app.delete("/cart/:cart_set_numb", (req, res) => {
+  const cartProductId = req.params.cart_set_numb;
+  const q = "DELETE FROM cart WHERE cart_set_numb = ?";
+
+  db.query(q, [cartProductId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
   });
 });
 
