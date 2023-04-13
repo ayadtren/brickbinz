@@ -101,7 +101,7 @@ const Dashboard = () => {
         </Card>
       </Grid>
 
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      {/* <Grid item xs={12} sm={6} md={4} lg={3}>
         <Card variant="outlined">
           <CardContent>
             <AddSlideshowIcon fontSize="large" />
@@ -124,7 +124,7 @@ const Dashboard = () => {
             </Button>
           </CardActions>
         </Card>
-      </Grid>
+      </Grid> */}
 
       <Grid item xs={12} sm={6} md={4} lg={3}>
         <Card variant="outlined">
