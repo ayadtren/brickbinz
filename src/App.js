@@ -23,8 +23,6 @@ import Layout from "./components/Layout";
 import Adminlogin from "./pages/Adminlogin";
 import Bookevent from "./pages/Bookevent";
 import Checkout from "./pages/Checkout";
-import OrderCon from "./pages/OrderCon";
-import Productviewpg from "./pages/Productviewpg";
 import RealHomePage from "./pages/RealHomePage";
 import Shop from "./pages/Shop";
 import Ticket from "./pages/Ticket";
@@ -54,7 +52,6 @@ function App() {
               <Route path="/shop" element={<Shop />} />
               <Route path="/book" element={<Bookevent />} />
               <Route path="/product/:id" element={<ProductDetails />} />
-              <Route path="/OrderCon" element={<OrderCon />} />
               <Route path="/ticket" element={<Ticket />} />
               <Route path="/Viewcart" element={<Viewcart />} />
               <Route path="/Checkout" element={<Checkout />} />

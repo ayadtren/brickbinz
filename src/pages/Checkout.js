@@ -47,13 +47,8 @@ export default function Checkout() {
     cardExp: "",
     cardCvv: ""
   });
-  // const [order, setOrder] = useState({
-  //   setName: fullName,
-  //   setTotal: TotalPrice,
-  // });
 
   const fullName = (userInfo.firstName) + " " + (userInfo.lastName);
-  //setOrder(fullName, totalPrice);
 
   //get data from cart.
   useEffect(() => {
@@ -148,12 +143,12 @@ export default function Checkout() {
 
           console.log(await axios.put(
             "http://localhost:8000/products/" + cartItems[i]?.cart_set_numb, newProduct));
-          
-            await axios.delete("http://localhost:8000/cart/" + cartItems[i]?.cart_set_numb);
+
+          await axios.delete("http://localhost:8000/cart/" + cartItems[i]?.cart_set_numb);
 
         } else {
           console.log(await axios.delete("http://localhost:8000/products/" + cartItems[i]?.cart_set_numb));
-          
+
           await axios.delete("http://localhost:8000/cart/" + cartItems[i]?.cart_set_numb);
         }
 
