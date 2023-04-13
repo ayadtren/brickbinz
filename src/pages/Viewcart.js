@@ -25,7 +25,7 @@ export const roundMoneyNum = (amount) => {
 function Viewcart() {
   const navigate = useNavigate();
   const handleCheckout = () => {
-    navigate = navigate("/Checkout")
+    navigate("/Checkout")
   };
 
   const [cartItems, setCartItems] = useState([]);

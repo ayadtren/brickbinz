@@ -148,6 +148,8 @@ export default function Checkout() {
 
           console.log(await axios.put(
             "http://localhost:8000/products/" + cartItems[i]?.cart_set_numb, newProduct));
+          
+            await axios.delete("http://localhost:8000/cart/" + cartItems[i]?.cart_set_numb);
 
         } else {
           console.log(await axios.delete("http://localhost:8000/products/" + cartItems[i]?.cart_set_numb));

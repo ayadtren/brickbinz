@@ -50,8 +50,7 @@ const filters = [
 ];
 
 const Shop = () => {
-  const [isShown, setIsShown] = useState(false);
-
+  const [isShown, setIsShown] = useState({});
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
@@ -113,8 +112,7 @@ const Shop = () => {
     .filter((item) =>
       Object.keys(item).some((key) =>
         item[key].toString().toLowerCase().includes(search.toLowerCase())
-      )
-    )
+      ))
     .filter((item) => {
       if (!themeFilter) return true;
       return item.theme === parseInt(themeFilter, 10);
@@ -133,11 +131,17 @@ const Shop = () => {
           return 0;
       }
     });
+  const handleMouseEnter = (index) => {
+    setIsShown((prevState) => ({ ...prevState, [index]: true }));
+  };
+
+  const handleMouseLeave = (index) => {
+    setIsShown((prevState) => ({ ...prevState, [index]: false }));
+  };
 
   return (
     <section className="home">
       <ToastContainer position="top-right" autoClose={2000} />
-
       <div className="container">
         <div className="filter-bar">
           <div className="search-box">
@@ -196,7 +200,7 @@ const Shop = () => {
         </div>
 
         <ul className="inventory-list">
-          {getFilteredResults.map((product) => {
+          {getFilteredResults.map((product, index) => {
             return (
               <li key={product.product_set_numb}>
                 <div className="card">
@@ -206,16 +210,16 @@ const Shop = () => {
                   >
                     <div className="image-box">
                       <div
-                        class="container"
-                        onMouseEnter={() => setIsShown(true)}
-                        onMouseLeave={() => setIsShown(false)}
+                        className="container"
+                        onMouseEnter={() => handleMouseEnter(index)}
+                        onMouseLeave={() => handleMouseLeave(index)}
                       >
                         <img
                           className="image"
                           src={require(`./../images/products/${product.product_img}`)}
                           alt={product.product_img}
                         />
-                        {isShown && (
+                        {isShown[index] && (
                           <button className="Show_Details">
                             {" "}
                             Show Details{" "}
@@ -224,7 +228,8 @@ const Shop = () => {
                       </div>
                     </div>
                   </Link>
-                  <div className="setNumb" name="product_set_numb">
+                  <div className
+                    ="setNumb" name="product_set_numb">
                     #{product.product_set_numb}
                   </div>
                   <div className="title" name="product_set_name">
@@ -235,7 +240,7 @@ const Shop = () => {
                   <div hidden="hidden" name="product_location">
                     {product.product_location}
                   </div>
-                  <div className="quantity" name="product_quantity">
+                  <div hidden="hidden" className="quantity" name="product_quantity">
                     {product.product_quantity}
                   </div>
                   <div hidden="hidden" name="product_img">
@@ -246,7 +251,10 @@ const Shop = () => {
                   </div>
                   <br />
                   <div className="button">
-                    <button className="add-cart" onClick={handleClick(product)}>
+                    <button
+                      className="add-cart"
+                      onClick={handleClick(product)}
+                    >
                       Add Cart
                     </button>
                   </div>
