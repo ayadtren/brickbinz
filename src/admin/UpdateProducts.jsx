@@ -4,18 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/UpdateProduct.scss";
-import {
-  Container,
-  Grid,
-  TextField,
-  Typography,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  Button,
-  Box,
-} from "@mui/material";
+import {Container,Grid,TextField,Typography,Select,MenuItem,FormControl,InputLabel,Button,Box,} from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 
 const UpdateProduct = () => {
