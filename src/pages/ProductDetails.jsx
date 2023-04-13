@@ -3,7 +3,7 @@ import "../styles/Productviewpg.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { useCart } from "../CartContext";
 
 export default function ProductDetails() {
@@ -75,16 +75,19 @@ export default function ProductDetails() {
               alt=""
               src={require(`./../images/products/${product.product_img}`)}
             />
+
             <img
               className="image-2-icon "
               alt=""
               src={require(`./../images/products/${product.product_img}`)}
             />
+
             <img
               className="image-3-icon "
               alt=""
               src={require(`./../images/products/${product.product_img}`)}
             />
+
             <img
               className="image-4-icon "
               alt=""

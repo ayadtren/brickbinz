@@ -8,8 +8,6 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import { Modal } from "react-bootstrap";
-import Productviewpg from "../pages/Productviewpg";
 import mainImage1 from "../images/mainpic1.jpg";
 import mainImage2 from "../images/mainpic2.jpg";
 import mainImage3 from "../images/mainpic3.jpg";
@@ -21,12 +19,6 @@ import cardImage3 from "../images/card-image3.jpg";
 
 const RealHomePage = () => {
   const [products, setProducts] = useState([]);
-
-  const [showProductPage, setShowProductPage] = useState(false);
-  const handleProductPageClose = () => {
-    setShowProductPage(false);
-  };
-
 
   //slider settings
   const settings = {
@@ -120,23 +112,6 @@ const RealHomePage = () => {
           <Card title="Store Locations" imageUrl={cardImage3} body="NE Store Location: 2906 Centre St. NE." body2="SE Store Location: 7730 Macleod Trail SE." />
         </div>
       </div>
-
-      <Modal show={showProductPage} onHide={handleProductPageClose}>
-        <div
-          style={{
-            boxShadow: "0 0 50px 15px #fdd201",
-            backgroundColor: "transparent",
-            borderRadius: 8,
-          }}
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>Product Page</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Productviewpg></Productviewpg>
-          </Modal.Body>
-        </div>
-      </Modal>
     </>
   );
 };

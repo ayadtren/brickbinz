@@ -2,11 +2,8 @@ import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import { update } from "immutable";
 
-function PaymentForm({updatePaymentInfo, paymentInfo}) {
+function PaymentForm({ updatePaymentInfo, paymentInfo }) {
   console.log(paymentInfo);
   return (
     <React.Fragment>
@@ -28,6 +25,7 @@ function PaymentForm({updatePaymentInfo, paymentInfo}) {
             }}
           />
         </Grid>
+
         <Grid item xs={12} md={6}>
           <TextField
             required
@@ -42,6 +40,7 @@ function PaymentForm({updatePaymentInfo, paymentInfo}) {
             }}
           />
         </Grid>
+
         <Grid item xs={12} md={6}>
           <TextField
             required
@@ -56,6 +55,7 @@ function PaymentForm({updatePaymentInfo, paymentInfo}) {
             }}
           />
         </Grid>
+
         <Grid item xs={12} md={6}>
           <TextField
             required
@@ -71,12 +71,6 @@ function PaymentForm({updatePaymentInfo, paymentInfo}) {
             }}
           />
         </Grid>
-        {/* <Grid item xs={12}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="saveCard" value="yes" />}
-            label="Remember credit card details for next time"
-          />
-        </Grid> */}
       </Grid>
     </React.Fragment>
   );

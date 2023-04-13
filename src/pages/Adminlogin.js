@@ -10,7 +10,7 @@ const Login = () => {
   const [loginStatus, setLoginStatus] = useState("");
 
   const navigate = useNavigate();
-  
+
   const [showLogin, setShowLogin] = useState(false);
   const { setIsLoggedIn } = useContext(AuthContext);
 
@@ -43,7 +43,7 @@ const Login = () => {
           navigate("/AdminNav/Dashboard");
         }
       });
-      setShowLogin(false); // hide the form after login
+    setShowLogin(false); // hide the form after login
   };
 
   return (
@@ -70,7 +70,7 @@ const Login = () => {
           type="submit"
           onClick={loginn}
           value="Login"
-         
+
         />
         <h6 className="loginstatus">{loginStatus}</h6>
         <span>Forget Password or Username?</span> | <span>Please contact website makers</span>

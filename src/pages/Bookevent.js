@@ -98,6 +98,7 @@ const BookEvent = () => {
             placeholder="Number of Guests"
           />
         </div>
+        
         <div class="form-group">
           <label for="formGroupExampleInput">Description</label>
           <input
