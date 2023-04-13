@@ -6,8 +6,32 @@ import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const themes = {
+  1: "LEGO Architecture",
+  2: "LEGO BrickHeadz",
+  3: "LEGO City",
+  4: "LEGO Classic",
+  5: "LEGO Creator-3-in-1",
+  6: "LEGO DC",
+  7: "LEGO Disney",
+  8: "LEGO Friends",
+  9: "LEGO Harry Potter",
+  10: "LEGO Ideas",
+  11: "LEGO Jurassic World",
+  12: "LEGO Avatar",
+  13: "LEGO Super Mario",
+  14: "LEGO Lord of the Rings",
+  15: "LEGO Marvel",
+  16: "LEGO CMF Series",
+  17: "LEGO Speed Champions",
+  18: "LEGO Star Wars",
+  19: "LEGO Technic",
+  20: "LEGO Creator Expert/Icons",
+  21: "LEGO Retired",
+};
+
 const AllProducts = () => {
-  const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchAllProducts = async () => {
@@ -33,14 +57,14 @@ const AllProducts = () => {
   const themeFilter = (themeNumb) => {};
 
   return (
-    <section>
+      <section>
       <Container>
         <Row>
           <Col lg={15}>
             <h2 className="text-center mb-4">All Products</h2>
             <div className="all-products-container">
               <ul className="list-group">
-                <li className="list-group-item">
+<li className="list-group-item">
                   <Row className="list-group-row">
                     <Col><b>Image</b></Col>
                     <Col><b>Set Number</b></Col>
@@ -61,11 +85,7 @@ const AllProducts = () => {
                     >
                       <Row className="list-group-row">
                         <Col>
-                          <img
-                            src={require(`./../images/products/${product.product_img}`)}
-                            alt={product.product_img}
-                            width="70%"
-                          />
+                          <ProductImage img={product.product_img} />
                         </Col>
                         <Col>
                           <div>#{product.product_set_numb}</div>
@@ -83,7 +103,7 @@ const AllProducts = () => {
                           <div>{product.product_quantity}</div>
                         </Col>
                         <Col>
-                          <div>{product.theme}</div>
+                          <div>{themes[product.theme]}</div>
                         </Col>
                         <Col>
                           <div>
@@ -110,68 +130,7 @@ const AllProducts = () => {
                 })}
               </ul>
             </div>
-            {/* <ul className="list-group">
-              <li className="list-group-item d-flex justify-content-between align-items-center">
-                <div>
-                  <strong>Image</strong>
-                </div>
-                <div>
-                  <strong>Set Number</strong>
-                </div>
-                <div>
-                  <strong>Set Name</strong>
-                </div>
-                <div>
-                  <strong>Price</strong>
-                </div>
-                <div>
-                  <strong>Location</strong>
-                </div>
-                <div>
-                  <strong>Quantity</strong>
-                </div>
-                <div></div>
-              </li>
-
-              {products.map((product) => {
-                return (
-                  <li
-                    className="list-group-item d-flex justify-content-between align-items-center"
-                    key={product.product_set_numb}
-                  >
-                    <div>
-                      <img
-                        src={require(`./../images/products/${product.product_img}`)}
-                        alt={product.product_img}
-                        width="70%"
-                      />
-                    </div>
-                    <div>#{product.product_set_numb}</div>
-                    <div>
-                      <h5 className="mb-1">{product.product_set_name}</h5>
-                    </div>
-                    <div>${product.product_price}</div>
-                    <div>{product.product_location}</div>
-                    <div>{product.product_quantity}</div>
-                    <div>
-                      <button
-                        className="btn btn-danger"
-                        onClick={() => handleDelete(product.product_set_numb)}
-                      >
-                        Delete
-                      </button>
-                      <button>
-                        <Link
-                          to={`/AdminNav/UpdateProducts/${product.product_set_numb}`}
-                        >
-                          Update
-                        </Link>
-                      </button>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul> */}
+            
           </Col>
         </Row>
       </Container>
@@ -183,7 +142,6 @@ const AllProducts = () => {
 
 const ProductImage = ({ img }) => {
   const [productImage, setProductImage] = useState(null);
-
   useEffect(() => {
     const fetchImage = async () => {
       try {
