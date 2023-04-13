@@ -31,14 +31,13 @@ const ViewTickets = () => {
       <Container>
         <Row>
           <Col lg="12"> 
-          <h2 className="text-center mb-4 header-margin">View Tickets</h2>
+          <h2 className="text-center mb-4">View Tickets</h2>
           {tickets.map((ticket, index) => (
             <div className="card mb-3" key={index}>
               <div className="card-body">
                 <p className="card-text"><b>Customer's Email</b> : {ticket.ticket_email}</p>
                 <p className="card-text"><b>Name :</b> {ticket.ticket_username}</p>
                 <p className="card-text"><b>Message :</b> {ticket.ticket_message}</p>
-                
                 <Button
                   variant="danger"
                   className="mr-2"
@@ -46,7 +45,6 @@ const ViewTickets = () => {
                 >
                   Remove Ticket
                 </Button>
-
               </div>
             </div>
           ))}
