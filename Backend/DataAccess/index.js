@@ -67,6 +67,28 @@ app.get("/ticket", (req, res) => {
   })
 });
 
+app.get("/orders", (req, res) => {
+  const q = "SELECT * FROM orders";
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  })
+})
+
+app.post("/orders", (req, res) => {
+  const q =
+    "INSERT INTO orders (`order_user_name`, `order_total`) VALUES (?)";
+  const values = [
+    req.body.setName,
+    req.body.setTotal
+  ];
+
+  db.query(q, [values], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
 app.post("/ticket", (req, res) => {
   const q =
     "INSERT INTO ticket (`ticket_id`, `ticket_email`, `ticket_username`, `ticket_message`) VALUES (?)";
