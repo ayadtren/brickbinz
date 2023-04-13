@@ -73,7 +73,7 @@ const Login = ({ onLoginSuccess }) => {
           value="Login"
         />
         <h6 className="loginstatus">{loginStatus}</h6>
-        <span>Forget Password or Username?</span> | <span>Sign Up</span>
+        <span>Forget Password or Username?</span> | <span>Please contact website makers</span>
       </form>
     </div>
   ) : null;
