@@ -1,4 +1,5 @@
 
+
 .admin__header {
   display: flex;
   align-items: center;
@@ -84,15 +85,19 @@
 .admin__menu-list a {
   color: #000;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 25px;
   font-weight: 500;
   padding: 16px 24px;
   border-radius: 5px;
+  font-family: 'DM Sans', sans-serif;
+font-family: 'Fira Sans', sans-serif;
+font-family: 'Glegoo', serif;
+font-family: 'Rubik', sans-serif;
 }
 
 .admin__menu-list a:hover {
   background-color: var(--primary-color);
-  color: #fff;
+  color: #e90909;
 }
 
 .active__admin-menu {
