@@ -35,8 +35,8 @@ const theme = createTheme();
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [cartItems, setCartItems] = useState([]);
+  const [product, setProduct] = useState([]);
   const [userInfo, setUserInfo] = useState({
-    id:1,
     firstName: "",
     lastName: "",
     email: "",
@@ -46,7 +46,14 @@ export default function Checkout() {
     cardNum: "",
     cardExp: "",
     cardCvv: ""
-  })
+  });
+  // const [order, setOrder] = useState({
+  //   setName: fullName,
+  //   setTotal: TotalPrice,
+  // });
+
+  const fullName = (userInfo.firstName) + " " + (userInfo.lastName);
+  //setOrder(fullName, totalPrice);
 
   //get data from cart.
   useEffect(() => {
@@ -60,6 +67,20 @@ export default function Checkout() {
     };
     fetchAllCartItems();
   }, []);
+
+  //get data from product.
+  useEffect(() => {
+    const fetchAllProducts = async () => {
+      try {
+        const res = await axios.get("http://localhost:8000/products");
+        setProduct(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchAllProducts();
+  }, []);
+
 
   const updateUserInfo = (field, value) => {
     setUserInfo({
@@ -77,6 +98,7 @@ export default function Checkout() {
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
+
   };
 
   const handleBack = () => {
@@ -95,35 +117,13 @@ export default function Checkout() {
         );
       case 2:
         return (
-          <Review userInfo={userInfo} paymentInfo={paymentInfo} cartItems={cartItems} sum={totalPrice}  />
+          <Review userInfo={userInfo} paymentInfo={paymentInfo} cartItems={cartItems} sum={totalPrice} />
         );
       default:
         throw new Error("Unknown step");
     }
   };
 
-  //displays product name and price.
-  const listItems = cartItems.map((cartItems) => (
-    <div className="display-cart">
-      <li key={cartItems.cart_set_numb}>
-        <h5>{cartItems.cart_set_name}</h5>
-        <p>${cartItems.cart_set_price}</p>
-      </li>
-      {/* hr is just line break. */}
-      <hr></hr>
-    </div>
-  ));
-
-  //NOTE: don't save variables outside of useEffect and functions, they wont update when state updates if you dod that
-  // const getTotalPrice = () => {
-  //   let setTotal = 0;
-  //   //add the sum of the total price.
-  //   for (let i = 0; i < cartItems.length; i++) {
-  //     totalPrice += cartItems[i]?.cart_set_price;
-  //   }
-  //   return totalPrice;
-  // };
-  
   let totalPrice = 0;
   //add the sum of the total price. 
   for (let i = 0; i < cartItems.length; i++) {
@@ -131,8 +131,36 @@ export default function Checkout() {
   }
 
   //NOTE: this is where you handle the finishing of checkout
-  const onSubmit = () => {
-    //use userInfo and other form items here to create the order and push to axios
+  const onSubmit = async (e) => {
+    const order = {
+      setName: fullName,
+      setTotal: totalPrice,
+    };
+    const newCartItem = { ...cartItems };
+    const newProduct = { ...product };
+    try {
+      console.log(await axios.post("http://localhost:8000/orders", order));
+      for (let i = 0; i < cartItems.length; i++) {
+        if (cartItems[i]?.cart_set_quantity > 1) {
+          newProduct.product_quantity = newProduct.product_quantity - newCartItem.cart_set_quantity;
+
+          console.log(newProduct.product_quantity)
+
+          console.log(await axios.put(
+            "http://localhost:8000/products/" + cartItems[i]?.cart_set_numb, newProduct));
+
+        } else {
+          console.log(await axios.delete("http://localhost:8000/products/" + cartItems[i]?.cart_set_numb));
+          
+          await axios.delete("http://localhost:8000/cart/" + cartItems[i]?.cart_set_numb);
+        }
+
+      }
+
+      setActiveStep(activeStep + 1);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -191,7 +219,7 @@ export default function Checkout() {
 
                 <Button
                   variant="contained"
-                  onClick={handleNext}
+                  onClick={activeStep === steps.length - 1 ? onSubmit : handleNext}
                   sx={{ mt: 3, ml: 1 }}
                 >
                   {activeStep === steps.length - 1 ? "Place order" : "Next"}
