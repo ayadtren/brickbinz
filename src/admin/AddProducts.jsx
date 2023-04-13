@@ -1,17 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import {
-  Container,
-  Box,
-  Grid,
-  TextField,
-  Typography,
-  Select,
-  MenuItem,
-  Button,
-  IconButton,
-} from "@mui/material";
-import { PhotoCamera } from "@mui/icons-material";
+import {Container, Box, Grid, TextField, Typography, Select, MenuItem, Button} from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -37,11 +26,6 @@ const AddProducts = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      // const formData = new FormData();
-      // Object.entries(products).forEach(([key, value]) => {
-      //   formData.append(key, value);
-      // });
-
       await axios.post("http://localhost:8000/products", products);
       toast.success("Product added successfully");
     } catch (err) {
