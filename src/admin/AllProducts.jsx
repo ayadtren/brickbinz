@@ -31,7 +31,7 @@ const themes = {
 };
 
 const AllProducts = () => {
-    const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchAllProducts = async () => {
@@ -54,17 +54,16 @@ const AllProducts = () => {
     }
   };
 
-  const themeFilter = (themeNumb) => {};
 
   return (
-      <section>
+    <section>
       <Container>
         <Row>
           <Col lg={15}>
-            <h2 className="text-center mb-4 header-margin">All Products</h2>
+            <h2 className="text-center mb-4">All Products</h2>
             <div className="all-products-container">
               <ul className="list-group">
-<li className="list-group-item">
+                <li className="list-group-item">
                   <Row className="list-group-row">
                     <Col><b>Image</b></Col>
                     <Col><b>Set Number</b></Col>
@@ -130,7 +129,7 @@ const AllProducts = () => {
                 })}
               </ul>
             </div>
-            
+
           </Col>
         </Row>
       </Container>
@@ -163,3 +162,4 @@ const ProductImage = ({ img }) => {
 };
 
 export default AllProducts;
+
