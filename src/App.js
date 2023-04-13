@@ -30,6 +30,7 @@ import Shop from "./pages/Shop";
 import Ticket from "./pages/Ticket";
 import Viewcart from "./pages/Viewcart";
 import ProductDetails from "./pages/ProductDetails";
+import { CartProvider } from "./CartContext";
 
 function PrivateRoute({ element, ...rest }) {
   const { isAuthenticated } = useUser();
@@ -44,38 +45,40 @@ function PrivateRoute({ element, ...rest }) {
 function App() {
   return (
     <AuthProvider>
-      <Router>
-        <Layout>
-          <ToastContainer />
-          <Routes>
-            <Route exact path="/" element={<RealHomePage />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/book" element={<Bookevent />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/OrderCon" element={<OrderCon />} />
-            <Route path="/ticket" element={<Ticket />} />
-            <Route path="/Viewcart" element={<Viewcart />} />
-            <Route path="/Checkout" element={<Checkout />} />
-            <Route path="/login" element={<Adminlogin />} />
-            <Route path="/Adminlogin" element={<Adminlogin />} />
-            <Route path="/AdminNav/*" element={<AdminNav />}>
-              <Route path="Dashboard" element={<Dashboard />} />
-              <Route path="ViewTickets" element={<ViewTickets />} />
-              <Route path="AddProducts" element={<AddProducts />} />
-              <Route path="AllProducts" element={<AllProducts />} />
-              <Route path="AddImage" element={<AddImage />} />
-              <Route path="Orders" element={<Orders />} />
-              <Route path="ViewEvents" element={<ViewEvents />} />
-              <Route
-                path="UpdateProducts/:set_number"
-                element={<UpdateProducts />}
-              />
+      <CartProvider>
+        <Router>
+          <Layout>
+            <ToastContainer />
+            <Routes>
+              <Route exact path="/" element={<RealHomePage />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/book" element={<Bookevent />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/OrderCon" element={<OrderCon />} />
+              <Route path="/ticket" element={<Ticket />} />
+              <Route path="/Viewcart" element={<Viewcart />} />
+              <Route path="/Checkout" element={<Checkout />} />
+              <Route path="/login" element={<Adminlogin />} />
+              <Route path="/Adminlogin" element={<Adminlogin />} />
+              <Route path="/AdminNav/*" element={<AdminNav />}>
+                <Route path="Dashboard" element={<Dashboard />} />
+                <Route path="ViewTickets" element={<ViewTickets />} />
+                <Route path="AddProducts" element={<AddProducts />} />
+                <Route path="AllProducts" element={<AllProducts />} />
+                <Route path="AddImage" element={<AddImage />} />
+                <Route path="Orders" element={<Orders />} />
+                <Route path="ViewEvents" element={<ViewEvents />} />
+                <Route
+                  path="UpdateProducts/:set_number"
+                  element={<UpdateProducts />}
+                />
+                <Route path="*" element={<NotFound />} />
+              </Route>
               <Route path="*" element={<NotFound />} />
-            </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
-      </Router>
+            </Routes>
+          </Layout>
+        </Router>
+      </CartProvider>
     </AuthProvider>
   );
 }

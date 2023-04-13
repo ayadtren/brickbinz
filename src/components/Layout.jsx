@@ -4,27 +4,33 @@ import Modal from "react-bootstrap/Modal";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FaShoppingBag } from "react-icons/fa";
 import { MdMenu, MdPersonPin } from "react-icons/md";
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AdminNav from "../admin/AdminNav";
 import { useAuth } from "../auth/useAuth";
 import logo from "../images/banner2.png";
 import Login from "../pages/Adminlogin";
 import Footer from "../pages/footer/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useNavigate } from "react-router-dom";
+import AdminLogin from "../pages/Adminlogin";
+import { useCart } from "../CartContext";
+
 const Layout = (props) => {
   //const location = useLocation();
   const [showDrawer, setShowDrawer] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const { isLoggedIn, logOut } = useAuth();
   const navigate = useNavigate();
+  const { cartQuantity, fetchCartQuantity } = useCart();
+
+  useEffect(() => {
+    fetchCartQuantity();
+  }, []);
 
   console.log("Log: ~ file: Layout.jsx:20 ~ Layout ~ isLoggedIn:", isLoggedIn);
 
   const handleLogout = () => {
     navigate("/");
     logOut();
-    
   };
 
   const handleClose = () => {
@@ -71,7 +77,7 @@ const Layout = (props) => {
                 <MdMenu size={32} />
               </button>
               <Link className="logo-link" to={"/"}>
-                <img className="logo-nav" src={logo} alt="navbarlogo"/>
+                <img className="logo-nav" src={logo} alt="navbarlogo" />
               </Link>
               <ul className="nav-list">
                 <li>
@@ -131,7 +137,7 @@ const Layout = (props) => {
                 </li>
                 <li>
                   <Link className="icon-button" to={`/Viewcart`}>
-                    <FaShoppingBag /> <p>{cartItems.length}</p>
+                    <FaShoppingBag /> <p>{cartQuantity}</p>
                   </Link>
                 </li>
               </ul>
@@ -171,6 +177,7 @@ const Layout = (props) => {
           </ul>
         </Offcanvas.Body>
       </Offcanvas>
+
       <Modal show={showLogin} onHide={handleLoginClose}>
         <div
           style={{
@@ -183,7 +190,7 @@ const Layout = (props) => {
             <Modal.Title>Login</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Login></Login>
+            <Login onLoginSuccess={handleLoginClose}></Login>
           </Modal.Body>
         </div>
       </Modal>

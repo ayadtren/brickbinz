@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import { MdOutlineSearch } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
 import { Link } from "react-router-dom";
+import { useCart } from "../CartContext";
 
 const themes = {
   1: "LEGO Architecture",
@@ -55,7 +56,7 @@ const Shop = () => {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
   const [themeFilter, setThemeFilter] = useState("");
-  
+  const { addToCart } = useCart();
 
   const handleInputChange = (event) => {
     setSearch(event.target.value);
@@ -84,7 +85,6 @@ const Shop = () => {
 
   const handleClick = (item) => async (e) => {
     e.preventDefault();
-    window.location.reload();
     item.product_quantity = 1;
 
     const newCartItem = {
@@ -98,6 +98,7 @@ const Shop = () => {
     };
     try {
       await axios.post("http://localhost:8000/cart", newCartItem);
+      addToCart();
 
       toast.success("Item added to cart", {
         position: "top-right",
@@ -132,7 +133,6 @@ const Shop = () => {
           return 0;
       }
     });
-    
 
   return (
     <section className="home">
@@ -194,28 +194,35 @@ const Shop = () => {
             </div>
           </div>
         </div>
-        
 
         <ul className="inventory-list">
           {getFilteredResults.map((product) => {
             return (
               <li key={product.product_set_numb}>
-                <div className="card" >
-                   <Link   to={`/product/${product.product_set_numb}`} className="link">
-                  <div className="image-box" >
-                  <div class="container" onMouseEnter={() => setIsShown(true)}
-                      onMouseLeave={() => setIsShown(false)}> 
-                    <img className="image" 
-                      src={require(`./../images/products/${product.product_img}`)}
-                      alt={product.product_img}
-                    />
-                      {isShown && (
-                      <button className="Show_Details"> Show Details </button>
-                      
-                      )}
+                <div className="card">
+                  <Link
+                    to={`/product/${product.product_set_numb}`}
+                    className="link"
+                  >
+                    <div className="image-box">
+                      <div
+                        class="container"
+                        onMouseEnter={() => setIsShown(true)}
+                        onMouseLeave={() => setIsShown(false)}
+                      >
+                        <img
+                          className="image"
+                          src={require(`./../images/products/${product.product_img}`)}
+                          alt={product.product_img}
+                        />
+                        {isShown && (
+                          <button className="Show_Details">
+                            {" "}
+                            Show Details{" "}
+                          </button>
+                        )}
                       </div>
-                  
-                  </div>
+                    </div>
                   </Link>
                   <div className="setNumb" name="product_set_numb">
                     #{product.product_set_numb}
