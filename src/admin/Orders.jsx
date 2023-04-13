@@ -3,12 +3,7 @@ import "../styles/OrderStyles.scss";
 import axios from "axios";
 
 const Orders = () => {
-  // fetch orders data from an API or database
-  // const orders = [
-  //   { id: 1, customer: "John Doe", total: 50.0 },
-  //   { id: 2, customer: "Jane Smith", total: 25.0 },
-  //   { id: 3, customer: "Bob Johnson", total: 100.0 },
-  // ];
+
   const [orders, setorders] = useState([]);
 
   useEffect(() => {
@@ -48,3 +43,4 @@ const Orders = () => {
 };
 
 export default Orders;
+
