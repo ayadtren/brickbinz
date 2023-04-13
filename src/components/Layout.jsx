@@ -45,7 +45,7 @@ const Layout = (props) => {
     setShowLogin(false);
   };
   const handleLoginOpen = () => {
-    setShowLogin(true);
+    navigate("/login");
   };
 
   useEffect(() => {
@@ -125,7 +125,7 @@ const Layout = (props) => {
                   <button
                     onClick={handleLoginOpen}
                     className="icon-button"
-                    to="/login"
+                  
                     style={{
                       border: 0,
                       outline: 0,
