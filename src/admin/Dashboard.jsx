@@ -1,19 +1,8 @@
 import React from "react";
-import {
-  Container,
-  Grid,
-  Typography,
-  Button,
-  Card,
-  CardContent,
-  CardActions,
-} from "@mui/material";
+import { Container, Grid, Typography, Button, Card, CardContent, CardActions, } from "@mui/material";
 import { Link } from "react-router-dom";
 import {
-  ShoppingCart as AllProductsIcon,
-  Assignment as OrdersIcon,
-  AddShoppingCart as AddProductIcon,
-  PhotoCamera as AddSlideshowIcon,
+  ShoppingCart as AllProductsIcon, Assignment as OrdersIcon, AddShoppingCart as AddProductIcon, PhotoCamera as AddSlideshowIcon,
   Event as ViewEventsIcon,
 } from "@mui/icons-material";
 
@@ -101,7 +90,7 @@ const Dashboard = () => {
         </Card>
       </Grid>
 
-      {/* <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
         <Card variant="outlined">
           <CardContent>
             <AddSlideshowIcon fontSize="large" />
@@ -124,7 +113,7 @@ const Dashboard = () => {
             </Button>
           </CardActions>
         </Card>
-      </Grid> */}
+      </Grid>
 
       <Grid item xs={12} sm={6} md={4} lg={3}>
         <Card variant="outlined">
@@ -155,3 +144,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
