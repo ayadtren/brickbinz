@@ -246,9 +246,9 @@ app.put("/cart/:cart_set_numb", (req, res) => {
     req.body.cart_theme,
   ];
 
-    console.log(req.body)
+  console.log(req.body)
   db.query(q, [...values, cartId], (err, data) => {
-    
+
     if (err) return res.json(err);
     return res.json(data);
   });
@@ -292,6 +292,16 @@ app.delete("/cart/:cart_set_numb", (req, res) => {
   const q = "DELETE FROM cart WHERE cart_set_numb = ?";
 
   db.query(q, [cartProductId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
+app.delete("/ticket/:ticket_id", (req,res) => {
+  const ticketId = req.params.ticket_id;
+  const q = "DELETE FROM ticket WHERE ticket_id = ?";
+
+  db.query(q, [ticketId], (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
   });
