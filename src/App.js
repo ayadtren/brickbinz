@@ -8,7 +8,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
 import NotFound from "./NotFound";
-import { useUser } from "./UserContext";
 import AddImage from "./admin/AddImage";
 import AddProducts from "./admin/AddProducts";
 import AdminNav from "./admin/AdminNav";
@@ -29,16 +28,6 @@ import Ticket from "./pages/Ticket";
 import Viewcart from "./pages/Viewcart";
 import ProductDetails from "./pages/ProductDetails";
 import { CartProvider } from "./CartContext";
-
-function PrivateRoute({ element, ...rest }) {
-  const { isAuthenticated } = useUser();
-
-  return isAuthenticated && isAuthenticated.isAdmin ? (
-    <Route {...rest} element={element} />
-  ) : (
-    <Navigate to="/" />
-  );
-}
 
 function App() {
   return (
