@@ -61,7 +61,7 @@ const AllProducts = () => {
       <Container>
         <Row>
           <Col lg={15}>
-            <h2 className="text-center mb-4">All Products</h2>
+            <h2 className="text-center mb-4 header-margin">All Products</h2>
             <div className="all-products-container">
               <ul className="list-group">
 <li className="list-group-item">
