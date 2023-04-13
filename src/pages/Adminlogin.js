@@ -4,10 +4,11 @@ import { useNavigate } from "react-router-dom";
 import "../styles/login.scss";
 import AuthContext from "../auth/AuthContext";
 
-const Login = () => {
+const Login = ({ onLoginSuccess }) => {
   const [username, setUsername] = useState("");
   const [admin_password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
+  const [showLoginBox, setShowLoginBox] = useState(true);
 
   const navigate = useNavigate();
 
@@ -39,12 +40,14 @@ const Login = () => {
           setLoginStatus(response.data.message);
         } else {
           setIsLoggedIn(true);
+          onLoginSuccess();
+          setShowLoginBox(false);
           navigate("/AdminNav/Dashboard");
         }
       });
   };
 
-  return (
+  return showLoginBox ? (
     <div className="login-container">
       <form className="login-form">
         <input
@@ -73,7 +76,7 @@ const Login = () => {
         <span>Forget Password or Username?</span> | <span>Sign Up</span>
       </form>
     </div>
-  );
+  ) : null;
 };
 
 export default Login;

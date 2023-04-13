@@ -12,6 +12,7 @@ import Login from "../pages/Adminlogin";
 import Footer from "../pages/footer/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
+import AdminLogin from "../pages/Adminlogin";
 const Layout = (props) => {
   //const location = useLocation();
   const [showDrawer, setShowDrawer] = useState(false);
@@ -24,7 +25,6 @@ const Layout = (props) => {
   const handleLogout = () => {
     navigate("/");
     logOut();
-    
   };
 
   const handleClose = () => {
@@ -71,7 +71,7 @@ const Layout = (props) => {
                 <MdMenu size={32} />
               </button>
               <Link className="logo-link" to={"/"}>
-                <img className="logo-nav" src={logo} alt="navbarlogo"/>
+                <img className="logo-nav" src={logo} alt="navbarlogo" />
               </Link>
               <ul className="nav-list">
                 <li>
@@ -171,6 +171,7 @@ const Layout = (props) => {
           </ul>
         </Offcanvas.Body>
       </Offcanvas>
+
       <Modal show={showLogin} onHide={handleLoginClose}>
         <div
           style={{
@@ -183,7 +184,7 @@ const Layout = (props) => {
             <Modal.Title>Login</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Login></Login>
+            <Login onLoginSuccess={handleLoginClose}></Login>
           </Modal.Body>
         </div>
       </Modal>
