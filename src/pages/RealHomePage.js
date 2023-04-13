@@ -117,7 +117,7 @@ const RealHomePage = () => {
           <Card title="Buisness Hours" imageUrl={cardImage2} body="We are open 11:00AM - 7:00PM every week!" />
         </div>
         <div className="box">
-          <Card title="Store Locations" imageUrl={cardImage3} body="NE Store Location: 2906 centre st ne." body2="SE Store Location: 7730 Macleod Trail SE." />
+          <Card title="Store Locations" imageUrl={cardImage3} body="NE Store Location: 2906 Centre St. NE." body2="SE Store Location: 7730 Macleod Trail SE." />
         </div>
       </div>
 
