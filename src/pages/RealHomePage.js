@@ -103,7 +103,7 @@ const RealHomePage = () => {
       <h2 id="margin-element">About Us</h2>
       <div className="grid-4-columns">
         <div className="box">
-          <Card title="About Us" imageUrl={cardImage1} body="Locally owned small buisness that is tryna get the green sticky dough through our love and passion for legos <3" />
+          <Card title="About Us" imageUrl={cardImage1} body="Locally owned small buisness that is passionate about Legos! No delivery, online purchase only. Pick up your order from one of two stores." />
         </div>
         <div className="box">
           <Card title="Buisness Hours" imageUrl={cardImage2} body="We are open 11:00AM - 7:00PM every week!" />
