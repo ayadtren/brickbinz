@@ -4,7 +4,7 @@
   left: 270px;
   width: 600px;
   height: 430px;
-  border: 4px solid grey;
+  border: 4px solid #006149;
   padding: 20px;
 }
 
@@ -15,21 +15,21 @@
 
   height: 110px;
   left: 500px;
-  border: 4px solid grey;
+  border: 4px solid #006149;
   padding: 5px;
 }
 
-.image-icons-container {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  top: 280px;
-  left: 1px;
-  width: 200px;
-  height: 103px;
-  transform: rotate(90deg);
+// .image-icons-container {
+//   display: flex;
+//   justify-content: space-between;
+//   position: absolute;
+//   top: 280px;
+//   left: 1px;
+//   width: 200px;
+//   height: 103px;
+//   transform: rotate(90deg);
 
-}
+// }
 
 .product-title {
   position: absolute;

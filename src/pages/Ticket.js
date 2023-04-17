@@ -64,7 +64,7 @@ const Ticket = () => {
             rows="3"
           ></textarea>
           <p class="lead">
-            <button class="btn btn-primary btn-lg" href="#" role="button" onClick={handleSubmit}>
+            <button class="btn btn-success btn-lg btn-block" href="#" role="button" onClick={handleSubmit}>
               Submit
             </button>
           </p>

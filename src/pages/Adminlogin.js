@@ -49,6 +49,8 @@ const Login = () => {
   return (
     <div className="login-container">
       <form className="login-form">
+
+        <h1 className="login-header">Login</h1>
         <input
           className="login-input"
           type="text"
@@ -73,7 +75,7 @@ const Login = () => {
 
         />
         <h6 className="loginstatus">{loginStatus}</h6>
-        <span>Forget Password or Username?</span> | <span>Please contact website makers</span>
+   
       </form>
     </div>
   );
