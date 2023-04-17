@@ -1,0 +1,18 @@
+#margin-element {
+    position: relative;
+    margin-top: 0.8em;
+    margin-bottom: 0.5em;
+   right: 0.7em;
+}
+
+.order-display-table {
+
+    width: 100%;
+    border: 2px solid #ECECEC;
+    border-collapse: collapse;
+
+    th {
+        border-bottom: 2pt solid #ECECEC;
+        background-color: #ECECEC;
+    }
+}

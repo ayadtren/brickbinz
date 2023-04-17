@@ -1,0 +1,78 @@
+#root {
+  background-color: #f8f8f8;
+}
+
+.cart {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: 100%;
+  min-width: 80em;
+  padding-top: 2.5em;
+
+
+  .items {
+    width: 70%;
+    padding-right: 6px;
+    position: relative;
+    right: 5em;
+
+
+    .cart-container {
+      background-color: white;
+      max-width: 70em;
+      margin-bottom: 5em;
+
+      .list-group {
+        .list-group-item {
+          .list-group-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .image-container {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              img {
+                width: 100%;
+                height: 80px;
+                object-fit: contain;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .summary {
+    position: relative;
+    width: 30%;
+    padding-left: 6px;
+    left: 5em;
+
+
+    .summary-container {
+      background-color: white;
+      outline: 0.5px solid gray;
+      padding: 0.5em;
+      border-radius: 4px;
+      margin-bottom: 2em;
+
+      //for printing the sum of the cart prices.
+      .sum-cart {
+        margin-top: 2em;
+        text-align: right;
+        padding-right: 1em;
+      }
+    }
+  }
+}
+
+//to adjust the quantity button.
+.btn-group {
+  left: 3em;
+}

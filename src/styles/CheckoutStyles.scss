@@ -1,0 +1,98 @@
+.payment-container {
+    border-radius: 5px;
+    width: 700px;
+    height: 450px;
+    box-shadow: 7px 7px 16px;
+    position: relative;
+    right: 20em;
+    top: 5em;
+
+
+    .payment-title {
+
+        border: 1px solid;
+        background-color: #006149;
+        padding: 0.25em;
+        color: white;
+        padding-left: 1.5em;
+    }
+
+    .payment-form {
+        padding-left: 2em;
+        padding-top: 1em;
+        text-align: left;
+        ;
+
+        input {
+            margin: 0.8em;
+        }
+
+    }
+}
+
+.checkout-summary-container {
+    overflow: auto;
+    position: relative;
+    width: 450px;
+    height: 700px;
+    border-radius: 5px;
+    box-shadow: 7px 7px 16px;
+    left: 30em;
+    bottom: 23.25em;
+
+    //margin: 3em;
+
+    .summary-title {
+        background-color: #006149;
+        color: white;
+        padding-left: 1.5em;
+    }
+
+    .summary-list {
+        padding-left: 1em;
+        padding-top: 1em;
+    }
+
+}
+
+.summary-total-price {
+    position: absolute;
+    bottom: 0;
+    height: 3em;
+    width: 100%;
+    text-align: center;
+    color: aliceblue;
+    background-color: #006149;
+    text-align: right;
+    padding-right: 3em;
+    padding-top: 1em;
+}
+
+.checkout-button {
+    //positioning
+    position: relative;
+    bottom: 27em;
+    left: 11em;
+
+
+    //colors
+    border: 2px solid #006149;
+    background-color: #006149;
+    color: white;
+    outline: 0;
+
+    //size
+    height: 60px;
+    width: 200px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    //button hover
+    &:hover {
+        background-color: white;
+        color: red;
+    }
+}

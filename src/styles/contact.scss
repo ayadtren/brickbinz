@@ -1,0 +1,73 @@
+.contact-us {
+  text-align: center;
+  margin: 2em;
+
+  .contact-us__title {
+    color: red;
+  }
+
+  .contact-us__subtitle {
+    color: red;
+  }
+
+  .contact-us__text {
+    margin-bottom: 1rem;
+  }
+
+  .contact-us__form {
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+    margin: auto;
+    text-align: left;
+  }
+
+  .contact-us__input-container {
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    margin-top: 2%;
+  }
+
+  .contact-us__label {
+    color: red;
+    padding-left: 2px;
+  }
+
+  .contact-us__input {
+    padding: 8px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .contact-us__message-container {
+    margin-bottom: 10px;
+  }
+
+  .contact-us__message {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    resize: none;
+    background-color: yellow;
+  }
+
+  .contact-us__submit-btn {
+    border: 2px solid red;
+    background-color: red;
+    color: white;
+    outline: 0;
+    height: 45px;
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: white;
+      color: red;
+    }
+  }
+}

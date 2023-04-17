@@ -1,17 +1,26 @@
-.App {
+body {
+  background-color: #faf9f6;
+}
+
+.app {
   width: 100%;
+  max-width: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #faf9f6;
 }
 
 .main {
-  max-width: 1200px;
   margin: 0 auto;
+  max-width: 100%;
+  min-height: calc(100vh - 84px);
 }
 
 .nav {
   width: 100%;
   height: 84px;
-  background-color: yellow;
+  background-color: #fdd201;
 
   .container {
     max-width: 1200px;
@@ -32,17 +41,38 @@
         justify-content: flex-start;
         list-style: none;
         background-color: transparent;
+<<<<<<< HEAD
+=======
+        margin-bottom: 0;
+>>>>>>> updatedbyayad
         li {
           padding: 0 10px;
           a {
             text-decoration: none;
             font-size: 24px;
           }
+<<<<<<< HEAD
+=======
+          .icon-button {
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            p {
+              margin-bottom: 0;
+              margin-left: 8px;
+              font-size: 18px;
+            }
+            transition: color 0.3s ease-in-out;
+            &:hover {
+              color: #ff0000;
+            }
+          }
+>>>>>>> updatedbyayad
         }
       }
     }
     .left {
-      width: 50%;
       height: 100%;
       .left-box {
         display: flex;
@@ -50,32 +80,105 @@
         justify-content: flex-start;
         flex-direction: row;
         height: 100%;
+
+        .logo-link {
+          @media (max-width: 600px) {
+            display: none;
+          }
+        }
+
         .nav-list {
           display: flex;
           align-items: center;
           justify-content: flex-start;
           list-style: none;
           background-color: transparent;
+          margin-bottom: 0;
+          @media (max-width: 600px) {
+            display: none;
+          }
           li {
             padding: 0 10px;
             a {
               text-decoration: none;
-              font-size: 24px;
+              font-size: 18px;
+              color: black;
+              transition: all 0.3s ease-in-out;
+              text-transform: uppercase;
+              &:after {
+                content: "";
+                width: 0%;
+                height: 4px;
+                background-color: black;
+                display: block;
+                transition: width 0.3s ease-in-out;
+              }
+              &:hover {
+                &:after {
+                  width: 100%;
+                }
+              }
             }
           }
         }
       }
     }
-    .right {
-      width: 50%;
-      height: 100%;
-    }
   }
+}
 
-  .logo-nav {
-    height: 100px;
-    width: 150px;
-    padding-bottom: 20px;
+.menu-button {
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  @media (min-width: 600px) {
+    display: none;
+  }
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: #ff0000;
+  }
+}
+
+.logo-nav {
+  height: 100px;
+  width: 150px;
+  padding-bottom: 20px;
+}
+
+.logo-nav-drawer {
+  height: 100px;
+  width: 150px;
+}
+
+.drawer-nav-list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 0;
+  li {
+    margin-bottom: 12px;
+    padding-left: 12px;
+    a {
+      text-decoration: none;
+      font-size: 18px;
+      color: black;
+      transition: all 0.3s ease-in-out;
+      text-transform: uppercase;
+      &:after {
+        content: "";
+        width: 0%;
+        height: 4px;
+        background-color: black;
+        display: block;
+        transition: width 0.3s ease-in-out;
+      }
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
+    }
   }
 }
 
@@ -83,11 +186,103 @@
   padding: 0 20px;
   margin-bottom: 20px;
 }
+//input tag from event.scss is overriding
+
+//what does this do?
+.filter-select {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  min-height: 48px;
+  div {
+    label {
+      margin-bottom: 6px;
+      color: black;
+    }
+  }
+  div {
+    .form-select {
+      min-height: 48px;
+      border-radius: 24px;
+    }
+  }
+}
+
+.filter-select input[type="radio"] {
+  margin-right: 8px;
+  //-webkit-appearance: none;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+  display: inline-flex;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.filter-select input[type="radio"]:checked {
+  border-color: black;
+}
+
+.filter-select label {
+  display: inline-flex;
+  margin-left: -500px;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 15px 0px; //color
+  transition: 0.2s;
+}
 
 .home {
   padding-top: 20px;
   padding-bottom: 20px;
   .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+
+    @media (max-width: 1100px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .filter-bar {
+      width: 300px;
+      padding: 1rem;
+      @media (max-width: 1100px) {
+        margin-bottom: 24px;
+        margin-top: 0px;
+        width: 100%;
+      }
+
+      .search-box {
+        border: 1px solid #ced4da;
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        width: 100%;
+        min-height: 48px;
+        margin-bottom: 12px;
+        background-color: #ffffff;
+
+        .search-icon {
+          margin-left: 6px;
+          margin-right: 0px;
+        }
+
+        .search-bar {
+          background-color: transparent;
+          min-height: 48px;
+          border: 0;
+          outline: 0;
+          padding-right: 12px;
+        }
+      }
+    }
+
     .inventory-list {
       list-style: none;
       background-color: transparent;
@@ -96,59 +291,138 @@
       justify-content: flex-start;
       flex-direction: row;
       flex-wrap: wrap;
-      padding: 0;
-      margin: 0;
-      li {
-        width: 50%;
-        display: flex;
-        align-items: flex-start;
+      @media (max-width: 800px) {
+        align-items: center;
         justify-content: center;
-        margin-bottom: 24px;
+      }
+
+      li {
+        flex-basis: 33.33%;
+        max-width: 33.33%;
+        box-sizing: border-box;
+        padding: 10px;
+
+        @media (max-width: 800px) {
+          flex-basis: 100%;
+          max-width: 100%;
+        }
 
         .card {
-          max-width: 200px;
+          max-width: 300px;
           display: flex;
           align-items: flex-start;
           justify-content: flex-start;
           flex-direction: column;
-          border: 2px solid grey;
+          border: 3px solid #006149;
+          background-color: white;
           border-radius: 12px;
-          height: 250px;
-          padding: 12px;
-          img {
+          height: 350px;
+          padding: 1rem;
+          object-fit: contain;
+          width: 250px;
+          @media (max-width: 800px) {
+            max-width: 100%;
+          }
+
+          .image-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            height: 150px;
-            object-fit: cover;
-          }
-          .title {
-            height: 25px;
-            font-size: 24px;
-            font-weight: bold;
-          }
-          .price {
-            height: 25px;
-          }
-          .button {
-            width: 100%;
-            .add-cart {
-              border: 2px solid red;
-              background-color: red;
+            margin-bottom: 12px;
+            opacity: 1;
+            display: block;
+
+            .Show_Details {
+              background-color: #04aa6d;
               color: white;
-              outline: 0;
-              height: 45px;
-              width: 100%;
-              font-size: 16px;
+              font-size: 20px;
+              position: absolute;
+              margin-top: 50px;
               text-align: center;
-              cursor: pointer;
-              transition: all 0.3s ease-in-out;
               &:hover {
-                background-color: white;
-                color: red;
+                transition: 0.6s ease-in-out;
+                opacity: 0;
               }
             }
+            img {
+              width: 100%;
+              height: 150px;
+              object-fit: contain;
+            }
+          }
+
+          .title {
+            height: 25px;
+            font-size: 15px;
+            font-weight: bold;
           }
         }
       }
     }
   }
+}
+
+.Footer {
+  width: 100%;
+  background-color: #fdd201;
+  color: #000;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+  .footer a {
+    color: black;
+    text-decoration: none;
+    margin-right: 10px;
+    .footer a:hover {
+      color: white;
+    }
+  }
+}
+
+.button {
+  position: relative;
+  width: 100%;
+  bottom: 1.35em;
+  .add-cart {
+    border: 2px solid #006149;
+    background-color: #006149;
+    color: white;
+    outline: 0;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    //button hover
+    &:hover {
+      background-color: white;
+      color: red;
+    }
+  }
+
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .container:hover .image {
+    opacity: 0.3;
+  }
+  
+  .container:hover .middle {
+    opacity: 1;
+  }
+  
+
+
 }

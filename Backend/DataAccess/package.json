@@ -1,19 +1,27 @@
 {
   "name": "dataaccess",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.12.0",
+    "@mui/system": "^5.12.0",
+>>>>>>> updatedbyayad
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.20"
-  }
+  },
+  "description": ""
 }

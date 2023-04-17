@@ -1,116 +1,145 @@
-import React from 'react';
-import "./Event.scss"
+import React, { useState } from "react";
+import axios from "axios";
+import "../styles/Event.scss";
 
-class Bookevent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            email: '',
-            date: '',
-            time: '',
-            numberOfGuests: '',
-            submitted: false,
-        };
+const BookEvent = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [numberOfGuests, setNumberOfGuests] = useState("");
+  const [description, setDescription] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newEvent = {
+      event_user_name: name,
+      event_email: email,
+      event_date: date,
+      event_time: time,
+      event_number_guest: numberOfGuests,
+      event_description: description,
+    };
+    try {
+      await axios.post("http://localhost:8000/event", newEvent);
+      setSubmitted(true);
+      alert("The event has been added to db");
+    } catch (err) {
+      console.log(err);
     }
+  };
 
-    handleChange(event) {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
-    }
+  const renderForm = () => {
+    return (
+      <form onSubmit={handleSubmit}>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Name</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            class="form-control"
+            id="formGroupExampleInput"
+            placeholder="Enter Full Name"
+          />
+          <div class="valid-feedback">Looks good!</div>
+        </div>
 
-    handleSubmit(event) {
-        this.setState({
-            submitted: true
-        });
-        event.preventDefault();
-    }
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Email</label>
+          <input
+            required
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            class="form-control"
+            id="formGroupExampleInput2"
+            placeholder="Enter Email"
+          />
+          <div class="valid-feedback">Looks good!</div>
+        </div>
 
-    renderForm() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Name:
-                    <input placeholder="Enter your name" required 
-                        type="text"
-                        value={this.state.name}
-                        name="name"
-                        onChange={this.handleChange}
-                    />
-                </label>
-                <br />
-                <label>
-                    Email:
-                    <input placeholder="Enter your Email" required
-                        type="email"
-                        value={this.state.email}
-                        name="email"
-                        onChange={this.handleChange}
-                    />
-                </label>
-                <br />
-                <label>
-                    Date:
-                    <input
-                        type="date" required
-                        value={this.state.date}
-                        name="date"
-                        onChange={this.handleChange}
-                    />
-                </label>
-                <br />
-                <label>
-                    Time: 
-                    <input
-                        type="time" required
-                        value={this.state.time}
-                        name="time"
-                        onChange={this.handleChange}
-                    />
-                </label>
-                <br />
-                <label> 
-                    Number of guests: 
-                    <input placeholder="Enter number of guests" required
-                        type="number"
-                        value={this.state.numberOfGuests}
-                        name="numberOfGuests"
-                        onChange={this.handleChange}
-                    />
-                </label>
-                <br />
-                <input type="submit" value="Book" />
-            </form>
-        );
-    }
+        <div class="form-group">
+          <label for="formGroupExampleInput">Date</label>
+          <input
+            type="date"
+            required
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            class="form-control"
+            id="formGroupExampleInput"
+            placeholder="Date"
+          />
+        </div>
 
-    renderConfirmation() {
-        return (
-            <div className='center'>
-                <h2>Thank you for your booking!</h2>
-                <p>Name: {this.state.name}</p>
-                <p>Email: {this.state.email}</p>
-                <p>Date: {this.state.date}</p>
-                <p>Time: {this.state.time}</p>
-                <p>Number of guests: {this.state.numberOfGuests}</p>
-            </div>
-        );
-    }
+        <div class="form-group">
+          <label for="formGroupExampleInput">Time of Event</label>
+          <input
+            type="time"
+            required
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+            class="form-control"
+            id="formGroupExampleInput"
+            placeholder="Time"
+          />
+        </div>
 
-    render() {
-        return this.state.submitted ? (
-            this.renderConfirmation()
-        ) : (
-            <div>
-                <h1>Book your Lego Store Birthday Party Event</h1>
-                {this.renderForm()}
-            </div>
-        );
-    }
-}
+        <div class="form-group">
+          <label for="formGroupExampleInput">Number of Guests</label>
+          <input
+            required
+            type="number"
+            value={numberOfGuests}
+            onChange={(e) => setNumberOfGuests(e.target.value)}
+            class="form-control"
+            id="formGroupExampleInput"
+            placeholder="Number of Guests"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="formGroupExampleInput">Description</label>
+          <input
+            required
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            class="form-control"
+            id="formGroupExampleInput"
+            placeholder="Enter Description"
+          />
+        </div>
 
-export default Bookevent;
+        <div className="button-event">
+          <button type="button" class="btn btn-primary btn-lg btn-block" onClick={handleSubmit}>
+            Submit
+          </button>
+        </div>
+      </form>
+    );
+  };
+
+  const renderConfirmation = () => {
+    return (
+      <div className="center">
+        <h2>Thank you for your booking!</h2>
+        <p>Name: {name}</p>
+        <p>Email: {email}</p>
+        <p>Date: {date}</p>
+        <p>Time: {time}</p>
+        <p>Number of guests: {numberOfGuests}</p>
+      </div>
+    );
+  };
+
+  return (
+    <div className="book-event-container">
+      <h1>Book your Lego Store Birthday Party Event</h1>
+      {submitted ? renderConfirmation() : renderForm()}
+    </div>
+  );
+};
+
+export default BookEvent;
