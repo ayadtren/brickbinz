@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/OrderStyles.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 
 const Orders = () => {
@@ -19,7 +20,7 @@ const Orders = () => {
   }, []);
   return (
     <div>
-      <h1 id="margin-element">Orders</h1>
+      <h1 className="margin-element">Orders</h1>
       <table className="order-display-table">
         <thead>
           <tr>

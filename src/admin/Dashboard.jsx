@@ -93,31 +93,6 @@ const Dashboard = () => {
       <Grid item xs={12} sm={6} md={4} lg={3}>
         <Card variant="outlined">
           <CardContent>
-            <AddSlideshowIcon fontSize="large" />
-            <Typography variant="h5" align="center" gutterBottom>
-              Add Slideshow Image
-            </Typography>
-            <Typography variant="body1" align="center" gutterBottom>
-              Add a new image to the homepage slideshow.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button
-              variant="contained"
-              color="primary"
-              component={Link}
-              to="/AdminNav/AddImage"
-              fullWidth
-            >
-              Add Slideshow Image
-            </Button>
-          </CardActions>
-        </Card>
-      </Grid>
-
-      <Grid item xs={12} sm={6} md={4} lg={3}>
-        <Card variant="outlined">
-          <CardContent>
             <ViewEventsIcon fontSize="large" />
             <Typography variant="h5" align="center" gutterBottom>
               View Events

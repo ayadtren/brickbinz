@@ -31,7 +31,7 @@ const ViewTickets = () => {
       <Container>
         <Row>
           <Col lg="12"> 
-          <h2 className="text-center mb-4">View Tickets</h2>
+          <h2 className="text-center mb-4 margin-header">View Tickets</h2>
           {tickets.map((ticket, index) => (
             <div className="card mb-3" key={index}>
               <div className="card-body">
