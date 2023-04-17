@@ -19,7 +19,7 @@ const Ticket = () => {
     try {
       await axios.post("http://localhost:8000/ticket", newTicket);
       setSubmitted(true);
-      alert("Ticket has been sent")
+    
     } catch (err) {
       console.log(err);
     }

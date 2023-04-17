@@ -29,7 +29,7 @@ const Dashboard = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button
+            <Button className="change-colour"
               variant="contained"
               color="success"
               component={Link}
@@ -53,7 +53,7 @@ const Dashboard = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button
+            <Button className="change-colour"
               variant="contained"
               color="success"
               component={Link}
@@ -78,7 +78,7 @@ const Dashboard = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button
+            <Button className="change-colour"
               variant="contained"
               color="success"
               component={Link}
@@ -103,7 +103,7 @@ const Dashboard = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button
+            <Button className="change-colour"
               variant="contained"
               color="success"
               component={Link}

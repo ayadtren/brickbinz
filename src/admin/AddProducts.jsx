@@ -151,7 +151,7 @@ const AddProducts = () => {
             </Grid>
 
             <Grid item xs={12}>
-              <Button
+              <Button className="change-colour"
                 fullWidth
                 variant="contained"
                 color="success"
