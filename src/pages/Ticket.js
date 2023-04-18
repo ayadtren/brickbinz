@@ -19,7 +19,7 @@ const Ticket = () => {
     try {
       await axios.post("http://localhost:8000/ticket", newTicket);
       setSubmitted(true);
-      alert("Ticket has been sent")
+    
     } catch (err) {
       console.log(err);
     }
@@ -57,6 +57,7 @@ const Ticket = () => {
           <label for="exampleFormControlTextarea1">Message</label>
           <textarea
             required
+            placeholder="Enter a questions/concerns"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             class="form-control"
@@ -64,7 +65,7 @@ const Ticket = () => {
             rows="3"
           ></textarea>
           <p class="lead">
-            <button class="btn btn-primary btn-lg" href="#" role="button" onClick={handleSubmit}>
+            <button class="btn btn-success btn-lg btn-block" href="#" role="button" onClick={handleSubmit}>
               Submit
             </button>
           </p>

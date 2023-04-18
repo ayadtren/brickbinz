@@ -69,31 +69,7 @@ export default function ProductDetails() {
               under 3 years.
             </div>
           </div>
-          <div className="image-icons-container">
-            <img
-              className="image-1-icon "
-              alt=""
-              src={require(`./../images/products/${product.product_img}`)}
-            />
-
-            <img
-              className="image-2-icon "
-              alt=""
-              src={require(`./../images/products/${product.product_img}`)}
-            />
-
-            <img
-              className="image-3-icon "
-              alt=""
-              src={require(`./../images/products/${product.product_img}`)}
-            />
-
-            <img
-              className="image-4-icon "
-              alt=""
-              src={require(`./../images/products/${product.product_img}`)}
-            />
-          </div>
+         
           <div className="RemoveButton-div">
             <a href="/shop">
               {" "}

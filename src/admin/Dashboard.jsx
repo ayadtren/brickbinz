@@ -8,7 +8,8 @@ import {
 
 const Dashboard = () => {
   return (
-    <Container className="mt-5">
+    <div className="margin-container">
+    <Container>
       <Grid container justifyContent="center" alignItems="center">
         <Typography variant="h3" align="center" gutterBottom>
           Welcome to the Admin Dashboard!
@@ -28,9 +29,9 @@ const Dashboard = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button
+            <Button className="change-colour"
               variant="contained"
-              color="primary"
+              color="success"
               component={Link}
               to="/AdminNav/AllProducts"
               fullWidth
@@ -52,9 +53,9 @@ const Dashboard = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button
+            <Button className="change-colour"
               variant="contained"
-              color="primary"
+              color="success"
               component={Link}
               to="/AdminNav/Orders"
               fullWidth
@@ -77,9 +78,9 @@ const Dashboard = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button
+            <Button className="change-colour"
               variant="contained"
-              color="primary"
+              color="success"
               component={Link}
               to="/AdminNav/AddProducts"
               fullWidth
@@ -102,9 +103,9 @@ const Dashboard = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button
+            <Button className="change-colour"
               variant="contained"
-              color="primary"
+              color="success"
               component={Link}
               to="/AdminNav/ViewEvents"
               fullWidth
@@ -115,6 +116,7 @@ const Dashboard = () => {
         </Card>
       </Grid>
     </Container>
+    </div>
   );
 };
 

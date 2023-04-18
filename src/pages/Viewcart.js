@@ -247,7 +247,7 @@ function Viewcart() {
           </ul>
 
         </div>
-        <Button onClick={handleCheckout} variant="primary">
+        <Button onClick={handleCheckout} variant="success btn-block">
           Checkout
         </Button>
       </Container>

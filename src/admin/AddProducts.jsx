@@ -36,7 +36,7 @@ const AddProducts = () => {
 
   return (
     <section>
-      <Container>
+      <Container className="mt-5">
         <ToastContainer />
         <Box mt={4}>
           <Typography variant="h4" align="center" mb={4}>
@@ -151,10 +151,10 @@ const AddProducts = () => {
             </Grid>
 
             <Grid item xs={12}>
-              <Button
+              <Button className="change-colour"
                 fullWidth
                 variant="contained"
-                color="primary"
+                color="success"
                 onClick={handleClick}
               >
                 Add Product

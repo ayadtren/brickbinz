@@ -24,7 +24,7 @@ const BookEvent = () => {
     try {
       await axios.post("http://localhost:8000/event", newEvent);
       setSubmitted(true);
-      alert("The event has been added to db");
+ 
     } catch (err) {
       console.log(err);
     }
@@ -113,7 +113,7 @@ const BookEvent = () => {
         </div>
 
         <div className="button-event">
-          <button type="button" class="btn btn-primary btn-lg btn-block" onClick={handleSubmit}>
+          <button type="button" class="btn btn-success btn-lg btn-block" onClick={handleSubmit}>
             Submit
           </button>
         </div>

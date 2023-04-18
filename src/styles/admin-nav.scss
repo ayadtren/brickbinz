@@ -106,3 +106,19 @@
 .header-margin {
   margin-top: 1em;
 }
+.margin-header{
+  margin-top: 1em;
+}
+
+.mt-5{
+  margin-bottom: 4em;
+}
+.margin-container{
+  margin-bottom: 5em;
+}
+.change-colour{
+  &:hover {
+    background-color: white;
+    color: white;
+  }
+}

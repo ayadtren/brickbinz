@@ -314,6 +314,7 @@ body {
           padding: 1rem;
           object-fit: contain;
           width: 250px;
+          margin-right: 25em;
           @media (max-width: 800px) {
             max-width: 100%;
           }
@@ -394,7 +395,7 @@ body {
     //button hover
     &:hover {
       background-color: white;
-      color: red;
+      color: black;
     }
   }
 
