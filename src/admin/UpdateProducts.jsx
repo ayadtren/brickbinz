@@ -119,7 +119,7 @@ const UpdateProduct = () => {
                     required
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12}> 
                   <FormControl fullWidth variant="outlined" required>
                     <InputLabel id="setTheme-label">Change Category</InputLabel>
                     <Select
