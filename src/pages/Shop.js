@@ -165,7 +165,7 @@ const Shop = () => {
               <Form.Select
                 id="filter-by-themes"
                 value={filter}
-                onChange={handleFilterChange}
+                onChange={handleFilterChange} 
               >
                 <option value="">All</option>
                 {filters.map((item) => (
