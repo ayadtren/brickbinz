@@ -161,11 +161,14 @@ export default function Checkout() {
   };
 
   return (
+    <>
+    <br/>
+    <br/>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar
+      <AppBar 
         position="absolute"
-        color="default"
+        color="success"
         elevation={0}
         sx={{
           position: "relative",
@@ -200,8 +203,7 @@ export default function Checkout() {
               </Typography>
               <Typography variant="subtitle1">
                 Your order number is #2001539. We have emailed your order
-                confirmation, and will send you an update when your order has
-                shipped.
+                confirmation. Thank you!
               </Typography>
             </React.Fragment>
           ) : (
@@ -216,6 +218,7 @@ export default function Checkout() {
 
                 <Button
                   variant="contained"
+                  color="success"
                   onClick={activeStep === steps.length - 1 ? onSubmit : handleNext}
                   sx={{ mt: 3, ml: 1 }}
                 >
@@ -228,5 +231,6 @@ export default function Checkout() {
         <Copyright />
       </Container>
     </ThemeProvider>
+    </>
   );
 }

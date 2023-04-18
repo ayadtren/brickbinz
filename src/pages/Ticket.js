@@ -57,6 +57,7 @@ const Ticket = () => {
           <label for="exampleFormControlTextarea1">Message</label>
           <textarea
             required
+            placeholder="Enter a questions/concerns"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             class="form-control"

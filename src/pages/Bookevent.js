@@ -24,7 +24,7 @@ const BookEvent = () => {
     try {
       await axios.post("http://localhost:8000/event", newEvent);
       setSubmitted(true);
-      alert("The event has been added to db");
+ 
     } catch (err) {
       console.log(err);
     }
