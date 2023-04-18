@@ -1,17 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import {
-  Container,
-  Box,
-  Grid,
-  TextField,
-  Typography,
-  Select,
-  MenuItem,
-  Button,
-  IconButton,
-} from "@mui/material";
-import { PhotoCamera } from "@mui/icons-material";
+import {Container, Box, Grid, TextField, Typography, Select, MenuItem, Button} from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -37,11 +26,6 @@ const AddProducts = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      // const formData = new FormData();
-      // Object.entries(products).forEach(([key, value]) => {
-      //   formData.append(key, value);
-      // });
-
       await axios.post("http://localhost:8000/products", products);
       toast.success("Product added successfully");
     } catch (err) {
@@ -52,7 +36,7 @@ const AddProducts = () => {
 
   return (
     <section>
-      <Container>
+      <Container className="mt-5">
         <ToastContainer />
         <Box mt={4}>
           <Typography variant="h4" align="center" mb={4}>
@@ -167,10 +151,10 @@ const AddProducts = () => {
             </Grid>
 
             <Grid item xs={12}>
-              <Button
+              <Button className="change-colour"
                 fullWidth
                 variant="contained"
-                color="primary"
+                color="success"
                 onClick={handleClick}
               >
                 Add Product

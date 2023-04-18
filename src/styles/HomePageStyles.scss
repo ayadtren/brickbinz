@@ -1,11 +1,16 @@
 .carousel {
   position: relative;
-  width: 100%; /* Updated width */
-  max-width: 1100px; /* Limit the maximum width */
-  margin-left: auto; /* Added to center the carousel */
-  margin-right: auto; /* Added to center the carousel */
+  width: 100%;
+  /* Updated width */
+  max-width: 1100px;
+  /* Limit the maximum width */
+  margin-left: auto;
+  /* Added to center the carousel */
+  margin-right: auto;
+  /* Added to center the carousel */
   bottom: 2em;
-  box-sizing: border-box; /* Added to ensure padding and border are included in the width calculation */
+  box-sizing: border-box;
+  /* Added to ensure padding and border are included in the width calculation */
 }
 
 .carousel-caption {
@@ -33,7 +38,7 @@
   .main-image {
     height: 500px;
     object-fit: cover;
-    border: 5px solid grey;
+    border: 5px solid #006149;
     border-radius: 10px;
     width: 100%;
   }
@@ -44,14 +49,17 @@
   border-style: solid;
   border-color: #006149;
   border-radius: 0.5em;
-  width: 100%; /* Updated width */
-  max-width: 300px; /* Limit the maximum width */
+  width: 100%;
+  /* Updated width */
+  max-width: 300px;
+  /* Limit the maximum width */
   margin: 2em;
   padding: 1em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  box-sizing: border-box; /* Added to ensure padding and border are included in the width calculation */
+  box-sizing: border-box;
+  /* Added to ensure padding and border are included in the width calculation */
 }
 
 .slider-container img {
@@ -59,9 +67,12 @@
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 20%;
-  width: 100%; /* Updated width */
-  max-width: 100px; /* Limit the maximum width */
-  display: block; /* Added to center the image */
+  width: 100%;
+  /* Updated width */
+  max-width: 100px;
+  /* Limit the maximum width */
+  display: block;
+  /* Added to center the image */
 }
 
 @media (max-width: 800px) {
@@ -122,6 +133,7 @@
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+
   //button hover
   &:hover {
     background-color: white;

@@ -19,7 +19,7 @@ const Ticket = () => {
     try {
       await axios.post("http://localhost:8000/ticket", newTicket);
       setSubmitted(true);
-      alert("Ticket has been sent")
+    
     } catch (err) {
       console.log(err);
     }
@@ -64,7 +64,7 @@ const Ticket = () => {
             rows="3"
           ></textarea>
           <p class="lead">
-            <button class="btn btn-primary btn-lg" href="#" role="button" onClick={handleSubmit}>
+            <button class="btn btn-success btn-lg btn-block" href="#" role="button" onClick={handleSubmit}>
               Submit
             </button>
           </p>

@@ -228,28 +228,38 @@ const Shop = () => {
                       </div>
                     </div>
                   </Link>
+
                   <div className
                     ="setNumb" name="product_set_numb">
                     #{product.product_set_numb}
                   </div>
+
                   <div className="title" name="product_set_name">
                     {product.product_set_name}
                   </div>
+
                   <br />
+
                   <div name="product_price">${product.product_price}</div>
+
                   <div hidden="hidden" name="product_location">
                     {product.product_location}
                   </div>
+
                   <div hidden="hidden" className="quantity" name="product_quantity">
                     {product.product_quantity}
                   </div>
+
                   <div hidden="hidden" name="product_img">
                     {product.product_img}
                   </div>
+
                   <div hidden="hidden" name="theme">
                     {product.theme}
                   </div>
+
                   <br />
+
                   <div className="button">
                     <button
                       className="add-cart"

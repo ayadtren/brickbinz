@@ -98,6 +98,7 @@ const BookEvent = () => {
             placeholder="Number of Guests"
           />
         </div>
+        
         <div class="form-group">
           <label for="formGroupExampleInput">Description</label>
           <input
@@ -112,7 +113,7 @@ const BookEvent = () => {
         </div>
 
         <div className="button-event">
-          <button type="button" class="btn btn-primary btn-lg btn-block" onClick={handleSubmit}>
+          <button type="button" class="btn btn-success btn-lg btn-block" onClick={handleSubmit}>
             Submit
           </button>
         </div>

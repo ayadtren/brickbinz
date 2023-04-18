@@ -1,25 +1,15 @@
 import React from "react";
-import {
-  Container,
-  Grid,
-  Typography,
-  Button,
-  Card,
-  CardContent,
-  CardActions,
-} from "@mui/material";
+import { Container, Grid, Typography, Button, Card, CardContent, CardActions, } from "@mui/material";
 import { Link } from "react-router-dom";
 import {
-  ShoppingCart as AllProductsIcon,
-  Assignment as OrdersIcon,
-  AddShoppingCart as AddProductIcon,
-  PhotoCamera as AddSlideshowIcon,
+  ShoppingCart as AllProductsIcon, Assignment as OrdersIcon, AddShoppingCart as AddProductIcon, PhotoCamera as AddSlideshowIcon,
   Event as ViewEventsIcon,
 } from "@mui/icons-material";
 
 const Dashboard = () => {
   return (
-    <Container className="mt-5">
+    <div className="margin-container">
+    <Container>
       <Grid container justifyContent="center" alignItems="center">
         <Typography variant="h3" align="center" gutterBottom>
           Welcome to the Admin Dashboard!
@@ -39,9 +29,9 @@ const Dashboard = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button
+            <Button className="change-colour"
               variant="contained"
-              color="primary"
+              color="success"
               component={Link}
               to="/AdminNav/AllProducts"
               fullWidth
@@ -63,9 +53,9 @@ const Dashboard = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button
+            <Button className="change-colour"
               variant="contained"
-              color="primary"
+              color="success"
               component={Link}
               to="/AdminNav/Orders"
               fullWidth
@@ -88,9 +78,9 @@ const Dashboard = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button
+            <Button className="change-colour"
               variant="contained"
-              color="primary"
+              color="success"
               component={Link}
               to="/AdminNav/AddProducts"
               fullWidth
@@ -100,31 +90,6 @@ const Dashboard = () => {
           </CardActions>
         </Card>
       </Grid>
-
-      {/* <Grid item xs={12} sm={6} md={4} lg={3}>
-        <Card variant="outlined">
-          <CardContent>
-            <AddSlideshowIcon fontSize="large" />
-            <Typography variant="h5" align="center" gutterBottom>
-              Add Slideshow Image
-            </Typography>
-            <Typography variant="body1" align="center" gutterBottom>
-              Add a new image to the homepage slideshow.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button
-              variant="contained"
-              color="primary"
-              component={Link}
-              to="/AdminNav/AddImage"
-              fullWidth
-            >
-              Add Slideshow Image
-            </Button>
-          </CardActions>
-        </Card>
-      </Grid> */}
 
       <Grid item xs={12} sm={6} md={4} lg={3}>
         <Card variant="outlined">
@@ -138,9 +103,9 @@ const Dashboard = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button
+            <Button className="change-colour"
               variant="contained"
-              color="primary"
+              color="success"
               component={Link}
               to="/AdminNav/ViewEvents"
               fullWidth
@@ -151,7 +116,9 @@ const Dashboard = () => {
         </Card>
       </Grid>
     </Container>
+    </div>
   );
 };
 
 export default Dashboard;
+

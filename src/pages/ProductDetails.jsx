@@ -3,7 +3,7 @@ import "../styles/Productviewpg.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { useCart } from "../CartContext";
 
 export default function ProductDetails() {
@@ -69,28 +69,7 @@ export default function ProductDetails() {
               under 3 years.
             </div>
           </div>
-          <div className="image-icons-container">
-            <img
-              className="image-1-icon "
-              alt=""
-              src={require(`./../images/products/${product.product_img}`)}
-            />
-            <img
-              className="image-2-icon "
-              alt=""
-              src={require(`./../images/products/${product.product_img}`)}
-            />
-            <img
-              className="image-3-icon "
-              alt=""
-              src={require(`./../images/products/${product.product_img}`)}
-            />
-            <img
-              className="image-4-icon "
-              alt=""
-              src={require(`./../images/products/${product.product_img}`)}
-            />
-          </div>
+         
           <div className="RemoveButton-div">
             <a href="/shop">
               {" "}

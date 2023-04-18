@@ -1,6 +1,7 @@
 .contact-us {
   text-align: center;
   margin: 2em;
+
   .contact-us__title {
     color: red;
   }
@@ -24,9 +25,11 @@
   .contact-us__input-container {
     margin-bottom: 10px;
   }
+
   .btn {
     margin-top: 2%;
   }
+
   .contact-us__label {
     color: red;
     padding-left: 2px;
@@ -61,6 +64,7 @@
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+
     &:hover {
       background-color: white;
       color: red;

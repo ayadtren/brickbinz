@@ -91,15 +91,6 @@ function Viewcart() {
     } catch (err) {
       console.log(err.response.data);
     }
-
-    // const exist = cartItems.find((x) => x.cart_set_numb === cartItem.cart_set_numb);
-    // if (exist >= 1) {
-    //   setCartItems(
-    //     cartItems.map((x) => x.cart_set_numb === cartItem.cart_set_numb ? { ...exist, cart_set_quantity: exist.cart_set_quantity + 1 } : x)
-    //   );
-    // } else {
-    //   setCartItems([...cartItems, { ...cartItem, cart_set_quantity: 1 }]);
-    // }
   };
 
   const handleMinus = (cartItem) => async (e) => {
@@ -122,13 +113,6 @@ function Viewcart() {
     } catch (err) {
       console.log(err.response.data);
     }
-
-    // const exist = cartItems.find((x) => x.cart_set_numb === cartItem.cart_set_numb);
-    // if (exist.cart_set_quantity === 1) {
-    //   setCartItems(cartItems.filter((x) => x.cart_set_numb !== cartItem.cart_set_numb));
-    // } else {
-    //   setCartItems(cartItems.map((x) => x.cart_set_numb === cartItem.cart_set_numb ? {...exist, cart_set_quantity: exist.cart_set_quantity - 1} : x));
-    // }
   };
 
   let totalPrice = 0;
@@ -263,7 +247,7 @@ function Viewcart() {
           </ul>
 
         </div>
-        <Button onClick={handleCheckout} variant="primary">
+        <Button onClick={handleCheckout} variant="success btn-block">
           Checkout
         </Button>
       </Container>

@@ -19,17 +19,18 @@ const ViewEvents = () => {
   }, []);
 
   const handleAddToCalendar = (event) => {
-    toast.success(`Added ${event.title} to calendar!`);
+    toast.success(`Added Event to calendar!`);
   };
 
   const handleRemoveEvent = (event_id) => async (e) => {
     try {
       await axios.delete("http://localhost:8000/event/" + event_id);
       window.location.reload();
+    
     } catch (err) {
       console.log(err.response.data);
     }
-    // toast.success(`Removed ${event.title} from events!`);
+     toast.success(`Removed Event from events!`);
   };
 
   const handleAcceptEvent = (event) => {
@@ -41,7 +42,7 @@ const ViewEvents = () => {
       <Container>
         <Row>
           <Col lg="12">
-            <h2 className="text-center mb-4 header-margin">View Events</h2>
+            <h2 className="text-center mb-4 margin-header">View Events</h2>
             {events.map((event, index) => (
               <div className="card mb-3" key={index}>
                 <div className="card-body">
@@ -57,7 +58,7 @@ const ViewEvents = () => {
                     className="mr-2"
                     onClick={() => handleAddToCalendar(event)}
                   >
-                    Add to Calendar
+                   Accept Event
                   </Button>
                   <Button
                     variant="danger"
@@ -86,3 +87,4 @@ const ViewEvents = () => {
 };
 
 export default ViewEvents;
+

@@ -204,7 +204,7 @@ body {
 
 .filter-select input[type="radio"] {
   margin-right: 8px;
-  -webkit-appearance: none;
+  //-webkit-appearance: none;
   border-radius: 50%;
   border: 3px solid #ccc;
   display: inline-flex;
@@ -394,7 +394,7 @@ body {
     //button hover
     &:hover {
       background-color: white;
-      color: red;
+      color: black;
     }
   }
 
