@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS brickbindb.product (
 );
 
 CREATE TABLE IF NOT EXISTS brickbindb.cart (
+    -- cart_id INT(20) NOT NULL AUTO_INCREMENT,
     cart_set_numb VARCHAR(40) NOT NULL,
     cart_set_name VARCHAR(40) NOT NULL,
     cart_set_price DOUBLE NOT NULL,
@@ -56,6 +57,9 @@ CREATE TABLE IF NOT EXISTS brickbindb.cart (
     cart_set_img VARCHAR(50) NOT NULL,
     cart_theme INT(19) NOT NULL,
     PRIMARY KEY (cart_set_numb)
+    -- CONSTRAINT fk_carts_products
+    --     FOREIGN KEY (product_set_numb)
+    --     REFERENCES brickbindb.product (product_set_numb)
 );
 
 CREATE TABLE IF NOT EXISTS brickbindb.admin (
@@ -99,14 +103,7 @@ INSERT INTO brickbindb.login (username, admin_password)
 INSERT INTO brickbindb.login (username, admin_password)
     VALUES ('admin', 'password');
 
-INSERT INTO brickbindb.ticket (ticket_id, ticket_email, ticket_username, ticket_message)
-    VALUES ('1', 'mostdevotedlegolover@gmail.com', 'Lag O', 'Hello, do you guys ship Lego to addresses?');
 
-INSERT INTO brickbindb.ticket (ticket_id, ticket_email, ticket_username, ticket_message)
-    VALUES ('2', 'legoman@gmail.com', 'Layge Oh', 'Hi! I was wondering if you still had the UCS Deathstar available?');
-
-INSERT INTO brickbindb.ticket (ticket_id, ticket_email, ticket_username, ticket_message)
-    VALUES ('3', 'llleetsgooo@gmail.com', 'Annie Legoson', 'Do you guys sell individual Lego pieces? I just need one more black 2x2 plate for my MOC.');
 
 INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location,product_quantity, product_img, theme)
     VALUES ('10212', 'UCS Imperial Shuttle', 2400.00, 'Macleod Trail', 1, 'UCS_Imp_Shutt.png', 18);
@@ -143,39 +140,3 @@ INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_pric
 
 INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
     VALUES ('7016', 'Viking Boat against the Wyvern Dragon', 170.00, 'Macleod Trail', 1, 'Viking_Boat_Wyvern.png', 21); 
-
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
-    VALUES ('21012', 'Sydney Opera House', 180.00, 'Macleod Trail', 1, 'Sydney_Opera_House.png', 1);
-
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
-    VALUES ('21041', 'Great Wall of China', 100.00, 'Macleod Trail', 1, 'Great_Wall_of_China.png', 1);
-
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
-    VALUES ('40367', 'Lady Liberty', 20.00, 'Macleod Trail', 1, 'Lady_Liberty.png', 2);
-
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
-    VALUES ('40381', 'Monkey King', 25.00, 'Macleod Trail', 2, 'Monkey_King.png', 2);
-
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
-    VALUES ('40412', 'Hagrid & Buckbeak', 60.00, 'Macleod Trail', 1, 'Hagrid_and_Buckbeak.png', 2);
-
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
-    VALUES ('3221', 'LEGO City Truck', 180.00, 'Macleod Trail', 1, 'Lego_City_Truck.png', 3);
-
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
-    VALUES ('60034', 'Arctic Helicrane', 90.00, 'Macleod Trail', 1, 'Arctic_Helicrane.png', 3);
-
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
-    VALUES ('60047', 'Police Station', 200.00, 'Macleod Trail', 1, 'Police_Station.png', 3);
-
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
-    VALUES ('31111', 'Cyber Drone', 20.00, 'Macleod Trail', 1, 'Cyber_Drone.png', 5);
-
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
-    VALUES ('31050', 'Corner Deli', 95.00, 'Macleod Trail', 1, 'Corner_Deli.png', 5);
-
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
-    VALUES ('31129', 'Majestic Tiger', 80.00, 'Macleod Trail', 1, 'Majestic_Tiger.png', 5);
-
-INSERT INTO brickbindb.product (product_set_numb, product_set_name, product_price, product_location, product_quantity, product_img, theme)
-    VALUES ('40433', '1989 Batmobile', 400.00, 'Macleod Trail', 1, '1989_Batmobile.png', 6);

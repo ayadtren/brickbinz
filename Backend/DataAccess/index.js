@@ -32,14 +32,6 @@ app.get("/products", (req, res) => {
   });
 });
 
-app.get("/products/:product_set_numb", (req, res) => {
-  const q = "SELECT * FROM product";
-  db.query(q, (err, data) => {
-    if (err) return res.json(err);
-    return res.json(data);
-  });
-});
-
 // Setting up a GET request for the themes
 app.get("/themes", (req, res) => {
   const q = "SELECT * FROM theme";
