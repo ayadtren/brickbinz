@@ -315,6 +315,16 @@ app.delete("/ticket/:ticket_id", (req,res) => {
   });
 });
 
+app.delete("/event/:event_id", (req,res) => {
+  const eventId = req.params.event_id;
+  const q = "DELETE FROM event WHERE event_id = ?";
+
+  db.query(q, [eventId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
 app.listen(8000, () => {
   console.log("Connect to backenddd");
 });
